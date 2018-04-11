@@ -1,0 +1,21 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zuoik
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+zdiv
+zlog
+zsqrt
+zuchk
+zunhj
+zunik
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+zabs
+---END OF DEPENDENCIES---

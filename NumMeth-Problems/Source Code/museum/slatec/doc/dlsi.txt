@@ -1,0 +1,56 @@
+C***BEGIN PROLOGUE  DLSI
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DLSEI
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (LSI-S, DLSI-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to DLSEI.  The documentation for
+C     DLSEI has complete usage instructions.
+C
+C     Solve..
+C              AX = B,  A  MA by N  (least squares equations)
+C     subject to..
+C
+C              GX.GE.H, G  MG by N  (inequality constraints)
+C
+C     Input..
+C
+C      W(*,*) contains  (A B) in rows 1,...,MA+MG, cols 1,...,N+1.
+C                       (G H)
+C
+C     MDW,MA,MG,N
+C              contain (resp) var. dimension of W(*,*),
+C              and matrix dimensions.
+C
+C     PRGOPT(*),
+C              Program option vector.
+C
+C     OUTPUT..
+C
+C      X(*),RNORM
+C
+C              Solution vector(unless MODE=2), length of AX-B.
+C
+C      MODE
+C              =0   Inequality constraints are compatible.
+C              =2   Inequality constraints contradictory.
+C
+C      WS(*),
+C              Working storage of dimension K+N+(MG+2)*(N+7),
+C              where K=MAX(MA+MG,N).
+C      IP(MG+2*N+1)
+C              Integer working storage
+C
+C***ROUTINES CALLED  D1MACH, DASUM, DAXPY, DCOPY, DDOT, DH12, DHFTI,
+C                    DLPDP, DSCAL, DSWAP
+C***REVISION HISTORY  (YYMMDD)
+C   790701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and extensively revised (WRB & RWC)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900604  DP version created from SP version.  (RWC)
+C   920422  Changed CALL to DHFTI to include variable MA.  (WRB)
+C***END PROLOGUE  DLSI

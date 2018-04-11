@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dxpqnu
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dxadd
+dxadj
+dxpsi
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

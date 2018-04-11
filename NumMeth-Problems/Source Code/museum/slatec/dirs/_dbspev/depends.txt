@@ -1,0 +1,15 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbspev
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dbspvn
+dintrv
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

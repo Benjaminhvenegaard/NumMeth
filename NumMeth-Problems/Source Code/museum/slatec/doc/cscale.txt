@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  CSCALE
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CSCALE-S, DCSCAL-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C     This routine scales the matrix A by columns when needed
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  SDOT
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  CSCALE

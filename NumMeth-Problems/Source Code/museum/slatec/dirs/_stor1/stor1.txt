@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  STOR1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (STOR1-S, DSTOR1-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C             0 -- Storage at output points.
+C     NTEMP =
+C             1 -- Temporary storage
+C **********************************************************************
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  (NONE)
+C***COMMON BLOCKS    ML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  STOR1

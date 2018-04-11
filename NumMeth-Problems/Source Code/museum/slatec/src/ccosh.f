@@ -1,0 +1,9 @@
+      COMPLEX FUNCTION CCOSH (Z)
+      COMPLEX Z, CI
+      SAVE CI
+      DATA CI /(0.,1.)/
+C***FIRST EXECUTABLE STATEMENT  CCOSH
+      CCOSH = COS (CI*Z)
+C
+      RETURN
+      END

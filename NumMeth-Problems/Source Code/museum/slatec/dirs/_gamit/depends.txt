@@ -1,0 +1,28 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE gamit
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+algams
+alngam
+gamlim
+gamma
+gamr
+r9gmit
+r9lgic
+r9lgit
+r9lgmc
+xerclr
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

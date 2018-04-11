@@ -1,0 +1,39 @@
+C***BEGIN PROLOGUE  BNSLV
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BINT4 and BINTK
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (BNSLV-S, DBNSLV-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  BNSLV is the BANSLV routine from
+C        * A Practical Guide to Splines *  by C. de Boor
+C
+C  Companion routine to  BNFAC . It returns the solution  X  of the
+C  linear system  A*X = B  in place of  B , given the LU-factorization
+C  for  A  in the work array  W from BNFAC.
+C
+C *****  I N P U T  ******
+C  W, NROWW,NROW,NBANDL,NBANDU.....Describe the LU-factorization of a
+C        banded matrix  A  of order  NROW  as constructed in  BNFAC .
+C        For details, see  BNFAC .
+C  B.....Right side of the system to be solved .
+C
+C *****  O U T P U T  ******
+C  B.....Contains the solution  X , of order  NROW .
+C
+C *****  M E T H O D  ******
+C     (With  A = L*U, as stored in  W,) the unit lower triangular system
+C  L(U*X) = B  is solved for  Y = U*X, and  Y  stored in  B . Then the
+C  upper triangular system  U*X = Y  is solved for  X  . The calcul-
+C  ations are so arranged that the innermost loops stay within columns.
+C
+C***SEE ALSO  BINT4, BINTK
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  BNSLV

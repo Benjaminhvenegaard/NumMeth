@@ -1,0 +1,23 @@
+      REAL FUNCTION SDANRM (NEQ, V, WT, RPAR, IPAR)
+C
+      INTEGER  NEQ, IPAR(*)
+      REAL  V(NEQ), WT(NEQ), RPAR(*)
+C
+      INTEGER  I
+      REAL  SUM, VMAX
+C
+C***FIRST EXECUTABLE STATEMENT  SDANRM
+      SDANRM = 0.0E0
+      VMAX = 0.0E0
+      DO 10 I = 1,NEQ
+        IF(ABS(V(I)/WT(I)) .GT. VMAX) VMAX = ABS(V(I)/WT(I))
+10      CONTINUE
+      IF(VMAX .LE. 0.0E0) GO TO 30
+      SUM = 0.0E0
+      DO 20 I = 1,NEQ
+20      SUM = SUM + ((V(I)/WT(I))/VMAX)**2
+      SDANRM = VMAX*SQRT(SUM/NEQ)
+30    CONTINUE
+      RETURN
+C------END OF FUNCTION SDANRM------
+      END

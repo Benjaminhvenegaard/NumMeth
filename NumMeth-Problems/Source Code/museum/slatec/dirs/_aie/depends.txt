@@ -1,0 +1,17 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE aie
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+r9aimp
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

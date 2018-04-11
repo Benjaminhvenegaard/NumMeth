@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsuds
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dcscal
+dlssud
+dohtrl
+dorthr
+xermax
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+ddot
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

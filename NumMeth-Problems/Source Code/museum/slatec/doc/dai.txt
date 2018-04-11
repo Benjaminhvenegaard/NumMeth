@@ -1,0 +1,34 @@
+C***BEGIN PROLOGUE  DAI
+C***PURPOSE  Evaluate the Airy function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10D
+C***TYPE      DOUBLE PRECISION (AI-S, DAI-D)
+C***KEYWORDS  AIRY FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DAI(X) calculates the double precision Airy function for double
+C precision argument X.
+C
+C Series for AIF        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   8.37E-33
+C                                         log weighted error  32.08
+C                               significant figures required  30.87
+C                                    decimal places required  32.63
+C
+C Series for AIG        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   7.47E-34
+C                                         log weighted error  33.13
+C                               significant figures required  31.50
+C                                    decimal places required  33.68
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9AIMP, DAIE, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DAI

@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  SVECS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SVECS-S, DVECS-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C  This subroutine is used for the special structure of complex valued
+C  problems. MGSBV is called upon to obtain LNFC vectors from an
+C  original set of 2*LNFC independent vectors so that the resulting
+C  LNFC vectors together with their imaginary product or mate vectors
+C  form an independent set.
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  MGSBV
+C***COMMON BLOCKS    ML18JR
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  SVECS

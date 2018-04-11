@@ -1,0 +1,9 @@
+      FUNCTION CARG (Z)
+      COMPLEX Z
+C***FIRST EXECUTABLE STATEMENT  CARG
+      CARG = 0.0
+      IF (REAL(Z).NE.0. .OR. AIMAG(Z).NE.0.) CARG =
+     1  ATAN2 (AIMAG(Z), REAL(Z))
+C
+      RETURN
+      END

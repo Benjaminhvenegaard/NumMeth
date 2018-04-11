@@ -1,0 +1,86 @@
+C***BEGIN PROLOGUE  IMTQLV
+C***PURPOSE  Compute the eigenvalues of a symmetric tridiagonal matrix
+C            using the implicit QL method.  Eigenvectors may be computed
+C            later.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4A5, D4C2A
+C***TYPE      SINGLE PRECISION (IMTQLV-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a variant of  IMTQL1  which is a translation of
+C     ALGOL procedure IMTQL1, NUM. MATH. 12, 377-383(1968) by Martin and
+C     Wilkinson, as modified in NUM. MATH. 15, 450(1970) by Dubrulle.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 241-248(1971).
+C
+C     This subroutine finds the eigenvalues of a SYMMETRIC TRIDIAGONAL
+C     matrix by the implicit QL method and associates with them
+C     their corresponding submatrix indices.
+C
+C     On INPUT
+C
+C        N is the order of the matrix.  N is an INTEGER variable.
+C
+C        D contains the diagonal elements of the symmetric tridiagonal
+C          matrix.  D is a one-dimensional REAL array, dimensioned D(N).
+C
+C        E contains the subdiagonal elements of the symmetric
+C          tridiagonal matrix in its last N-1 positions.  E(1) is
+C          arbitrary.  E is a one-dimensional REAL array, dimensioned
+C          E(N).
+C
+C        E2 contains the squares of the corresponding elements of E in
+C          its last N-1 positions.  E2(1) is arbitrary.  E2 is a one-
+C          dimensional REAL array, dimensioned E2(N).
+C
+C     On OUTPUT
+C
+C        D and E are unaltered.
+C
+C        Elements of E2, corresponding to elements of E regarded as
+C          negligible, have been replaced by zero causing the matrix to
+C          split into a direct sum of submatrices.  E2(1) is also set
+C          to zero.
+C
+C        W contains the eigenvalues in ascending order.  If an error
+C          exit is made, the eigenvalues are correct and ordered for
+C          indices 1, 2, ..., IERR-1, but may not be the smallest
+C          eigenvalues.  W is a one-dimensional REAL array, dimensioned
+C          W(N).
+C
+C        IND contains the submatrix indices associated with the
+C          corresponding eigenvalues in W -- 1 for eigenvalues belonging
+C          to the first submatrix from the top, 2 for those belonging to
+C          the second submatrix, etc.  IND is a one-dimensional REAL
+C          array, dimensioned IND(N).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after 30 iterations.
+C                     The eigenvalues should be correct for indices
+C                     1, 2, ..., IERR-1.  These eigenvalues are
+C                     ordered, but are not necessarily the smallest.
+C
+C        RV1 is a one-dimensional REAL array used for temporary storage,
+C          dimensioned RV1(N).
+C
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  IMTQLV

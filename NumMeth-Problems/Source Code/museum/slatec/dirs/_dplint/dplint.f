@@ -1,0 +1,23 @@
+      SUBROUTINE DPLINT (N, X, Y, C)
+      INTEGER I,K,KM1,N
+      DOUBLE PRECISION DIF,C(*),X(*),Y(*)
+C***FIRST EXECUTABLE STATEMENT  DPLINT
+      IF (N .LE. 0) GO TO 91
+      C(1)=Y(1)
+      IF(N .EQ. 1) RETURN
+      DO 10010 K=2,N
+      C(K)=Y(K)
+      KM1=K-1
+      DO 10010 I=1,KM1
+C     CHECK FOR DISTINCT X VALUES
+      DIF = X(I)-X(K)
+      IF (DIF .EQ. 0.0) GO TO 92
+      C(K) = (C(I)-C(K))/DIF
+10010 CONTINUE
+      RETURN
+   91 CALL XERMSG ('SLATEC', 'DPLINT', 'N IS ZERO OR NEGATIVE.', 2, 1)
+      RETURN
+   92 CALL XERMSG ('SLATEC', 'DPLINT',
+     +   'THE ABSCISSAS ARE NOT DISTINCT.', 2, 1)
+      RETURN
+      END

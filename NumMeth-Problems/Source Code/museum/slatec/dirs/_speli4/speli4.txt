@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  SPELI4
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SEPX4
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SPELI4-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     SPELI4 sets up vectors and arrays for input to BLKTRI
+C     and computes a second order solution in USOL.  A return jump to
+C     SEPX4 occurs if IORDER=2.  If IORDER=4 a fourth order
+C     solution is generated in USOL.
+C
+C***SEE ALSO  SEPX4
+C***ROUTINES CALLED  CHKSN4, DEFE4, GENBUN, MINSO4, ORTHO4, TRIS4
+C***COMMON BLOCKS    SPL4
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  SPELI4

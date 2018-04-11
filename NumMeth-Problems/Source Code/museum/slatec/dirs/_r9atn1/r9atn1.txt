@@ -1,0 +1,31 @@
+C***BEGIN PROLOGUE  R9ATN1
+C***SUBSIDIARY
+C***PURPOSE  Evaluate ATAN(X) from first order relative accuracy so that
+C            ATAN(X) = X + X**3*R9ATN1(X).
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      SINGLE PRECISION (R9ATN1-S, D9ATN1-D)
+C***KEYWORDS  ARC TANGENT, ELEMENTARY FUNCTIONS, FIRST ORDER, FNLIB,
+C             TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate  ATAN(X)  from first order, that is, evaluate
+C (ATAN(X)-X)/X**3  with relative error accuracy so that
+C        ATAN(X) = X + X**3*R9ATN1(X).
+C
+C Series for ATN1       on the interval  0.          to  1.00000D+00
+C                                        with weighted error   2.21E-17
+C                                         log weighted error  16.66
+C                               significant figures required  15.44
+C                                    decimal places required  17.32
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780401  DATE WRITTEN
+C   890206  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  R9ATN1

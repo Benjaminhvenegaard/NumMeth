@@ -1,0 +1,191 @@
+      SUBROUTINE DEBDF (F, NEQ, T, Y, TOUT, INFO, RTOL, ATOL, IDID,
+     +   RWORK, LRW, IWORK, LIW, RPAR, IPAR, JAC)
+C
+C
+      LOGICAL INTOUT
+      CHARACTER*8 XERN1, XERN2
+      CHARACTER*16 XERN3
+C
+      DIMENSION Y(*),INFO(15),RTOL(*),ATOL(*),RWORK(*),IWORK(*),
+     1          RPAR(*),IPAR(*)
+C
+      COMMON /DEBDF1/ TOLD, ROWNS(210),
+     1   EL0, H, HMIN, HMXI, HU, TN, UROUND,
+     2   IQUIT, INIT, IYH, IEWT, IACOR, ISAVF, IWM, KSTEPS,
+     3   IBEGIN, ITOL, IINTEG, ITSTOP, IJAC, IBAND, IOWNS(6),
+     4   IER, JSTART, KFLAG, L, METH, MITER, MAXORD, N, NQ, NST, NFE,
+     5   NJE, NQU
+C
+      EXTERNAL F, JAC
+C
+C        CHECK FOR AN APPARENT INFINITE LOOP
+C
+C***FIRST EXECUTABLE STATEMENT  DEBDF
+      IF (INFO(1) .EQ. 0) IWORK(LIW) = 0
+C
+      IF (IWORK(LIW).GE. 5) THEN
+         IF (T .EQ. RWORK(21+NEQ)) THEN
+            WRITE (XERN3, '(1PE15.6)') T
+            CALL XERMSG ('SLATEC', 'DEBDF',
+     *         'AN APPARENT INFINITE LOOP HAS BEEN DETECTED.$$' //
+     *         'YOU HAVE MADE REPEATED CALLS AT T = ' // XERN3 //
+     *         ' AND THE INTEGRATION HAS NOT ADVANCED.  CHECK THE ' //
+     *         'WAY YOU HAVE SET PARAMETERS FOR THE CALL TO THE ' //
+     *         'CODE PARTICULARLY INFO(1).', 13, 2)
+            RETURN
+         ENDIF
+      ENDIF
+C
+      IDID = 0
+C
+C        CHECK VALIDITY OF INFO PARAMETERS
+C
+      IF (INFO(1) .NE. 0 .AND. INFO(1) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(1)
+         CALL XERMSG ('SLATEC', 'DEBDF', 'INFO(1) MUST BE SET TO 0 ' //
+     *      'FOR THE  START OF A NEW PROBLEM, AND MUST BE SET TO 1 ' //
+     *      'FOLLOWING AN INTERRUPTED TASK.  YOU ARE ATTEMPTING TO ' //
+     *      'CONTINUE THE INTEGRATION ILLEGALLY BY CALLING THE ' //
+     *      'CODE WITH  INFO(1) = ' // XERN1, 3, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (INFO(2) .NE. 0 .AND. INFO(2) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(2)
+         CALL XERMSG ('SLATEC', 'DEBDF', 'INFO(2) MUST BE 0 OR 1 ' //
+     *      'INDICATING SCALAR AND VECTOR ERROR TOLERANCES, ' //
+     *      'RESPECTIVELY.  YOU HAVE CALLED THE CODE WITH INFO(2) = ' //
+     *      XERN1, 4, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (INFO(3) .NE. 0 .AND. INFO(3) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(3)
+         CALL XERMSG ('SLATEC', 'DEBDF', 'INFO(3) MUST BE 0 OR 1 ' //
+     *      'INDICATING THE INTERVAL OR INTERMEDIATE-OUTPUT MODE OF ' //
+     *      'INTEGRATION, RESPECTIVELY.  YOU HAVE CALLED THE CODE ' //
+     *      'WITH  INFO(3) = ' // XERN1, 5, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (INFO(4) .NE. 0 .AND. INFO(4) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(4)
+         CALL XERMSG ('SLATEC', 'DEBDF', 'INFO(4) MUST BE 0 OR 1 ' //
+     *      'INDICATING WHETHER OR NOT THE INTEGRATION INTERVAL IS ' //
+     *      'TO BE RESTRICTED BY A POINT TSTOP.  YOU HAVE CALLED ' //
+     *      'THE CODE  WITH INFO(4) = ' // XERN1, 14, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (INFO(5) .NE. 0 .AND. INFO(5) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(5)
+         CALL XERMSG ('SLATEC',  'DEBDF', 'INFO(5) MUST BE 0 OR 1 ' //
+     *      'INDICATING WHETHER THE CODE IS TOLD TO FORM THE ' //
+     *      'JACOBIAN MATRIX BY NUMERICAL DIFFERENCING OR YOU ' //
+     *      'PROVIDE A SUBROUTINE TO EVALUATE IT ANALYTICALLY.  ' //
+     *      'YOU HAVE CALLED THE CODE WITH INFO(5) = ' // XERN1, 15, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (INFO(6) .NE. 0 .AND. INFO(6) .NE. 1) THEN
+         WRITE (XERN1, '(I8)') INFO(6)
+         CALL XERMSG ('SLATEC', 'DEBDF', 'INFO(6) MUST BE 0 OR 1 ' //
+     *      'INDICATING WHETHER THE CODE IS TOLD TO TREAT THE ' //
+     *      'JACOBIAN AS A FULL (DENSE) MATRIX OR AS HAVING A ' //
+     *      'SPECIAL BANDED STRUCTURE.  YOU HAVE CALLED THE CODE ' //
+     *      'WITH INFO(6) = ' // XERN1, 16, 1)
+         IDID = -33
+      ENDIF
+C
+      ILRW = NEQ
+      IF (INFO(6) .NE. 0) THEN
+C
+C        CHECK BANDWIDTH PARAMETERS
+C
+         ML = IWORK(1)
+         MU = IWORK(2)
+         ILRW = 2*ML + MU + 1
+C
+         IF (ML.LT.0 .OR. ML.GE.NEQ .OR. MU.LT.0 .OR. MU.GE.NEQ) THEN
+            WRITE (XERN1, '(I8)') ML
+            WRITE (XERN2, '(I8)') MU
+            CALL XERMSG ('SLATEC', 'DEBDF', 'YOU HAVE SET INFO(6) ' //
+     *         '= 1, TELLING THE CODE THAT THE JACOBIAN MATRIX HAS ' //
+     *         'A SPECIAL BANDED STRUCTURE.  HOWEVER, THE LOWER ' //
+     *         '(UPPER) BANDWIDTHS  ML (MU) VIOLATE THE CONSTRAINTS ' //
+     *         'ML,MU .GE. 0 AND  ML,MU .LT. NEQ.  YOU HAVE CALLED ' //
+     *         'THE CODE WITH ML = ' // XERN1 // ' AND MU = ' // XERN2,
+     *         17, 1)
+            IDID = -33
+         ENDIF
+      ENDIF
+C
+C        CHECK LRW AND LIW FOR SUFFICIENT STORAGE ALLOCATION
+C
+      IF (LRW .LT. 250 + (10 + ILRW)*NEQ) THEN
+         WRITE (XERN1, '(I8)') LRW
+         IF (INFO(6) .EQ. 0) THEN
+            CALL XERMSG ('SLATEC', 'DEBDF', 'LENGTH OF ARRAY RWORK ' //
+     *         'MUST BE AT LEAST 250 + 10*NEQ + NEQ*NEQ.$$' //
+     *         'YOU HAVE CALLED THE CODE WITH  LRW = ' // XERN1, 1, 1)
+         ELSE
+            CALL XERMSG ('SLATEC', 'DEBDF', 'LENGTH OF ARRAY RWORK ' //
+     *         'MUST BE AT LEAST 250 + 10*NEQ + (2*ML+MU+1)*NEQ.$$' //
+     *         'YOU HAVE CALLED THE CODE WITH  LRW = ' // XERN1, 18, 1)
+         ENDIF
+         IDID = -33
+      ENDIF
+C
+      IF (LIW .LT. 56 + NEQ) THEN
+         WRITE (XERN1, '(I8)') LIW
+         CALL XERMSG ('SLATEC', 'DEBDF', 'LENGTH OF ARRAY IWORK ' //
+     *      'BE AT LEAST  56 + NEQ.  YOU HAVE CALLED THE CODE WITH ' //
+     *      'LIW = ' // XERN1, 2, 1)
+         IDID = -33
+      ENDIF
+C
+C        COMPUTE THE INDICES FOR THE ARRAYS TO BE STORED IN THE WORK
+C        ARRAY AND RESTORE COMMON BLOCK DATA
+C
+      ICOMI = 21 + NEQ
+      IINOUT = ICOMI + 33
+C
+      IYPOUT = 21
+      ITSTAR = 21 + NEQ
+      ICOMR = 22 + NEQ
+C
+      IF (INFO(1) .NE. 0) INTOUT = IWORK(IINOUT) .NE. (-1)
+C     CALL RSCO(RWORK(ICOMR),IWORK(ICOMI))
+C
+      IYH = ICOMR + 218
+      IEWT = IYH + 6*NEQ
+      ISAVF = IEWT + NEQ
+      IACOR = ISAVF + NEQ
+      IWM = IACOR + NEQ
+      IDELSN = IWM + 2 + ILRW*NEQ
+C
+      IBEGIN = INFO(1)
+      ITOL = INFO(2)
+      IINTEG = INFO(3)
+      ITSTOP = INFO(4)
+      IJAC = INFO(5)
+      IBAND = INFO(6)
+      RWORK(ITSTAR) = T
+C
+      CALL LSOD(F,NEQ,T,Y,TOUT,RTOL,ATOL,IDID,RWORK(IYPOUT),
+     1          RWORK(IYH),RWORK(IYH),RWORK(IEWT),RWORK(ISAVF),
+     2          RWORK(IACOR),RWORK(IWM),IWORK(1),JAC,INTOUT,
+     3          RWORK(1),RWORK(12),RWORK(IDELSN),RPAR,IPAR)
+C
+      IWORK(IINOUT) = -1
+      IF (INTOUT) IWORK(IINOUT) = 1
+C
+      IF (IDID .NE. (-2)) IWORK(LIW) = IWORK(LIW) + 1
+      IF (T .NE. RWORK(ITSTAR)) IWORK(LIW) = 0
+C     CALL SVCO(RWORK(ICOMR),IWORK(ICOMI))
+      RWORK(11) = H
+      RWORK(13) = TN
+      INFO(1) = IBEGIN
+C
+      RETURN
+      END

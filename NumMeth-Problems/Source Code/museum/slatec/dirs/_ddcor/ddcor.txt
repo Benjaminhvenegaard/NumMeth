@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  DDCOR
+C***SUBSIDIARY
+C***PURPOSE  Subroutine DDCOR computes corrections to the Y array.
+C***LIBRARY   SLATEC (SDRIVE)
+C***TYPE      DOUBLE PRECISION (SDCOR-S, DDCOR-D, CDCOR-C)
+C***AUTHOR  Kahaner, D. K., (NIST)
+C             National Institute of Standards and Technology
+C             Gaithersburg, MD  20899
+C           Sutherland, C. D., (LANL)
+C             Mail Stop D466
+C             Los Alamos National Laboratory
+C             Los Alamos, NM  87545
+C***DESCRIPTION
+C
+C  In the case of functional iteration, update Y directly from the
+C  result of the last call to F.
+C  In the case of the chord method, compute the corrector error and
+C  solve the linear system with that as right hand side and DFDY as
+C  coefficient matrix, using the LU decomposition if MITER is 1, 2, 4,
+C  or 5.
+C
+C***ROUTINES CALLED  DGBSL, DGESL, DNRM2
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   900329  Initial submission to SLATEC.
+C***END PROLOGUE  DDCOR

@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sgeir
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sdsdot
+sgefa
+sgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+sasum
+saxpy
+scopy
+sdot
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

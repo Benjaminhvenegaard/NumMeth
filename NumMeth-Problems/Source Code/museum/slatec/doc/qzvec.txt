@@ -1,0 +1,91 @@
+C***BEGIN PROLOGUE  QZVEC
+C***PURPOSE  The optional fourth step of the QZ algorithm for
+C            generalized eigenproblems.  Accepts a matrix in
+C            quasi-triangular form and another in upper triangular
+C            and computes the eigenvectors of the triangular problem
+C            and transforms them back to the original coordinates
+C            Usually preceded by QZHES, QZIT, and QZVAL.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C3
+C***TYPE      SINGLE PRECISION (QZVEC-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is the optional fourth step of the QZ algorithm
+C     for solving generalized matrix eigenvalue problems,
+C     SIAM J. NUMER. ANAL. 10, 241-256(1973) by MOLER and STEWART.
+C
+C     This subroutine accepts a pair of REAL matrices, one of them in
+C     quasi-triangular form (in which each 2-by-2 block corresponds to
+C     a pair of complex eigenvalues) and the other in upper triangular
+C     form.  It computes the eigenvectors of the triangular problem and
+C     transforms the results back to the original coordinate system.
+C     It is usually preceded by  QZHES,  QZIT, and  QZVAL.
+C
+C     On Input
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A, B, and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrices A and B.  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        A contains a real upper quasi-triangular matrix.  A is a two-
+C          dimensional REAL array, dimensioned A(NM,N).
+C
+C        B contains a real upper triangular matrix.  In addition,
+C          location B(N,1) contains the tolerance quantity (EPSB)
+C          computed and saved in  QZIT.  B is a two-dimensional REAL
+C          array, dimensioned B(NM,N).
+C
+C        ALFR, ALFI, and BETA are one-dimensional REAL arrays with
+C          components whose ratios ((ALFR+I*ALFI)/BETA) are the
+C          generalized eigenvalues.  They are usually obtained from
+C          QZVAL.  They are dimensioned ALFR(N), ALFI(N), and BETA(N).
+C
+C        Z contains the transformation matrix produced in the reductions
+C          by  QZHES,  QZIT, and  QZVAL,  if performed.  If the
+C          eigenvectors of the triangular problem are desired, Z must
+C          contain the identity matrix.  Z is a two-dimensional REAL
+C          array, dimensioned Z(NM,N).
+C
+C     On Output
+C
+C        A is unaltered.  Its subdiagonal elements provide information
+C           about the storage of the complex eigenvectors.
+C
+C        B has been destroyed.
+C
+C        ALFR, ALFI, and BETA are unaltered.
+C
+C        Z contains the real and imaginary parts of the eigenvectors.
+C          If ALFI(J) .EQ. 0.0, the J-th eigenvalue is real and
+C            the J-th column of Z contains its eigenvector.
+C          If ALFI(J) .NE. 0.0, the J-th eigenvalue is complex.
+C            If ALFI(J) .GT. 0.0, the eigenvalue is the first of
+C              a complex pair and the J-th and (J+1)-th columns
+C              of Z contain its eigenvector.
+C            If ALFI(J) .LT. 0.0, the eigenvalue is the second of
+C              a complex pair and the (J-1)-th and J-th columns
+C              of Z contain the conjugate of its eigenvector.
+C          Each eigenvector is normalized so that the modulus
+C          of its largest component is 1.0 .
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  QZVEC

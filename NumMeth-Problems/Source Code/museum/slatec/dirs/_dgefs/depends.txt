@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dgefs
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dgeco
+dgefa
+dgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+ddot
+dscal
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

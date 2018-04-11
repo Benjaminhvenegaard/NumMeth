@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  D9CHU
+C***SUBSIDIARY
+C***PURPOSE  Evaluate for large Z  Z**A * U(A,B,Z) where U is the
+C            logarithmic confluent hypergeometric function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C11
+C***TYPE      DOUBLE PRECISION (R9CHU-S, D9CHU-D)
+C***KEYWORDS  FNLIB, LOGARITHMIC CONFLUENT HYPERGEOMETRIC FUNCTION,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate for large Z  Z**A * U(A,B,Z)  where U is the logarithmic
+C confluent hypergeometric function.  A rational approximation due to Y.
+C L. Luke is used.  When U is not in the asymptotic region, i.e., when A
+C or B is large compared with Z, considerable significance loss occurs.
+C A warning is provided when the computed result is less than half
+C precision.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  D9CHU

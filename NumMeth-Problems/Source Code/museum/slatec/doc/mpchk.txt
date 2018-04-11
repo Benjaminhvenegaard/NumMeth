@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  MPCHK
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPCHK-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Checks legality of B, T, M, MXR and LUN which should be set
+C  in COMMON. The condition on MXR (the dimension of the EP arrays)
+C  is that  MXR .GE. (I*T + J)
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  I1MACH, MPERR
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   891009  Removed unreferenced statement label.  (WRB)
+C   891009  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPCHK

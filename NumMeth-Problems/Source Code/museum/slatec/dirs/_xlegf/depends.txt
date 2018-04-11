@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE xlegf
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+xadd
+xadj
+xpmu
+xpmup
+xpnrm
+xpqnu
+xpsi
+xqmu
+xqnu
+xred
+xset
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

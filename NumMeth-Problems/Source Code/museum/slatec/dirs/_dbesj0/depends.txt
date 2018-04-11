@@ -1,0 +1,17 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbesj0
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9b0mp
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

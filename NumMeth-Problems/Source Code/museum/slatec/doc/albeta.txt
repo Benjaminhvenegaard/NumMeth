@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  ALBETA
+C***PURPOSE  Compute the natural logarithm of the complete Beta
+C            function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7B
+C***TYPE      SINGLE PRECISION (ALBETA-S, DLBETA-D, CLBETA-C)
+C***KEYWORDS  FNLIB, LOGARITHM OF THE COMPLETE BETA FUNCTION,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C ALBETA computes the natural log of the complete beta function.
+C
+C Input Parameters:
+C       A   real and positive
+C       B   real and positive
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  ALNGAM, ALNREL, GAMMA, R9LGMC, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900727  Added EXTERNAL statement.  (WRB)
+C***END PROLOGUE  ALBETA

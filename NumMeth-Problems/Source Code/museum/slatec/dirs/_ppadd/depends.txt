@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ppadd
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+bsrh
+ppsgf
+ppspf
+psgf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

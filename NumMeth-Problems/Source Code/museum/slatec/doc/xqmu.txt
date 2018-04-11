@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  XQMU
+C***SUBSIDIARY
+C***PURPOSE  To compute the values of Legendre functions for XLEGF.
+C            Method: forward mu-wise recurrence for Q(MU,NU,X) for fixed
+C            nu to obtain Q(MU1,NU,X), Q(MU1+1,NU,X), ..., Q(MU2,NU,X).
+C***LIBRARY   SLATEC
+C***CATEGORY  C3A2, C9
+C***TYPE      SINGLE PRECISION (XQMU-S, DXQMU-D)
+C***KEYWORDS  LEGENDRE FUNCTIONS
+C***AUTHOR  Smith, John M., (NBS and George Mason University)
+C***ROUTINES CALLED  XADD, XADJ, XPQNU
+C***REVISION HISTORY  (YYMMDD)
+C   820728  DATE WRITTEN
+C   890126  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  XQMU

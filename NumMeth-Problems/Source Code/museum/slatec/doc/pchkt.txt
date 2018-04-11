@@ -1,0 +1,34 @@
+C***BEGIN PROLOGUE  PCHKT
+C***SUBSIDIARY
+C***PURPOSE  Compute B-spline knot sequence for PCHBS.
+C***LIBRARY   SLATEC (PCHIP)
+C***CATEGORY  E3
+C***TYPE      SINGLE PRECISION (PCHKT-S, DPCHKT-D)
+C***AUTHOR  Fritsch, F. N., (LLNL)
+C***DESCRIPTION
+C
+C     Set a knot sequence for the B-spline representation of a PCH
+C     function with breakpoints X.  All knots will be at least double.
+C     Endknots are set as:
+C        (1) quadruple knots at endpoints if KNOTYP=0;
+C        (2) extrapolate the length of end interval if KNOTYP=1;
+C        (3) periodic if KNOTYP=2.
+C
+C  Input arguments:  N, X, KNOTYP.
+C  Output arguments:  T.
+C
+C  Restrictions/assumptions:
+C     1. N.GE.2 .  (not checked)
+C     2. X(i).LT.X(i+1), i=1,...,N .  (not checked)
+C     3. 0.LE.KNOTYP.LE.2 .  (Acts like KNOTYP=0 for any other value.)
+C
+C***SEE ALSO  PCHBS
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   870701  DATE WRITTEN
+C   900405  Converted Fortran to upper case.
+C   900410  Converted prologue to SLATEC 4.0 format.
+C   900410  Minor cosmetic changes.
+C   930514  Changed NKNOTS from an output to an input variable.  (FNF)
+C   930604  Removed unused variable NKNOTS from argument list.  (FNF)
+C***END PROLOGUE  PCHKT

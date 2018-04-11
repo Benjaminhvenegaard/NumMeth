@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  DXPMUP
+C***SUBSIDIARY
+C***PURPOSE  To compute the values of Legendre functions for DXLEGF.
+C            This subroutine transforms an array of Legendre functions
+C            of the first kind of negative order stored in array PQA
+C            into Legendre functions of the first kind of positive
+C            order stored in array PQA. The original array is destroyed.
+C***LIBRARY   SLATEC
+C***CATEGORY  C3A2, C9
+C***TYPE      DOUBLE PRECISION (XPMUP-S, DXPMUP-D)
+C***KEYWORDS  LEGENDRE FUNCTIONS
+C***AUTHOR  Smith, John M., (NBS and George Mason University)
+C***ROUTINES CALLED  DXADJ
+C***REVISION HISTORY  (YYMMDD)
+C   820728  DATE WRITTEN
+C   890126  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Changed all specific intrinsics to generic.  (WRB)
+C           Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  DXPMUP

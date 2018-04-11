@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  DBESJ1
+C***PURPOSE  Compute the Bessel function of the first kind of order one.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10A1
+C***TYPE      DOUBLE PRECISION (BESJ1-S, DBESJ1-D)
+C***KEYWORDS  BESSEL FUNCTION, FIRST KIND, FNLIB, ORDER ONE,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBESJ1(X) calculates the double precision Bessel function of the
+C first kind of order one for double precision argument X.
+C
+C Series for BJ1        on the interval  0.          to  1.60000E+01
+C                                        with weighted error   1.16E-33
+C                                         log weighted error  32.93
+C                               significant figures required  32.36
+C                                    decimal places required  33.57
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9B1MP, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   910401  Corrected error in code which caused values to have the
+C           wrong sign for arguments less than 4.0.  (WRB)
+C***END PROLOGUE  DBESJ1

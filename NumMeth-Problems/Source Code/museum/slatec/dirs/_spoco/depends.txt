@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE spoco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+spofa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+sasum
+saxpy
+sdot
+sscal
+---END OF DEPENDENCIES---

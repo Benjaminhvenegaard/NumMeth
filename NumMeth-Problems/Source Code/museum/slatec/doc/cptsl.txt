@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  CPTSL
+C***PURPOSE  Solve a positive definite tridiagonal linear system.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2D2A
+C***TYPE      COMPLEX (SPTSL-S, DPTSL-D, CPTSL-C)
+C***KEYWORDS  LINEAR ALGEBRA, LINPACK, MATRIX, POSITIVE DEFINITE, SOLVE,
+C             TRIDIAGONAL
+C***AUTHOR  Dongarra, J., (ANL)
+C***DESCRIPTION
+C
+C     CPTSL given a positive definite tridiagonal matrix and a right
+C     hand side will find the solution.
+C
+C     On Entry
+C
+C        N        INTEGER
+C                 is the order of the tridiagonal matrix.
+C
+C        D        COMPLEX(N)
+C                 is the diagonal of the tridiagonal matrix.
+C                 On output D is destroyed.
+C
+C        E        COMPLEX(N)
+C                 is the offdiagonal of the tridiagonal matrix.
+C                 E(1) through E(N-1) should contain the
+C                 offdiagonal.
+C
+C        B        COMPLEX(N)
+C                 is the right hand side vector.
+C
+C     On Return
+C
+C        B        contains the solution.
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890505  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  CPTSL

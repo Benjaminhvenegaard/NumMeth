@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  DFAC
+C***PURPOSE  Compute the factorial function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C1
+C***TYPE      DOUBLE PRECISION (FAC-S, DFAC-D)
+C***KEYWORDS  FACTORIAL, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DFAC(N) calculates the double precision factorial for integer
+C argument N.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D9LGMC, DGAMLM, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DFAC

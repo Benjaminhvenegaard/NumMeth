@@ -1,0 +1,91 @@
+C***BEGIN PROLOGUE  HQR2
+C***PURPOSE  Compute the eigenvalues and eigenvectors of a real upper
+C            Hessenberg matrix using QR method.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2B
+C***TYPE      SINGLE PRECISION (HQR2-S, COMQR2-C)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure HQR2,
+C     NUM. MATH. 16, 181-204(1970) by Peters and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 372-395(1971).
+C
+C     This subroutine finds the eigenvalues and eigenvectors
+C     of a REAL UPPER Hessenberg matrix by the QR method.  The
+C     eigenvectors of a REAL GENERAL matrix can also be found
+C     if  ELMHES  and  ELTRAN  or  ORTHES  and  ORTRAN  have
+C     been used to reduce this general matrix to Hessenberg form
+C     and to accumulate the similarity transformations.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, H and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrix H.  N is an INTEGER variable.
+C          N must be less than or equal to NM.
+C
+C        LOW and IGH are two INTEGER variables determined by the
+C          balancing subroutine  BALANC.  If  BALANC  has not been
+C          used, set LOW=1 and IGH equal to the order of the matrix, N.
+C
+C        H contains the upper Hessenberg matrix.  H is a two-dimensional
+C          REAL array, dimensioned H(NM,N).
+C
+C        Z contains the transformation matrix produced by  ELTRAN
+C          after the reduction by  ELMHES, or by  ORTRAN  after the
+C          reduction by  ORTHES, if performed.  If the eigenvectors
+C          of the Hessenberg matrix are desired, Z must contain the
+C          identity matrix.  Z is a two-dimensional REAL array,
+C          dimensioned Z(NM,M).
+C
+C     On OUTPUT
+C
+C        H has been destroyed.
+C
+C        WR and WI contain the real and imaginary parts, respectively,
+C          of the eigenvalues.  The eigenvalues are unordered except
+C          that complex conjugate pairs of values appear consecutively
+C          with the eigenvalue having the positive imaginary part first.
+C          If an error exit is made, the eigenvalues should be correct
+C          for indices IERR+1, IERR+2, ..., N.  WR and WI are one-
+C          dimensional REAL arrays, dimensioned WR(N) and WI(N).
+C
+C        Z contains the real and imaginary parts of the eigenvectors.
+C          If the J-th eigenvalue is real, the J-th column of Z
+C          contains its eigenvector.  If the J-th eigenvalue is complex
+C          with positive imaginary part, the J-th and (J+1)-th
+C          columns of Z contain the real and imaginary parts of its
+C          eigenvector.  The eigenvectors are unnormalized.  If an
+C          error exit is made, none of the eigenvectors has been found.
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after a total of 30*N iterations.
+C                     The eigenvalues should be correct for indices
+C                     IERR+1, IERR+2, ..., N, but no eigenvectors are
+C                     computed.
+C
+C     Calls CDIV for complex division.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  CDIV
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  HQR2

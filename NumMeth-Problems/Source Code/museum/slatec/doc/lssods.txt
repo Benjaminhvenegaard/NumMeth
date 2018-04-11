@@ -1,0 +1,113 @@
+C***BEGIN PROLOGUE  LSSODS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (LSSODS-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     LSSODS solves the same problem as SODS (in fact, it is called by
+C     SODS) but is somewhat more flexible in its use. In particular,
+C     LSSODS allows for iterative refinement of the solution, makes the
+C     transformation and triangular reduction information more
+C     accessible, and enables the user to avoid destruction of the
+C     original matrix A.
+C
+C     Modeled after the ALGOL codes in the articles in the REFERENCES
+C     section.
+C
+C **********************************************************************
+C   INPUT
+C **********************************************************************
+C
+C     A -- Contains the matrix of M equations in N unknowns and must
+C          be dimensioned NRDA by N. A remains unchanged
+C     X -- Solution array of length at least N
+C     B -- Given constant vector of length M, B remains unchanged
+C     M -- Number of equations, M greater or equal to 1
+C     N -- Number of unknowns, N not larger than M
+C  NRDA -- Row dimension of A, NRDA greater or equal to M
+C IFLAG -- Status indicator
+C         = 0 for the first call (and for each new problem defined by
+C             a new matrix A) when the matrix data is treated as exact
+C         =-K for the first call (and for each new problem defined by
+C             a new matrix A) when the matrix data is assumed to be
+C             accurate to about K digits
+C         = 1 for subsequent calls whenever the matrix A has already
+C             been decomposed (problems with new vectors B but
+C             same matrix a can be handled efficiently)
+C ISCALE -- Scaling indicator
+C         =-1 if the matrix A is to be pre-scaled by
+C             columns when appropriate
+C             If the scaling indicator is not equal to -1
+C             no scaling will be attempted
+C             For most problems scaling will probably not be necessary
+C   ITER -- Maximum number of iterative improvement steps to be
+C           performed,  0 .LE. ITER .LE. 10   (SODS uses ITER=0)
+C      Q -- Matrix used for the transformation, must be dimensioned
+C           NRDA by N  (SODS puts A in the Q location which conserves
+C           storage but destroys A)
+C           When iterative improvement of the solution is requested,
+C           ITER .GT. 0, this additional storage for Q must be
+C           made available
+C DIAG,KPIVOT,Z,R, -- Arrays of length N (except for R which is M)
+C   DIV,TD,SCALES     used for internal storage
+C
+C **********************************************************************
+C   OUTPUT
+C **********************************************************************
+C
+C  IFLAG -- Status indicator
+C            =1 if solution was obtained
+C            =2 if improper input is detected
+C            =3 if rank of matrix is less than N
+C               if the minimal length least squares solution is
+C               desired, simply reset IFLAG=1 and call the code again
+C
+C       The next three IFLAG values can occur only when
+C        the iterative improvement mode is being used.
+C            =4 if the problem is ill-conditioned and maximal
+C               machine accuracy is not achievable
+C            =5 if the problem is very ill-conditioned and the solution
+C               IS likely to have no correct digits
+C            =6 if the allowable number of iterative improvement steps
+C               has been completed without getting convergence
+C      X -- Least squares solution of  A X = B
+C  IRANK -- Contains the numerically determined matrix rank
+C           the user must not alter this value on succeeding calls
+C           with input values of IFLAG=1
+C      Q -- Contains the strictly upper triangular part of the reduced
+C           matrix and the transformation information in the lower
+C           triangular part
+C   DIAG -- Contains the diagonal elements of the triangular reduced
+C           matrix
+C KPIVOT -- Contains the pivotal information.  The column interchanges
+C           performed on the original matrix are recorded here
+C   ITER -- The actual number of iterative corrections used
+C RESNRM -- The Euclidean norm of the residual vector  B - A X
+C  XNORM -- The Euclidean norm of the solution vector
+C DIV,TD -- Contains transformation information for rank
+C           deficient problems
+C SCALES -- Contains the column scaling parameters
+C
+C **********************************************************************
+C
+C***SEE ALSO  BVSUP
+C***REFERENCES  G. Golub, Numerical methods for solving linear least
+C                 squares problems, Numerische Mathematik 7, (1965),
+C                 pp. 206-216.
+C               P. Businger and G. Golub, Linear least squares
+C                 solutions by Householder transformations, Numerische
+C                 Mathematik  7, (1965), pp. 269-276.
+C***ROUTINES CALLED  J4SAVE, OHTROR, ORTHOL, R1MACH, SDOT, SDSDOT,
+C                    XERMAX, XERMSG, XGETF, XSETF
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900402  Added TYPE section.  (WRB)
+C   910408  Updated the REFERENCES section.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  LSSODS

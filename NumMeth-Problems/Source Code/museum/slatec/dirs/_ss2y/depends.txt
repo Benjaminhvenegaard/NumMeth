@@ -1,0 +1,14 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ss2y
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+qs2i1r
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

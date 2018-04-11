@@ -1,0 +1,113 @@
+C***BEGIN PROLOGUE  TSTURM
+C***PURPOSE  Find those eigenvalues of a symmetric tridiagonal matrix
+C            in a given interval and their associated eigenvectors by
+C            Sturm sequencing.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4A5, D4C2A
+C***TYPE      SINGLE PRECISION (TSTURM-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine finds those eigenvalues of a TRIDIAGONAL
+C     SYMMETRIC matrix which lie in a specified interval and their
+C     associated eigenvectors, using bisection and inverse iteration.
+C
+C     On Input
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameter, Z, as declared in the calling program
+C          dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrix.  N is an INTEGER variable.
+C          N must be less than or equal to NM.
+C
+C        EPS1 is an absolute error tolerance for the computed eigen-
+C          values.  It should be chosen so that the accuracy of these
+C          eigenvalues is commensurate with relative perturbations of
+C          the order of the relative machine precision in the matrix
+C          elements.  If the input EPS1 is non-positive, it is reset
+C          for each submatrix to a default value, namely, minus the
+C          product of the relative machine precision and the 1-norm of
+C          the submatrix.  EPS1 is a REAL variable.
+C
+C        D contains the diagonal elements of the symmetric tridiagonal
+C          matrix.  D is a one-dimensional REAL array, dimensioned D(N).
+C
+C        E contains the subdiagonal elements of the symmetric
+C          tridiagonal matrix in its last N-1 positions.  E(1) is
+C          arbitrary.  E is a one-dimensional REAL array, dimensioned
+C          E(N).
+C
+C        E2 contains the squares of the corresponding elements of E.
+C          E2(1) is arbitrary.  E2 is a one-dimensional REAL array,
+C          dimensioned E2(N).
+C
+C        LB and UB define the interval to be searched for eigenvalues.
+C          If LB is not less than UB, no eigenvalues will be found.
+C          LB and UB are REAL variables.
+C
+C        MM should be set to an upper bound for the number of
+C          eigenvalues in the interval.  MM is an INTEGER variable.
+C          WARNING -  If more than MM eigenvalues are determined to lie
+C          in the interval, an error return is made with no values or
+C          vectors found.
+C
+C     On Output
+C
+C        EPS1 is unaltered unless it has been reset to its
+C          (last) default value.
+C
+C        D and E are unaltered.
+C
+C        Elements of E2, corresponding to elements of E regarded as
+C          negligible, have been replaced by zero causing the matrix to
+C          split into a direct sum of submatrices.  E2(1) is also set
+C          to zero.
+C
+C        M is the number of eigenvalues determined to lie in (LB,UB).
+C          M is an INTEGER variable.
+C
+C        W contains the M eigenvalues in ascending order if the matrix
+C          does not split.  If the matrix splits, the eigenvalues are
+C          in ascending order for each submatrix.  If a vector error
+C          exit is made, W contains those values already found.  W is a
+C          one-dimensional REAL array, dimensioned W(MM).
+C
+C        Z contains the associated set of orthonormal eigenvectors.
+C          If an error exit is made, Z contains those vectors already
+C          found.  Z is a one-dimensional REAL array, dimensioned
+C          Z(NM,MM).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          3*N+1      if M exceeds MM no eigenvalues or eigenvectors
+C                     are computed,
+C          4*N+J      if the eigenvector corresponding to the J-th
+C                     eigenvalue fails to converge in 5 iterations, then
+C                     the eigenvalues and eigenvectors in W and Z should
+C                     be correct for indices 1, 2, ..., J-1.
+C
+C        RV1, RV2, RV3, RV4, RV5, and RV6 are temporary storage arrays,
+C          dimensioned RV1(N), RV2(N), RV3(N), RV4(N), RV5(N), and
+C          RV6(N).
+C
+C     The ALGOL procedure STURMCNT contained in TRISTURM
+C     appears in TSTURM in-line.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  TSTURM

@@ -1,0 +1,33 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cdriv1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdcor
+cdcst
+cdntl
+cdntp
+cdpsc
+cdpst
+cdriv3
+cdscl
+cdstp
+cdzro
+cgbfa
+cgbsl
+cgefa
+cgesl
+cscal
+icamax
+scnrm2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

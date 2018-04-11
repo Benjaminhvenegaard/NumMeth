@@ -1,0 +1,15 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE chbmv
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+lsame
+xerbla
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

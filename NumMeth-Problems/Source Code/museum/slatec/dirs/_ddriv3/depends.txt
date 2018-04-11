@@ -1,0 +1,32 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ddriv3
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ddcor
+ddcst
+ddntl
+ddntp
+ddpsc
+ddpst
+ddscl
+ddstp
+ddzro
+dgbfa
+dgbsl
+dgefa
+dgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+ddot
+dnrm2
+dscal
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

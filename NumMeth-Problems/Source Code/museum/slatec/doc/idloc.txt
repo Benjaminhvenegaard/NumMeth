@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  IDLOC
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DSPLP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (IPLOC-S, IDLOC-D)
+C***KEYWORDS  RELATIVE ADDRESS DETERMINATION FUNCTION, SLATEC
+C***AUTHOR  Boland, W. Robert, (LANL)
+C           Nicol, Tom, (University of British Columbia)
+C***DESCRIPTION
+C
+C   Given a "virtual" location,  IDLOC returns the relative working
+C   address of the vector component stored in SX, IX.  Any necessary
+C   page swaps are performed automatically for the user in this
+C   function subprogram.
+C
+C   LOC       is the "virtual" address of the data to be retrieved.
+C   SX ,IX    represent the matrix where the data is stored.
+C
+C***SEE ALSO  DSPLP
+C***ROUTINES CALLED  DPRWPG, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   890606  DATE WRITTEN
+C   890606  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   910731  Added code to set IDLOC to 0 if LOC is non-positive.  (WRB)
+C***END PROLOGUE  IDLOC

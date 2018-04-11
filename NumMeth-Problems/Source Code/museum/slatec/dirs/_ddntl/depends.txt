@@ -1,0 +1,15 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ddntl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ddcst
+ddscl
+dgbfa
+dgbsl
+dgefa
+dgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dnrm2
+dscal
+idamax
+---END OF DEPENDENCIES---

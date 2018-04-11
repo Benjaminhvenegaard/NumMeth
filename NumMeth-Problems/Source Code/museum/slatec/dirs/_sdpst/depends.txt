@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sdpst
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sgbfa
+sgefa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+saxpy
+snrm2
+sscal
+---END OF DEPENDENCIES---

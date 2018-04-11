@@ -1,0 +1,397 @@
+C***BEGIN PROLOGUE  DBOLSM
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBOCLS and DBOLS
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (SBOLSM-S, DBOLSM-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C            **** Double Precision Version of SBOLSM ****
+C   **** All INPUT and OUTPUT real variables are DOUBLE PRECISION ****
+C
+C          Solve E*X = F (least squares sense) with bounds on
+C            selected X values.
+C     The user must have DIMENSION statements of the form:
+C
+C       DIMENSION W(MDW,NCOLS+1), BL(NCOLS), BU(NCOLS),
+C      * X(NCOLS+NX), RW(NCOLS), WW(NCOLS), SCL(NCOLS)
+C       INTEGER IND(NCOLS), IOPT(1+NI), IBASIS(NCOLS), IBB(NCOLS)
+C
+C     (Here NX=number of extra locations required for options 1,...,7;
+C     NX=0 for no options; here NI=number of extra locations possibly
+C     required for options 1-7; NI=0 for no options; NI=14 if all the
+C     options are simultaneously in use.)
+C
+C    INPUT
+C    -----
+C
+C    --------------------
+C    W(MDW,*),MINPUT,NCOLS
+C    --------------------
+C     The array W(*,*) contains the matrix [E:F] on entry. The matrix
+C     [E:F] has MINPUT rows and NCOLS+1 columns. This data is placed in
+C     the array W(*,*) with E occupying the first NCOLS columns and the
+C     right side vector F in column NCOLS+1. The row dimension, MDW, of
+C     the array W(*,*) must satisfy the inequality MDW .ge. MINPUT.
+C     Other values of MDW are errors. The values of MINPUT and NCOLS
+C     must be positive. Other values are errors.
+C
+C    ------------------
+C    BL(*),BU(*),IND(*)
+C    ------------------
+C     These arrays contain the information about the bounds that the
+C     solution values are to satisfy. The value of IND(J) tells the
+C     type of bound and BL(J) and BU(J) give the explicit values for
+C     the respective upper and lower bounds.
+C
+C    1.    For IND(J)=1, require X(J) .ge. BL(J).
+C    2.    For IND(J)=2, require X(J) .le. BU(J).
+C    3.    For IND(J)=3, require X(J) .ge. BL(J) and
+C                                X(J) .le. BU(J).
+C    4.    For IND(J)=4, no bounds on X(J) are required.
+C     The values of BL(*),BL(*) are modified by the subprogram. Values
+C     other than 1,2,3 or 4 for IND(J) are errors. In the case IND(J)=3
+C     (upper and lower bounds) the condition BL(J) .gt. BU(J) is an
+C     error.
+C
+C    -------
+C    IOPT(*)
+C    -------
+C     This is the array where the user can specify nonstandard options
+C     for DBOLSM. Most of the time this feature can be ignored by
+C     setting the input value IOPT(1)=99. Occasionally users may have
+C     needs that require use of the following subprogram options. For
+C     details about how to use the options see below: IOPT(*) CONTENTS.
+C
+C     Option Number   Brief Statement of Purpose
+C     ----- ------   ----- --------- -- -------
+C           1         Move the IOPT(*) processing pointer.
+C           2         Change rank determination tolerance.
+C           3         Change blow-up factor that determines the
+C                     size of variables being dropped from active
+C                     status.
+C           4         Reset the maximum number of iterations to use
+C                     in solving the problem.
+C           5         The data matrix is triangularized before the
+C                     problem is solved whenever (NCOLS/MINPUT) .lt.
+C                     FAC. Change the value of FAC.
+C           6         Redefine the weighting matrix used for
+C                     linear independence checking.
+C           7         Debug output is desired.
+C          99         No more options to change.
+C
+C    ----
+C    X(*)
+C    ----
+C     This array is used to pass data associated with options 1,2,3 and
+C     5. Ignore this input parameter if none of these options are used.
+C     Otherwise see below: IOPT(*) CONTENTS.
+C
+C    ----------------
+C    IBASIS(*),IBB(*)
+C    ----------------
+C     These arrays must be initialized by the user. The values
+C         IBASIS(J)=J, J=1,...,NCOLS
+C         IBB(J)   =1, J=1,...,NCOLS
+C     are appropriate except when using nonstandard features.
+C
+C    ------
+C    SCL(*)
+C    ------
+C     This is the array of scaling factors to use on the columns of the
+C     matrix E. These values must be defined by the user. To suppress
+C     any column scaling set SCL(J)=1.0, J=1,...,NCOLS.
+C
+C    OUTPUT
+C    ------
+C
+C    ----------
+C    X(*),RNORM
+C    ----------
+C     The array X(*) contains a solution (if MODE .ge. 0 or .eq. -22)
+C     for the constrained least squares problem. The value RNORM is the
+C     minimum residual vector length.
+C
+C    ----
+C    MODE
+C    ----
+C     The sign of mode determines whether the subprogram has completed
+C     normally, or encountered an error condition or abnormal status.
+C     A value of MODE .ge. 0 signifies that the subprogram has completed
+C     normally. The value of MODE (.ge. 0) is the number of variables
+C     in an active status: not at a bound nor at the value ZERO, for
+C     the case of free variables. A negative value of MODE will be one
+C     of the 18 cases -38,-37,...,-22, or -1. Values .lt. -1 correspond
+C     to an abnormal completion of the subprogram. To understand the
+C     abnormal completion codes see below: ERROR MESSAGES for DBOLSM
+C     An approximate solution will be returned to the user only when
+C     maximum iterations is reached, MODE=-22.
+C
+C    -----------
+C    RW(*),WW(*)
+C    -----------
+C     These are working arrays each with NCOLS entries. The array RW(*)
+C     contains the working (scaled, nonactive) solution values. The
+C     array WW(*) contains the working (scaled, active) gradient vector
+C     values.
+C
+C    ----------------
+C    IBASIS(*),IBB(*)
+C    ----------------
+C     These arrays contain information about the status of the solution
+C     when MODE .ge. 0. The indices IBASIS(K), K=1,...,MODE, show the
+C     nonactive variables; indices IBASIS(K), K=MODE+1,..., NCOLS are
+C     the active variables. The value (IBB(J)-1) is the number of times
+C     variable J was reflected from its upper bound. (Normally the user
+C     can ignore these parameters.)
+C
+C    IOPT(*) CONTENTS
+C    ------- --------
+C     The option array allows a user to modify internal variables in
+C     the subprogram without recompiling the source code. A central
+C     goal of the initial software design was to do a good job for most
+C     people. Thus the use of options will be restricted to a select
+C     group of users. The processing of the option array proceeds as
+C     follows: a pointer, here called LP, is initially set to the value
+C     1. The value is updated as the options are processed.  At the
+C     pointer position the option number is extracted and used for
+C     locating other information that allows for options to be changed.
+C     The portion of the array IOPT(*) that is used for each option is
+C     fixed; the user and the subprogram both know how many locations
+C     are needed for each option. A great deal of error checking is
+C     done by the subprogram on the contents of the option array.
+C     Nevertheless it is still possible to give the subprogram optional
+C     input that is meaningless. For example, some of the options use
+C     the location X(NCOLS+IOFF) for passing data. The user must manage
+C     the allocation of these locations when more than one piece of
+C     option data is being passed to the subprogram.
+C
+C   1
+C   -
+C     Move the processing pointer (either forward or backward) to the
+C     location IOPT(LP+1). The processing pointer is moved to location
+C     LP+2 of IOPT(*) in case IOPT(LP)=-1.  For example to skip over
+C     locations 3,...,NCOLS+2 of IOPT(*),
+C
+C       IOPT(1)=1
+C       IOPT(2)=NCOLS+3
+C       (IOPT(I), I=3,...,NCOLS+2 are not defined here.)
+C       IOPT(NCOLS+3)=99
+C       CALL DBOLSM
+C
+C     CAUTION: Misuse of this option can yield some very hard-to-find
+C     bugs.  Use it with care.
+C
+C   2
+C   -
+C     The algorithm that solves the bounded least squares problem
+C     iteratively drops columns from the active set. This has the
+C     effect of joining a new column vector to the QR factorization of
+C     the rectangular matrix consisting of the partially triangularized
+C     nonactive columns. After triangularizing this matrix a test is
+C     made on the size of the pivot element. The column vector is
+C     rejected as dependent if the magnitude of the pivot element is
+C     .le. TOL* magnitude of the column in components strictly above
+C     the pivot element. Nominally the value of this (rank) tolerance
+C     is TOL = SQRT(R1MACH(4)). To change only the value of TOL, for
+C     example,
+C
+C       X(NCOLS+1)=TOL
+C       IOPT(1)=2
+C       IOPT(2)=1
+C       IOPT(3)=99
+C       CALL DBOLSM
+C
+C     Generally, if LP is the processing pointer for IOPT(*),
+C
+C       X(NCOLS+IOFF)=TOL
+C       IOPT(LP)=2
+C       IOPT(LP+1)=IOFF
+C        .
+C       CALL DBOLSM
+C
+C     The required length of IOPT(*) is increased by 2 if option 2 is
+C     used; The required length of X(*) is increased by 1. A value of
+C     IOFF .le. 0 is an error. A value of TOL .le. R1MACH(4) gives a
+C     warning message; it is not considered an error.
+C
+C   3
+C   -
+C     A solution component is left active (not used) if, roughly
+C     speaking, it seems too large. Mathematically the new component is
+C     left active if the magnitude is .ge.((vector norm of F)/(matrix
+C     norm of E))/BLOWUP. Nominally the factor BLOWUP = SQRT(R1MACH(4)).
+C     To change only the value of BLOWUP, for example,
+C
+C       X(NCOLS+2)=BLOWUP
+C       IOPT(1)=3
+C       IOPT(2)=2
+C       IOPT(3)=99
+C       CALL DBOLSM
+C
+C     Generally, if LP is the processing pointer for IOPT(*),
+C
+C       X(NCOLS+IOFF)=BLOWUP
+C       IOPT(LP)=3
+C       IOPT(LP+1)=IOFF
+C        .
+C       CALL DBOLSM
+C
+C     The required length of IOPT(*) is increased by 2 if option 3 is
+C     used; the required length of X(*) is increased by 1. A value of
+C     IOFF .le. 0 is an error. A value of BLOWUP .le. 0.0 is an error.
+C
+C   4
+C   -
+C     Normally the algorithm for solving the bounded least squares
+C     problem requires between NCOLS/3 and NCOLS drop-add steps to
+C     converge. (this remark is based on examining a small number of
+C     test cases.) The amount of arithmetic for such problems is
+C     typically about twice that required for linear least squares if
+C     there are no bounds and if plane rotations are used in the
+C     solution method. Convergence of the algorithm, while
+C     mathematically certain, can be much slower than indicated. To
+C     avoid this potential but unlikely event ITMAX drop-add steps are
+C     permitted. Nominally ITMAX=5*(MAX(MINPUT,NCOLS)). To change the
+C     value of ITMAX, for example,
+C
+C       IOPT(1)=4
+C       IOPT(2)=ITMAX
+C       IOPT(3)=99
+C       CALL DBOLSM
+C
+C     Generally, if LP is the processing pointer for IOPT(*),
+C
+C       IOPT(LP)=4
+C       IOPT(LP+1)=ITMAX
+C        .
+C       CALL DBOLSM
+C
+C     The value of ITMAX must be .gt. 0. Other values are errors. Use
+C     of this option increases the required length of IOPT(*) by 2.
+C
+C   5
+C   -
+C     For purposes of increased efficiency the MINPUT by NCOLS+1 data
+C     matrix [E:F] is triangularized as a first step whenever MINPUT
+C     satisfies FAC*MINPUT .gt. NCOLS. Nominally FAC=0.75. To change the
+C     value of FAC,
+C
+C       X(NCOLS+3)=FAC
+C       IOPT(1)=5
+C       IOPT(2)=3
+C       IOPT(3)=99
+C       CALL DBOLSM
+C
+C     Generally, if LP is the processing pointer for IOPT(*),
+C
+C       X(NCOLS+IOFF)=FAC
+C       IOPT(LP)=5
+C       IOPT(LP+1)=IOFF
+C        .
+C       CALL DBOLSM
+C
+C     The value of FAC must be nonnegative. Other values are errors.
+C     Resetting FAC=0.0 suppresses the initial triangularization step.
+C     Use of this option increases the required length of IOPT(*) by 2;
+C     The required length of of X(*) is increased by 1.
+C
+C   6
+C   -
+C     The norm used in testing the magnitudes of the pivot element
+C     compared to the mass of the column above the pivot line can be
+C     changed. The type of change that this option allows is to weight
+C     the components with an index larger than MVAL by the parameter
+C     WT. Normally MVAL=0 and WT=1. To change both the values MVAL and
+C     WT, where LP is the processing pointer for IOPT(*),
+C
+C       X(NCOLS+IOFF)=WT
+C       IOPT(LP)=6
+C       IOPT(LP+1)=IOFF
+C       IOPT(LP+2)=MVAL
+C
+C     Use of this option increases the required length of IOPT(*) by 3.
+C     The length of X(*) is increased by 1. Values of MVAL must be
+C     nonnegative and not greater than MINPUT. Other values are errors.
+C     The value of WT must be positive. Any other value is an error. If
+C     either error condition is present a message will be printed.
+C
+C   7
+C   -
+C     Debug output, showing the detailed add-drop steps for the
+C     constrained least squares problem, is desired. This option is
+C     intended to be used to locate suspected bugs.
+C
+C   99
+C   --
+C     There are no more options to change.
+C
+C     The values for options are 1,...,7,99, and are the only ones
+C     permitted. Other values are errors. Options -99,-1,...,-7 mean
+C     that the repective options 99,1,...,7 are left at their default
+C     values. An example is the option to modify the (rank) tolerance:
+C
+C       X(NCOLS+1)=TOL
+C       IOPT(1)=-2
+C       IOPT(2)=1
+C       IOPT(3)=99
+C
+C    Error Messages for DBOLSM
+C    ----- -------- --- ---------
+C    -22    MORE THAN ITMAX = ... ITERATIONS SOLVING BOUNDED LEAST
+C           SQUARES PROBLEM.
+C
+C    -23    THE OPTION NUMBER = ... IS NOT DEFINED.
+C
+C    -24    THE OFFSET = ... BEYOND POSTION NCOLS = ... MUST BE POSITIVE
+C           FOR OPTION NUMBER 2.
+C
+C    -25    THE TOLERANCE FOR RANK DETERMINATION = ... IS LESS THAN
+C           MACHINE PRECISION = ....
+C
+C    -26    THE OFFSET = ... BEYOND POSITION NCOLS = ... MUST BE POSTIVE
+C           FOR OPTION NUMBER 3.
+C
+C    -27    THE RECIPROCAL OF THE BLOW-UP FACTOR FOR REJECTING VARIABLES
+C           MUST BE POSITIVE. NOW = ....
+C
+C    -28    THE MAXIMUM NUMBER OF ITERATIONS = ... MUST BE POSITIVE.
+C
+C    -29    THE OFFSET = ... BEYOND POSITION NCOLS = ... MUST BE POSTIVE
+C           FOR OPTION NUMBER 5.
+C
+C    -30    THE FACTOR (NCOLS/MINPUT) WHERE PRETRIANGULARIZING IS
+C           PERFORMED MUST BE NONNEGATIVE. NOW = ....
+C
+C    -31    THE NUMBER OF ROWS = ... MUST BE POSITIVE.
+C
+C    -32    THE NUMBER OF COLUMNS = ... MUST BE POSTIVE.
+C
+C    -33    THE ROW DIMENSION OF W(,) = ... MUST BE .GE. THE NUMBER OF
+C           ROWS = ....
+C
+C    -34    FOR J = ... THE CONSTRAINT INDICATOR MUST BE 1-4.
+C
+C    -35    FOR J = ... THE LOWER BOUND = ... IS .GT. THE UPPER BOUND =
+C           ....
+C
+C    -36    THE INPUT ORDER OF COLUMNS = ... IS NOT BETWEEN 1 AND NCOLS
+C           = ....
+C
+C    -37    THE BOUND POLARITY FLAG IN COMPONENT J = ... MUST BE
+C           POSITIVE. NOW = ....
+C
+C    -38    THE ROW SEPARATOR TO APPLY WEIGHTING (...) MUST LIE BETWEEN
+C           0 AND MINPUT = .... WEIGHT = ... MUST BE POSITIVE.
+C
+C***SEE ALSO  DBOCLS, DBOLS
+C***ROUTINES CALLED  D1MACH, DAXPY, DCOPY, DDOT, DMOUT, DNRM2, DROT,
+C                    DROTG, DSWAP, DVOUT, IVOUT, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   821220  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C   920422  Fixed usage of MINPUT.  (WRB)
+C   901009  Editorial changes, code now reads from top to bottom.  (RWC)
+C***END PROLOGUE  DBOLSM

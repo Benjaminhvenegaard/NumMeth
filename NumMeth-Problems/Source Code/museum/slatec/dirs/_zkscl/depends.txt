@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zkscl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+zlog
+zuchk
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+zabs
+---END OF DEPENDENCIES---

@@ -1,0 +1,6 @@
+      SUBROUTINE MPMULI (X, IY, Z)
+      INTEGER X(*), Z(*)
+C***FIRST EXECUTABLE STATEMENT  MPMULI
+      CALL MPMUL2 (X, IY, Z, 0)
+      RETURN
+      END

@@ -1,0 +1,63 @@
+C***BEGIN PROLOGUE  DMGSBV
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (MGSBV-S, DMGSBV-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C Orthogonalize a set of N double precision vectors and determine their
+C rank.
+C
+C **********************************************************************
+C INPUT
+C **********************************************************************
+C   M = dimension of vectors.
+C   N = no. of vectors.
+C   A = array whose first N cols contain the vectors.
+C   IA = first dimension of array A (col length).
+C   NIV = number of independent vectors needed.
+C   INHOMO = 1 corresponds to having a non-zero particular solution.
+C   V = particular solution vector (not included in the pivoting).
+C   INDPVT = 1 means pivoting will not be used.
+C
+C **********************************************************************
+C OUTPUT
+C **********************************************************************
+C   NIV = no. of linear independent vectors in input set.
+C     A = matrix whose first NIV cols. contain NIV orthogonal vectors
+C         which span the vector space determined by the input vectors.
+C   IFLAG
+C          = 0 success
+C          = 1 incorrect input
+C          = 2 rank of new vectors less than N
+C   P = decomposition matrix.  P is upper triangular and
+C             (old vectors) = (new vectors) * P.
+C         The old vectors will be reordered due to pivoting.
+C         The dimension of P must be .GE. N*(N+1)/2.
+C             (  N*(2*N+1) when N .NE. NFCC )
+C   IP = pivoting vector. The dimension of IP must be .GE. N.
+C             (  2*N when N .NE. NFCC )
+C   S = square of norms of incoming vectors.
+C   V = vector which is orthogonal to the vectors of A.
+C   W = orthogonalization information for the vector V.
+C   WCND = worst case (smallest) norm decrement value of the
+C          vectors being orthogonalized  (represents a test
+C          for linear dependence of the vectors).
+C **********************************************************************
+C
+C***SEE ALSO  DBVSUP
+C***ROUTINES CALLED  DDOT, DPRVEC
+C***COMMON BLOCKS    DML18J, DML5MC
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   890921  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DMGSBV

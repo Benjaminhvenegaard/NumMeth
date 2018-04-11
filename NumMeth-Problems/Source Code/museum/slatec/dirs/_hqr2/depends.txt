@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE hqr2
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdiv
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

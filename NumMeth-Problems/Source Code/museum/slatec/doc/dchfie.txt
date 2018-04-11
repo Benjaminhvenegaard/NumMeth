@@ -1,0 +1,51 @@
+C***BEGIN PROLOGUE  DCHFIE
+C***SUBSIDIARY
+C***PURPOSE  Evaluates integral of a single cubic for DPCHIA
+C***LIBRARY   SLATEC (PCHIP)
+C***TYPE      DOUBLE PRECISION (CHFIE-S, DCHFIE-D)
+C***AUTHOR  Fritsch, F. N., (LLNL)
+C***DESCRIPTION
+C
+C          DCHFIE:  Cubic Hermite Function Integral Evaluator.
+C
+C     Called by  DPCHIA  to evaluate the integral of a single cubic (in
+C     Hermite form) over an arbitrary interval (A,B).
+C
+C ----------------------------------------------------------------------
+C
+C  Calling sequence:
+C
+C        DOUBLE PRECISION  X1, X2, F1, F2, D1, D2, A, B
+C        DOUBLE PRECISION  VALUE, DCHFIE
+C
+C        VALUE = DCHFIE (X1, X2, F1, F2, D1, D2, A, B)
+C
+C   Parameters:
+C
+C     VALUE -- (output) value of the requested integral.
+C
+C     X1,X2 -- (input) endpoints if interval of definition of cubic.
+C
+C     F1,F2 -- (input) function values at the ends of the interval.
+C
+C     D1,D2 -- (input) derivative values at the ends of the interval.
+C
+C     A,B -- (input) endpoints of interval of integration.
+C
+C***SEE ALSO  DPCHIA
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   820730  DATE WRITTEN
+C   820805  Converted to SLATEC library version.
+C   870707  Corrected subroutine name from DCHIV to DCHFIV.
+C   870813  Minor cosmetic changes.
+C   890411  1. Added SAVE statements (Vers. 3.2).
+C           2. Added SIX to DOUBLE PRECISION declaration.
+C   890411  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated AUTHOR section in prologue.  (WRB)
+C   930503  Corrected to set VALUE=0 when IERR.ne.0.  (FNF)
+C   930504  Eliminated IERR and changed name DCHFIV to DCHFIE.  (FNF)
+C***END PROLOGUE  DCHFIE

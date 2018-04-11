@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE wnlit
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+h12
+srotm
+srotmg
+wnlt1
+wnlt2
+wnlt3
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+saxpy
+scopy
+sdot
+sscal
+sswap
+---END OF DEPENDENCIES---

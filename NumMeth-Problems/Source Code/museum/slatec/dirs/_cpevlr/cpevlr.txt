@@ -1,0 +1,15 @@
+C***BEGIN PROLOGUE  CPEVLR
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CPZERO
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CPEVLR-S)
+C***AUTHOR  (UNKNOWN)
+C***SEE ALSO  CPZERO
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   810223  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CPEVLR

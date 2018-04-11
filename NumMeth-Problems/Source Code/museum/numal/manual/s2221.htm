@@ -1,0 +1,314 @@
+<html><head><title>NUMAL 2.2.2.1</title></head>
+<body><h1>NUMAL Section 2.2.2.1</h1>
+<pre>
+BEGIN SECTION : 2.2.2.1 (November, 1978)
+
+AUTHOR:         C.G. VAN DER LAAN
+
+CONTRIBUTORS:   C.G. VAN DER LAAN, M. VOORINTHOLT
+
+INSTITUTE:      REKENCENTRUM RIJKSUNIVERSITEIT GRONINGEN
+
+RECEIVED:       780601
+
+BRIEF DESCRIPTION:
+
+    THIS SECTION CONTAINS SIX PROCEDURES FOR THE EVALUATION
+    OF ORTHOGONAL POLYNOMIALS:
+    ORTPOL,ORTPOLSYM:       EVALUATE AN ORTHOGONAL POLYNOMIAL,
+    ALLORTPOL,ALLORTPOLSYM: EVALUATE ALL ORTHOGONAL POLYNOMIALS OF
+                            DEGREE LESS THAN A GIVEN POSITIVE INTEGER.
+    SUMORTPOL,SUMORTPOLSYM: EVALUATE A SERIES OF
+                            ORTHOGONAL POLYNOMIALS.
+    THE PROCEDURES ENDING WITH SYM ARE EFFICIENT VERSIONS FOR
+    SYMMETRICAL POLYNOMIALS (I.E. ODD INDEXED POLYNOMIALS THAT ARE ODD
+    FUNCTIONS AND EVEN INDEXED POLYNOMIALS THAT ARE EVEN FUNCTIONS);
+
+KEYWORDS:
+
+    ORTHOGONAL POLYNOMIAL,
+    SERIES OF ORTHOGONAL POLYNOMIALS,
+    LINEAR THREE TERM (IN)HOMOGENEOUS RECURRENCE RELATION.
+
+DATA AND RESULTS:
+
+    ORTHOGONAL POLYNOMIALS CAN BE CHARACTERIZED BY A RECURRENCE
+    RELATION OF THE FOLLOWING FORM
+
+           A1[K] * F[K+1](X) = (A2[K] + X * A3[K]) * F[K](X)
+                               - A4[K] * F[K-1](X),
+
+    WHERE AI[K] ARE REAL NUMBERS. SEE FOR INSTANCE TABLE 22.7 IN
+    ABRAMOWITZ AND STEGUN (1964) FOR THE CLASSICAL ORTHOGONAL
+    POLYNOMIALS. BY AN ELEMENTARY TRANSFORMATION, THE COEFFICIENTS
+    IN THE RECURRENCE RELATION ABOVE CAN BE MADE SUCH THAT
+    THE RECURRENCE RELATION IS GIVEN BY
+
+         P[K+1](X) = (X - B[K]) * P[K](X) - C[K] * P[K-1](X),
+
+    P[0](X) = 1, P[1](X) = X - B[0].
+
+    IN THIS WAY WE OBTAIN A NORMALIZATION OF THE ORTHOGONAL POLYNOMIAL
+    SUCH THAT THE LEADING COEFFICIENT IN THE EXPLICIT REPRESENTATION OF
+    P[K](X) EQUALS 1.
+    AS A CONSEQUENCE THE FOLLOWING RELATION HOLDS BETWEEN THE VALUES
+    OBTAINED BY OUR PROCEDURES (E.G. ORTPOL) AND THE VALUES FROM
+    THE REPRESENTATION IN ABRAMOWITZ AND STEGUN (1964) (I.C. F)
+
+                                N-1
+              ORTPOL[N](X)  =  PROD (A1[K]/A3[K]) * F[N](X) ,
+                                K=0
+
+    WHERE A1[K], A3[K], F[N] ARE DETERMINED BY 22.4 AND 22.7 IN
+    ABRAMOWITZ AND STEGUN(1964). WE NOTICE THAT OVERFLOW/UNDERFLOW
+    MAY OCCUR EARLIER AS A CONSEQUENCE OF OUR NORMALIZATION.
+    IN ORDER TO AVOID MISTAKES WHEN OBTAINING THE RECURRENCE
+    COEFFICIENTS THE FOLLOWING TABLE GIVES THE RECURRENCE COEFFICIENTS
+    FOR THE CLASSICAL ORTHOGONAL POLYNOMIALS (NOTE THAT THE FIRST AND
+    SECOND POLYNOMIAL ARE DEFINED BY THE NORMALIZATION AND B[0]):
+
+    POLYNOMIAL KIND       : RECURRENCE COEFFICIENTS
+    ----------------------:--------------------------------------------
+                          :         B[K]          :         C[K]
+                          :-----------------------:--------------------
+    CHEBYSHEV (1-ST KIND) :          0            :       1/2 , K=1
+                          :                       :       1/4 , K&gt;1
+                          :                       :
+    CHEBYSHEV (2-ND KIND) :          0            :         1/4
+                          :                       :
+    LEGENDRE              :          0            :   K**2/(4*K**2-1)
+                          :                       :
+    JACOBI                : -(ALPHA**2-BETA**2)/  : 4*(1+ALPHA)*
+                          : ((2*K+ALPHA+BETA)*    : (1+BETA)/((ALPHA+
+                          : (2*K+ALPHA+BETA+2))   : BETA+2)**2*(ALPHA+
+                          :                       : BETA+3))  , K=1
+                          :                       :
+                          :                       : 4*K*(K+ALPHA)*
+                          :                       : (K+BETA)*(K+ALPHA+
+                          :                       : BETA)/((2*K+ALPHA+
+                          :                       : BETA)**2*((2*K+
+                          :                       : ALPHA+BETA)**2-1))
+                          :                       :           , K&gt;1
+                          :                       :
+                          :                       : (ALPHA,BETA &gt; -1)
+                          :                       :
+    LAGUERRE              :     2*K+ALPHA+1       :     K*(K+ALPHA)
+                          :                       :
+    HERMITE               :          0            :         K/2
+
+    IN GENERAL THE RECURRENCE COEFFICIENTS MAY BE OBTAINED BY USE OF
+    THE PROCEDURE RECCOF. THE ABOVE TABLE IS OBTAINED BY ADAPTION
+    OF TABLE 22.7,ABRAMOWITZ AND STEGUN (1964) P. 782, AS FOLLOWS:
+    (NOTE THAT N&gt;=1; FOR N=0 CONSULT 22.4)
+
+    B[I]:=-A2[I]/A3[I]                    , I=0,1,...,N-1
+    C[I]:=(A4[I]*A1[I-1])/(A3[I]*A3[I-1]) , I=1,2,...,N-1.
+
+METHOD AND PERFORMANCE:
+
+    LET THE ORTHOGONAL POLYNOMIAL BE DEFINED BY
+       P[K+1](X)=(X-B[K])*P[K](X)-C[K]*P[K-1](X)  , K=1,2,...N-1
+    WHERE B[0:N-1], C[1:N-1] CONTAIN THE RECURRENCE COEFFICIENTS AND
+    P[1](X)=X-B[0], P[0](X)=1   (SEE STOER 1972, P. 119).
+    THEN
+                               N-1  / X-B[K]   1 \ / 1 \
+       P[N](X) = (X-B[0],1) * PROD  [            ] [   ]  , N=1,2,.....
+                               K=1  \  -C[K]   0 / \ 0 /
+       AND
+
+       A[0]+A[1]*P[1](X)+...+A[N]*P[N](X)=
+                                     N   J-1  / X-B[K]   1 \ / A[J] \
+                A[0] + (X-B[0],1) * SUM PROD  [            ] [      ] .
+                                    J=1  K=1  \  -C[K]   0 / \  0   /
+       THESE EXPRESSIONS ARE EVALUATED BY A GENERALISED HORNER RULE.
+
+    (SEE ALSO LUKE, 1969, P. 327).
+
+REFERENCES:
+
+    ABRAMOWITZ, M. &amp; I. STEGUN (1964):
+        HANDBOOK OF MATHEMATICAL FUNCTIONS,
+        NATIONAL BUREAU OF STANDARDS, WASHINGTON D.C.
+
+    LUKE, Y.L. (1969):
+        THE SPECIAL FUNCTIONS AND THEIR APPROXIMATIONS I,
+        ACADEMIC PRESS, LONDON, NEW YORK.
+
+    STOER, J. (1972):
+        EINFUEHRUNG IN DIE NUMERISCHE MATHEMATIK I,
+        SPRINGER VERLAG, BERLIN.
+
+<a name="ORTPOL"></a>
+SUBSECTION: ORTPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "REAL" "PROCEDURE" ORTPOL(N,X,B,C); "VALUE" N,X;
+    "INTEGER" N; "REAL" X; "ARRAY" B,C;
+    "CODE" 31044;
+
+    ORTPOL DELIVERS THE VALUE OF THE ORTHOGONAL POLYNOMIAL OF
+    DEGREE N FOR THE ARGUMENT X AS DETERMINED BY THE
+    RECURRENCE COEFFICIENTS.
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    X:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE ARGUMENT OF THE ORTHOGONAL POLYNOMIAL;
+    B,C:     &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" B[0:N-1], C[1:N-1];
+             ENTRY: THE RECURRENCE COEFFICIENTS (SEE DATA AND RESULTS).
+
+<a name="ORTPOLSYM"></a>
+SUBSECTION: ORTPOLSYM.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "REAL" "PROCEDURE" ORTPOLSYM(N,X,C); "VALUE" N,X;
+    "INTEGER" N; "REAL" X; "ARRAY" C;
+    "CODE" 31048;
+
+    ORTPOLSYM DELIVERS THE VALUE OF THE ORTHOGONAL POLYNOMIAL OF
+    DEGREE N FOR THE ARGUMENT X AS DETERMINED BY THE
+    RECURRENCE COEFFICIENTS.
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    X:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE ARGUMENT OF THE ORTHOGONAL POLYNOMIAL;
+    C:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" C[1:N-1];
+             ENTRY: THE RECURRENCE COEFFICIENTS (SEE DATA AND RESULTS).
+
+<a name="ALLORTPOL"></a>
+SUBSECTION: ALLORTPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "PROCEDURE" ALLORTPOL(N,X,B,C,P);
+    "VALUE" N,X; "INTEGER" N; "REAL" X; "ARRAY" B,C,P;
+    "CODE" 31045;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N,X,B,C: SEE ORTPOL      (THIS SECTION);
+    P:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" P[0:N];
+             EXIT: P[K] CONTAINS, FOR THE ARGUMENT, THE VALUE OF THE
+                   K-TH ORTHOGONAL POLYNOMIAL AS DEFINED BY THE
+                   RECURRENCE COEFFICIENTS.
+
+<a name="ALLORTPOLSYM"></a>
+SUBSECTION: ALLORTPOLSYM.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "PROCEDURE" ALLORTPOLSYM(N,X,C,P);
+    "VALUE" N,X; "INTEGER" N; "REAL" X; "ARRAY" C,P;
+    "CODE" 31049;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N,X,C:   SEE ORTPOLSYM   (THIS SECTION);
+    P:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" P[0:N];
+             EXIT: P[K] CONTAINS, FOR THE ARGUMENT, THE VALUE OF THE
+                   K-TH ORTHOGONAL POLYNOMIAL AS DEFINED BY THE
+                   RECURRENCE COEFFICIENTS.
+
+<a name="SUMORTPOL"></a>
+SUBSECTION: SUMORTPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "REAL" "PROCEDURE" SUMORTPOL(N,X,B,C,A);
+    "VALUE" N,X; "INTEGER" N; "REAL" X; "ARRAY" B,C,A;
+    "CODE" 31047;
+
+    SUMORTPOL : DELIVERS THE VALUE OF THE POLYNOMIAL
+    A[0]+A[1]*P[1](X)+...+A[N]*P[N](X)
+    WHERE P[K](X) IS THE K-TH ORTHOGONAL POLYNOMIAL.
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N,X,B,C:   SEE ORTPOL      (THIS SECTION);
+    A:         &lt;ARRAY IDENTIFIER&gt;;
+               "ARRAY" A[0:N];
+               ENTRY: THE COEFFICIENTS OF THE SERIES EXPANSION
+                      A[0]+A[1]*P[1](X)+...+A[N]*P[N](X)
+                      WHERE P[K](X) IS THE K-TH ORTHOGONAL POLYNOMIAL
+                      AS DEFINED BY THE RECURRENCE COEFFICIENTS.
+
+<a name="SUMORTPOLSYM"></a>
+SUBSECTION: SUMORTPOLSYM.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "REAL" "PROCEDURE" SUMORTPOLSYM(N,X,C,A);
+    "VALUE" N,X; "INTEGER" N; "REAL" X; "ARRAY" C,A;
+    "CODE" 31058;
+
+    SUMORTPOLSYM : DELIVERS THE VALUE OF THE POLYNOMIAL
+    A[0]+A[1]*P[1](X)+...+A[N]*P[N](X)
+    WHERE P[K](X) IS THE K-TH ORTHOGONAL POLYNOMIAL.
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N,X,C:     SEE ORTPOLSYM   (THIS SECTION);
+    A:         &lt;ARRAY IDENTIFIER&gt;;
+               "ARRAY" A[0:N];
+               ENTRY: THE COEFFICIENTS OF THE SERIES EXPANSION
+                      A[0]+A[1]*P[1](X)+...+A[N]*P[N](X)
+                      WHERE P[K](X) IS THE K-TH ORTHOGONAL POLYNOMIAL
+                      AS DEFINED BY THE RECURRENCE COEFFICIENTS.
+
+EXAMPLE OF USE:
+
+    THE FOLLOWING PROGRAM DELIVERS THE VALUES OF THE
+    LAGUERRE POLYNOMIAL OF DEGREES 0,1,2,3,4,5 FOR X=0 BY MEANS OF THE
+    PROCEDURE ALLORTPOL (B[K]=2*K+1, C[K]=K**2):
+
+    "BEGIN" "ARRAY" B[0:4], C[1:4], P[0:5];
+      "INTEGER" I;
+      B[0]:=1;
+      "FOR" I:=1 "STEP" 1 "UNTIL"  4 "DO"
+      "BEGIN" B[I]:=2*I+1;
+        C[I]:=I**2;
+      "END" I;
+      ALLORTPOL(5,0,B,C,P);
+      OUTPUT(61,"("2/,6(2B,+2ZD.D)")",P);
+    "END" PROGRAM;
+
+    RESULTS (NOTE THE DIFFERENCE WITH FIGURE 22.9 IN ABRAMOWITZ AND
+    STEGUN (1964) BECAUSE OF THE NORMALIZATION):
+
+        +1.0  -1.0  +2.0  -6.0  +24.0  -120.0
+
+SOURCE TEXTS:
+
+<a href="../code/c31044.txt">"CODE" 31044;</a>
+
+
+<a href="../code/c31048.txt">"CODE" 31048;</a>
+
+
+<a href="../code/c31045.txt">"CODE" 31045;</a>
+<a href="../code/c31049.txt">"CODE" 31049;</a>
+
+
+<a href="../code/c31047.txt">"CODE" 31047;</a>
+
+
+<a href="../code/c31058.txt">"CODE" 31058;</a>
+
+</pre></body></html>

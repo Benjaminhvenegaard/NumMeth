@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsvdc
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+drot
+drotg
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dnrm2
+dscal
+dswap
+---END OF DEPENDENCIES---

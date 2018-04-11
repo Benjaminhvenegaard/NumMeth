@@ -1,0 +1,37 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE spelip
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+blktr1
+blktri
+bsrh
+chksng
+compb
+cprod
+cprodp
+defer
+dx
+dy
+indxa
+indxb
+indxc
+minsol
+orthog
+ppadd
+ppsgf
+ppspf
+prod
+prodp
+psgf
+tevls
+trisp
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

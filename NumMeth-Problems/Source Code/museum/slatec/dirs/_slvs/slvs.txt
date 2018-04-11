@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  SLVS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEBDF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SLVS-S, DSLVS-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   SLVS solves the linear system in the iteration scheme for the
+C   integrator package DEBDF.
+C
+C***SEE ALSO  DEBDF
+C***ROUTINES CALLED  SGBSL, SGESL
+C***COMMON BLOCKS    DEBDF1
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920422  Changed DIMENSION statement.  (WRB)
+C***END PROLOGUE  SLVS

@@ -1,0 +1,114 @@
+      SUBROUTINE QRSOLV (N, R, LDR, IPVT, DIAG, QTB, X, SIGMA, WA)
+      INTEGER N,LDR
+      INTEGER IPVT(*)
+      REAL R(LDR,*),DIAG(*),QTB(*),X(*),SIGMA(*),WA(*)
+      INTEGER I,J,JP1,K,KP1,L,NSING
+      REAL COS,COTAN,P5,P25,QTBPJ,SIN,SUM,TAN,TEMP,ZERO
+      SAVE P5, P25, ZERO
+      DATA P5,P25,ZERO /5.0E-1,2.5E-1,0.0E0/
+C***FIRST EXECUTABLE STATEMENT  QRSOLV
+      DO 20 J = 1, N
+         DO 10 I = J, N
+            R(I,J) = R(J,I)
+   10       CONTINUE
+         X(J) = R(J,J)
+         WA(J) = QTB(J)
+   20    CONTINUE
+C
+C     ELIMINATE THE DIAGONAL MATRIX D USING A GIVENS ROTATION.
+C
+      DO 100 J = 1, N
+C
+C        PREPARE THE ROW OF D TO BE ELIMINATED, LOCATING THE
+C        DIAGONAL ELEMENT USING P FROM THE QR FACTORIZATION.
+C
+         L = IPVT(J)
+         IF (DIAG(L) .EQ. ZERO) GO TO 90
+         DO 30 K = J, N
+            SIGMA(K) = ZERO
+   30       CONTINUE
+         SIGMA(J) = DIAG(L)
+C
+C        THE TRANSFORMATIONS TO ELIMINATE THE ROW OF D
+C        MODIFY ONLY A SINGLE ELEMENT OF (Q TRANSPOSE)*B
+C        BEYOND THE FIRST N, WHICH IS INITIALLY ZERO.
+C
+         QTBPJ = ZERO
+         DO 80 K = J, N
+C
+C           DETERMINE A GIVENS ROTATION WHICH ELIMINATES THE
+C           APPROPRIATE ELEMENT IN THE CURRENT ROW OF D.
+C
+            IF (SIGMA(K) .EQ. ZERO) GO TO 70
+            IF (ABS(R(K,K)) .GE. ABS(SIGMA(K))) GO TO 40
+               COTAN = R(K,K)/SIGMA(K)
+               SIN = P5/SQRT(P25+P25*COTAN**2)
+               COS = SIN*COTAN
+               GO TO 50
+   40       CONTINUE
+               TAN = SIGMA(K)/R(K,K)
+               COS = P5/SQRT(P25+P25*TAN**2)
+               SIN = COS*TAN
+   50       CONTINUE
+C
+C           COMPUTE THE MODIFIED DIAGONAL ELEMENT OF R AND
+C           THE MODIFIED ELEMENT OF ((Q TRANSPOSE)*B,0).
+C
+            R(K,K) = COS*R(K,K) + SIN*SIGMA(K)
+            TEMP = COS*WA(K) + SIN*QTBPJ
+            QTBPJ = -SIN*WA(K) + COS*QTBPJ
+            WA(K) = TEMP
+C
+C           ACCUMULATE THE TRANSFORMATION IN THE ROW OF S.
+C
+            KP1 = K + 1
+            IF (N .LT. KP1) GO TO 70
+            DO 60 I = KP1, N
+               TEMP = COS*R(I,K) + SIN*SIGMA(I)
+               SIGMA(I) = -SIN*R(I,K) + COS*SIGMA(I)
+               R(I,K) = TEMP
+   60          CONTINUE
+   70       CONTINUE
+   80       CONTINUE
+   90    CONTINUE
+C
+C        STORE THE DIAGONAL ELEMENT OF S AND RESTORE
+C        THE CORRESPONDING DIAGONAL ELEMENT OF R.
+C
+         SIGMA(J) = R(J,J)
+         R(J,J) = X(J)
+  100    CONTINUE
+C
+C     SOLVE THE TRIANGULAR SYSTEM FOR Z. IF THE SYSTEM IS
+C     SINGULAR, THEN OBTAIN A LEAST SQUARES SOLUTION.
+C
+      NSING = N
+      DO 110 J = 1, N
+         IF (SIGMA(J) .EQ. ZERO .AND. NSING .EQ. N) NSING = J - 1
+         IF (NSING .LT. N) WA(J) = ZERO
+  110    CONTINUE
+      IF (NSING .LT. 1) GO TO 150
+      DO 140 K = 1, NSING
+         J = NSING - K + 1
+         SUM = ZERO
+         JP1 = J + 1
+         IF (NSING .LT. JP1) GO TO 130
+         DO 120 I = JP1, NSING
+            SUM = SUM + R(I,J)*WA(I)
+  120       CONTINUE
+  130    CONTINUE
+         WA(J) = (WA(J) - SUM)/SIGMA(J)
+  140    CONTINUE
+  150 CONTINUE
+C
+C     PERMUTE THE COMPONENTS OF Z BACK TO COMPONENTS OF X.
+C
+      DO 160 J = 1, N
+         L = IPVT(J)
+         X(L) = WA(J)
+  160    CONTINUE
+      RETURN
+C
+C     LAST CARD OF SUBROUTINE QRSOLV.
+C
+      END

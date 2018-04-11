@@ -1,0 +1,29 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sdassl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sdaini
+sdajac
+sdanrm
+sdaslv
+sdastp
+sdatrp
+sdawts
+sgbfa
+sgbsl
+sgefa
+sgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+saxpy
+sdot
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,69 @@
+C***BEGIN PROLOGUE  DWUPDT
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DNLS1 and DNLS1E
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (RWUPDT-S, DWUPDT-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Given an N by N upper triangular matrix R, this subroutine
+C     computes the QR decomposition of the matrix formed when a row
+C     is added to R. If the row is specified by the vector W, then
+C     DWUPDT determines an orthogonal matrix Q such that when the
+C     N+1 by N matrix composed of R augmented by W is premultiplied
+C     by (Q TRANSPOSE), the resulting matrix is upper trapezoidal.
+C     The orthogonal matrix Q is the product of N transformations
+C
+C           G(1)*G(2)* ... *G(N)
+C
+C     where G(I) is a Givens rotation in the (I,N+1) plane which
+C     eliminates elements in the I-th plane. DWUPDT also
+C     computes the product (Q TRANSPOSE)*C where C is the
+C     (N+1)-vector (b,alpha). Q itself is not accumulated, rather
+C     the information to recover the G rotations is supplied.
+C
+C     The subroutine statement is
+C
+C       SUBROUTINE DWUPDT(N,R,LDR,W,B,ALPHA,COS,SIN)
+C
+C     where
+C
+C       N is a positive integer input variable set to the order of R.
+C
+C       R is an N by N array. On input the upper triangular part of
+C         R must contain the matrix to be updated. On output R
+C         contains the updated triangular matrix.
+C
+C       LDR is a positive integer input variable not less than N
+C         which specifies the leading dimension of the array R.
+C
+C       W is an input array of length N which must contain the row
+C         vector to be added to R.
+C
+C       B is an array of length N. On input B must contain the
+C         first N elements of the vector C. On output B contains
+C         the first N elements of the vector (Q TRANSPOSE)*C.
+C
+C       ALPHA is a variable. On input ALPHA must contain the
+C         (N+1)-st element of the vector C. On output ALPHA contains
+C         the (N+1)-st element of the vector (Q TRANSPOSE)*C.
+C
+C       COS is an output array of length N which contains the
+C         cosines of the transforming Givens rotations.
+C
+C       SIN is an output array of length N which contains the
+C         sines of the transforming Givens rotations.
+C
+C     **********
+C
+C***SEE ALSO  DNLS1, DNLS1E
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   800301  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  DWUPDT

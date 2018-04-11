@@ -1,0 +1,65 @@
+C***BEGIN PROLOGUE  CHIFA
+C***PURPOSE  Factor a complex Hermitian matrix by elimination
+C            (symmetric pivoting).
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2D1A
+C***TYPE      COMPLEX (SSIFA-S, DSIFA-D, CHIFA-C, CSIFA-C)
+C***KEYWORDS  HERMITIAN, LINEAR ALGEBRA, LINPACK, MATRIX FACTORIZATION
+C***AUTHOR  Bunch, J., (UCSD)
+C***DESCRIPTION
+C
+C     CHIFA factors a complex Hermitian matrix by elimination
+C     with symmetric pivoting.
+C
+C     To solve  A*X = B , follow CHIFA by CHISL.
+C     To compute  INVERSE(A)*C , follow CHIFA by CHISL.
+C     To compute  DETERMINANT(A) , follow CHIFA by CHIDI.
+C     To compute  INERTIA(A) , follow CHIFA by CHIDI.
+C     To compute  INVERSE(A) , follow CHIFA by CHIDI.
+C
+C     On Entry
+C
+C        A       COMPLEX(LDA,N)
+C                the Hermitian matrix to be factored.
+C                Only the diagonal and upper triangle are used.
+C
+C        LDA     INTEGER
+C                the leading dimension of the array  A .
+C
+C        N       INTEGER
+C                the order of the matrix  A .
+C
+C     On Return
+C
+C        A       a block diagonal matrix and the multipliers which
+C                were used to obtain it.
+C                The factorization can be written  A = U*D*CTRANS(U)
+C                where  U  is a product of permutation and unit
+C                upper triangular matrices , CTRANS(U) is the
+C                conjugate transpose of  U , and  D  is block diagonal
+C                with 1 by 1 and 2 by 2 blocks.
+C
+C        KVPT    INTEGER(N)
+C                an integer vector of pivot indices.
+C
+C        INFO    INTEGER
+C                = 0  normal value.
+C                = K  if the K-th pivot block is singular.  This is
+C                     not an error condition for this subroutine,
+C                     but it does indicate that CHISL or CHIDI may
+C                     divide by zero if called.
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  CAXPY, CSWAP, ICAMAX
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891107  Modified routine equivalence list.  (WRB)
+C   891107  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  CHIFA

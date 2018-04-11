@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sorth
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+saxpy
+sdot
+snrm2
+---END OF DEPENDENCIES---

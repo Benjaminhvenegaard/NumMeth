@@ -1,0 +1,18 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dcov
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+denorm
+dfdjc3
+dqrfac
+dwupdt
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

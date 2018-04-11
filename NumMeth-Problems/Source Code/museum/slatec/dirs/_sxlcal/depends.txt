@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sxlcal
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+shels
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+saxpy
+scopy
+---END OF DEPENDENCIES---

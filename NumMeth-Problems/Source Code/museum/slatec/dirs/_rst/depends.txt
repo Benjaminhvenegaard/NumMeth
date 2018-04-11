@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rst
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+imtql1
+imtql2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pythag
+---END OF DEPENDENCIES---

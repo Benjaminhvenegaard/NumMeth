@@ -1,0 +1,18 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dhfti
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dh12
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+ddot
+dswap
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  DSLVS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DDEBDF
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (SLVS-S, DSLVS-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   DSLVS solves the linear system in the iteration scheme for the
+C   integrator package DDEBDF.
+C
+C***SEE ALSO  DDEBDF
+C***ROUTINES CALLED  DGBSL, DGESL
+C***COMMON BLOCKS    DDEBD1
+C***REVISION HISTORY  (YYMMDD)
+C   820301  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920422  Changed DIMENSION statement.  (WRB)
+C***END PROLOGUE  DSLVS

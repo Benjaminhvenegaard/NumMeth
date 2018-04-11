@@ -1,0 +1,25 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE spigmr
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+issgmr
+shels
+sheqr
+sorth
+srlcal
+sxlcal
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+saxpy
+scopy
+sdot
+snrm2
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,14 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE hwsss1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cosgen
+genbun
+poisd2
+poisn2
+poisp2
+s1merg
+tri3
+trix
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pimach
+scopy
+---END OF DEPENDENCIES---

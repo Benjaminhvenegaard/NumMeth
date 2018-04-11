@@ -1,0 +1,15 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cdntl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdcst
+cdscl
+cgbfa
+cgbsl
+cgefa
+cgesl
+cscal
+icamax
+scnrm2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

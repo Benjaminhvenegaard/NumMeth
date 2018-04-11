@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  EXBVP
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (EXBVP-S, DEXBVP-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C  This subroutine is used to execute the basic technique for solving
+C  the two-point boundary value problem
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  BVPOR, XERMSG
+C***COMMON BLOCKS    ML15TO, ML17BW, ML18JR, ML5MCO, ML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  EXBVP

@@ -1,0 +1,58 @@
+C***BEGIN PROLOGUE  ASYJY
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BESJ and BESY
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (ASYJY-S, DASYJY-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C                 ASYJY computes Bessel functions J and Y
+C               for arguments X.GT.0.0 and orders FNU.GE.35.0
+C               on FLGJY = 1 and FLGJY = -1 respectively
+C
+C                                  INPUT
+C
+C      FUNJY - external function JAIRY or YAIRY
+C          X - argument, X.GT.0.0E0
+C        FNU - order of the first Bessel function
+C      FLGJY - selection flag
+C              FLGJY =  1.0E0 gives the J function
+C              FLGJY = -1.0E0 gives the Y function
+C         IN - number of functions desired, IN = 1 or 2
+C
+C                                  OUTPUT
+C
+C         Y  - a vector whose first in components contain the sequence
+C       IFLW - a flag indicating underflow or overflow
+C                    return variables for BESJ only
+C      WK(1) = 1 - (X/FNU)**2 = W**2
+C      WK(2) = SQRT(ABS(WK(1)))
+C      WK(3) = ABS(WK(2) - ATAN(WK(2)))  or
+C              ABS(LN((1 + WK(2))/(X/FNU)) - WK(2))
+C            = ABS((2/3)*ZETA**(3/2))
+C      WK(4) = FNU*WK(3)
+C      WK(5) = (1.5*WK(3)*FNU)**(1/3) = SQRT(ZETA)*FNU**(1/3)
+C      WK(6) = SIGN(1.,W**2)*WK(5)**2 = SIGN(1.,W**2)*ZETA*FNU**(2/3)
+C      WK(7) = FNU**(1/3)
+C
+C     Abstract
+C         ASYJY implements the uniform asymptotic expansion of
+C         the J and Y Bessel functions for FNU.GE.35 and real
+C         X.GT.0.0E0. The forms are identical except for a change
+C         in sign of some of the terms. This change in sign is
+C         accomplished by means of the flag FLGJY = 1 or -1. On
+C         FLGJY = 1 the AIRY functions AI(X) and DAI(X) are
+C         supplied by the external function JAIRY, and on
+C         FLGJY = -1 the AIRY functions BI(X) and DBI(X) are
+C         supplied by the external function YAIRY.
+C
+C***SEE ALSO  BESJ, BESY
+C***ROUTINES CALLED  I1MACH, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR section.  (WRB)
+C***END PROLOGUE  ASYJY

@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cv
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+bsplvn
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+sdot
+---END OF DEPENDENCIES---

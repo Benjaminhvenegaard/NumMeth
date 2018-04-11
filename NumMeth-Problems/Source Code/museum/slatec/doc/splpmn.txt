@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  SPLPMN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SPLP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SPLPMN-S, DPLPMN-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     MARVEL OPTION(S).. OUTPUT=YES/NO TO ELIMINATE PRINTED OUTPUT.
+C     THIS DOES NOT APPLY TO THE CALLS TO THE ERROR PROCESSOR.
+C
+C     MAIN SUBROUTINE FOR SPLP PACKAGE.
+C
+C***SEE ALSO  SPLP
+C***ROUTINES CALLED  IVOUT, LA05BS, PINITM, PNNZRS, PRWPGE, SASUM,
+C                    SCLOSM, SCOPY, SDOT, SPINCW, SPINIT, SPLPCE,
+C                    SPLPDM, SPLPFE, SPLPFL, SPLPMU, SPLPUP, SPOPT,
+C                    SVOUT, XERMSG
+C***COMMON BLOCKS    LA05DS
+C***REVISION HISTORY  (YYMMDD)
+C   811215  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890605  Corrected references to XERRWV.  (WRB)
+C   890605  Removed unreferenced labels.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C***END PROLOGUE  SPLPMN

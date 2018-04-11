@@ -1,0 +1,63 @@
+      REAL FUNCTION GAMIT (A, X)
+      LOGICAL FIRST
+      SAVE ALNEPS, SQEPS, BOT, FIRST
+      DATA FIRST /.TRUE./
+C***FIRST EXECUTABLE STATEMENT  GAMIT
+      IF (FIRST) THEN
+         ALNEPS = -LOG(R1MACH(3))
+         SQEPS = SQRT(R1MACH(4))
+         BOT = LOG(R1MACH(1))
+      ENDIF
+      FIRST = .FALSE.
+C
+      IF (X .LT. 0.0) CALL XERMSG ('SLATEC', 'GAMIT', 'X IS NEGATIVE',
+     +   2, 2)
+C
+      IF (X.NE.0.0) ALX = LOG(X)
+      SGA = 1.0
+      IF (A.NE.0.0) SGA = SIGN (1.0, A)
+      AINTA = AINT (A+0.5*SGA)
+      AEPS = A - AINTA
+C
+      IF (X.GT.0.0) GO TO 20
+      GAMIT = 0.0
+      IF (AINTA.GT.0.0 .OR. AEPS.NE.0.0) GAMIT = GAMR(A+1.0)
+      RETURN
+C
+ 20   IF (X.GT.1.0) GO TO 40
+      IF (A.GE.(-0.5) .OR. AEPS.NE.0.0) CALL ALGAMS (A+1.0, ALGAP1,
+     1  SGNGAM)
+      GAMIT = R9GMIT (A, X, ALGAP1, SGNGAM, ALX)
+      RETURN
+C
+ 40   IF (A.LT.X) GO TO 50
+      T = R9LGIT (A, X, ALNGAM(A+1.0))
+      IF (T.LT.BOT) CALL XERCLR
+      GAMIT = EXP(T)
+      RETURN
+C
+ 50   ALNG = R9LGIC (A, X, ALX)
+C
+C EVALUATE GAMIT IN TERMS OF LOG(GAMIC(A,X))
+C
+      H = 1.0
+      IF (AEPS.EQ.0.0 .AND. AINTA.LE.0.0) GO TO 60
+      CALL ALGAMS (A+1.0, ALGAP1, SGNGAM)
+      T = LOG(ABS(A)) + ALNG - ALGAP1
+      IF (T.GT.ALNEPS) GO TO 70
+      IF (T.GT.(-ALNEPS)) H = 1.0 - SGA*SGNGAM*EXP(T)
+      IF (ABS(H).GT.SQEPS) GO TO 60
+      CALL XERCLR
+      CALL XERMSG ('SLATEC', 'GAMIT', 'RESULT LT HALF PRECISION', 1, 1)
+C
+ 60   T = -A*ALX + LOG(ABS(H))
+      IF (T.LT.BOT) CALL XERCLR
+      GAMIT = SIGN (EXP(T), H)
+      RETURN
+C
+ 70   T = T - A*ALX
+      IF (T.LT.BOT) CALL XERCLR
+      GAMIT = -SGA*SGNGAM*EXP(T)
+      RETURN
+C
+      END

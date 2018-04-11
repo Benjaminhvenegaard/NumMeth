@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  EFCMN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to EFC
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (EFCMN-S, DEFCMN-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to EFC( ).
+C     This subprogram does weighted least squares fitting of data by
+C     B-spline curves.
+C     The documentation for EFC( ) has complete usage instructions.
+C
+C***SEE ALSO  EFC
+C***ROUTINES CALLED  BNDACC, BNDSOL, BSPLVN, SCOPY, SSCAL, SSORT, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and extensively revised (WRB & RWC)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C***END PROLOGUE  EFCMN

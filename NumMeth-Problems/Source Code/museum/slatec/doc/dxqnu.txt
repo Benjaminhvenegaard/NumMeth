@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  DXQNU
+C***SUBSIDIARY
+C***PURPOSE  To compute the values of Legendre functions for DXLEGF.
+C            Method: backward nu-wise recurrence for Q(MU,NU,X) for
+C            fixed mu to obtain Q(MU1,NU1,X), Q(MU1,NU1+1,X), ...,
+C            Q(MU1,NU2,X).
+C***LIBRARY   SLATEC
+C***CATEGORY  C3A2, C9
+C***TYPE      DOUBLE PRECISION (XQNU-S, DXQNU-D)
+C***KEYWORDS  LEGENDRE FUNCTIONS
+C***AUTHOR  Smith, John M., (NBS and George Mason University)
+C***ROUTINES CALLED  DXADD, DXADJ, DXPQNU
+C***REVISION HISTORY  (YYMMDD)
+C   820728  DATE WRITTEN
+C   890126  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  DXQNU

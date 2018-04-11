@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dqag
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dqage
+dqk15
+dqk21
+dqk31
+dqk41
+dqk51
+dqk61
+dqpsrt
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

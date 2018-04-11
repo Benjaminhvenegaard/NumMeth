@@ -1,0 +1,46 @@
+C***BEGIN PROLOGUE  DEFEHL
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DERKF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (DEFEHL-S, DFEHL-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C     Fehlberg Fourth-Fifth order Runge-Kutta Method
+C **********************************************************************
+C
+C    DEFEHL integrates a system of NEQ first order
+C    ordinary differential equations of the form
+C               dU/DX = F(X,U)
+C    over one step when the vector Y(*) of initial values for U(*) and
+C    the vector YP(*) of initial derivatives, satisfying  YP = F(T,Y),
+C    are given at the starting point X=T.
+C
+C    DEFEHL advances the solution over the fixed step H and returns
+C    the fifth order (sixth order accurate locally) solution
+C    approximation at T+H in the array YS(*).
+C    F1,---,F5 are arrays of dimension NEQ which are needed
+C    for internal storage.
+C    The formulas have been grouped to control loss of significance.
+C    DEFEHL should be called with an H not smaller than 13 units of
+C    roundoff in T so that the various independent arguments can be
+C    distinguished.
+C
+C    This subroutine has been written with all variables and statement
+C    numbers entirely compatible with DERKFS. For greater efficiency,
+C    the call to DEFEHL can be replaced by the module beginning with
+C    line 222 and extending to the last line just before the return
+C    statement.
+C
+C **********************************************************************
+C
+C***SEE ALSO  DERKF
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   800501  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   891009  Removed unreferenced statement label.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DEFEHL

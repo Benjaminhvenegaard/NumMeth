@@ -1,0 +1,35 @@
+C***BEGIN PROLOGUE  DXCON
+C***PURPOSE  To provide double-precision floating-point arithmetic
+C            with an extended exponent range.
+C***LIBRARY   SLATEC
+C***CATEGORY  A3D
+C***TYPE      DOUBLE PRECISION (XCON-S, DXCON-D)
+C***KEYWORDS  EXTENDED-RANGE DOUBLE-PRECISION ARITHMETIC
+C***AUTHOR  Lozier, Daniel W., (National Bureau of Standards)
+C           Smith, John M., (NBS and George Mason University)
+C***DESCRIPTION
+C     DOUBLE PRECISION X
+C     INTEGER IX
+C
+C                  CONVERTS (X,IX) = X*RADIX**IX
+C                  TO DECIMAL FORM IN PREPARATION FOR
+C                  PRINTING, SO THAT (X,IX) = X*10**IX
+C                  WHERE 1/10 .LE. ABS(X) .LT. 1
+C                  IS RETURNED, EXCEPT THAT IF
+C                  (ABS(X),IX) IS BETWEEN RADIX**(-2L)
+C                  AND RADIX**(2L) THEN THE REDUCED
+C                  FORM WITH IX = 0 IS RETURNED.
+C
+C***SEE ALSO  DXSET
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  DXADJ, DXC210, DXRED
+C***COMMON BLOCKS    DXBLK2
+C***REVISION HISTORY  (YYMMDD)
+C   820712  DATE WRITTEN
+C   890126  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Changed all specific intrinsics to generic.  (WRB)
+C           Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  DXCON

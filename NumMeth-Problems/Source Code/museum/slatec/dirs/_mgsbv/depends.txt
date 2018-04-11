@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE mgsbv
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+prvec
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+sdot
+---END OF DEPENDENCIES---

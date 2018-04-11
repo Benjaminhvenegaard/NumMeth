@@ -1,0 +1,13 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE mpadd2
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+mpadd3
+mpchk
+mperr
+mpmaxr
+mpnzr
+mpovfl
+mpstr
+mpunfl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+i1mach
+---END OF DEPENDENCIES---

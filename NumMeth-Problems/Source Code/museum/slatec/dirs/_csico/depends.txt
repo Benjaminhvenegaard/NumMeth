@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE csico
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdotu
+csifa
+csscal
+cswap
+icamax
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+---END OF DEPENDENCIES---

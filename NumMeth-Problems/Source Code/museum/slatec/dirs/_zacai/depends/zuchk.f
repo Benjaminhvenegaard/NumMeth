@@ -1,0 +1,16 @@
+      SUBROUTINE ZUCHK (YR, YI, NZ, ASCLE, TOL)
+C
+C     COMPLEX Y
+      DOUBLE PRECISION ASCLE, SS, ST, TOL, WR, WI, YR, YI
+      INTEGER NZ
+C***FIRST EXECUTABLE STATEMENT  ZUCHK
+      NZ = 0
+      WR = ABS(YR)
+      WI = ABS(YI)
+      ST = MIN(WR,WI)
+      IF (ST.GT.ASCLE) RETURN
+      SS = MAX(WR,WI)
+      ST = ST/TOL
+      IF (SS.LT.ST) NZ = 1
+      RETURN
+      END

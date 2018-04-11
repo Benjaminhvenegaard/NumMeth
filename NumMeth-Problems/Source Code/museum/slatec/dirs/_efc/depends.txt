@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE efc
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+bndacc
+bndsol
+bsplvn
+efcmn
+h12
+ssort
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+saxpy
+scopy
+sdot
+sscal
+sswap
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE wnlt3
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+sswap
+---END OF DEPENDENCIES---

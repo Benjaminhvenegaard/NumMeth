@@ -1,0 +1,131 @@
+GETRAN(3NR)           NR Programmer's Manual          GETRAN(3NR)
+
+
+NAME
+       getran - get a sequence of random numbers from a database
+
+SYNOPSIS
+       #include <stdio.h>
+
+       unsigned char *getran(unsigned char *arr, size_t len);
+
+DESCRIPTION
+       getran()  takes  a pointer to an array of unsigned charac-
+       ters and a length, and stores in that array the given num-
+       ber  of  random  bytes. These bytes are not created by any
+       pseudo-random formula, but are retrieved from  a  database
+       stored on disk.
+
+       This  database  is  specified  by  a list file and a state
+       file. The list file is simply a newline-terminated list of
+       the  database  files  of random bytes. The state file con-
+       tains a single line representating  the  positions  within
+       the database.  This line should be one of the files listed
+       in the list file, followed by a number indicating the off-
+       set  into that file.  When getran() is called, it reads in
+       the state file, goes to the given  position  in  the  file
+       indicated,  and  begins  reading  bytes.  If the number of
+       bytes needed exceeds that currently left in the  file,  it
+       goes  on to the next file in the list file. After the nec-
+       essary amount has been read, it writes  out  a  new  state
+       file  with the new position in the database (the file cur-
+       rently in use followed by the offset in it).
+
+       If more bytes are request than remain unused in the  whole
+       database,  this is a fatal error. Delete the current state
+       file and start over.
+
+       If the state file does not exist, it is created.
+
+       To find the name of the list file, first  the  environment
+       variable  NRRANLIST  is checked. If that environment vari-
+       able doesn't exist, then a check for  a  HOME  environment
+       variable  is done, and if that exists the routine looks to
+       see if there is a file $HOME/.nr_ranlist
+       If that file isn't present, or there is no  HOME  environ-
+       ment variable, a hard-coded default name is used.
+
+       To  find the name of the state file, first the environment
+       variable NRRANSTATE is checked. If that environment  vari-
+       able  doesn't  exist,  then a check for a HOME environment
+       variable is done, and if that exists the routine uses  the
+       name (note this behavior is different from the above, this
+       file does not have to exist) $HOME/.nr_ranstate
+       Otherwise, a hard-coded default name is used.
+
+       You can call getran() for single bytes, but  the  overhead
+       involved in each call probably makes this a bad idea.
+
+
+
+NR                        April 17, 1996                        1
+
+
+
+
+
+GETRAN(3NR)           NR Programmer's Manual          GETRAN(3NR)
+
+
+ENVIRONMENT VARIABLES
+       NRRANLIST - the name of the list file
+
+       NRRANSTATE - the name of the state file
+
+RETURN VALUE
+       getran()  returns  the  array  argument  passed  to it. It
+       should return NULL on error, but all errors are  currently
+       treated as fatal errors.
+
+EXAMPLES
+       A typical list file might look like:
+
+       /cdrom/nr/random/random.000
+       /cdrom/nr/random/random.001
+       /cdrom/nr/random/random.002
+       /cdrom/nr/random/random.003
+
+            and so on.
+
+       A typical state file might look like:
+
+       /cdrom/nr/random/random.002 1723
+
+
+BUGS
+       There  is  some attempt at implementing file locking for a
+       share state file, with a LOCKS option.  USING SHARED STATE
+       FILES  IS NOT RECOMMENDED.  No representation is made that
+       the code adequately deals with potential  conflicts,  race
+       conditions, and user-interface issues involved.
+
+SEE ALSO
+       rand(3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+NR                        April 17, 1996                        2
+
+
+
+

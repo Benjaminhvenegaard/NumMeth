@@ -1,0 +1,45 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE bvsup
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+bksol
+bvder
+bvpor
+cscale
+deabm
+defehl
+derkf
+derkfs
+des
+exbvp
+hstart
+hvnrm
+lssuds
+macon
+mgsbv
+ohtrol
+orthor
+prvec
+reort
+rkfab
+scoef
+sintrp
+steps
+stor1
+stway
+suds
+svecs
+xermax
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+sdot
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

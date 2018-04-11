@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  ERF
+C***PURPOSE  Compute the error function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C8A, L5A1E
+C***TYPE      SINGLE PRECISION (ERF-S, DERF-D)
+C***KEYWORDS  ERF, ERROR FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C ERF(X) calculates the single precision error function for
+C single precision argument X.
+C
+C Series for ERF        on the interval  0.          to  1.00000D+00
+C                                        with weighted error   7.10E-18
+C                                         log weighted error  17.15
+C                               significant figures required  16.31
+C                                    decimal places required  17.71
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, ERFC, INITS, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   770401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900727  Added EXTERNAL statement.  (WRB)
+C   920618  Removed space from variable name.  (RWC, WRB)
+C***END PROLOGUE  ERF

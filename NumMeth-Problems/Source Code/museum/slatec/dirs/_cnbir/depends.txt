@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cnbir
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ccopy
+cdcdot
+cnbfa
+cnbsl
+cscal
+cswap
+icamax
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

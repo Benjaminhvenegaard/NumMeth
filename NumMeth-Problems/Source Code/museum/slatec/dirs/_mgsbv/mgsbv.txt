@@ -1,0 +1,61 @@
+C***BEGIN PROLOGUE  MGSBV
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (MGSBV-S, DMGSBV-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C Orthogonalize a set of N real vectors and determine their rank
+C
+C **********************************************************************
+C INPUT
+C **********************************************************************
+C   M = Dimension of vectors
+C   N = No. of vectors
+C   A = Array whose first N cols contain the vectors
+C   IA = First dimension of array A (col length)
+C   NIV = Number of independent vectors needed
+C   INHOMO = 1 Corresponds to having a non-zero particular solution
+C   V = Particular solution vector (not included in the pivoting)
+C   INDPVT = 1 Means pivoting will not be used
+C
+C **********************************************************************
+C OUTPUT
+C **********************************************************************
+C   NIV = No. of linear independent vectors in input set
+C     A = Matrix whose first NIV cols. contain NIV orthogonal vectors
+C         which span the vector space determined by the input vectors
+C   IFLAG
+C          = 0 success
+C          = 1 incorrect input
+C          = 2 rank of new vectors less than N
+C   P = Decomposition matrix.  P is upper triangular and
+C             (old vectors) = (new vectors) * P.
+C         The old vectors will be reordered due to pivoting
+C         The dimension of p must be .GE. N*(N+1)/2.
+C             (  N*(2*N+1) when N .NE. NFCC )
+C   IP = Pivoting vector. The dimension of IP must be .GE. N.
+C             (  2*N when N .NE. NFCC )
+C   S = Square of norms of incoming vectors
+C   V = Vector which is orthogonal to the vectors of A
+C   W = Orthogonalization information for the vector V
+C   WCND = Worst case (smallest) norm decrement value of the
+C          vectors being orthogonalized  (represents a test
+C          for linear dependence of the vectors)
+C **********************************************************************
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  PRVEC, SDOT
+C***COMMON BLOCKS    ML18JR, ML5MCO
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  MGSBV

@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  CTAN
+C***PURPOSE  Compute the complex tangent.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      COMPLEX (CTAN-C)
+C***KEYWORDS  ELEMENTARY FUNCTIONS, FNLIB, TANGENT, TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C CTAN(Z) calculates the complex trigonometric tangent of complex
+C argument Z.  Z is in units of radians.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  R1MACH, XERCLR, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  CTAN

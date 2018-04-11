@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  U11LS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to LLSIA
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (U11LS-S, DU11LS-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C       This routine performs a QR factorization of A
+C       using Householder transformations. Row and
+C       column pivots are chosen to reduce the growth
+C       of round-off and to help detect possible rank
+C       deficiency.
+C
+C***SEE ALSO  LLSIA
+C***ROUTINES CALLED  ISAMAX, ISWAP, SAXPY, SDOT, SNRM2, SSCAL, SSWAP,
+C                    XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   810801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  U11LS

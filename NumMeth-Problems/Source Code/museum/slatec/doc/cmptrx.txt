@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  CMPTRX
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CMGNBN
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (TRIX-S, CMPTRX-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve a system of linear equations where the
+C     coefficient matrix is a rational function in the matrix given by
+C     tridiagonal  ( . . . , A(I), B(I), C(I), . . . ).
+C
+C***SEE ALSO  CMGNBN
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CMPTRX

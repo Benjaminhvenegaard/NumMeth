@@ -1,0 +1,12 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE mpmul
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+mpchk
+mperr
+mpmaxr
+mpmlp
+mpnzr
+mpovfl
+mpunfl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+i1mach
+---END OF DEPENDENCIES---

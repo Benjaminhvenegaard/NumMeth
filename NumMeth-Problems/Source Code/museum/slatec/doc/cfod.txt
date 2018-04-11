@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  CFOD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEBDF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CFOD-S, DCFOD-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   CFOD defines coefficients needed in the integrator package DEBDF
+C
+C***SEE ALSO  DEBDF
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  CFOD

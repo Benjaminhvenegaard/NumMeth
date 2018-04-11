@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cchdd
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+scnrm2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+cdotc
+---END OF DEPENDENCIES---

@@ -1,0 +1,31 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dpoch1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9lgmc
+dcot
+dexprl
+dfac
+dgamlm
+dgamma
+dgamr
+dlgams
+dlngam
+dlnrel
+dpoch
+dpsi
+xerclr
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

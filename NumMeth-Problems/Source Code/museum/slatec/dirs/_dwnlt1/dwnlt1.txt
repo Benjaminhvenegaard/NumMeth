@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  DWNLT1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to WNLIT
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (WNLT1-S, DWNLT1-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C           Haskell, K. H., (SNLA)
+C***DESCRIPTION
+C
+C     To update the column Sum Of Squares and find the pivot column.
+C     The column Sum of Squares Vector will be updated at each step.
+C     When numerically necessary, these values will be recomputed.
+C
+C***SEE ALSO  DWNLIT
+C***ROUTINES CALLED  IDAMAX
+C***REVISION HISTORY  (YYMMDD)
+C   790701  DATE WRITTEN
+C   890620  Code extracted from WNLIT and made a subroutine.  (RWC))
+C   900604  DP version created from SP version.  (RWC)
+C***END PROLOGUE  DWNLT1

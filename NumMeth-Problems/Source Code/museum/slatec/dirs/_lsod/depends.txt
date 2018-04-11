@@ -1,0 +1,30 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE lsod
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cfod
+hstart
+hvnrm
+intyd
+pjac
+sgbfa
+sgbsl
+sgefa
+sgesl
+slvs
+stod
+vnwrms
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+saxpy
+sdot
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

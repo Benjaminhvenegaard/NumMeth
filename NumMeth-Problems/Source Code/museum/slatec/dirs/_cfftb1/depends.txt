@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cfftb1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+passb
+passb2
+passb3
+passb4
+passb5
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

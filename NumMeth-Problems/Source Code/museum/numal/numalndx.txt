@@ -1,0 +1,1160 @@
+
+                     INDEX TO NUMAL MANUAL AND CODE FILES
+                                       
+   
+     _________________________________________________________________
+   
+   [SMC] The Stichting Mathematisch Centrum at Amsterdam has granted
+   permission to incorporate the complete NUMAL library manual into this
+   CDROM. It may be freely used. It may be copied, provided that the name
+   NUMAL and the attribution to the Stichting Mathematisch Centrum at
+   Amsterdam are retained.
+   
+     _________________________________________________________________
+   
+NUMAL in Historical Context by Jan Kok (April, 1996)
+
+Introduction to NUMAL by P.W. Hemker (4th Revision, 1980)
+
+                           1. ELEMENTARY PROCEDURES
+                                       
+1.1. Real Vect and Mat Operations
+
+  1.1.1. Initialization
+  
+   INIVEC (Code 31010, NOV/81)
+   INIMAT (Code 31011, NOV/81)
+   INIMATD (Code 31012, NOV/81)
+   INISYMD (Code 31013, NOV/81)
+   INISYMROW (Code 31014, NOV/81)
+   
+  1.1.2. Duplication
+  
+   DUPVEC (Code 31030, NOV/81)
+   DUPVECROW (Code 31031, NOV/81)
+   DUPROWVEC (Code 31032, NOV/81)
+   DUPVECCOL (Code 31033, NOV/81)
+   DUPCOLVEC (Code 31034, NOV/81)
+   DUPMAT (Code 31035, NOV/81)
+   
+  1.1.3. Multiplication
+  
+   MULVEC (Code 31020, NOV/81)
+   MULROW (Code 31021, NOV/81)
+   MULCOL (Code 31022, NOV/81)
+   COLCST (Code 31131, NOV/81)
+   ROWCST (Code 31132, NOV/81)
+   
+  1.1.4. Scalar Products
+  
+    1.1.4.1. Vector Vector Products
+    
+   VECVEC (Code 34010, NOV/81)
+   MATVEC (Code 34011, NOV/81)
+   TAMVEC (Code 34012, NOV/81)
+   MATMAT (Code 34013, NOV/81)
+   TAMMAT (Code 34014, NOV/81)
+   MATTAM (Code 34015, NOV/81)
+   SEQVEC (Code 34016, NOV/81)
+   SCAPRD1 (Code 34017, NOV/81)
+   SYMMATVEC (Code 34018, NOV/81)
+   
+    1.1.4.2. Matrix Vector Products
+    
+   FULMATVEC (Code 31500, NOV/81)
+   FULTAMVEC (Code 31501, NOV/81)
+   FULSYMMATVEC (Code 31502, NOV/81)
+   RESVEC (Code 31503, NOV/81)
+   SYMRESVEC (Code 31504, NOV/81)
+   
+    1.1.4.3. Matrix Matrix Products
+    
+   HSHVECMAT (Code 31070, NOV/81)
+   HSHCOLMAT (Code 31071, NOV/81)
+   HSHROWMAT (Code 31072, NOV/81)
+   HSHVECTAM (Code 31073, NOV/81)
+   HSHCOLTAM (Code 31074, NOV/81)
+   HSHROWTAM (Code 31075, NOV/81)
+   
+  1.1.5. Elimination
+  
+   ELMVEC (Code 34020, NOV/81)
+   ELMCOL (Code 34023, NOV/81)
+   ELMROW (Code 34024, NOV/81)
+   ELMVECCOL (Code 34021, NOV/81)
+   ELMCOLVEC (Code 34022, NOV/81)
+   ELMVECROW (Code 34026, NOV/81)
+   ELMROWVEC (Code 34027, NOV/81)
+   ELMCOLROW (Code 34029, NOV/81)
+   ELMROWCOL (Code 34028, NOV/81)
+   MAXELMROW (Code 34025, NOV/81)
+   
+  1.1.6. Interchanging
+  
+   ICHVEC (Code 34030, NOV/81)
+   ICHCOL (Code 34031, NOV/81)
+   ICHROW (Code 34032, NOV/81)
+   ICHROWCOL (Code 34033, NOV/81)
+   ICHSEQVEC (Code 34034, NOV/81)
+   ICHSEQ (Code 34035, NOV/81)
+   
+  1.1.7. Rotation
+  
+   ROTCOL (Code 34040, NOV/81)
+   ROTROW (Code 34041, NOV/81)
+   
+  1.1.8. Norms
+  
+   INFNRMVEC (Code 31061, NOV/81)
+   INFNRMROW (Code 31062, NOV/81)
+   INFNRMCOL (Code 31063, NOV/81)
+   INFNRMMAT (Code 31064, NOV/81)
+   ONENRMVEC (Code 31065, NOV/81)
+   ONENRMROW (Code 31066, NOV/81)
+   ONENRMCOL (Code 31067, NOV/81)
+   ONENRMMAT (Code 31068, NOV/81)
+   ABSMAXMAT (Code 31069, NOV/81)
+   
+  1.1.9. Scaling
+  
+   REASCL (Code 34183, NOV/81)
+   
+1.2. Compl Vect and Mat Operations
+
+  1.2.3. Multiplication
+  
+   COMCOLCST (Code 34352, NOV/81)
+   COMROWCST (Code 34353, NOV/81)
+   
+  1.2.4. Scalar Products
+  
+   COMMATVEC (Code 34354, NOV/81)
+   HSHCOMCOL (Code 34355, NOV/81)
+   HSHCOMPRD (Code 34356, NOV/81)
+   
+  1.2.5. Elimination
+  
+   ELMCOMVECCOL (Code 34376, NOV/81)
+   ELMCOMCOL (Code 34377, NOV/81)
+   ELMCOMROWVEC (Code 34378, NOV/81)
+   
+  1.2.6. Interchanging
+  
+  1.2.7. Rotation
+  
+   ROTCOMCOL (Code 34357, NOV/81)
+   ROTCOMROW (Code 34358, NOV/81)
+   CHSH2 (Code 34611, NOV/81)
+   
+  1.2.8. Norms
+  
+   COMEUCNRM (Code 34359, NOV/81)
+   
+  1.2.9. Scaling
+  
+   COMSCL (Code 34193, NOV/81)
+   SCLCOM (Code 34360, NOV/81)
+   
+1.3. Complex Arithmetic
+
+  1.3.1. Monadic Operations
+  
+   COMABS (Code 34340, NOV/81)
+   COMSQRT (Code 34343, NOV/81)
+   CARPOL (Code 34344, NOV/81)
+   
+  1.3.2. Dyadic Operations
+  
+   COMMUL (Code 34341, NOV/81)
+   COMDIV (Code 34342, NOV/81)
+   
+1.4. Long Integer Arithmetic
+
+   LNGINTADD (Code 31200, NOV/81)
+   LNGINTSUBTRACT (Code 31201, NOV/81)
+   LNGINTMULT (Code 31202, NOV/81)
+   LNGINTDIVIDE (Code 31203, NOV/81)
+   LNGINTPOWER (Code 31204, NOV/81)
+   
+1.5. Long Real Arithmetic
+
+  1.5.1. Elem. Arithmetic Operations
+  
+   DP ADD (Code 31101, NOV/81)
+   DP SUB (Code 31102, NOV/81)
+   DP MUL (Code 31103, NOV/81)
+   DP DIV (Code 31104, NOV/81)
+   DP POW (Code 31109, NOV/81)
+   LNG ADD (Code 31105, NOV/81)
+   LNG SUB (Code 31106, NOV/81)
+   LNG MUL (Code 31107, NOV/81)
+   LNG DIV (Code 31108, NOV/81)
+   LNG POW (Code 31110, NOV/81)
+   
+  1.5.2. Scalar Products
+  
+   LNGVECVEC (Code 34410, NOV/81)
+   LNGMATVEC (Code 34411, NOV/81)
+   LNGTAMVEC (Code 34412, NOV/81)
+   LNGMATMAT (Code 34413, NOV/81)
+   LNGTAMMAT (Code 34414, NOV/81)
+   LNGMATTAM (Code 34415, NOV/81)
+   LNGSEQVEC (Code 34416, NOV/81)
+   LNGSCAPRD1 (Code 34417, NOV/81)
+   LNGSYMMATVEC (Code 34418, NOV/81)
+   LNGFULMATVEC (Code 31505, NOV/81)
+   LNGFULTAMVEC (Code 31506, NOV/81)
+   LNGFULSYMMATVEC (Code 31507, NOV/81)
+   LNGRESVEC (Code 31508, NOV/81)
+   LNGSYMRESVEC (Code 31509, NOV/81)
+   
+  1.5.3. Conversion
+  
+   LNGREATODECI (Code 31100, NOV/81)
+   
+                           2. ALGEBRAIC EVALUATIONS
+                                       
+2.1. Eval. of a Finite Series
+
+2.2. Eval. of Polynomials
+
+  2.2.1. Eval. of General Polynomials
+  
+    2.2.1.1. Polynomials in Grunert Form
+    
+   POL (Code 31040, NOV/81)
+   TAYPOL (Code 31241, NOV/81)
+   NORDERPOL (Code 31242, NOV/81)
+   DERPOL (Code 31243, NOV/81)
+   
+    2.2.1.2. Polynomials in Newton Form
+    
+  2.2.2. Eval. of Orthogon. Polynomials
+  
+    2.2.2.1. General Orthogon. Polynomials
+    
+   ORTPOL (Code 31044, NOV/81)
+   ORTPOLSYM (Code 31048, NOV/81)
+   ALLORTPOL (Code 31045, NOV/81)
+   ALLORTPOLSYM (Code 31049, NOV/81)
+   SUMORTPOL (Code 31047, NOV/81)
+   SUMORTPOLSYM (Code 31058, NOV/81)
+   
+    2.2.2.2. Chebychev Polynomials
+    
+   CHEPOLSUM (Code 31046, NOV/81)
+   ODDCHEPOLSUM (Code 31059, NOV/81)
+   CHEPOL (Code 31042, NOV/81)
+   ALLCHEPOL (Code 31043, NOV/81)
+   
+  2.2.3. Eval. of Trigonom. Polynomials
+  
+    2.2.3.1. Eval. of Fourier Series
+    
+   SINSER (Code 31090, NOV/81)
+   COSSER (Code 31091, NOV/81)
+   FOUSER (Code 31092, NOV/81)
+   FOUSER1 (Code 31093, NOV/81)
+   FOUSER2 (Code 31094, NOV/81)
+   COMFOUSER (Code 31095, NOV/81)
+   COMFOUSER1 (Code 31096, NOV/81)
+   COMFOUSER2 (Code 31097, NOV/81)
+   
+2.3. Eval. of Continued Fractions
+
+   JFRAC (Code 35083, NOV/81)
+   
+2.4. Operations On Polynomials
+
+  2.4.1. Transf. of Representation
+  
+   POLCHS (Code 31051, NOV/81)
+   CHSPOL (Code 31052, NOV/81)
+   POLSHTCHS (Code 31053, NOV/81)
+   SHTCHSPOL (Code 31054, NOV/81)
+   GRNNEW (Code 31055, NOV/81)
+   NEWGRN (Code 31050, NOV/81)
+   LINTFMPOL (Code 31250, NOV/81)
+   
+  2.4.2. Op. On General Polynomials
+  
+  2.4.3. Op. On Orthogonal Polynomials
+  
+   INTCHS (Code 31248, NOV/81)
+   
+2.5. Fast Fourier Transform
+
+                               3. LINEAR ALGEBRA
+                                       
+3.1. Linear Systems
+
+  3.1.1. Full Matrices
+  
+    3.1.1.1. Square Non-singular Matrices
+    
+    3.1.1.1.1. Real Matrices
+    
+    3.1.1.1.1.1. General Matrices
+    
+    3.1.1.1.1.1.1. Preparatory Procedures
+    
+   DEC (Code 34300, NOV/81)
+   GSSELM (Code 34231, NOV/81)
+   ONENRMINV (Code 34240, NOV/81)
+   ERBELM (Code 34241, NOV/81)
+   GSSERB (Code 34242, NOV/81)
+   GSSNRI (Code 34252, NOV/81)
+   
+    3.1.1.1.1.1.2. Calculation of Determinant
+    
+   DETERM (Code 34303, NOV/81)
+   
+    3.1.1.1.1.1.3. Solution of Linear Equations
+    
+   SOL (Code 34051, NOV/81)
+   DECSOL (Code 34301, NOV/81)
+   SOLELM (Code 34061, NOV/81)
+   GSSSOL (Code 34232, NOV/81)
+   GSSSOLERB (Code 34243, NOV/81)
+   
+    3.1.1.1.1.1.4. Matrix Inversion
+    
+   INV (Code 34053, NOV/81)
+   DECINV (Code 34302, NOV/81)
+   INV1 (Code 34235, NOV/81)
+   GSSINV (Code 34236, NOV/81)
+   GSSINVERB (Code 34244, NOV/81)
+   
+    3.1.1.1.1.1.5. Iteratively Improved Solution
+    
+   ITISOL (Code 34250, NOV/81)
+   GSSITISOL (Code 34251, NOV/81)
+   ITISOLERB (Code 34253, NOV/81)
+   GSSITISOLERB (Code 34254, NOV/81)
+   
+    3.1.1.1.1.2. Symmetric Pos Def Matrices
+    
+    3.1.1.1.1.2.1. Preparatory Procedures
+    
+   CHLDEC2 (Code 34310, NOV/81)
+   CHLDEC1 (Code 34311, NOV/81)
+   
+    3.1.1.1.1.2.2. Calculation of Determinant
+    
+   CHLDETERM2 (Code 34312, NOV/81)
+   CHLDETERM1 (Code 34313, NOV/81)
+   
+    3.1.1.1.1.2.3. Solution of Linear Equations
+    
+   CHLSOL2 (Code 34390, NOV/81)
+   CHLSOL1 (Code 34391, NOV/81)
+   CHLDECSOL2 (Code 34392, NOV/81)
+   CHLDECSOL1 (Code 34393, NOV/81)
+   
+    3.1.1.1.1.2.4. Matrix Inversion
+    
+   CHLINV2 (Code 34400, NOV/81)
+   CHLINV1 (Code 34401, NOV/81)
+   CHLDECINV2 (Code 34402, NOV/81)
+   CHLDECINV1 (Code 34403, NOV/81)
+   
+    3.1.1.1.1.3. General Symmetric Matrices
+    
+    3.1.1.1.1.3.1. Preparatory Procedures
+    
+   DECSYM2 (Code 34291, NOV/81)
+   
+    3.1.1.1.1.3.2. Calculation of Determinant
+    
+   DETERMSYM2 (Code 34294, NOV/81)
+   
+    3.1.1.1.1.3.3. Solution of Linear Equations
+    
+   SOLSYM2 (Code 34292, NOV/81)
+   DECSOLSYM2 (Code 34293, NOV/81)
+   
+    3.1.1.1.2. Complex Matrices
+    
+    3.1.1.2. Full Rank Overdeterm Systems
+    
+    3.1.1.2.1. Real Matrices
+    
+    3.1.1.2.1.1. Preparatory Procedures
+    
+   LSQORTDEC (Code 34134, NOV/81)
+   LSQDGLINV (Code 34132, NOV/81)
+   
+    3.1.1.2.1.2. Least Squares Solution
+    
+   LSQSOL (Code 34131, NOV/81)
+   LSQORTDECSOL (Code 34135, NOV/81)
+   
+    3.1.1.2.1.3. Inverse Matrix of Normal Eqn.
+    
+   LSQINV (Code 34136, NOV/81)
+   
+    3.1.1.2.1.4. Least Sqrs with Lin. Constr.
+    
+   LSQDECOMP (Code 34137, NOV/81)
+   LSQREFSOL (Code 34138, NOV/81)
+   
+    3.1.1.2.2. Complex Matrices
+    
+    3.1.1.3. Other Problems
+    
+    3.1.1.3.1. Real Matrices
+    
+    3.1.1.3.1.1. Solution Overdetermined Syst
+    
+   SOLSVDOVR (Code 34280, NOV/81)
+   SOLOVR (Code 34281, NOV/81)
+   
+    3.1.1.3.1.2. Solution Underdeterm Systems
+    
+   SOLSVDUND (Code 34282, NOV/81)
+   SOLUND (Code 34283, NOV/81)
+   
+    3.1.1.3.1.3. Solution Homogeneous Equation
+    
+   HOMSOLSVD (Code 34284, NOV/81)
+   HOMSOL (Code 34285, NOV/81)
+   
+    3.1.1.3.1.4. Pseudo-inversion
+    
+   PSDINVSVD (Code 34286, NOV/81)
+   PSDINV (Code 34287, NOV/81)
+   
+    3.1.1.3.2. Complex Matrices
+    
+  3.1.2. Sparse Matrices
+  
+    3.1.2.1. Direct Methods
+    
+    3.1.2.1.1. Real Matrices
+    
+    3.1.2.1.1.1. Non-symmetric Matrices
+    
+    3.1.2.1.1.1.1. Band Matrices
+    
+    3.1.2.1.1.1.1.1. Preparatory Procedures
+    
+   DECBND (Code 34320, NOV/81)
+   
+    3.1.2.1.1.1.1.2. Calculation of Determinant
+    
+   DETERMBND (Code 34321, NOV/81)
+   
+    3.1.2.1.1.1.1.3. Solution of Linear Equations
+    
+   SOLBND (Code 34071, NOV/81)
+   DECSOLBND (Code 34322, NOV/81)
+   
+    3.1.2.1.1.1.2. Tridiagonal Matrices
+    
+    3.1.2.1.1.1.2.1. Preparatory Procedures
+    
+   DECTRI (Code 34423, NOV/81)
+   DECTRIPIV (Code 34426, NOV/81)
+   
+    3.1.2.1.1.1.2.2. Calculation of Determinant
+    
+    3.1.2.1.1.1.2.3. Solution of Linear Equations
+    
+   SOLTRI (Code 34424, NOV/81)
+   DECSOLTRI (Code 34425, NOV/81)
+   SOLTRIPIV (Code 34427, NOV/81)
+   DECSOLTRIPIV (Code 34428, NOV/81)
+   
+    3.1.2.1.1.1.3. Bloc-tridiagonal Matrices
+    
+    3.1.2.1.1.2. Symmetric Pos Def Matrices
+    
+    3.1.2.1.1.2.1. Band Matrices
+    
+    3.1.2.1.1.2.1.1. Preparatory Procedures
+    
+   CHLDECBND (Code 34330, NOV/81)
+   
+    3.1.2.1.1.2.1.2. Calculation of Determinant
+    
+   CHLDETERMBND (Code 34331, NOV/81)
+   
+    3.1.2.1.1.2.1.3. Solution of Linear Equations
+    
+   CHLSOLBND (Code 34332, NOV/81)
+   CHLDECSOLBND (Code 34333, NOV/81)
+   
+    3.1.2.1.1.2.2. Tridiagonal Matrices
+    
+    3.1.2.1.1.2.2.1. Preparatory Procedures
+    
+   DECSYMTRI (Code 34420, NOV/81)
+   
+    3.1.2.1.1.2.2.2. Calculation of Determinant
+    
+    3.1.2.1.1.2.2.3. Solution of Linear Equations
+    
+   SOLSYMTRI (Code 34421, NOV/81)
+   DECSOLSYMTRI (Code 34422, NOV/81)
+   
+    3.1.2.1.1.2.3. Bloc-tridiagonal Matrices
+    
+    3.1.2.1.2. Complex Matrices
+    
+    3.1.2.2. Iterative Methods
+    
+    3.1.2.2.1. Real Matrices
+    
+   CONJ GRAD (Code 34220, NOV/81)
+   
+    3.1.2.2.2. Complex Matrices
+    
+3.2. Transformation to Special Form
+
+  3.2.1. Similarity Transformations
+  
+    3.2.1.1. Equilibration
+    
+    3.2.1.1.1. Real Matrices
+    
+   EQILBR (Code 34173, NOV/81)
+   BAKLBR (Code 34174, NOV/81)
+   
+    3.2.1.1.2. Complex Matrices
+    
+   EQILBRCOM (Code 34361, NOV/81)
+   BAKLBRCOM (Code 34362, NOV/81)
+   
+    3.2.1.2. Transf to Hessenberg Form
+    
+    3.2.1.2.1. Real Matrices
+    
+    3.2.1.2.1.1. Symmetric Matrices
+    
+   TFMSYMTRI2 (Code 34140, NOV/81)
+   BAKSYMTRI2 (Code 34141, NOV/81)
+   TFMPREVEC (Code 34142, NOV/81)
+   TFMSYMTRI1 (Code 34143, NOV/81)
+   BAKSYMTRI1 (Code 34144, NOV/81)
+   
+    3.2.1.2.1.2. Asymmetric Matrices
+    
+   TFMREAHES (Code 34170, NOV/81)
+   BAKREAHES1 (Code 34171, NOV/81)
+   BAKREAHES2 (Code 34172, NOV/81)
+   
+    3.2.1.2.2. Complex Matrices
+    
+    3.2.1.2.2.1. Hermitian Matrices
+    
+   HSHHRMTRI (Code 34363, NOV/81)
+   HSHHRMTRIVAL (Code 34364, NOV/81)
+   BAKHRMTRI (Code 34365, NOV/81)
+   
+    3.2.1.2.2.2. Non-hermitian Matrices
+    
+   HSHCOMHES (Code 34366, NOV/81)
+   BAKCOMHES (Code 34367, NOV/81)
+   
+  3.2.2. Other Transformations
+  
+    3.2.2.1. Transf to Bidiagonal Form
+    
+    3.2.2.1.1. Real Matrices
+    
+   HSHREABID (Code 34260, NOV/81)
+   PSTTFMMAT (Code 34261, NOV/81)
+   PRETFMMAT (Code 34262, NOV/81)
+   
+    3.2.2.1.2. Complex Matrices
+    
+3.3. The (ordinary) Eigenv Problem
+
+  3.3.1. Real Matrices
+  
+    3.3.1.1. Symmetric Matrices
+    
+    3.3.1.1.1. Tridiagonal Matrices
+    
+   VALSYMTRI (Code 34151, NOV/81)
+   VECSYMTRI (Code 34152, NOV/81)
+   QRIVALSYMTRI (Code 34160, NOV/81)
+   QRISYMTRI (Code 34161, NOV/81)
+   
+    3.3.1.1.2. Full Matrices
+    
+   EIGVALSYM2 (Code 34153, NOV/81)
+   EIGSYM2 (Code 34154, NOV/81)
+   EIGVALSYM1 (Code 34155, NOV/81)
+   EIGSYM1 (Code 34156, NOV/81)
+   QRIVALSYM2 (Code 34162, NOV/81)
+   QRISYM (Code 34163, NOV/81)
+   QRIVALSYM1 (Code 34164, NOV/81)
+   
+    3.3.1.1.3. Iterative Improvement
+    
+    3.3.1.1.3.1. Auxiliary Procedures
+    
+   MERGESORT (Code 36405, NOV/81)
+   VECPERM (Code 36404, NOV/81)
+   ROWPERM (Code 36403, NOV/81)
+   
+    3.3.1.1.3.2. Orthogonalisation
+    
+   ORTHOG (Code 36402, NOV/81)
+   
+    3.3.1.1.3.3. Improvement and Errorbounds
+    
+   SYMEIGINP (Code 36401, NOV/81)
+   
+    3.3.1.2. Asymmetric Matrices
+    
+    3.3.1.2.1. Matrices in Hessenberg Form
+    
+   REAVALQRI (Code 34180, NOV/81)
+   REAVECHES (Code 34181, NOV/81)
+   REAQRI (Code 34186, NOV/81)
+   COMVALQRI (Code 34190, NOV/81)
+   COMVECHES (Code 34191, NOV/81)
+   
+    3.3.1.2.2. Full Matrices
+    
+   REAEIGVAL (Code 34182, NOV/81)
+   REAEIG1 (Code 34184, NOV/81)
+   REAEIG3 (Code 34187, NOV/81)
+   COMEIGVAL (Code 34192, NOV/81)
+   COMEIG1 (Code 34194, NOV/81)
+   
+  3.3.2. Complex Matrices
+  
+    3.3.2.1. Hermitian Matrices
+    
+   EIGVALHRM (Code 34368, NOV/81)
+   EIGHRM (Code 34369, NOV/81)
+   QRIVALHRM (Code 34370, NOV/81)
+   QRIHRM (Code 34371, NOV/81)
+   
+    3.3.2.2. Non-hermitian Matrices
+    
+    3.3.2.2.1. Matrices in Hessenberg Form
+    
+   VALQRICOM (Code 34372, NOV/81)
+   QRICOM (Code 34373, NOV/81)
+   
+    3.3.2.2.2. Full Matrices
+    
+   EIGVALCOM (Code 34374, NOV/81)
+   EIGCOM (Code 34375, NOV/81)
+   
+3.4. The Generalized Eigenv Problem
+
+  3.4.1. Real Matrices
+  
+    3.4.1.1. Symmetric Matrices
+    
+    3.4.1.2. Asymmetric Matrices
+    
+   QZIVAL (Code 34600, NOV/81)
+   QZI (Code 34601, NOV/81)
+   HSHDECMUL (Code 34602, NOV/81)
+   HESTGL3 (Code 34603, NOV/81)
+   HESTGL2 (Code 34604, NOV/81)
+   HSH2COL (Code 34605, NOV/81)
+   HSH3COL (Code 34606, NOV/81)
+   HSH2ROW3 (Code 34607, NOV/81)
+   HSH2ROW2 (Code 34608, NOV/81)
+   HSH3ROW3 (Code 34609, NOV/81)
+   HSH3ROW2 (Code 34610, NOV/81)
+   
+3.5. Singular Values
+
+  3.5.1. Real Matrices
+  
+    3.5.1.1. Bidiagonal Matrices
+    
+   QRISNGVALBID (Code 34270, NOV/81)
+   QRISNGVALDECBID (Code 34271, NOV/81)
+   
+    3.5.1.2. Full Matrices
+    
+   QRISNGVAL (Code 34272, NOV/81)
+   QRISNGVALDEC (Code 34273, NOV/81)
+   
+  3.5.2. Complex Matrices
+  
+3.6. Zeros of Polynomials
+
+  3.6.1. Zeros of General Real Polynom.
+  
+   ZERPOL (Code 34501, NOV/81)
+   BOUNDS (Code 34502, NOV/81)
+   
+  3.6.2. Zeros of Orthogonal Polynom.
+  
+   ALLZERORTPOL (Code 31362, NOV/81)
+   LUPZERORTPOL (Code 31363, NOV/81)
+   SELZERORTPOL (Code 31364, NOV/81)
+   ALLJACZER (Code 31370, NOV/81)
+   ALLLAGZER (Code 31371, NOV/81)
+   
+  3.6.3. Zeros of Complex Polynomials
+  
+   COMKWD (Code 34345, NOV/81)
+   
+                            4. ANALYTIC EVALUATIONS
+                                       
+4.1. Eval. of An Infinite Series
+
+   EULER (Code 32010, NOV/81)
+   SUMPOSSERIES (Code 32020, NOV/81)
+   
+4.2. Quadrature
+
+  4.2.1. One-dimensional Quadrature
+  
+   QADRAT (Code 32070, NOV/81)
+   INTEGRAL (Code 32051, NOV/81)
+   
+  4.2.2. Multidimensional Quadrature
+  
+   TRICUB (Code 32075, NOV/81)
+   
+  4.2.3. Gaussian Quadrature
+  
+    4.2.3.1. General Weights
+    
+   RECCOF (Code 31254, NOV/81)
+   GSSWTS (Code 31253, NOV/81)
+   GSSWTSSYM (Code 31252, NOV/81)
+   
+    4.2.3.2. Special Weights
+    
+   GSSJACWGHTS (Code 31425, NOV/81)
+   GSSLAGWGHTS (Code 31427, NOV/81)
+   
+4.3. Numerical Differentiation
+
+  4.3.1. Functions of One Variable
+  
+  4.3.2. Functions of More Variables
+  
+    4.3.2.1. Calc. with Difference Formulas
+    
+   JACOBNNF (Code 34437, NOV/81)
+   JACOBNMF (Code 34438, NOV/81)
+   JACOBNBNDF (Code 34439, NOV/81)
+   
+                            5. ANALYTICAL PROBLEMS
+                                       
+5.1. Analytical Equations
+
+  5.1.1. Non-linear Equations
+  
+    5.1.1.1. A Single Equation
+    
+    5.1.1.1.1. No Derivative Available
+    
+   ZEROIN (Code 34150, NOV/81)
+   ZEROINRAT (Code 34436, NOV/81)
+   
+    5.1.1.1.2. Derivative Available
+    
+   ZEROINDER (Code 34453, NOV/81)
+   
+    5.1.1.2. A System of Equations
+    
+    5.1.1.2.1. Auxiliary Procedures
+    
+    5.1.1.2.2. Jacobian Matrix Not Available
+    
+   QUANEWBND (Code 34430, NOV/81)
+   QUANEWBND1 (Code 34431, NOV/81)
+   
+    5.1.1.2.3. Jacobian Matrix Available
+    
+    5.1.1.3. Polynomial Equations ( See Also Section 3.6 )
+    
+  5.1.2. Unconstrained Optimization
+  
+    5.1.2.1. Functions of One Variable
+    
+    5.1.2.1.1. Derivative Not Available
+    
+   MININ (Code 34433, NOV/81)
+   
+    5.1.2.1.2. Derivative Available
+    
+   MININDER (Code 34435, NOV/81)
+   
+    5.1.2.2. Functions of More Variables
+    
+    5.1.2.2.1. Auxiliary Procedures
+    
+   LINEMIN (Code 34210, NOV/81)
+   RNK1UPD (Code 34211, NOV/81)
+   DAVUPD (Code 34212, NOV/81)
+   FLEUPD (Code 34213, NOV/81)
+   
+    5.1.2.2.2. No Derivatives Available
+    
+   PRAXIS (Code 34432, NOV/81)
+   
+    5.1.2.2.3. Gradient Available
+    
+   RNK1MIN (Code 34214, NOV/81)
+   FLEMIN (Code 34215, NOV/81)
+   
+    5.1.2.2.4. Gradient & Jacobian Available
+    
+  5.1.3. Overdetermined Nonlinear Syst.
+  
+    5.1.3.1. Least Squares Solutions ( See Also Section 7. )
+    
+    5.1.3.1.1. Auxiliary Procedures
+    
+    5.1.3.1.2. Jacobian Matrix Not Available (see Also Section 5.1.2.2.2. )
+    
+    5.1.3.1.3. Jacobian Matrix Available
+    
+   MARQUARDT (Code 34440, NOV/81)
+   GSSNEWTON (Code 34441, NOV/81)
+   
+5.2. Functional Equations
+
+  5.2.1. Differential Equations
+  
+    5.2.1.1. Initial Value Problems
+    
+    5.2.1.1.1. First Order Ordinary D.e.
+    
+    5.2.1.1.1.1. No Derivatives Rhs Available
+    
+   RK1 (Code 33010, NOV/81)
+   RKE (Code 33033, NOV/81)
+   RK4A (Code 33016, NOV/81)
+   RK4NA (Code 33017, NOV/81)
+   RK5NA (Code 33018, NOV/81)
+   MULTISTEP (Code 33080, NOV/81)
+   DIFFSYS (Code 33180, NOV/81)
+   ARK (Code 33061, NOV/81)
+   EFRK (Code 33070, NOV/81)
+   
+    5.2.1.1.1.2. Jacobian Matrix Available ( See Also Proc. Multistep
+    5.2.1.1.1.1 )
+    
+   EFSIRK (Code 33160, NOV/81)
+   EFERK (Code 33120, NOV/81)
+   LINIGER1VS (Code 33132, NOV/81)
+   LINIGER2 (Code 33131, NOV/81)
+   GMS (Code 33191, NOV/81)
+   IMPEX (Code 33135, NOV/81)
+   
+    5.2.1.1.1.3. Several Derivatives Available
+    
+   MODIFIED TAYLOR (Code 33040, NOV/81)
+   EXPONENTIALLY FITTED TAYLOR (Code 33050, NOV/81)
+   
+    5.2.1.1.2. Second Order Ordinary D.e.
+    
+    5.2.1.1.2.1. No Derivatives Rhs Available
+    
+   RK2 (Code 33012, NOV/81)
+   RK2N (Code 33013, NOV/81)
+   RK3 (Code 33014, NOV/81)
+   RK3N (Code 33015, NOV/81)
+   
+    5.2.1.1.2.2. Several Deriv. Rhs Available
+    
+    5.2.1.1.3. Initial Boundary Value Problem
+    
+   ARKMAT (Code 33066, NOV/81)
+   
+    5.2.1.2. Boundary Value Problems
+    
+    5.2.1.2.1. Two Point B.v.p.
+    
+    5.2.1.2.1.1. Shooting Methods ( See Also Section 5.2.1.3.1 )
+    
+    5.2.1.2.1.2. Linear Global Methods
+    
+    5.2.1.2.1.2.1. Second Order Tpbvp
+    
+    5.2.1.2.1.2.1.1. Self Adjoint Tpbvp
+    
+   FEM LAG SYM (Code 33300, NOV/81)
+   FEM LAG (Code 33301, NOV/81)
+   FEM LAG SPHER (Code 33308, NOV/81)
+   
+    5.2.1.2.1.2.1.2. Skew Adjoint Tpbvp
+    
+   FEM LAG SKEW (Code 33302, NOV/81)
+   
+    5.2.1.2.1.2.2. Fourth Order Tpbvp
+    
+    5.2.1.2.1.2.2.1. Self Adjoint Tpbvp
+    
+   FEM HERM SYM (Code 33303, NOV/81)
+   
+    5.2.1.2.1.2.2.2. Skew Adjoint Tpbvp
+    
+    5.2.1.2.1.3. Non-linear Global Methods
+    
+   NON LIN FEM LAG SKEW (Code 33314, NOV/81)
+   
+    5.2.1.2.2. Two-dimensional B.v.p.
+    
+    5.2.1.2.2.1. Elliptic B.v.p.s
+    
+    5.2.1.2.2.1.1. Discretization Procedures
+    
+    5.2.1.2.2.1.2. Special Linear Systems ( See Also Section 3.1.2 )
+    
+   RICHARDSON (Code 33170, NOV/81)
+   ELIMINATION (Code 33171, NOV/81)
+   
+    5.2.1.2.2.1.3. Special Non-linear Systems
+    
+    5.2.1.2.2.2. Parabolic & Hyperbolic B.v.p.s
+    
+    5.2.1.2.3. Multi-dimensional B.v.p.
+    
+    5.2.1.2.4. Over-determined Problems
+    
+    5.2.1.3. Parameter Estimation in D.e.
+    
+    5.2.1.3.1. P.e. in Initial Value Problems
+    
+   PEIDE (Code 34444, NOV/81)
+   
+  5.2.2. Integral Equations
+  
+  5.2.3. Integro- Differential Eqs
+  
+  5.2.4. Difference Equations
+  
+  5.2.5. Convolution Equations
+  
+                       6. SPECIAL FUNCTIONS & CONSTANTS
+                                       
+6.1. Mathematical Constants
+
+   PI (Code 30006, NOV/81)
+   E (Code 30007, NOV/81)
+   
+6.2. Machine Constants
+
+   MBASE (Code 30001, NOV/81)
+   ARREB (Code 30002, NOV/81)
+   DWARF (Code 30003, NOV/81)
+   GIANT (Code 30004, NOV/81)
+   INTCAP (Code 30005, NOV/81)
+   OVERFLOW (Code 30008, NOV/81)
+   UNDERFLOW (Code 30009, NOV/81)
+   
+6.3. Random Numbers
+
+6.4. Elementary Functions
+
+  6.4.1. Circular Functions
+  
+   TAN (Code 35120, NOV/81)
+   ARCSIN (Code 35121, NOV/81)
+   ARCCOS (Code 35122, NOV/81)
+   
+  6.4.2. Hyperbolic Functions
+  
+   SINH (Code 35111, NOV/81)
+   COSH (Code 35112, NOV/81)
+   TANH (Code 35113, NOV/81)
+   ARCSINH (Code 35114, NOV/81)
+   ARCCOSH (Code 35115, NOV/81)
+   ARCTANH (Code 35116, NOV/81)
+   
+  6.4.3. Logarithmic Function
+  
+   LOG ONE PLUS X (Code 35130, NOV/81)
+   
+6.5. Exponential Integral, Etc.
+
+  6.5.1. Exponential Integral
+  
+   EI (Code 35080, NOV/81)
+   EI ALPHA (Code 35081, NOV/81)
+   ENX (Code 35086, NOV/81)
+   NONEXP ENX (Code 35087, NOV/81)
+   
+  6.5.2. Sine and Cosine Integral
+  
+   SINCOSINT (Code 35084, NOV/81)
+   SINCOSFG (Code 35085, NOV/81)
+   
+6.6. Gamma Function, Etc.
+
+   GAMMA (Code 35061, NOV/81)
+   RECIP GAMMA (Code 35060, NOV/81)
+   LOG GAMMA (Code 35062, NOV/81)
+   INCOMGAM (Code 35030, NOV/81)
+   INCBETA (Code 35050, NOV/81)
+   IBPPLUSN (Code 35051, NOV/81)
+   IBQPLUSN (Code 35052, NOV/81)
+   IXQFIX (Code 35053, NOV/81)
+   IXPFIX (Code 35054, NOV/81)
+   FORWARD (Code 35055, NOV/81)
+   BACKWARD (Code 35056, NOV/81)
+   
+6.7. Error Function, Etc.
+
+   ERRORFUNCTION (Code 35021, NOV/81)
+   NONEXPERFC (Code 35022, NOV/81)
+   INVERSE ERROR FUNCTION (Code 35023, NOV/81)
+   FRESNEL (Code 35027, NOV/81)
+   FG (Code 35028, NOV/81)
+   
+6.8. Legendre Functions
+
+6.9. Bessel Functions of Int. Order
+
+  6.9.1. Bessel Functions J and Y
+  
+   BESS J0 (Code 35160, NOV/81)
+   BESS J1 (Code 35161, NOV/81)
+   BESS J (Code 35162, NOV/81)
+   BESS Y01 (Code 35163, NOV/81)
+   BESS Y (Code 35164, NOV/81)
+   BESS PQ0 (Code 35165, NOV/81)
+   BESS PQ1 (Code 35166, NOV/81)
+   
+  6.9.2. Bessel Functions I and K
+  
+   BESS I0 (Code 35170, NOV/81)
+   BESS I1 (Code 35171, NOV/81)
+   BESS I (Code 35172, NOV/81)
+   BESS K01 (Code 35173, NOV/81)
+   BESS K (Code 35174, NOV/81)
+   NONEXP BESS I0 (Code 35175, NOV/81)
+   NONEXP BESS I1 (Code 35176, NOV/81)
+   NONEXP BESS I (Code 35177, NOV/81)
+   NONEXP BESS K01 (Code 35178, NOV/81)
+   NONEXP BESS K (Code 35179, NOV/81)
+   
+  6.9.3. Kelvin Functions
+  
+6.10. Bessel Functions of Real Order
+
+  6.10.1. Bessel Functions J and Y
+  
+   BESS JAPLUSN (Code 35180, NOV/81)
+   BESS YA01 (Code 35181, NOV/81)
+   BESS YAPLUSN (Code 35182, NOV/81)
+   BESS PQA01 (Code 35183, NOV/81)
+   BESS ZEROS (Code 35184, NOV/81)
+   START (Code 35185, NOV/81)
+   
+  6.10.2. Bessel Functions I and K
+  
+   BESS IAPLUSN (Code 35190, NOV/81)
+   BESS KA01 (Code 35191, NOV/81)
+   BESS KAPLUSN (Code 35192, NOV/81)
+   NONEXP BESS IAPLUSN (Code 35193, NOV/81)
+   NONEXP BESS KA01 (Code 35194, NOV/81)
+   NONEXP BESS KAPLUSN (Code 35195, NOV/81)
+   
+  6.10.3. Spherical Bessel Functions
+  
+   SPHER BESS J (Code 35150, NOV/81)
+   SPHER BESS Y (Code 35151, NOV/81)
+   SPHER BESS I (Code 35152, NOV/81)
+   SPHER BESS K (Code 35153, NOV/81)
+   NONEXP SPHER BESS I (Code 35154, NOV/81)
+   NONEXP SPHER BESS K (Code 35155, NOV/81)
+   
+  6.10.4. Airy Functions
+  
+   AIRY (Code 35140, NOV/81)
+   AIRYZEROS (Code 35145, NOV/81)
+   
+                       7. INTERPOLATION & APPROXIMATION
+                                       
+7.1. Real Data in One Dimension
+
+  7.1.1. Interpolation, With
+  
+    7.1.1.1. Polynomials
+    
+    7.1.1.1.1. General Polynomials
+    
+   NEWTON (Code 36010, NOV/81)
+   
+    7.1.1.1.2. Orthogonal Polynomials
+    
+    7.1.1.2. Splines
+    
+    7.1.1.2.1. General Splines
+    
+    7.1.1.2.2. Natural Splines
+    
+    7.1.1.3. Trigonometric Series
+    
+    7.1.1.3.1. Fourier Series
+    
+    7.1.1.3.2. Sine Series
+    
+    7.1.1.3.3. Cosine Series
+    
+    7.1.1.4. Rational Functions
+    
+    7.1.1.5. Exponential Functions
+    
+  7.1.2. Approximation in 2-norm, With
+  
+    7.1.2.1. General Functions ( See Also Section 5.1.3.1 )
+    
+    7.1.2.2. Polynomials
+    
+    7.1.2.2.1. General Polynomials
+    
+    7.1.2.2.2. Orthogonal Polynomials
+    
+    7.1.2.3. Splines
+    
+    7.1.2.3.1. General Splines
+    
+    7.1.2.3.2. Natural Splines
+    
+    7.1.2.4. Trigonometric Series
+    
+    7.1.2.5. Rational Functions
+    
+    7.1.2.6. Exponential Functions
+    
+  7.1.3. Approximation in Inf-norm,with
+  
+    7.1.3.1. General Functions
+    
+    7.1.3.2. Polynomials
+    
+    7.1.3.2.1. General Polynomials
+    
+   INI (Code 36020, NOV/81)
+   SNDREMEZ (Code 36021, NOV/81)
+   MINMAXPOL (Code 36022, NOV/81)
+   
+    7.1.3.2.2. Orthogonal Polynomials
+    
+    7.1.3.3. Trigonometric Series
+    
+    7.1.3.4. Rational Functions
+    
+  7.1.4. Approximation in 1-norm, With
+  
+    7.1.4.1. General Functions
+    
+    7.1.4.2. Polynomials
+    
+7.2. Real Data in More Dimensions
+
+7.3. Real Functions in 1 Dimension
+
+  7.3.1. Polynomials
+  
+                               8. NUMBER THEORY

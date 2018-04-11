@@ -1,0 +1,48 @@
+C***BEGIN PROLOGUE  DSORT
+C***PURPOSE  Sort an array and optionally make the same interchanges in
+C            an auxiliary array.  The array may be sorted in increasing
+C            or decreasing order.  A slightly modified QUICKSORT
+C            algorithm is used.
+C***LIBRARY   SLATEC
+C***CATEGORY  N6A2B
+C***TYPE      DOUBLE PRECISION (SSORT-S, DSORT-D, ISORT-I)
+C***KEYWORDS  SINGLETON QUICKSORT, SORT, SORTING
+C***AUTHOR  Jones, R. E., (SNLA)
+C           Wisniewski, J. A., (SNLA)
+C***DESCRIPTION
+C
+C   DSORT sorts array DX and optionally makes the same interchanges in
+C   array DY.  The array DX may be sorted in increasing order or
+C   decreasing order.  A slightly modified quicksort algorithm is used.
+C
+C   Description of Parameters
+C      DX - array of values to be sorted   (usually abscissas)
+C      DY - array to be (optionally) carried along
+C      N  - number of values in array DX to be sorted
+C      KFLAG - control parameter
+C            =  2  means sort DX in increasing order and carry DY along.
+C            =  1  means sort DX in increasing order (ignoring DY)
+C            = -1  means sort DX in decreasing order (ignoring DY)
+C            = -2  means sort DX in decreasing order and carry DY along.
+C
+C***REFERENCES  R. C. Singleton, Algorithm 347, An efficient algorithm
+C                 for sorting with minimal storage, Communications of
+C                 the ACM, 12, 3 (1969), pp. 185-187.
+C***ROUTINES CALLED  XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   761101  DATE WRITTEN
+C   761118  Modified to use the Singleton quicksort algorithm.  (JAW)
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891009  Removed unreferenced statement labels.  (WRB)
+C   891024  Changed category.  (WRB)
+C   891024  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   901012  Declared all variables; changed X,Y to DX,DY; changed
+C           code to parallel SSORT. (M. McClain)
+C   920501  Reformatted the REFERENCES section.  (DWL, WRB)
+C   920519  Clarified error messages.  (DWL)
+C   920801  Declarations section rebuilt and code restructured to use
+C           IF-THEN-ELSE-ENDIF.  (RWC, WRB)
+C***END PROLOGUE  DSORT

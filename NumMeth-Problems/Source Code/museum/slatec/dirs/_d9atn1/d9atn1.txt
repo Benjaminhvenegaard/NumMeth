@@ -1,0 +1,33 @@
+C***BEGIN PROLOGUE  D9ATN1
+C***SUBSIDIARY
+C***PURPOSE  Evaluate DATAN(X) from first order relative accuracy so
+C            that DATAN(X) = X + X**3*D9ATN1(X).
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      DOUBLE PRECISION (R9ATN1-S, D9ATN1-D)
+C***KEYWORDS  ARC TANGENT, ELEMENTARY FUNCTIONS, FIRST ORDER, FNLIB,
+C             TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate  DATAN(X)  from first order, that is, evaluate
+C (DATAN(X)-X)/X**3  with relative error accuracy so that
+C        DATAN(X) = X + X**3*D9ATN1(X).
+C
+C Series for ATN1       on the interval  0.          to  1.00000E+00
+C                                        with weighted error   3.39E-32
+C                                         log weighted error  31.47
+C                               significant figures required  30.26
+C                                    decimal places required  32.27
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891115  Corrected third argument in reference to INITDS.  (WRB)
+C   891115  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  D9ATN1

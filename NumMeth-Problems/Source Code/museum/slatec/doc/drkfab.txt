@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  DRKFAB
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (RKFAB-S, DRKFAB-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C
+C     Subroutine DRKFAB integrates the initial value equations using
+C     the variable-step Runge-Kutta-Fehlberg integration scheme or
+C     the variable-order Adams method and orthonormalization
+C     determined by a linear dependence test.
+C
+C **********************************************************************
+C
+C***SEE ALSO  DBVSUP
+C***ROUTINES CALLED  DBVDER, DDEABM, DDERKF, DREORT, DSTOR1
+C***COMMON BLOCKS    DML15T, DML17B, DML18J, DML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DRKFAB

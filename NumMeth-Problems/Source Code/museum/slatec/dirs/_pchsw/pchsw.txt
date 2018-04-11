@@ -1,0 +1,68 @@
+C***BEGIN PROLOGUE  PCHSW
+C***SUBSIDIARY
+C***PURPOSE  Limits excursion from data for PCHCS
+C***LIBRARY   SLATEC (PCHIP)
+C***TYPE      SINGLE PRECISION (PCHSW-S, DPCHSW-D)
+C***AUTHOR  Fritsch, F. N., (LLNL)
+C***DESCRIPTION
+C
+C         PCHSW:  PCHCS Switch Excursion Limiter.
+C
+C     Called by  PCHCS  to adjust D1 and D2 if necessary to insure that
+C     the extremum on this interval is not further than DFMAX from the
+C     extreme data value.
+C
+C ----------------------------------------------------------------------
+C
+C  Calling sequence:
+C
+C        INTEGER  IEXTRM, IERR
+C        REAL  DFMAX, D1, D2, H, SLOPE
+C
+C        CALL  PCHSW (DFMAX, IEXTRM, D1, D2, H, SLOPE, IERR)
+C
+C   Parameters:
+C
+C     DFMAX -- (input) maximum allowed difference between F(IEXTRM) and
+C           the cubic determined by derivative values D1,D2.  (assumes
+C           DFMAX.GT.0.)
+C
+C     IEXTRM -- (input) index of the extreme data value.  (assumes
+C           IEXTRM = 1 or 2 .  Any value .NE.1 is treated as 2.)
+C
+C     D1,D2 -- (input) derivative values at the ends of the interval.
+C           (Assumes D1*D2 .LE. 0.)
+C          (output) may be modified if necessary to meet the restriction
+C           imposed by DFMAX.
+C
+C     H -- (input) interval length.  (Assumes  H.GT.0.)
+C
+C     SLOPE -- (input) data slope on the interval.
+C
+C     IERR -- (output) error flag.  should be zero.
+C           If IERR=-1, assumption on D1 and D2 is not satisfied.
+C           If IERR=-2, quadratic equation locating extremum has
+C                       negative discriminant (should never occur).
+C
+C    -------
+C    WARNING:  This routine does no validity-checking of arguments.
+C    -------
+C
+C  Fortran intrinsics used:  ABS, SIGN, SQRT.
+C
+C***SEE ALSO  PCHCS
+C***ROUTINES CALLED  R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   820218  DATE WRITTEN
+C   820805  Converted to SLATEC library version.
+C   870707  Replaced DATA statement for SMALL with a use of R1MACH.
+C   890411  1. Added SAVE statements (Vers. 3.2).
+C           2. Added REAL R1MACH for consistency with D.P. version.
+C   890411  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated AUTHOR and DATE WRITTEN sections in prologue.  (WRB)
+C   920526  Eliminated possible divide by zero problem.  (FNF)
+C   930503  Improved purpose.  (FNF)
+C***END PROLOGUE  PCHSW

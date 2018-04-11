@@ -1,0 +1,46 @@
+C***BEGIN PROLOGUE  POCH1
+C***PURPOSE  Calculate a generalization of Pochhammer's symbol starting
+C            from first order.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C1, C7A
+C***TYPE      SINGLE PRECISION (POCH1-S, DPOCH1-D)
+C***KEYWORDS  FIRST ORDER, FNLIB, POCHHAMMER, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate a generalization of Pochhammer's symbol for special
+C situations that require especially accurate values when X is small in
+C        POCH1(A,X) = (POCH(A,X)-1)/X
+C                   = (GAMMA(A+X)/GAMMA(A) - 1.0)/X .
+C This specification is particularly suited for stably computing
+C expressions such as
+C        (GAMMA(A+X)/GAMMA(A) - GAMMA(B+X)/GAMMA(B))/X
+C             = POCH1(A,X) - POCH1(B,X)
+C Note that POCH1(A,0.0) = PSI(A)
+C
+C When ABS(X) is so small that substantial cancellation will occur if
+C the straightforward formula is used, we  use an expansion due
+C to Fields and discussed by Y. L. Luke, The Special Functions and Their
+C Approximations, Vol. 1, Academic Press, 1969, page 34.
+C
+C The ratio POCH(A,X) = GAMMA(A+X)/GAMMA(A) is written by Luke as
+C        (A+(X-1)/2)**X * polynomial in (A+(X-1)/2)**(-2) .
+C In order to maintain significance in POCH1, we write for positive A
+C        (A+(X-1)/2)**X = EXP(X*LOG(A+(X-1)/2)) = EXP(Q)
+C                       = 1.0 + Q*EXPREL(Q) .
+C Likewise the polynomial is written
+C        POLY = 1.0 + X*POLY1(A,X) .
+C Thus,
+C        POCH1(A,X) = (POCH(A,X) - 1) / X
+C                   = EXPREL(Q)*(Q/X + Q*POLY1(A,X)) + POLY1(A,X)
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  COT, EXPREL, POCH, PSI, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900727  Added EXTERNAL statement.  (WRB)
+C***END PROLOGUE  POCH1

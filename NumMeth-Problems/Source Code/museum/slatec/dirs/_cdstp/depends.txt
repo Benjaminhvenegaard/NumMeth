@@ -1,0 +1,19 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cdstp
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdcor
+cdcst
+cdntl
+cdpsc
+cdpst
+cdscl
+cgbfa
+cgbsl
+cgefa
+cgesl
+cscal
+icamax
+scnrm2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

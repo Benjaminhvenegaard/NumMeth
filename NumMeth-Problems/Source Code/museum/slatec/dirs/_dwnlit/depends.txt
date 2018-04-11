@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dwnlit
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dh12
+drotm
+drotmg
+dwnlt1
+dwnlt2
+dwnlt3
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+dcopy
+ddot
+dscal
+dswap
+idamax
+---END OF DEPENDENCIES---

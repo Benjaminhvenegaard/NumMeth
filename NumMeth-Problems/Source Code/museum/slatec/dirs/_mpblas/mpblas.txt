@@ -1,0 +1,38 @@
+C***BEGIN PROLOGUE  MPBLAS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPBLAS-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     This subroutine is called to set up Brent's 'mp' package
+C     for use by the extended precision inner products from the BLAS.
+C
+C     In the SLATEC library we require the Extended Precision MP number
+C     to have a mantissa twice as long as Double Precision numbers.
+C     The calculation of MPT (and MPMXR which is the actual array size)
+C     in this routine will give 2x (or slightly more) on the machine
+C     that we are running on.  The INTEGER array size of 30 was chosen
+C     to be slightly longer than the longest INTEGER array needed on
+C     any machine that we are currently aware of.
+C
+C***SEE ALSO  DQDOTA, DQDOTI
+C***REFERENCES  R. P. Brent, A Fortran multiple-precision arithmetic
+C                 package, ACM Transactions on Mathematical Software 4,
+C                 1 (March 1978), pp. 57-70.
+C               R. P. Brent, MP, a Fortran multiple-precision arithmetic
+C                 package, Algorithm 524, ACM Transactions on Mathema-
+C                 tical Software 4, 1 (March 1978), pp. 71-81.
+C***ROUTINES CALLED  I1MACH, XERMSG
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8, and calculate
+C               size for Quad Precision for 2x DP.  (RWC)
+C***END PROLOGUE  MPBLAS

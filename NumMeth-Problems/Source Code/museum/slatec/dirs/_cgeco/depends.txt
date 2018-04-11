@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cgeco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cgefa
+cscal
+csscal
+icamax
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

@@ -1,0 +1,26 @@
+The files flip.c (PC executable flip.exe) and flip.pl (PERL script)
+are utilities for changing the end-of-line characters in text files to
+any of the following three conventions:
+
+PC   lines end with ^M^J (carriage-return line-feed)
+Mac  lines end with ^M   (carriage-return)
+UNIX lines end with ^J   (line-feed)
+
+flip.c is a "vanilla" C program that should compile on most machines.
+Its principal restriction is that it cannot recurse into
+subdirectories, though (on most systems) it can do multiple files in a
+single directory with wildcard arguments.
+
+flip.exe is flip.c compiled with Microsoft C/C++ V1.52.  This should
+run on all DOS and Windows machines.  Use the command line "FLIP.EXE"
+to get a usage summary.
+
+flip.pl is a PERL script, with the additional feature that it can
+recurse into subdirectories, if desired.  To use flip.pl, you will
+need already to have PERL on your machine.  Depending on your setup,
+you might run flip.pl with a command line like "PERL FLIP.PL
+<filename>".
+
+ALL THE FILES MENTIONED ABOVE ARE PUT INTO THE PUBLIC DOMAIN, AND ARE
+PROVIDED WITHOUT WARRANTY OF ANY KIND.  THEY ARE NOT SUPPORTED BY US
+IN ANY WAY, NOR ARE WE RESPONSIBLE IN ANY WAY FOR THEIR USE.

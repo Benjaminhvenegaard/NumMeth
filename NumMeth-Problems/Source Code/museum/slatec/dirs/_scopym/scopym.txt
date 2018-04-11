@@ -1,0 +1,34 @@
+C***BEGIN PROLOGUE  SCOPYM
+C***PURPOSE  Copy the negative of a vector to a vector.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1A5
+C***TYPE      SINGLE PRECISION (SCOPYM-S, DCOPYM-D)
+C***KEYWORDS  BLAS, COPY, VECTOR
+C***AUTHOR  Kahaner, D. K., (NBS)
+C***DESCRIPTION
+C
+C       Description of Parameters
+C           The * Flags Output Variables
+C
+C       N   Number of elements in vector(s)
+C      SX   Real vector with N elements
+C    INCX   Storage spacing between elements of SX
+C      SY*  Real negative copy of SX
+C    INCY   Storage spacing between elements of SY
+C
+C      ***  Note that SY = -SX  ***
+C
+C     Copy negative of real SX to real SY.  For I=0 to N-1,
+C     copy  -SX(LX+I*INCX) to SY(LY+I*INCY), where LX=1 if
+C     INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is defined
+C     in a similar way using INCY.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920310  Corrected definition of LX in DESCRIPTION.  (WRB)
+C***END PROLOGUE  SCOPYM

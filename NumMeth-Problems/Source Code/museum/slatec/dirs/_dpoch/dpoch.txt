@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  DPOCH
+C***PURPOSE  Evaluate a generalization of Pochhammer's symbol.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C1, C7A
+C***TYPE      DOUBLE PRECISION (POCH-S, DPOCH-D)
+C***KEYWORDS  FNLIB, POCHHAMMER, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate a double precision generalization of Pochhammer's symbol
+C (A)-sub-X = GAMMA(A+X)/GAMMA(A) for double precision A and X.
+C For X a non-negative integer, POCH(A,X) is just Pochhammer's symbol.
+C This is a preliminary version that does not handle wrong arguments
+C properly and may not properly handle the case when the result is
+C computed to less than half of double precision.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D9LGMC, DFAC, DGAMMA, DGAMR, DLGAMS, DLNREL, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900727  Added EXTERNAL statement.  (WRB)
+C***END PROLOGUE  DPOCH

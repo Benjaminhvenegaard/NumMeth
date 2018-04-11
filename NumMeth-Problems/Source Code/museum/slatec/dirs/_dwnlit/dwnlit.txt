@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  DWNLIT
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DWNNLS
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (WNLIT-S, DWNLIT-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C           Haskell, K. H., (SNLA)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to DWNNLS( ).
+C     The documentation for DWNNLS( ) has complete usage instructions.
+C
+C     Note  The M by (N+1) matrix W( , ) contains the rt. hand side
+C           B as the (N+1)st col.
+C
+C     Triangularize L1 by L1 subsystem, where L1=MIN(M,L), with
+C     col interchanges.
+C
+C***SEE ALSO  DWNNLS
+C***ROUTINES CALLED  DCOPY, DH12, DROTM, DROTMG, DSCAL, DSWAP, DWNLT1,
+C                    DWNLT2, DWNLT3, IDAMAX
+C***REVISION HISTORY  (YYMMDD)
+C   790701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and revised.  (WRB & RWC)
+C   890620  Revised to make WNLT1, WNLT2, and WNLT3 subroutines.  (RWC)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900604  DP version created from SP version. .  (RWC)
+C***END PROLOGUE  DWNLIT

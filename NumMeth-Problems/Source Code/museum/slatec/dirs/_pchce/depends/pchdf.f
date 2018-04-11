@@ -1,0 +1,52 @@
+      REAL FUNCTION PCHDF (K, X, S, IERR)
+C
+C**End
+C
+C  DECLARE ARGUMENTS.
+C
+      INTEGER  K, IERR
+      REAL  X(K), S(K)
+C
+C  DECLARE LOCAL VARIABLES.
+C
+      INTEGER  I, J
+      REAL  VALUE, ZERO
+      SAVE ZERO
+      DATA  ZERO /0./
+C
+C  CHECK FOR LEGAL VALUE OF K.
+C
+C***FIRST EXECUTABLE STATEMENT  PCHDF
+      IF (K .LT. 3)  GO TO 5001
+C
+C  COMPUTE COEFFICIENTS OF INTERPOLATING POLYNOMIAL.
+C
+      DO 10  J = 2, K-1
+         DO 9  I = 1, K-J
+            S(I) = (S(I+1)-S(I))/(X(I+J)-X(I))
+    9    CONTINUE
+   10 CONTINUE
+C
+C  EVALUATE DERIVATIVE AT X(K).
+C
+      VALUE = S(1)
+      DO 20  I = 2, K-1
+         VALUE = S(I) + VALUE*(X(K)-X(I))
+   20 CONTINUE
+C
+C  NORMAL RETURN.
+C
+      IERR = 0
+      PCHDF = VALUE
+      RETURN
+C
+C  ERROR RETURN.
+C
+ 5001 CONTINUE
+C     K.LT.3 RETURN.
+      IERR = -1
+      CALL XERMSG ('SLATEC', 'PCHDF', 'K LESS THAN THREE', IERR, 1)
+      PCHDF = ZERO
+      RETURN
+C------------- LAST LINE OF PCHDF FOLLOWS ------------------------------
+      END

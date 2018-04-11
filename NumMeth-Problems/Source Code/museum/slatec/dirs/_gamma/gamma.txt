@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  GAMMA
+C***PURPOSE  Compute the complete Gamma function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7A
+C***TYPE      SINGLE PRECISION (GAMMA-S, DGAMMA-D, CGAMMA-C)
+C***KEYWORDS  COMPLETE GAMMA FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C GAMMA computes the gamma function at X, where X is not 0, -1, -2, ....
+C GAMMA and X are single precision.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, GAMLIM, INITS, R1MACH, R9LGMC, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  GAMMA

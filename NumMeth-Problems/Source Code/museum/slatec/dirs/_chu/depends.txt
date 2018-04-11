@@ -1,0 +1,33 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE chu
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+algams
+alngam
+alnrel
+cot
+exprel
+fac
+gamlim
+gamma
+gamr
+poch
+poch1
+psi
+r9chu
+r9lgmc
+xerclr
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

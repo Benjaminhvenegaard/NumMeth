@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ssvdc
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+srot
+srotg
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+saxpy
+sdot
+snrm2
+sscal
+sswap
+---END OF DEPENDENCIES---

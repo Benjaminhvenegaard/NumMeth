@@ -1,0 +1,31 @@
+C***BEGIN PROLOGUE  CHU
+C***PURPOSE  Compute the logarithmic confluent hypergeometric function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C11
+C***TYPE      SINGLE PRECISION (CHU-S, DCHU-D)
+C***KEYWORDS  FNLIB, LOGARITHMIC CONFLUENT HYPERGEOMETRIC FUNCTION,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C CHU computes the logarithmic confluent hypergeometric function,
+C U(A,B,X).
+C
+C Input Parameters:
+C       A   real
+C       B   real
+C       X   real and positive
+C
+C This routine is not valid when 1+A-B is close to zero if X is small.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  EXPREL, GAMMA, GAMR, POCH, POCH1, R1MACH, R9CHU,
+C                    XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900727  Added EXTERNAL statement.  (WRB)
+C***END PROLOGUE  CHU

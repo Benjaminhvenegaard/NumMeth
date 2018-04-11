@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  DLNREL
+C***PURPOSE  Evaluate ln(1+X) accurate in the sense of relative error.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4B
+C***TYPE      DOUBLE PRECISION (ALNREL-S, DLNREL-D, CLNREL-C)
+C***KEYWORDS  ELEMENTARY FUNCTIONS, FNLIB, LOGARITHM
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DLNREL(X) calculates the double precision natural logarithm of
+C (1.0+X) for double precision argument X.  This routine should
+C be used when X is small and accurate to calculate the logarithm
+C accurately (in the relative error sense) in the neighborhood
+C of 1.0.
+C
+C Series for ALNR       on the interval -3.75000E-01 to  3.75000E-01
+C                                        with weighted error   6.35E-32
+C                                         log weighted error  31.20
+C                               significant figures required  30.93
+C                                    decimal places required  32.01
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DLNREL

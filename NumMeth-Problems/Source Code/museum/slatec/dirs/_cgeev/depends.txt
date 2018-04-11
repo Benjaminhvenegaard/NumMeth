@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cgeev
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cbabk2
+cbal
+cdiv
+comqr
+comqr2
+corth
+csroot
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+pythag
+scopy
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

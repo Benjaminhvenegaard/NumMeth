@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  CLNGAM
+C***PURPOSE  Compute the logarithm of the absolute value of the Gamma
+C            function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7A
+C***TYPE      COMPLEX (ALNGAM-S, DLNGAM-D, CLNGAM-C)
+C***KEYWORDS  ABSOLUTE VALUE, COMPLETE GAMMA FUNCTION, FNLIB, LOGARITHM,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C CLNGAM computes the natural log of the complex valued gamma function
+C at ZIN, where ZIN is a complex number.  This is a preliminary version,
+C which is not accurate.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  C9LGMC, CARG, CLNREL, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  CLNGAM

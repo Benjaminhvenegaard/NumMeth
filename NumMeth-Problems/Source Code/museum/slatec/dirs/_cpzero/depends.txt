@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cpzero
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cpevl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+i1mach
+---END OF DEPENDENCIES---

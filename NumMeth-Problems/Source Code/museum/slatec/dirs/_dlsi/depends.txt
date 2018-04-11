@@ -1,0 +1,33 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dlsi
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dh12
+dhfti
+dlpdp
+drotm
+drotmg
+dwnlit
+dwnlsm
+dwnlt1
+dwnlt2
+dwnlt3
+dwnnls
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+dcopy
+ddot
+dnrm2
+dscal
+dswap
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

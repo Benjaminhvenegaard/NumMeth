@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  DBINOM
+C***PURPOSE  Compute the binomial coefficients.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C1
+C***TYPE      DOUBLE PRECISION (BINOM-S, DBINOM-D)
+C***KEYWORDS  BINOMIAL COEFFICIENTS, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBINOM(N,M) calculates the double precision binomial coefficient
+C for integer arguments N and M.  The result is (N!)/((M!)(N-M)!).
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9LGMC, DLNREL, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DBINOM

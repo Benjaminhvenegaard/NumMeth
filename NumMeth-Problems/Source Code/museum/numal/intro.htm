@@ -1,0 +1,224 @@
+<html><head><title>NUMAL Introduction</title></head><body>
+<center><h2>The Library</h2>
+<h1>NUMAL</h1>
+<h2>of Algol 60 Procedures in Numerical Mathematics</h2>
+<h3>Mathematical Centre, Amsterdam</h3>
+<h4>4th Revision, 1980</h4></center>
+
+<hr>
+
+<center><h4>Note added in April, 1996</h4></center>
+
+The <STRONG>Stichting Mathematisch Centrum</STRONG> at Amsterdam has
+granted permission to incorporate the complete NUMAL library manual
+into this CDROM.  It may be freely used.  It may be copied, provided
+that the name NUMAL and the attribution to the Stichting Mathematisch
+Centrum at Amsterdam are retained.<p>
+
+<hr>
+
+<h1>Introduction</h1>
+
+
+At the request  of the  Academic  Computing  Centre  of  Amsterdam  (SARA)
+the  Mathematical  Centre  started  in  1973  the  adaptation  of  its
+collection of  numerical procedures  for  use  with  the  CD  Cyber 70
+system.  The  resulting   numerical  library is   called  "NUMAL"
+(NUMerical  procedures   in   ALgol  60).<p>
+
+The   documentation   appeared   in  1974  in  a  loose  leaf  manual.
+It   was    revised    and    updated   in   1975,  1977   and   1979.
+In  this   period   the   library  grew  to  a   collection  of  about
+430  routines  in  all  different  fields  of  numerical  mathematics.
+Although   no   attempts   have  been  made  to  create  a  collection
+that  gives a complete overview of all numerical procedures available,
+most   areas   of   numerical   mathematics   are  covered   and  most
+programs  for which  a need  was  felt  have been  implemented.<p>
+
+The  aim of  NUMAL   was  to  provide   Algol 60  programmers  with  a
+high level  numerical  library  which  contains  a  set  of  validated
+numerical   procedures   together   with   supporting   documentation.<p>
+
+The library  has been  constructed  in  a modular  way: Most  routines
+refer  to  and  rely on  other routines  that  perform a  well-defined
+sub-task. the more experienced user  can  avail  himself of these more
+elementary routines  in the same way as the authors of the library do.
+The novice, it  is  better to use  the  more comprehensive  procedures
+which  perform   complete   mathematical  computations.<p>
+
+In  1976  and  1977  the  Numerical Mathematics  department  organized
+a  seminar  on  numerical software. In  this seminar  the use  of some
+Algol  procedures  in  the  NUMAL  library  was  explained  in  detail
+and their algorithmic background was clarified.
+Also,  the  numerical  libraries IMSL (Fortran),  NAG (Algol 60  and
+Fortran)  and   NUMAL (Algol 60) were  compared.  The  proceedings  of
+this  seminar  appeared  (in  Dutch)  in  the  MC-syllabus  series  of
+the Mathematical Centre as:<p>
+
+<pre>
+   COLLOQUIUM NUMERIEKE PROGRAMMATUUR, DEEL 1
+   J.C.P.BUS  ED., MCS 29.1,
+   MATHEMATISCH CENTRUM, AMSTERDAM,1976,
+</pre>
+
+and
+
+<pre>
+   COLLOQUIUM NUMERIEKE PROGRAMMATUUR, DEEL 2
+   H.J.J.TE RIELE  ED., MCS 29.2,
+   MATHEMATISCH CENTRUM, AMSTERDAM,1977.
+</pre>
+
+<h3>The Language Algol 60 and the Modular Structure</h3>
+
+
+Two important  characteristics  of  NUMAL  are : its modular structure,
+and  the  consistent  use  of  standard  Algol 60 (in the sense of the
+revised report on Algol 60, see ref.).<p>
+
+Input  and output routines,  not being  defined in  standard Algol 60,
+have not been used  in the library source texts. They  only appear  in
+the documentation  where  examples  of  use  of  the  library routines
+are given.<p>
+
+Since double precision is also not defined in Algol 60, a small number
+of double precision arithmetic routines could not be coded in Algol 60
+and, hence, a  few  (8)  double   precision  modules   were  coded  in
+assembly language.<p>
+
+Except for this  small number of  double precision arithmetic routines
+all the source texts  are written in Algol 60  and, hence, they are in
+principle independent of the computer/compiler  used.<p>
+
+In  its   practical  implementation   on  the  CDC-Cyber  system  most
+elementary   routines   in  the   modular  structure  of  the  library
+(i.e. the  matrix  and  vector  operations) were  re-coded  by hand
+in  assembly language.  This  has  accelerated  the  operation of most
+linear  algebra  routines  by  a  factor 2.5.  Thus, one  of the major
+disadvantages of the use of Algol 60,  the  relatively  long execution
+times (which first  were  approximately  4 times longer  than  for an
+equivalent   Fortran  program) was circumvented  to a  large  extent.
+This refinement was  possible  because of  the  consistent application
+of the modularity principle.<p>
+
+
+<h4>References</h4>
+<pre>
+      P.NAUR (ED.)
+      REVISED REPORT ON THE ALGORITHMIC LANGUAGE ALGOL 60
+      A/S REGNECENTRALEN, COPENHAGEN, 1964.
+
+      P.W.HEMKER
+      CRITERIA FOR TRANSPORTABLE ALGOL LIBRARIES.
+      IN: PORTABILITY OF NUMERICAL SOFTWARE (W.COWELL ED.)
+          LECTURE NOTES IN COMP.SC. 57,SPRINGER VERLAG, 1977.
+</pre>
+
+<h3>Organization of the Library</h3>
+
+Each routine in the library is identified by a name and a code number.
+The code number  can be used  in an  Algol 60 program  when  reference
+is made to  a   pre-compiled   procedure  in the  object code library.
+All  procedures   in   NUMAL  are  classified  according  to  subject.
+The subjects are identified by a section number.
+The manual is ordered  by these section numbers.<p>
+
+In  order to find  a particular procedure, there is a systematic index
+in which  all procedures  (their names  and their  code numbers) are
+recorded and classified  by their  section number (i.e. by subject).<p>
+
+For  cross  referencing  there  is  an  index  by  code number,  which
+has references  to  procedure  name  and  section  number,  and  there
+is also  a  KWIC index  in which  keywords  and  procedure names  have
+been ordered  alphabetically.<p>
+
+<h3>The Status of NUMAL</h3>
+
+In 1979 the interest  at the  Mathematical Centre  in the  creation of
+general  numerical   software   in   Algol  60   decreased   and   the
+drafting-committee  decided  to  conclude  the  NUMAL project with the
+publication   of  a  final  revision  of the  library  in  book  form.
+In its present form the library NUMAL can be seen  as a description of
+the   state-of-the-art  of   numerical  Algol 60  programming  at  the
+Mathematical Centre at the end of the 1970s.
+We  think  that  it  contains  a valuable collection  of routines in a
+language  that   still   can  describe   numerical  procedures  better
+than many other programming languages currently in use.<p>
+
+<h3>Imperfections and Responsibility</h3>
+
+Although  the  Numerical  Mathematics  department  of the Mathematical
+Centre  assumes  the responsibility for imperfections both in programs
+and  in   documentation,  neither  the  Mathematical  Centre  nor  the
+authors/contributors   accept  responsibility  for   the  consequences
+of such imperfections.
+Although  much effort has been spent  to keep the number  of errors to
+a  minimum, it  is  possible  that  some  minor  errors  still remain.
+Therefore  the  Numerical  Mathematics  department  will  keep  a list
+of  all errors in the  documentation  and/or  the programs that become
+known  after  publication   and  this  list  will  be  made  available
+upon request.<p>
+
+<h3>NUMAL in Fortran</h3>
+
+A translation of  NUMAL  into a  Fortran version  suitable for  use on
+a  mini-computor  is  carried out under the supervision of  P. Wynn  by
+H.T. Lau   in  the  School  of  Computer  Science,  McGill University,
+Montreal, Canada.
+Further  research  on the  Fortran version  is  also being carried out
+at IIMAS  (Instituto  de Investigaciones  en  Matematicas Applicadas y
+en Systemas), Universidad Nacional Autonoma de Mexico.<p>
+
+<h3>Origin of the Programs</h3>
+
+The major part  of the library  consists of  procedures that have been
+developed  at the  Mathematical Centre.  However, some  procedures are
+adapted  versions  of  procedures  published  in  the open literature.
+In particular  a  number  of  programs  are  derived  from  procedures
+published  by   A. Bjoerck,  R.  Bulirsch,  J.R.  Bunch,   G.H. Golub,
+L.  Kaufman,  B. Lindberg,  B.N.  Parlett,  C. Reinsch  and  J. Stoer.<p>
+
+
+<h3>List of Contributors and Authors of Procedures in NUMAL</h3>
+
+<pre>
+J.J.G. ADMIRAAL
+M. BAKKER                        J.KOOPMAN
+P.A. BEENTJES                    G.J. LAAN
+J.C.P. BUS                       C.G. VAN DER LAAN
+C.H. CONVENT                     R. MONTIJN
+T.M.T. COOLEN                    R. PLOEGER
+J. DANIEL                        T.H.P. REYMER
+K. DEKKER                        H.J.J. TE RIELE
+TH.J. DEKKER                     C.J. ROOTHART
+B. VAN DOMSELAAR                 H.G.J. ROZENHART
+H. FIOLET                        E. SLAGT
+H.N. GLORIE                      N.M. TEMME
+P.J. HARINGHUIZEN                J.G. VERWER
+P.W. HEMKER                      M. VOORINTHOLT
+W. HOFFMANN                      D.T. WINTER
+P.J. VAN DER HOUWEN              J. WOLLESWINKEL
+S.P.N. VAN KAMPEN                A.C. IJSSELSTEIN
+J. KOK                           J.A. ZONNEVELD
+</pre> 
+
+<h3>ACKNOWLEDGEMENTS</h3>
+
+The library  NUMAL  has been  developed  by the  joint efforts  of the
+members  of the Library Group of the  Numerical Mathematics department
+of  the  Mathematical Centre.  In  particular,  however,  we  want  to
+acknowledge   the   members    F. Groen,  K. van 't Hoff,  R. Piscaer,
+B.P. Sommeijer, G.J.F. Vinkesteyn, who took care of file manipulation,
+editing  of the documentation files  and  adaption and running  of the
+KWIC  index  program.<p>
+Further  we want to  acknowledge the members of the drafting comittee:
+C. den Heyer, P.J. van der Houwen, J. Kok, N.M. Temme and D.T. Winter,
+and the external advisors:
+Th. J. Dekker, W. Hoffmann (University of Amsterdam) and
+C.G. van der Laan (University of Groningen).<p>
+
+P.W. HEMKER<br>
+GENERAL EDITOR<p>
+
+
+</body></html>

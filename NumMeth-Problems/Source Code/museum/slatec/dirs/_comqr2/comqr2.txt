@@ -1,0 +1,100 @@
+C***BEGIN PROLOGUE  COMQR2
+C***PURPOSE  Compute the eigenvalues and eigenvectors of a complex upper
+C            Hessenberg matrix.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2B
+C***TYPE      COMPLEX (HQR2-S, COMQR2-C)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of a unitary analogue of the
+C     ALGOL procedure  COMLR2, NUM. MATH. 16, 181-204(1970) by Peters
+C     and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 372-395(1971).
+C     The unitary analogue substitutes the QR algorithm of Francis
+C     (COMP. JOUR. 4, 332-345(1962)) for the LR algorithm.
+C
+C     This subroutine finds the eigenvalues and eigenvectors
+C     of a COMPLEX UPPER Hessenberg matrix by the QR
+C     method.  The eigenvectors of a COMPLEX GENERAL matrix
+C     can also be found if  CORTH  has been used to reduce
+C     this general matrix to Hessenberg form.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, HR, HI, ZR, and ZI, as declared in the
+C          calling program dimension statement.  NM is an INTEGER
+C          variable.
+C
+C        N is the order of the matrix H=(HR,HI).  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        LOW and IGH are two INTEGER variables determined by the
+C          balancing subroutine  CBAL.  If  CBAL  has not been used,
+C          set LOW=1 and IGH equal to the order of the matrix, N.
+C
+C        ORTR and ORTI contain information about the unitary trans-
+C          formations used in the reduction by  CORTH, if performed.
+C          Only elements LOW through IGH are used.  If the eigenvectors
+C          of the Hessenberg matrix are desired, set ORTR(J) and
+C          ORTI(J) to 0.0E0 for these elements.  ORTR and ORTI are
+C          one-dimensional REAL arrays, dimensioned ORTR(IGH) and
+C          ORTI(IGH).
+C
+C        HR and HI contain the real and imaginary parts, respectively,
+C          of the complex upper Hessenberg matrix.  Their lower
+C          triangles below the subdiagonal contain information about
+C          the unitary transformations used in the reduction by  CORTH,
+C          if performed.  If the eigenvectors of the Hessenberg matrix
+C          are desired, these elements may be arbitrary.  HR and HI
+C          are two-dimensional REAL arrays, dimensioned HR(NM,N) and
+C          HI(NM,N).
+C
+C     On OUTPUT
+C
+C        ORTR, ORTI, and the upper Hessenberg portions of HR and HI
+C          have been destroyed.
+C
+C        WR and WI contain the real and imaginary parts, respectively,
+C          of the eigenvalues of the upper Hessenberg matrix.  If an
+C          error exit is made, the eigenvalues should be correct for
+C          indices IERR+1, IERR+2, ..., N.  WR and WI are one-
+C          dimensional REAL arrays, dimensioned WR(N) and WI(N).
+C
+C        ZR and ZI contain the real and imaginary parts, respectively,
+C          of the eigenvectors.  The eigenvectors are unnormalized.
+C          If an error exit is made, none of the eigenvectors has been
+C          found.  ZR and ZI are two-dimensional REAL arrays,
+C          dimensioned ZR(NM,N) and ZI(NM,N).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after a total of 30*N iterations.
+C                     The eigenvalues should be correct for indices
+C                     IERR+1, IERR+2, ..., N, but no eigenvectors are
+C                     computed.
+C
+C     Calls CSROOT for complex square root.
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C     Calls CDIV for complex division.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  CDIV, CSROOT, PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  COMQR2

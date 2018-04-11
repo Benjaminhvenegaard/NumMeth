@@ -1,0 +1,19 @@
+      SUBROUTINE SUDS (A, X, B, NEQ, NUK, NRDA, IFLAG, MLSO, WORK,
+     +   IWORK)
+      DIMENSION A(NRDA,*),X(*),B(*),WORK(*),IWORK(*)
+C
+C***FIRST EXECUTABLE STATEMENT  SUDS
+      IS=2
+      IP=3
+      IL=IP+NEQ
+      KV=1+NEQ
+      KT=KV+NEQ
+      KS=KT+NEQ
+      KU=KS+NUK
+C
+      CALL LSSUDS(A,X,B,NEQ,NUK,NRDA,WORK(KU),NUK,IFLAG,MLSO,IWORK(1),
+     1            IWORK(IS),A,WORK(1),IWORK(IP),B,WORK(KV),WORK(KT),
+     2            IWORK(IL),WORK(KS))
+C
+      RETURN
+      END

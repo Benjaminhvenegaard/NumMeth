@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  DSTWAY
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (STWAY-S, DSTWAY-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C  This subroutine stores (recalls) integration data in the event
+C  that a restart is needed (the homogeneous solution vectors become
+C  too dependent to continue).
+C
+C***SEE ALSO  DBVSUP
+C***ROUTINES CALLED  DSTOR1
+C***COMMON BLOCKS    DML15T, DML18J, DML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DSTWAY

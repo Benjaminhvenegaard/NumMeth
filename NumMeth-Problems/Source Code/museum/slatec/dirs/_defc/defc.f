@@ -1,0 +1,61 @@
+      SUBROUTINE DEFC (NDATA, XDATA, YDATA, SDDATA, NORD, NBKPT, BKPT,
+     +   MDEIN, MDEOUT, COEFF, LW, W)
+C
+C      SUBROUTINE           FUNCTION/REMARKS
+C
+C      DBSPVN( )          COMPUTE FUNCTION VALUES OF B-SPLINES.  FROM
+C                         THE B-SPLINE PACKAGE OF DE BOOR NOTED ABOVE.
+C
+C      DBNDAC( ),         BANDED LEAST SQUARES MATRIX PROCESSORS.
+C      DBNDSL( )          FROM LAWSON-HANSON, SOLVING LEAST
+C                         SQUARES PROBLEMS.
+C
+C      DSORT( )           DATA SORTING SUBROUTINE, FROM THE
+C                         SANDIA MATH. LIBRARY, SAND77-1441.
+C
+C      XERMSG( )          ERROR HANDLING ROUTINE
+C                         FOR THE SLATEC MATH. LIBRARY.
+C                         SEE SAND78-1189, BY R. E. JONES.
+C
+C      DCOPY( ),DSCAL( )  SUBROUTINES FROM THE BLAS PACKAGE.
+C
+C                         WRITTEN BY R. HANSON, SANDIA NATL. LABS.,
+C                         ALB., N. M., AUGUST-SEPTEMBER, 1980.
+C
+      DOUBLE PRECISION BKPT(*),COEFF(*),W(*),SDDATA(*),XDATA(*),YDATA(*)
+      INTEGER LW, MDEIN, MDEOUT, NBKPT, NDATA, NORD
+C
+      EXTERNAL DEFCMN
+C
+      INTEGER LBF, LBKPT, LG, LPTEMP, LWW, LXTEMP, MDG, MDW
+C
+C***FIRST EXECUTABLE STATEMENT  DEFC
+C     LWW=1               USAGE IN DEFCMN( ) OF W(*)..
+C     LWW,...,LG-1        W(*,*)
+C
+C     LG,...,LXTEMP-1     G(*,*)
+C
+C     LXTEMP,...,LPTEMP-1 XTEMP(*)
+C
+C     LPTEMP,...,LBKPT-1  PTEMP(*)
+C
+C     LBKPT,...,LBF       BKPT(*) (LOCAL TO DEFCMN( ))
+C
+C     LBF,...,LBF+NORD**2 BF(*,*)
+C
+      MDG = NBKPT+1
+      MDW = NBKPT-NORD+3
+      LWW = 1
+      LG = LWW + MDW*(NORD+1)
+      LXTEMP = LG + MDG*(NORD+1)
+      LPTEMP = LXTEMP + MAX(NDATA,NBKPT)
+      LBKPT  = LPTEMP + MAX(NDATA,NBKPT)
+      LBF = LBKPT + NBKPT
+      CALL DEFCMN(NDATA,XDATA,YDATA,SDDATA,
+     1         NORD,NBKPT,BKPT,
+     2         MDEIN,MDEOUT,
+     3         COEFF,
+     4         W(LBF),W(LXTEMP),W(LPTEMP),W(LBKPT),
+     5         W(LG),MDG,W(LWW),MDW,LW)
+      RETURN
+      END

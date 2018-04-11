@@ -1,0 +1,17 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dpfqad
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dintrv
+dppgq8
+dppval
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

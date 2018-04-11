@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cgedi
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cscal
+cswap
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+---END OF DEPENDENCIES---

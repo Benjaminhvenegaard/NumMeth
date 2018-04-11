@@ -1,0 +1,42 @@
+C***BEGIN PROLOGUE  INTYD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEBDF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (INTYD-S, DINTYD-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   INTYD approximates the solution and derivatives at T by polynomial
+C   interpolation. Must be used in conjunction with the integrator
+C   package DEBDF.
+C ----------------------------------------------------------------------
+C INTYD computes interpolated values of the K-th derivative of the
+C dependent variable vector Y, and stores it in DKY.
+C This routine is called by DEBDF with K = 0,1 and T = TOUT, but may
+C also be called by the user for any K up to the current order.
+C (see detailed instructions in LSODE usage documentation.)
+C ----------------------------------------------------------------------
+C The computed values in DKY are gotten by interpolation using the
+C Nordsieck history array YH.  This array corresponds uniquely to a
+C vector-valued polynomial of degree NQCUR or less, and DKY is set
+C to the K-th derivative of this polynomial at T.
+C The formula for DKY is..
+C              Q
+C  DKY(I)  =  sum  C(J,K) * (T - TN)**(J-K) * H**(-J) * YH(I,J+1)
+C             J=K
+C where  C(J,K) = J*(J-1)*...*(J-K+1), Q = NQCUR, TN = TCUR, H = HCUR.
+C The quantities  NQ = NQCUR, L = NQ+1, N = NEQ, TN, and H are
+C communicated by common.  The above sum is done in reverse order.
+C IFLAG is returned negative if either K or T is out of bounds.
+C ----------------------------------------------------------------------
+C
+C***SEE ALSO  DEBDF
+C***ROUTINES CALLED  (NONE)
+C***COMMON BLOCKS    DEBDF1
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  INTYD

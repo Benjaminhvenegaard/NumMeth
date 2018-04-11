@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  FCMN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to FC
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (FCMN-S, DFCMN-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to FC( ).
+C     The documentation for FC( ) has complete usage instructions.
+C
+C***SEE ALSO  FC
+C***ROUTINES CALLED  BNDACC, BNDSOL, BSPLVD, BSPLVN, LSEI, SAXPY, SCOPY,
+C                    SSCAL, SSORT, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and extensively revised (WRB & RWC)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C***END PROLOGUE  FCMN

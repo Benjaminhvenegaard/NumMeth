@@ -1,0 +1,135 @@
+C***BEGIN PROLOGUE  HSTART
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEABM, DEBDF and DERKF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (HSTART-S, DHSTRT-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   HSTART computes a starting step size to be used in solving initial
+C   value problems in ordinary differential equations.
+C **********************************************************************
+C  Abstract
+C
+C     Subroutine HSTART computes a starting step size to be used by an
+C     initial value method in solving ordinary differential equations.
+C     It is based on an estimate of the local Lipschitz constant for the
+C     differential equation (lower bound on a norm of the Jacobian),
+C     a bound on the differential equation (first derivative), and
+C     a bound on the partial derivative of the equation with respect to
+C     the independent variable.
+C     (All approximated near the initial point A.)
+C
+C     Subroutine HSTART uses a function subprogram HVNRM for computing
+C     a vector norm.  The maximum norm is presently utilized though it
+C     can easily be replaced by any other vector norm.  It is presumed
+C     that any replacement norm routine would be carefully coded to
+C     prevent unnecessary underflows or overflows from occurring, and
+C     also, would not alter the vector or number of components.
+C
+C **********************************************************************
+C  On Input you must provide the following
+C
+C      F -- This is a subroutine of the form
+C                               F(X,U,UPRIME,RPAR,IPAR)
+C             which defines the system of first order differential
+C             equations to be solved.  For the given values of X and the
+C             vector  U(*)=(U(1),U(2),...,U(NEQ)) , the subroutine must
+C             evaluate the NEQ components of the system of differential
+C             equations  dU/DX=F(X,U)  and store the derivatives in the
+C             array UPRIME(*), that is,  UPRIME(I) = * dU(I)/DX *  for
+C             equations I=1,...,NEQ.
+C
+C             Subroutine F must not alter X or U(*).  You must declare
+C             the name F in an EXTERNAL statement in your program that
+C             calls HSTART.  You must dimension U and UPRIME in F.
+C
+C             RPAR and IPAR are real and integer parameter arrays which
+C             you can use for communication between your program and
+C             subroutine F.  They are not used or altered by HSTART.  If
+C             you do not need RPAR or IPAR, ignore these parameters by
+C             treating them as dummy arguments.  If you do choose to use
+C             them, dimension them in your program and in F as arrays
+C             of appropriate length.
+C
+C      NEQ -- This is the number of (first order) differential equations
+C             to be integrated.
+C
+C      A -- This is the initial point of integration.
+C
+C      B -- This is a value of the independent variable used to define
+C             the direction of integration.  A reasonable choice is to
+C             set  B  to the first point at which a solution is desired.
+C             You can also use  B, if necessary, to restrict the length
+C             of the first integration step because the algorithm will
+C             not compute a starting step length which is bigger than
+C             ABS(B-A), unless  B  has been chosen too close to  A.
+C             (It is presumed that HSTART has been called with  B
+C             different from  A  on the machine being used.  Also see
+C             the discussion about the parameter  SMALL.)
+C
+C      Y(*) -- This is the vector of initial values of the NEQ solution
+C             components at the initial point  A.
+C
+C      YPRIME(*) -- This is the vector of derivatives of the NEQ
+C             solution components at the initial point  A.
+C             (defined by the differential equations in subroutine F)
+C
+C      ETOL -- This is the vector of error tolerances corresponding to
+C             the NEQ solution components.  It is assumed that all
+C             elements are positive.  Following the first integration
+C             step, the tolerances are expected to be used by the
+C             integrator in an error test which roughly requires that
+C                        ABS(local error) .LE. ETOL
+C             for each vector component.
+C
+C      MORDER -- This is the order of the formula which will be used by
+C             the initial value method for taking the first integration
+C             step.
+C
+C      SMALL -- This is a small positive machine dependent constant
+C             which is used for protecting against computations with
+C             numbers which are too small relative to the precision of
+C             floating point arithmetic.  SMALL  should be set to
+C             (approximately) the smallest positive real number such
+C             that  (1.+SMALL) .GT. 1.  on the machine being used. the
+C             quantity  SMALL**(3/8)  is used in computing increments of
+C             variables for approximating derivatives by differences.
+C             also the algorithm will not compute a starting step length
+C             which is smaller than  100*SMALL*ABS(A).
+C
+C      BIG -- This is a large positive machine dependent constant which
+C             is used for preventing machine overflows.  A reasonable
+C             choice is to set big to (approximately) the square root of
+C             the largest real number which can be held in the machine.
+C
+C      SPY(*),PV(*),YP(*),SF(*) -- These are real work arrays of length
+C             NEQ which provide the routine with needed storage space.
+C
+C      RPAR,IPAR -- These are parameter arrays, of real and integer
+C             type, respectively, which can be used for communication
+C             between your program and the F subroutine.  They are not
+C             used or altered by HSTART.
+C
+C **********************************************************************
+C  On Output  (after the return from HSTART),
+C
+C      H -- Is an appropriate starting step size to be attempted by the
+C             differential equation method.
+C
+C           All parameters in the call list remain unchanged except for
+C           the working arrays SPY(*),PV(*),YP(*) and SF(*).
+C
+C **********************************************************************
+C
+C***SEE ALSO  DEABM, DEBDF, DERKF
+C***ROUTINES CALLED  HVNRM
+C***REVISION HISTORY  (YYMMDD)
+C   800501  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891024  Changed references from VNORM to HVNRM.  (WRB)
+C   891024  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  HSTART

@@ -1,0 +1,44 @@
+C***BEGIN PROLOGUE  DERKFS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DERKF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (DERKFS-S, DRKFS-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C     Fehlberg Fourth-Fifth order Runge-Kutta Method
+C **********************************************************************
+C
+C     DERKFS integrates a system of first order ordinary differential
+C     equations as described in the comments for DERKF .
+C
+C     The arrays YP,F1,F2,F3,F4,F5,and YS  (of length at least NEQ)
+C     appear in the call list for variable dimensioning purposes.
+C
+C     The variables H,TOLFAC,TOLD,DTSIGN,U26,RER,INIT,KSTEPS,KOP,IQUIT,
+C     STIFF,NONSTF,NTSTEP, and NSTIFS are used internally by the code
+C     and appear in the call list to eliminate local retention of
+C     variables between calls. Accordingly, these variables and the
+C     array YP should not be altered.
+C     Items of possible interest are
+C         H  - An appropriate step size to be used for the next step
+C         TOLFAC - Factor of change in the tolerances
+C         YP - Derivative of solution vector at T
+C         KSTEPS - Counter on the number of steps attempted
+C
+C **********************************************************************
+C
+C***SEE ALSO  DERKF
+C***ROUTINES CALLED  DEFEHL, HSTART, HVNRM, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800501  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891024  Changed references from VNORM to HVNRM.  (WRB)
+C   891024  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls, replace GOTOs with
+C           IF-THEN-ELSEs.  (RWC)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DERKFS

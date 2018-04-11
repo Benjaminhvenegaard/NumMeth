@@ -1,0 +1,201 @@
+      SUBROUTINE HWSCYL (A, B, M, MBDCND, BDA, BDB, C, D, N, NBDCND,
+     +   BDC, BDD, ELMBDA, F, IDIMF, PERTRB, IERROR, W)
+C
+C
+      DIMENSION       F(IDIMF,*)
+      DIMENSION       BDA(*)     ,BDB(*)     ,BDC(*)     ,BDD(*)     ,
+     1                W(*)
+C***FIRST EXECUTABLE STATEMENT  HWSCYL
+      IERROR = 0
+      IF (A .LT. 0.) IERROR = 1
+      IF (A .GE. B) IERROR = 2
+      IF (MBDCND.LE.0 .OR. MBDCND.GE.7) IERROR = 3
+      IF (C .GE. D) IERROR = 4
+      IF (N .LE. 3) IERROR = 5
+      IF (NBDCND.LE.-1 .OR. NBDCND.GE.5) IERROR = 6
+      IF (A.EQ.0. .AND. (MBDCND.EQ.3 .OR. MBDCND.EQ.4)) IERROR = 7
+      IF (A.GT.0. .AND. MBDCND.GE.5) IERROR = 8
+      IF (A.EQ.0. .AND. ELMBDA.NE.0. .AND. MBDCND.GE.5) IERROR = 9
+      IF (IDIMF .LT. M+1) IERROR = 10
+      IF (M .LE. 3) IERROR = 12
+      IF (IERROR .NE. 0) RETURN
+      MP1 = M+1
+      DELTAR = (B-A)/M
+      DLRBY2 = DELTAR/2.
+      DLRSQ = DELTAR**2
+      NP1 = N+1
+      DELTHT = (D-C)/N
+      DLTHSQ = DELTHT**2
+      NP = NBDCND+1
+C
+C     DEFINE RANGE OF INDICES I AND J FOR UNKNOWNS U(I,J).
+C
+      MSTART = 2
+      MSTOP = M
+      GO TO (104,103,102,101,101,102),MBDCND
+  101 MSTART = 1
+      GO TO 104
+  102 MSTART = 1
+  103 MSTOP = MP1
+  104 MUNK = MSTOP-MSTART+1
+      NSTART = 1
+      NSTOP = N
+      GO TO (108,105,106,107,108),NP
+  105 NSTART = 2
+      GO TO 108
+  106 NSTART = 2
+  107 NSTOP = NP1
+  108 NUNK = NSTOP-NSTART+1
+C
+C     DEFINE A,B,C COEFFICIENTS IN W-ARRAY.
+C
+      ID2 = MUNK
+      ID3 = ID2+MUNK
+      ID4 = ID3+MUNK
+      ID5 = ID4+MUNK
+      ID6 = ID5+MUNK
+      ISTART = 1
+      A1 = 2./DLRSQ
+      IJ = 0
+      IF (MBDCND.EQ.3 .OR. MBDCND.EQ.4) IJ = 1
+      IF (MBDCND .LE. 4) GO TO 109
+      W(1) = 0.
+      W(ID2+1) = -2.*A1
+      W(ID3+1) = 2.*A1
+      ISTART = 2
+      IJ = 1
+  109 DO 110 I=ISTART,MUNK
+         R = A+(I-IJ)*DELTAR
+         J = ID5+I
+         W(J) = R
+         J = ID6+I
+         W(J) = 1./R**2
+         W(I) = (R-DLRBY2)/(R*DLRSQ)
+         J = ID3+I
+         W(J) = (R+DLRBY2)/(R*DLRSQ)
+         K = ID6+I
+         J = ID2+I
+         W(J) = -A1+ELMBDA*W(K)
+  110 CONTINUE
+      GO TO (114,111,112,113,114,112),MBDCND
+  111 W(ID2) = A1
+      GO TO 114
+  112 W(ID2) = A1
+  113 W(ID3+1) = A1*ISTART
+  114 CONTINUE
+C
+C     ENTER BOUNDARY DATA FOR R-BOUNDARIES.
+C
+      GO TO (115,115,117,117,119,119),MBDCND
+  115 A1 = W(1)
+      DO 116 J=NSTART,NSTOP
+         F(2,J) = F(2,J)-A1*F(1,J)
+  116 CONTINUE
+      GO TO 119
+  117 A1 = 2.*DELTAR*W(1)
+      DO 118 J=NSTART,NSTOP
+         F(1,J) = F(1,J)+A1*BDA(J)
+  118 CONTINUE
+  119 GO TO (120,122,122,120,120,122),MBDCND
+  120 A1 = W(ID4)
+      DO 121 J=NSTART,NSTOP
+         F(M,J) = F(M,J)-A1*F(MP1,J)
+  121 CONTINUE
+      GO TO 124
+  122 A1 = 2.*DELTAR*W(ID4)
+      DO 123 J=NSTART,NSTOP
+         F(MP1,J) = F(MP1,J)-A1*BDB(J)
+  123 CONTINUE
+C
+C     ENTER BOUNDARY DATA FOR Z-BOUNDARIES.
+C
+  124 A1 = 1./DLTHSQ
+      L = ID5-MSTART+1
+      GO TO (134,125,125,127,127),NP
+  125 DO 126 I=MSTART,MSTOP
+         F(I,2) = F(I,2)-A1*F(I,1)
+  126 CONTINUE
+      GO TO 129
+  127 A1 = 2./DELTHT
+      DO 128 I=MSTART,MSTOP
+         F(I,1) = F(I,1)+A1*BDC(I)
+  128 CONTINUE
+  129 A1 = 1./DLTHSQ
+      GO TO (134,130,132,132,130),NP
+  130 DO 131 I=MSTART,MSTOP
+         F(I,N) = F(I,N)-A1*F(I,NP1)
+  131 CONTINUE
+      GO TO 134
+  132 A1 = 2./DELTHT
+      DO 133 I=MSTART,MSTOP
+         F(I,NP1) = F(I,NP1)-A1*BDD(I)
+  133 CONTINUE
+  134 CONTINUE
+C
+C     ADJUST RIGHT SIDE OF SINGULAR PROBLEMS TO INSURE EXISTENCE OF A
+C     SOLUTION.
+C
+      PERTRB = 0.
+      IF (ELMBDA) 146,136,135
+  135 IERROR = 11
+      GO TO 146
+  136 W(ID5+1) = .5*(W(ID5+2)-DLRBY2)
+      GO TO (146,146,138,146,146,137),MBDCND
+  137 W(ID5+1) = .5*W(ID5+1)
+  138 GO TO (140,146,146,139,146),NP
+  139 A2 = 2.
+      GO TO 141
+  140 A2 = 1.
+  141 K = ID5+MUNK
+      W(K) = .5*(W(K-1)+DLRBY2)
+      S = 0.
+      DO 143 I=MSTART,MSTOP
+         S1 = 0.
+         NSP1 = NSTART+1
+         NSTM1 = NSTOP-1
+         DO 142 J=NSP1,NSTM1
+            S1 = S1+F(I,J)
+  142    CONTINUE
+         K = I+L
+         S = S+(A2*S1+F(I,NSTART)+F(I,NSTOP))*W(K)
+  143 CONTINUE
+      S2 = M*A+(.75+(M-1)*(M+1))*DLRBY2
+      IF (MBDCND .EQ. 3) S2 = S2+.25*DLRBY2
+      S1 = (2.+A2*(NUNK-2))*S2
+      PERTRB = S/S1
+      DO 145 I=MSTART,MSTOP
+         DO 144 J=NSTART,NSTOP
+            F(I,J) = F(I,J)-PERTRB
+  144    CONTINUE
+  145 CONTINUE
+  146 CONTINUE
+C
+C     MULTIPLY I-TH EQUATION THROUGH BY DELTHT**2 TO PUT EQUATION INTO
+C     CORRECT FORM FOR SUBROUTINE GENBUN.
+C
+      DO 148 I=MSTART,MSTOP
+         K = I-MSTART+1
+         W(K) = W(K)*DLTHSQ
+         J = ID2+K
+         W(J) = W(J)*DLTHSQ
+         J = ID3+K
+         W(J) = W(J)*DLTHSQ
+         DO 147 J=NSTART,NSTOP
+            F(I,J) = F(I,J)*DLTHSQ
+  147    CONTINUE
+  148 CONTINUE
+      W(1) = 0.
+      W(ID4) = 0.
+C
+C     CALL GENBUN TO SOLVE THE SYSTEM OF EQUATIONS.
+C
+      CALL GENBUN (NBDCND,NUNK,1,MUNK,W(1),W(ID2+1),W(ID3+1),IDIMF,
+     1             F(MSTART,NSTART),IERR1,W(ID4+1))
+      W(1) = W(ID4+1)+3*MUNK
+      IF (NBDCND .NE. 0) GO TO 150
+      DO 149 I=MSTART,MSTOP
+         F(I,NP1) = F(I,1)
+  149 CONTINUE
+  150 CONTINUE
+      RETURN
+      END

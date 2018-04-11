@@ -1,0 +1,26 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsdomn
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dchkw
+domn
+ds2y
+dsdi
+dsds
+dsmv
+isdomn
+qs2i1d
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+dcopy
+ddot
+dnrm2
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

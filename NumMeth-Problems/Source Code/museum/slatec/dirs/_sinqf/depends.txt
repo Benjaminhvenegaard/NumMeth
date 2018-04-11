@@ -1,0 +1,13 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sinqf
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cosqf
+cosqf1
+radf2
+radf3
+radf4
+radf5
+radfg
+rfftf
+rfftf1
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

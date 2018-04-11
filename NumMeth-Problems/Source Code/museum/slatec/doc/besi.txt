@@ -1,0 +1,83 @@
+C***BEGIN PROLOGUE  BESI
+C***PURPOSE  Compute an N member sequence of I Bessel functions
+C            I/SUB(ALPHA+K-1)/(X), K=1,...,N or scaled Bessel functions
+C            EXP(-X)*I/SUB(ALPHA+K-1)/(X), K=1,...,N for non-negative
+C            ALPHA and X.
+C***LIBRARY   SLATEC
+C***CATEGORY  C10B3
+C***TYPE      SINGLE PRECISION (BESI-S, DBESI-D)
+C***KEYWORDS  I BESSEL FUNCTION, SPECIAL FUNCTIONS
+C***AUTHOR  Amos, D. E., (SNLA)
+C           Daniel, S. L., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BESI computes an N member sequence of I Bessel functions
+C         I/sub(ALPHA+K-1)/(X), K=1,...,N or scaled Bessel functions
+C         EXP(-X)*I/sub(ALPHA+K-1)/(X), K=1,...,N for non-negative ALPHA
+C         and X.  A combination of the power series, the asymptotic
+C         expansion for X to infinity, and the uniform asymptotic
+C         expansion for NU to infinity are applied over subdivisions of
+C         the (NU,X) plane.  For values not covered by one of these
+C         formulae, the order is incremented by an integer so that one
+C         of these formulae apply.  Backward recursion is used to reduce
+C         orders by integer values.  The asymptotic expansion for X to
+C         infinity is used only when the entire sequence (specifically
+C         the last member) lies within the region covered by the
+C         expansion.  Leading terms of these expansions are used to test
+C         for over or underflow where appropriate.  If a sequence is
+C         requested and the last member would underflow, the result is
+C         set to zero and the next lower order tried, etc., until a
+C         member comes on scale or all are set to zero.  An overflow
+C         cannot occur with scaling.
+C
+C     Description of Arguments
+C
+C         Input
+C           X      - X .GE. 0.0E0
+C           ALPHA  - order of first member of the sequence,
+C                    ALPHA .GE. 0.0E0
+C           KODE   - a parameter to indicate the scaling option
+C                    KODE=1 returns
+C                           Y(K)=        I/sub(ALPHA+K-1)/(X),
+C                                K=1,...,N
+C                    KODE=2 returns
+C                           Y(K)=EXP(-X)*I/sub(ALPHA+K-1)/(X),
+C                                K=1,...,N
+C           N      - number of members in the sequence, N .GE. 1
+C
+C         Output
+C           Y      - a vector whose first N components contain
+C                    values for I/sub(ALPHA+K-1)/(X) or scaled
+C                    values for EXP(-X)*I/sub(ALPHA+K-1)/(X),
+C                    K=1,...,N depending on KODE
+C           NZ     - number of components of Y set to zero due to
+C                    underflow,
+C                    NZ=0   , normal return, computation completed
+C                    NZ .NE. 0, last NZ components of Y set to zero,
+C                             Y(K)=0.0E0, K=N-NZ+1,...,N.
+C
+C     Error Conditions
+C         Improper input arguments - a fatal error
+C         Overflow with KODE=1 - a fatal error
+C         Underflow - a non-fatal error (NZ .NE. 0)
+C
+C***REFERENCES  D. E. Amos, S. L. Daniel and M. K. Weston, CDC 6600
+C                 subroutines IBESS and JBESS for Bessel functions
+C                 I(NU,X) and J(NU,X), X .GE. 0, NU .GE. 0, ACM
+C                 Transactions on Mathematical Software 3, (1977),
+C                 pp. 76-92.
+C               F. W. J. Olver, Tables of Bessel Functions of Moderate
+C                 or Large Orders, NPL Mathematical Tables 6, Her
+C                 Majesty's Stationery Office, London, 1962.
+C***ROUTINES CALLED  ALNGAM, ASYIK, I1MACH, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BESI

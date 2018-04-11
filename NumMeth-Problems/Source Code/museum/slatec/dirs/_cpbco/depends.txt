@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cpbco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cpbfa
+csscal
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

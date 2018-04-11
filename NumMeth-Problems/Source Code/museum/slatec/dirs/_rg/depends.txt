@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rg
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+balanc
+balbak
+cdiv
+elmhes
+eltran
+hqr
+hqr2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

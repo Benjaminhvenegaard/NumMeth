@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  DFSPVD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DFC
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (BSPLVD-S, DFSPVD-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   **** Double Precision Version of BSPLVD ****
+C Calculates value and deriv.s of all B-splines which do not vanish at X
+C
+C  Fill VNIKX(J,IDERIV), J=IDERIV, ... ,K  with nonzero values of
+C  B-splines of order K+1-IDERIV , IDERIV=NDERIV, ... ,1, by repeated
+C  calls to DFSPVN
+C
+C***SEE ALSO  DFC
+C***ROUTINES CALLED  DFSPVN
+C***REVISION HISTORY  (YYMMDD)
+C   780801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  DFSPVD

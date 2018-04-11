@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sspco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sspfa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+sasum
+saxpy
+sdot
+sscal
+sswap
+---END OF DEPENDENCIES---

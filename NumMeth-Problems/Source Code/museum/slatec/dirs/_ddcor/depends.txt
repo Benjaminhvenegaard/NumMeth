@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ddcor
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dgbsl
+dgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dnrm2
+---END OF DEPENDENCIES---

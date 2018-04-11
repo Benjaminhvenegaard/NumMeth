@@ -1,0 +1,28 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sslucn
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+isscgn
+qs2i1r
+scgn
+schkw
+ss2y
+ssilus
+ssmmi2
+ssmmti
+ssmtv
+ssmv
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+saxpy
+scopy
+sdot
+snrm2
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

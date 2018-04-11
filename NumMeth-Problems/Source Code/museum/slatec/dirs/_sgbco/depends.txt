@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sgbco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sgbfa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+sasum
+saxpy
+sdot
+sscal
+---END OF DEPENDENCIES---

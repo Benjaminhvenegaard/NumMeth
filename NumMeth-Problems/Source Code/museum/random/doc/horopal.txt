@@ -1,0 +1,70 @@
+module PRESS
+title 'true random byte generator uart xmtr with 8-fold xor
+       Paul Horowitz, 7 Mar 96'
+
+PRESS device 'P26V12';
+
+"Inputs
+        clock    pin 1;  " clock
+        noise    pin 3;  " noise in
+        no       pin 8;  " enable switch, normally open
+        nc       pin 9;  " enable switch, normally closed
+        cascade  pin 14; " HI for 8 xor, LO for single sample
+
+"Outputs
+        latout   pin 27 istype 'com';          " comparator latch
+        s0       pin 26 istype 'reg_D,buffer'; " chip counter bits
+        s1       pin 25 istype 'reg_D,buffer';
+        s2       pin 24 istype 'reg_D,buffer';
+        serial   pin 23 istype 'reg_D,invert'; " RS232 is inverted
+        q0       pin 22 istype 'reg_D,buffer'; " RS232 counter bits
+        q1       pin 20 istype 'reg_D,buffer';
+        q2       pin 19 istype 'reg_D,buffer';
+        q3       pin 18 istype 'reg_D,buffer';
+        accum    pin 17 istype 'reg_D,buffer'; " XOR accumulator
+        en       pin 16 istype 'com';
+        enbar    pin 15 istype 'com';
+
+"Constants
+        X = .X.;
+        C = .C.;
+
+        run = en & !(q3.q & !q2.q & !q1.q & q0.q); " not nine
+
+        chipzero = !s0.q & !s1.q & !s2.q;       " chip counter is zero
+
+Equations
+
+        q0.clk = clock;
+        q1.clk = clock;
+        q2.clk = clock;
+        q3.clk = clock;
+        s0.clk = clock;
+        s1.clk = clock;
+        s2.clk = clock;
+        accum.clk = clock;
+        serial.clk = clock;
+
+     q0.d = !chipzero & q0.q # chipzero & run & !q0.q; " modulo-10 counter
+     q1.d = !chipzero & q1.q # chipzero & run & (q0.q $ q1.q);
+     q2.d = !chipzero & q2.q # chipzero & run & ((q0.q & q1.q) $ q2.q);
+     q3.d = !chipzero & q3.q # chipzero & run & ((q0.q & q1.q & q2.q) $ q3.q);
+
+        s0.d = !s0.q;                                  " modulo-8 counter
+        s1.d = s0.q $ s1.q;
+        s2.d = (s0.q & s1.q) $ s2.q;
+
+        accum.d = noise $ accum.q;                     " XOR cascade
+
+        latout = !clock;                               " comparator latchbar
+
+        serial.d = !chipzero & serial.q
+            # chipzero & (!q3.q & !q2.q & !q1.q & q0.q  " start bit on state 1
+            # (q1.q # q2.q # q3.q) & (cascade & accum.q # !cascade & noise));
+                                                        " noise on states 2-9
+
+        en = !no # !enbar;                              " SR FF debouncer
+        enbar = !nc # !en;
+
+
+end PRESS

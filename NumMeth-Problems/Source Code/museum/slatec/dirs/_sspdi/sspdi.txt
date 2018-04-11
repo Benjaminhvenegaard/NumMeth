@@ -1,0 +1,79 @@
+C***BEGIN PROLOGUE  SSPDI
+C***PURPOSE  Compute the determinant, inertia, inverse of a real
+C            symmetric matrix stored in packed form using the factors
+C            from SSPFA.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2B1A, D3B1A
+C***TYPE      SINGLE PRECISION (SSPDI-S, DSPDI-D, CHPDI-C, CSPDI-C)
+C***KEYWORDS  DETERMINANT, INVERSE, LINEAR ALGEBRA, LINPACK, MATRIX,
+C             PACKED, SYMMETRIC
+C***AUTHOR  Bunch, J., (UCSD)
+C***DESCRIPTION
+C
+C     SSPDI computes the determinant, inertia and inverse
+C     of a real symmetric matrix using the factors from SSPFA,
+C     where the matrix is stored in packed form.
+C
+C     On Entry
+C
+C        AP      REAL (N*(N+1)/2)
+C                the output from SSPFA.
+C
+C        N       INTEGER
+C                the order of the matrix A.
+C
+C        KPVT    INTEGER(N)
+C                the pivot vector from SSPFA.
+C
+C        WORK    REAL(N)
+C                work vector.  Contents ignored.
+C
+C        JOB     INTEGER
+C                JOB has the decimal expansion  ABC  where
+C                   If  C .NE. 0, the inverse is computed,
+C                   If  B .NE. 0, the determinant is computed,
+C                   If  A .NE. 0, the inertia is computed.
+C
+C                For example, JOB = 111  gives all three.
+C
+C     On Return
+C
+C        Variables not requested by JOB are not used.
+C
+C        AP     contains the upper triangle of the inverse of
+C               the original matrix, stored in packed form.
+C               The columns of the upper triangle are stored
+C               sequentially in a one-dimensional array.
+C
+C        DET    REAL(2)
+C               determinant of original matrix.
+C               Determinant = DET(1) * 10.0**DET(2)
+C               with 1.0 .LE. ABS(DET(1)) .LT. 10.0
+C               or DET(1) = 0.0.
+C
+C        INERT  INTEGER(3)
+C               the inertia of the original matrix.
+C               INERT(1)  =  number of positive eigenvalues.
+C               INERT(2)  =  number of negative eigenvalues.
+C               INERT(3)  =  number of zero eigenvalues.
+C
+C     Error Condition
+C
+C        A division by zero will occur if the inverse is requested
+C        and  SSPCO  has set RCOND .EQ. 0.0
+C        or  SSPFA  has set  INFO .NE. 0 .
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  SAXPY, SCOPY, SDOT, SSWAP
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891107  Modified routine equivalence list.  (WRB)
+C   891107  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  SSPDI

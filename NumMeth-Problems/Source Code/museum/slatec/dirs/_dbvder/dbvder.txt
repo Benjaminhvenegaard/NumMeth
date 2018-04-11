@@ -1,0 +1,55 @@
+C***BEGIN PROLOGUE  DBVDER
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (BVDER-S, DBVDER-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C     NFC = Number of base solution vectors
+C
+C     NCOMP = Number of components per solution vector
+C
+C              1 -- Nonzero particular solution
+C     INHOMO =
+C              2 or 3 -- Zero particular solution
+C
+C             0 -- Inhomogeneous vector term G(X) identically zero
+C     IGOFX =
+C             1 -- Inhomogeneous vector term G(X) not identically zero
+C
+C     G = Inhomogeneous vector term G(X)
+C
+C     XSAV = Previous value of X
+C
+C     C = Normalization factor for the particular solution
+C
+C           0   ( if  NEQIVP = 0 )
+C     IVP =
+C           Number of differential equations integrated due to
+C           the original boundary value problem   ( if  NEQIVP .GT. 0 )
+C
+C     NOFST - For problems with auxiliary initial value equations,
+C             NOFST communicates to the routine DFMAT how to access
+C             the dependent variables corresponding to this initial
+C             value problem.  For example, during any call to DFMAT,
+C             the first dependent variable for the initial value
+C             problem is in position  Y(NOFST + 1).
+C             See example in SAND77-1328.
+C **********************************************************************
+C
+C***SEE ALSO  DBVSUP
+C***ROUTINES CALLED  (NONE)
+C***COMMON BLOCKS    DML8SZ, DMLIVP
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910701  Corrected ROUTINES CALLED section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920618  Minor restructuring of code.  (RWC, WRB)
+C***END PROLOGUE  DBVDER

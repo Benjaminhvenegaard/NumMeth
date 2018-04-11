@@ -1,0 +1,294 @@
+<html><head><title>NUMAL 4.2.3.1</title></head>
+<body><h1>NUMAL Section 4.2.3.1</h1>
+<pre>
+BEGIN SECTION : 4.2.3.1 (November, 1978)
+
+AUTHOR:         C.G. VAN DER LAAN.
+
+CONTRIBUTORS:   C.G. VAN DER LAAN AND M. VOORINTHOLT.
+
+INSTITUTE:      REKENCENTRUM RIJKSUNIVERSITEIT GRONINGEN.
+
+RECEIVED:       780601.
+
+BRIEF DESCRIPTION:
+
+    THIS SECTION CONTAINS THE PROCEDURES GSSWTS, GSSWTSSYM AND RECCOF.
+    RECCOF CALCULATES FROM A GIVEN WEIGHT FUNCTION ON [-1,1] THE
+    RECURRENCE COEFFICIENTS OF THE CORRESPONDING ORTHOGONAL
+    POLYNOMIALS; GSSWTS AND GSSWTSSYM CALCULATE FROM THE RECURRENCE
+    COEFFICIENTS THE GAUSSIAN WEIGHTS OF THE CORRESPONDING WEIGHT
+    FUNCTION.
+
+KEYWORDS:
+
+    RECURRENCE COEFFICIENTS ORTHOGONAL POLYNOMIALS,
+    GAUSSIAN WEIGHTS,
+    GAUSSIAN QUADRATURE.
+
+<a name="RECCOF"></a>
+SUBSECTION: RECCOF.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "PROCEDURE" RECCOF(N,M,X,WX,B,C,L,SYM);
+    "VALUE" N,M,SYM; "INTEGER" N,M; "BOOLEAN" SYM;
+    "REAL" X,WX; "ARRAY" B,C,L;
+    "CODE" 31254;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: UPPER BOUND FOR THE INDICES OF THE ARRAYS B, C, L
+                    (N&gt;=0);
+    M:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE NUMBER OF POINTS USED IN THE GAUSS-CHEBYSHEV
+                    QUADRATURE RULE FOR CALCULATING THE APPROXIMATION
+                    OF THE INTEGRAL REPRESENTATIONS OF B[K],C[K]
+
+    SYM:     &lt;BOOLEAN EXPRESSION&gt;;
+             ENTRY: "IF" SYM
+                        "THEN" WEIGHT FUNCTION ON [-1,1] IS EVEN
+                        "ELSE" WEIGHT FUNCTION ON [-1,1] IS NOT EVEN;
+    X,WX:    &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: JENSEN VARIABLES WITH WX AN EXPRESSION OF X
+                    DENOTING THE WEIGHT FUNCTION ON [-1,1];
+    B,C,L:   &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" B,C,L[0:N];
+             EXIT:  THE APPROXIMATE RECURRENCE COEFFICIENTS FOR
+                    P[K+1](X) = (X-B[K])*P[K](X) - C[K]*P[K-1](X),
+                                                     K=0,1,2,...N,
+                    AND THE APPROXIMATE SQUARE LENGTHS
+                            X = +1
+                    L[K] = INTEGRAL ( W(X) * P[K](X) **  2 ) DX
+                            X = -1
+
+PROCEDURES USED:    ORTPOL = CP31044.
+
+RUNNING TIME:       PROPORTIONAL TO M*N**2.
+
+METHOD AND PERFORMANCE:
+
+    THE RECURRENCE COEFFICIENTS ARE REPRESENTED BY
+                       X = +1
+             B[K] = ( INTEGRAL ( W(X) * X * P[K](X) ** 2 ) DX ) / L[K],
+                       X = -1
+
+             C[K] = L[K] / L[K-1]],
+    WHERE P[K](X) IS THE K-TH ORTHOGONAL POLYNOMIAL.
+    THE INTEGRALS ARE APPROXIMATED BY THE M-POINTS GAUSS-CHEBYSHEV
+    RULE AS
+          X = +1                       M
+        INTEGRAL(F(X))DX := PI / M * SUM SIN(THETA[J])*F(COS(THETA[J]))
+          X = -1                      J=1
+    WITH THETA[J] = (2*J-1) * PI / (2*M)      (SEE GAUTSCHI, 1968A).
+    THE VALUE OF M IS TO BE SUPPLIED BY THE USER.
+
+REFERENCES:
+
+    GAUTSCHI, W. (1968A):
+    CONTRUCTION OF GAUSS-CHRISTOFFEL FORMULAS.
+    MATH. COMP., 22,P.251-270.
+
+    GAUTSCHI, W. (1968B):
+    GAUSSIAN QUADRATURE FORMULAS.
+    COMM. ACM. CALGO 331.
+
+EXAMPLE OF USE:
+
+    THE FOLLOWING PROGRAM DELIVERS AN APPROXIMATION
+    FOR THE RECURSION COEFFICIENTS C[1] AND C[2], OF THE CHEBYSHEV
+    POLYNOMIALS OF THE SECOND KIND;
+
+    "BEGIN"
+        "REAL" X; "ARRAY" B,C,L[0:2];
+        RECCOF(2,200,X,SQRT(1 - X**2),B,C,L,"TRUE");
+        OUTPUT(61,"("2/,2(3B,-ZD.3D)")",C[1],C[2]);
+    "END";
+
+    RESULTS:
+
+         0.250     0.250
+
+<a name="GSSWTS"></a>
+SUBSECTION: GSSWTS.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "PROCEDURE" GSSWTS(N,ZER,B,C,W);
+    "VALUE" N; "INTEGER" N; "ARRAY" ZER,B,C,W;
+    "CODE" 31253;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE NUMBER OF WEIGHTS TO BE COMPUTED; UPPER
+                    BOUND FOR THE ARRAYS Z AND W (N&gt;=1);
+    ZER:     &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" ZER[1:N];
+             ENTRY: THE ZEROS OF THE N-TH DEGREE ORTHOGONAL POLYNOMIAL;
+    B,C:     &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" B[0:N-1], C[1:N-1];
+             ENTRY: THE RECURRENCE COEFFICIENTS;
+    W:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" W[1:N];
+             EXIT : THE GAUSSIAN WEIGHTS DIVIDED BY THE
+                    INTEGRAL OVER THE WEIGHT FUNCTION.
+
+PROCEDURES USED:    ALLORTPOL = CP 31045.
+
+METHOD AND PERFORMANCE:
+
+    THE GAUSSIAN WEIGHTS OF AN N-POINTS RULE DIVIDED BY THE INTEGRAL
+    OF THE WEIGHT FUNCTION MAY BE REPRESENTED AS
+            W[K] = 1/(...((P[N-1](Z)**2/C[N-1]+P[N-2](Z)**2)/C[N-2]+...
+                                 ...+P[1](Z)**2)/C[1]+1)  , K=1,2,...N
+    WITH    Z= K-TH ZERO OF P[N](X).  (GAUTSCHI, 1970).
+
+    ALLZERORTPOL AND GSSWTS MAY BE USED TO GENERATE GAUSSIAN
+    QUADRATURE RULES PROVIDED THE RECURRENCE COEFFICIENTS AND THE
+    INTEGRAL OF THE WEIGHT FUNCTION ARE KNOWN.
+    FOR EXAMPLE THE GAUSS-LAGUERRE QUADRATURE RULE APPLIED TO F
+    MAY BE OBTAINED BY THE CALLS
+
+             "FOR" K:=1 "STEP" 1 "UNTIL" N-1 "DO"
+             "BEGIN"
+                B[K]:=2*K+ALPHA+1;
+                C[K]:=K*(K+ALPHA)
+             "END";
+             B[0]:=ALPHA+1;
+             ALLZERORTPOL(N,ZER,B,C);
+             GSSWTS(N,ZER,B,C,W);
+             GAUSSRULE:=0;
+             "FOR" K:=1 "STEP" 1 "UNTIL" N "DO"
+             GAUSSRULE:=GAUSSRULE+W[K]*F(ZER[K]);
+             GAUSSRULE:=GAUSSRULE*GAMMA(ALPHA+1)
+
+    GAUSSRULE CONTAINS THE VALUE OF THE APPOXIMATING GAUSS
+    QUADRATURE RULE AND ZER[1:N],W[1:N] CONTAIN THE GAUSSIAN
+    ABSCISSA AND WEIGHTS.
+
+    IN THE FOLLOWING TABEL WE SUMMARIZE CLASSICAL QUADRATURE RULES
+
+           :  WEIGHT   :    RECURRENCE COEFFICIENTS    :   INTEGRAL
+ GAUSSIAN  : FUNCTION  :---------------:---------------:      OF
+QUADRATURE :   W(X)    :      B[K]     :     C[K]      :WEIGHT FUNCTION
+-----------:-----------:---------------:---------------:---------------
+           :           :               :               :
+LEGENDRE   :     1     :       0       :K**2*(4*K**2-1):      2
+           :           :               :               :
+ CHEBYSHEV : 1/SQRT(1- :       0       :  1/2  ,  K=1  :      PI
+(1-ST KIND): X**2)     :               :  1/4  ,  K&gt;1  :
+           :           :               :               :
+ CHEBYSHEV : SQRT(1-   :       0       :      1/4      :    PI/2
+(2-ND KIND): X**2)     :               :               :
+           :           :               :               :
+JACOBI     : (1-X)**   : -(ALPHA**2-   : 4*(1+ALPHA)*  : 2**(ALPHA+
+           : ALPHA*(1+ : BETA**2)/((2* : (1+BETA)/     : BETA+1)*
+           : X)**BETA  : K+ALPHA+BETA)*: ((ALPHA+BETA+ : GAMMA(ALPHA+
+           :           : (2*K+ALPHA+   : 2)**2*(ALPHA+ : 1)*GAMMA(BETA+
+           :           : BETA+2))      : BETA+3)) ,K=1 : 1)/GAMMA(ALPHA
+           :           :               :               : +BETA+2)
+           :           :               : 4*K*(K+ALPHA)*:
+           :           :               : (K+BETA)*(K+  :
+           :           :               : ALPHA+BETA)/  :
+           :           :               : ((2*K+ALPHA+  :
+           :           :               : BETA)**2*     :
+           :           :               : ((2*K+ALPHA+  :
+           :           :               : BETA)**2-1))  :
+           :           :               :          ,K&gt;1 :
+           :           :               :               :
+           :           :               :(ALPHA,BETA&gt;-1):
+           :           :               :               :
+LAGUERRE   : EXP(-X)*  : 2*K+ALPHA+1   : K*(K+ALPHA)   : GAMMA(ALPHA+1)
+           : X**ALPHA  :               :               :
+           :           :               :               :
+HERMITE    : EXP(-X**2):       0       :      K/2      :   SQRT(PI)
+
+(THE INTEGRATION INTERVALS ARE:  [-INFINITY,INFINITY]  FOR HERMITE;
+                                         [0,INFINITY]  FOR LAGUERRE;
+                                        [-1,1]         FOR THE OTHERS.)
+FOR NON-CLASSICAL WEIGHT FUNCTIONS ON A FINITE INTERVAL THE RECURSION
+COEFFICIENTS (AND THE SQUARE LENGTHS OF THE CORRESPONDING ORTHOGONAL-
+POLYNOMIALS) CAN BE OBTAINED BY THE PROCEDURE RECCOF (THIS SECTION).
+
+REFERENCES:
+
+    GAUTSCHI, W. (1970):
+    GENERATION OF GAUSSIAN QUADRATURE RULES AND
+    ORTHOGONAL POLYNOMIALS.
+    IN:  COLLOQUIUM APPROXIMATIETHEORIE,
+         MC SYLLABUS 14.
+
+EXAMPLE OF USE: SEE SUBSECTION GSSWTSSYM.
+
+<a name="GSSWTSSYM"></a>
+SUBSECTION: GSSWTSSYM.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+
+    "PROCEDURE" GSSWTSSYM(N,ZER,C,W);
+    "VALUE" N; "INTEGER" N; "ARRAY" ZER,C,W;
+    "CODE" 31252;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:       &lt;ARITHMETIC EXPRESSION&gt;;
+             ENTRY: THE WEIGHTS OF AN N-POINTS GAUSS RULE ARE
+                    TO BE CALCULATED (BECAUSE OF SYMMETRY ONLY
+                    (N+1)//2 OF THE VALUES ARE DELIVERED);
+    ZER:     &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" ZER[1:N//2]
+             ENTRY: THE NEGATIVE ZEROS OF THE N-TH DEGREE ORTHOGONAL
+                    POLYNOMIAL (ZER[I] &lt; ZER[I+1], I=1,2,...,N//2-1);
+             (IF N IS ODD THEN 0 IS ALSO A ZERO.)
+    C:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" C[1:N-1];
+             ENTRY: THE RECURRENCE COEFFICIENTS;
+    W:       &lt;ARRAY IDENTIFIER&gt;;
+             "ARRAY" W[1:(N+1)//2];
+             EXIT : PART OF THE GAUSSIAN WEIGHTS DIVIDED BY THE
+                    INTEGRAL OF THE WEIGHT FUNCTION.
+             (NOTE THAT W[N+1-K]=W[K]  , K=1,2,...,(N+1)//2.)
+
+PROCEDURES USED:    ALLORTPOLSYM = CP 31049.
+
+METHOD AND PERFORMANCE: SEE SUBSECTION GSSWTS; THIS PROCEDURE IS
+                        SUPPLIED FOR STORAGE ECONOMICAL REASONS.
+
+REFERENCES:  SEE SUBSECTION GSSWTS.
+
+EXAMPLE OF USE:
+
+    THE FOLLOWING PROGRAM DELIVERS THE GAUSSIAN WEIGHTS
+    FOR THE 5-POINTS GAUSS-CHEBYSHEV QUADRATURE RULE BY MEANS OF
+    THE PROCEDURE GSSWTSSYM (C[1]=0.5; C[K]=0.25, K=2,3,...;
+    ZER[I] = COS((2*(N-I) - 1) / (2*N) * PI), I=1,2,...,N//2.
+
+    "BEGIN"
+        "REAL" PI; "INTEGER" I;
+        "ARRAY" ZER[1:2], W[1:3], C[1:4];
+        PI:=4*ARCTAN(1);
+        C[1]:=.5;
+        "FOR" I:=2 "STEP" 1 "UNTIL" 4 "DO"
+        C[I]:=.25;
+        ZER[1]:=COS(.9*PI);
+        ZER[2]:=COS(.7*PI);
+        GSSWTSSYM(5,ZER,C,W);
+        OUTPUT(61,"("2/,5(3B,-ZD.3D)")",W[1]*PI,W[2]*PI,W[3]*PI,
+                                                W[2]*PI,W[1]*PI);
+    "END";
+
+    RESULTS:
+         0.628     0.628     0.628     0.628     0.628
+
+SOURCE TEXT(S):
+<a href="../code/c31254.txt">"CODE" 31254;</a>
+<a href="../code/c31253.txt">"CODE" 31253;</a>
+
+<a href="../code/c31252.txt">"CODE" 31252;</a>
+
+</pre></body></html>

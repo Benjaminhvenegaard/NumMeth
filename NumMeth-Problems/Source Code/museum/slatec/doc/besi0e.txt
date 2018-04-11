@@ -1,0 +1,44 @@
+C***BEGIN PROLOGUE  BESI0E
+C***PURPOSE  Compute the exponentially scaled modified (hyperbolic)
+C            Bessel function of the first kind of order zero.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B1
+C***TYPE      SINGLE PRECISION (BESI0E-S, DBSI0E-D)
+C***KEYWORDS  EXPONENTIALLY SCALED, FIRST KIND, FNLIB,
+C             HYPERBOLIC BESSEL FUNCTION, MODIFIED BESSEL FUNCTION,
+C             ORDER ZERO, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C BESI0E(X) calculates the exponentially scaled modified (hyperbolic)
+C Bessel function of the first kind of order zero for real argument X;
+C i.e., EXP(-ABS(X))*I0(X).
+C
+C
+C Series for BI0        on the interval  0.          to  9.00000D+00
+C                                        with weighted error   2.46E-18
+C                                         log weighted error  17.61
+C                               significant figures required  17.90
+C                                    decimal places required  18.15
+C
+C
+C Series for AI0        on the interval  1.25000D-01 to  3.33333D-01
+C                                        with weighted error   7.87E-17
+C                                         log weighted error  16.10
+C                               significant figures required  14.69
+C                                    decimal places required  16.76
+C
+C
+C Series for AI02       on the interval  0.          to  1.25000D-01
+C                                        with weighted error   3.79E-17
+C                                         log weighted error  16.42
+C                               significant figures required  14.86
+C                                    decimal places required  17.09
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890313  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  BESI0E

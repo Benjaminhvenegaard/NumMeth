@@ -1,0 +1,103 @@
+C***BEGIN PROLOGUE  TRIDIB
+C***PURPOSE  Compute the eigenvalues of a symmetric tridiagonal matrix
+C            in a given interval using Sturm sequencing.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4A5, D4C2A
+C***TYPE      SINGLE PRECISION (TRIDIB-S)
+C***KEYWORDS  EIGENVALUES OF A REAL SYMMETRIC MATRIX, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure BISECT,
+C     NUM. MATH. 9, 386-393(1967) by Barth, Martin, and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 249-256(1971).
+C
+C     This subroutine finds those eigenvalues of a TRIDIAGONAL
+C     SYMMETRIC matrix between specified boundary indices,
+C     using bisection.
+C
+C     On Input
+C
+C        N is the order of the matrix.  N is an INTEGER variable.
+C
+C        EPS1 is an absolute error tolerance for the computed eigen-
+C          values.  If the input EPS1 is non-positive, it is reset for
+C          each submatrix to a default value, namely, minus the product
+C          of the relative machine precision and the 1-norm of the
+C          submatrix.  EPS1 is a REAL variable.
+C
+C        D contains the diagonal elements of the symmetric tridiagonal
+C          matrix.  D is a one-dimensional REAL array, dimensioned D(N).
+C
+C        E contains the subdiagonal elements of the symmetric
+C          tridiagonal matrix in its last N-1 positions.  E(1) is
+C          arbitrary.  E is a one-dimensional REAL array, dimensioned
+C          E(N).
+C
+C        E2 contains the squares of the corresponding elements of E.
+C          E2(1) is arbitrary.  E2 is a one-dimensional REAL array,
+C          dimensioned E2(N).
+C
+C        M11 specifies the lower boundary index for the set of desired
+C          eigenvalues.  M11 is an INTEGER variable.
+C
+C        M specifies the number of eigenvalues desired.  The upper
+C          boundary index M22 is then obtained as M22=M11+M-1.
+C          M is an INTEGER variable.
+C
+C     On Output
+C
+C        EPS1 is unaltered unless it has been reset to its
+C          (last) default value.
+C
+C        D and E are unaltered.
+C
+C        Elements of E2, corresponding to elements of E regarded
+C          as negligible, have been replaced by zero causing the
+C          matrix to split into a direct sum of submatrices.
+C          E2(1) is also set to zero.
+C
+C        LB and UB define an interval containing exactly the desired
+C          eigenvalues.  LB and UB are REAL variables.
+C
+C        W contains, in its first M positions, the eigenvalues
+C          between indices M11 and M22 in ascending order.
+C          W is a one-dimensional REAL array, dimensioned W(M).
+C
+C        IND contains in its first M positions the submatrix indices
+C          associated with the corresponding eigenvalues in W --
+C          1 for eigenvalues belonging to the first submatrix from
+C          the top, 2 for those belonging to the second submatrix, etc.
+C          IND is an one-dimensional INTEGER array, dimensioned IND(M).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          3*N+1      if multiple eigenvalues at index M11 make
+C                     unique selection of LB impossible,
+C          3*N+2      if multiple eigenvalues at index M22 make
+C                     unique selection of UB impossible.
+C
+C        RV4 and RV5 are one-dimensional REAL arrays used for temporary
+C          storage of the lower and upper bounds for the eigenvalues in
+C          the bisection process.  RV4 and RV5 are dimensioned RV4(N)
+C          and RV5(N).
+C
+C     Note that subroutine TQL1, IMTQL1, or TQLRAT is generally faster
+C     than TRIDIB, if more than N/4 eigenvalues are to be found.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  TRIDIB

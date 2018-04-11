@@ -1,0 +1,20 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE du11us
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+iswap
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dnrm2
+dscal
+dswap
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

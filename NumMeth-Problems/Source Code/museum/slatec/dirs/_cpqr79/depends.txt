@@ -1,0 +1,17 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cpqr79
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdiv
+comqr
+csroot
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+pythag
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

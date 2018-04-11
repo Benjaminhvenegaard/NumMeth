@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  DCBRT
+C***PURPOSE  Compute the cube root.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C2
+C***TYPE      DOUBLE PRECISION (CBRT-S, DCBRT-D, CCBRT-C)
+C***KEYWORDS  CUBE ROOT, ELEMENTARY FUNCTIONS, FNLIB, ROOTS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DCBRT(X) calculates the double precision cube root for
+C double precision argument X.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9PAK, D9UPAK
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  DCBRT

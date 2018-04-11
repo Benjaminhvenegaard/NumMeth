@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ulsia
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+iswap
+u11us
+u12us
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+saxpy
+sdot
+snrm2
+sscal
+sswap
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

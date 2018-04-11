@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  RADF3
+C***SUBSIDIARY
+C***PURPOSE  Calculate the fast Fourier transform of subvectors of
+C            length three.
+C***LIBRARY   SLATEC (FFTPACK)
+C***TYPE      SINGLE PRECISION (RADF3-S)
+C***AUTHOR  Swarztrauber, P. N., (NCAR)
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   830401  Modified to use SLATEC library source file format.
+C   860115  Modified by Ron Boisvert to adhere to Fortran 77 by
+C           (a) changing dummy array size declarations (1) to (*),
+C           (b) changing definition of variable TAUI by using
+C               FORTRAN intrinsic function SQRT instead of a DATA
+C               statement.
+C   881128  Modified by Dick Valent to meet prologue standards.
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  RADF3

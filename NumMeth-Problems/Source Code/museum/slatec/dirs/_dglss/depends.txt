@@ -1,0 +1,27 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dglss
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dllsia
+du11ls
+du11us
+du12ls
+du12us
+dulsia
+iswap
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+ddot
+dnrm2
+dscal
+dswap
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

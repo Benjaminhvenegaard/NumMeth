@@ -1,0 +1,308 @@
+Dagonet Software Catalog
+
+DAGONET SOFTWARE
+2904 La Veta Dr. NE
+Albuquerque NM 87110
+(505) 768-7649
+
+
+FORMATS AVAILABLE:
+IBM PC 5-1/4" (360k; by 1.2M special request)
+KAYPRO 392K and other CP/M favorites (if known to UNIFORM)
+MACINTOSH 3-1/2" 
+AMIGA 3-1/2"
+IBM 3-1/2"  
+
+SOFTWARE AVAILABLE:
+
+C Tools for Scientists and Engineers: (see the McGraw-Hill Book)
+Software for linear systems, eigenvalues, singular value decomposition 
+(SVD) and least squares fitting, ordinary differential equations ( 
+Runge-Kutta-Fehlberg for non-stiff and a stiff system solver), Newton 
+Raphson nonlinear system solver, Muller's method for solving nonlinear 
+equations and Jenkins-Traub root solver for polynomials (with complex 
+arithmetic packages in C), B-Splines , Adaptive quadrature, Fast Fourier 
+and Hartley Transforms, and a simple plotting package. $9.95
+
+----------------------------------------------------------------------
+
+Arificial Intelligence with Ada (also McGraw-Hill) Ada programs for 
+forward- and backward-chaining expert system shells, 
+frames database, and Augmented Transition Network parser.  Includes 
+Ada packages for string manipulation, hash table managment, parsing 
+and evaluating arithmetic expressions. $29.95
+
+----------------------------------------------------------------------
+
+Code from "More C Tools" (Okay, so 
+the titles not particularly original.  Son of C Tools?) :
+Statistical function calculator ( student's t, Chi-Square, F distributions 
+and their inverses, p to z scores and back, Kolmogorov-Smirnov statistic, 
+etc.), conjugate gradient method, Gaussian quadrature, block matrix 
+methods, Multigrid method (1-D and 2-D examples) for partial differential 
+equations, random number generation and use, ANOVA (Analysis of Variance), 
+Error, Fresnel, Plasma Dispersion, Complex Error Dawson's integral 
+and repeated integrals of the error function, Bresenham line-draw, 
+contour plotting, roman numerals, typewriter program.  $14.95
+
+----------------------------------------------------------------------
+
+C Mathematical Function Library:  $29.95
+
+			C MATH LIBRARY CONTENTS
+
+All the functions of Abramowitz & Stegun and more!
+(series) means function sums the defining series until error
+criterion satisfied.  This may not be efficient or effective for
+large arguments. Functions grouped by category.  
+Last item on line  gives file containing the function. 
+NOTE: Book comes with 3-1/2" diskette of all software, costs $49.95. 
+There is no point in ordering the diskette if you will order the book.
+
+BESSEL
+
+bessel function J,Y,I,K  integer n complex z  mf1.c
+bessel functions J,Y,I,K-table for n=0,1,...,ntop mf1.c
+J0,J1,Y0,Y1,K0,K1,I0,I1, integer n=0,1 mf1.c
+Ji,Jin,Jotn,Ki,Kin integral of J, J/t, K mf1.c
+J Y K I arbitrary real order and argument abb.c
+integrals of I0,Y0 abb.c
+integrals of K0/t, Y0/t, (I0-1)/t, (1-J0)/t bessi.c
+Struve & modified Struve H0,H1,L0,L1 mf1.c
+Ai,Bi,Ai',Bi' Airy functions also J[1/3] etc. abb.c
+IAi,IBi integrals of Ai(z),Ai(-z),Bi(z),Bi(-z) abb.c
+J E Anger/Weber functions abb.c
+integral of (J+iE) Anger/Weber function (series) iaw.c
+s Lommel(series) mf1.c
+S,U,V Lommel (series) ebznew.c
+On Neumann polynomial ebznew.c
+zeros of J,Y,J',Y' bessz.c
+spherical bessel functions j,k,i,y (pos integer order; i any integer) spb.c
+J and N of imaginary order,real arg.,called Wedge functions
+
+ELLIPTIC
+
+complete and incomplete elliptic integrals 1st,2nd kind te.c
+incomplete 3rd kind e3.c
+Jacobian elliptic sn,cn,dn amplitude am (real arg) all real m te.c
+complex argument Jacobian elliptic functions cje.c
+Weierstrass P and derivative P',sigma, zeta functions cje.c
+logarithmic derivatives of theta functions cje.c
+Jacobian (capital) theta te.c
+Jacobian Zeta 	te.c
+Heuman function	te.c
+am amplitude given u,m (real) te.c
+amc amplitude for complex u ct4.c
+theta and Neville theta functions (real argument) te.c
+theta(i=1,2,3,4) for complex q,v (series) ct4.c
+nome q given m 0<=m<=1  ct4.c
+m given nome q 0<=q<=1   ct4.c
+elliptic modular function m=emf(q) m,q complex ct4.c
+elliptic modular function for t complex q= exp(i pi t) ct4.c
+elliptic integrals of 1st,2nd kind for complex arguments cef.c
+inverse of Weierstrass P function invw.c
+
+LEGENDRE FUNCTIONS & Spheroidal Wave Functions
+
+Pl,m for integer l,m, abs(x)<1 (recurs from pm,m) leg1.c
+Ql,m integer l,m  all valid x leg1.c
+Pl0, Ql0  (m=0) all valid x leg1.c
+pmunu qmunu for |1-x|<2, nonintegral mu,nu leg1.c
+pli,qli for z=ix  x>0 leg1.c
+legendrea x real or imaginary  leg2.c
+qleg l,m x>1 leg2.c
+qnu  q nu real,mu=0 x real any, or z=ix x>1.
+leg1,2,3 Pnm, Qnm x>1. gaut.c
+legendre1,2 P a,n(x) Pa+n,m(x) a real>0,x>1 gaut.c
+Plm,Qlm for  z=ix x>0  leg2.c,leg3.c
+conical P -.5-i*tau,n (x)  x>1. gaut.c
+conicalt  as above but  of cos(theta) so  -1<x<=1 gaut.c
+Mehler conical functions for -1<x<1 integer mu mehler.c
+toroidal Q-.5+n,m (x) x>1. gaut.c
+d coefficients for Prolate/Oblate Spheroidal Wave Functions in terms of 
+	Legendre function expansions spherr.c
+Angular  & Radial Spheroidal wave functions, joining factors spherr.c
+Mathieu functions and their chracteristic values mathieu.c
+legtable pn,m for n=m,m+1,...N  spherr.c
+cq, cp: P, Q complex mu,nu, z cq.c cp.c
+
+PLASMA DISPERSION FUNCTION & Relatives
+
+plasma dispersion function mf2.c
+complex error function mf2.c
+error function mf2.c
+fresnel integrals mf2.c
+dawson's integral mf2.c
+ritchie integral mf2.c
+ierfc repeated integrals of complementary error function mf2.c,ierf.c
+
+GAMMA,DIGAMMA,BETA
+
+gamma,logarithm of gamma  statg.c
+incomplete gamma statg.c
+complex gamma cgamma.c
+digamma (psi)derivative of gamma. two versions. digam.c
+polygamma (1st and 2nd derivatives of digamma) digam.c
+polygamma (series for higher derivatives) ebznew.c
+incomplete beta statg.c
+
+RIEMANN ZETA & Related Functions
+
+Zeta	real arguments ebznew.c
+Bernoulli numbers B[n] ebznew.c
+Euler numbers E[n] ebznew.c
+Spence (Dilogarithm) integral ebznew.c
+Bernpoly: value of nth Bernoulli polynomial ebznew.c
+Dilogarithm (rational approx.) dilog.c
+polylogarithm (series) polylog.c
+dilogarithm and trilogarithm trilog.c
+Zeta of two arguments (Hurwitz) (series) ebznew.c
+Capital Phi Lerch Transcendent(series) ebznew.c
+Catalan beta. eta and lambda (series) ebznew.c
+omega (sum of exp(-pi*x*n^2) for n=1 to infinity) (series) czeta.c
+czeta  zeta for complex arguments (series+transfm.)  czeta.c
+
+STIRLING & Related numbers
+
+stirling numbers of first and second kinds stirl.c
+Euler numbers of first kind stirl.c
+Fibonacci numbers stirl.c
+
+EXPONENTIAL INTEGRAL & Related Functions
+
+alpha,  En, li (logarithmic integral)  mf1.c
+beta integral mf1.c
+complex argument En ( series |z|<.05 else cont. fraction) cei.c
+Ei  eict.c
+Ci,Si, E1	ei.c
+iterated Ci,Si integral sii.c
+Boehmer integral (generalized Fresnel), Si,Ci, Shi,Chi boehmer.c
+
+INTEGRALS (see A&S Ch27; Ritchie, Dilogarithm, Polylogarithm above)
+
+Sievert mf2.c
+Debye ebznew.c
+f[n] for n=1,2,3  f123.c
+Clausen ebznew.c
+
+HYPERGEOMETRIC & Relatives
+
+M,W Kummer,Whittaker confluent hypergeometric function(series) mf1.c
+U confluent hypergeometric function u.c
+U,V,W  parabolic cylinder/Weber functions. W in cgamma.c U,V: mf1.c
+2f1,1f2 hypergeometric (series) mf1.c
+F,G Coulomb Wave Functions (former series;latter integral) cwf.c
+chf.c confluent hypergeometric functions M, U for complex arith. chf.c
+Gauss Hypergeometric function complex arith. f211.c f212c f213.c
+
+ORTHOGONAL POLYNOMIALS (in orthop.c)
+
+P Jacobi		
+C Gegenbauer Ultraspherical  
+T Chebyshev U shifted
+L Generalized Laguerre
+H Hermite
+P Legendre
+
+MISCELLANEOUS & AUXILLIARY ROUTINES USED BY ABOVE
+
+solution of cubic,quartic equations (real coeff.) invw.c
+complex arcsin,arccos. elem.c
+complex sine and cosine cbess.c 
+brent root finder for root x of f(x)=0 in interval a<x<b f(a)f(b)<0 brent.c
+pochammer's symbol real x: orthop.c complex: f211.c
+wigner (Clebsch-Gordon), wigner 3j, 6j, Racah coefficients  wigner.c
+elem. trancendental functions elem.c
+"exact" solutions of cubic,quartic,quadratic, complex coef. polyrt.c
+powers and roots pr.c
+
+STATISTICAL FUNCTIONS (statg.c)
+
+student's t
+chi-square
+F distribution
+Hotelling's T for n=2
+various functions simply related to error function.
+	(p and z score transformations, cummulative prob.)
+noncentral versions of t,chi-square,F
+inverses of t, chi-square, F, central and non-central versions.
+	(i.e., given confidence return variable value).
+Kolmogorv-Smirnov (one-sample)
+Wilcoxon & Mann-Whitney sign test and 2 sample test
+(note that various mathematical functions are to be found in
+the C Tools and More C Tools diskettes, such as various
+complex arithmetic functions (log, exponential, etc.))
+
+C++ Code:
+
+Math functions: Using the Pade (rational approximation) method
+given in Spanier and Oldham, a number of functions are modeled
+including:
+
+Hurwitz zeta function (more robust method than Spanier and Oldnam!)
+Lerch Phi
+Generalized Hypergeometric Function,Meijer G function, MacRobert E.
+
+Package for C++ for classes of vectors & matrices of complex
+numbers with typical operations (multiplication, etc.).  NOT as
+complete as that in, say, B. Eckel's book but better handling of
+storage allocation (see forthcoming article in C User's Journal
+for a discussion).
+
+----------------------------------------------------------------------
+
+Arbitrary Precision Arithmetic & Number Theory ($9.95)
+
+Contents: 1) a package of arbitrary precision routines for
+add,subtract, multiply, divide for integers, rationals, and
+reals.  Conversion from rational to real, between type long and
+integers, and between real and type double (uses sscanf, only
+precision of type float achieved). Arbitrary precision integer
+arithmetic for: greatest common divisor (gcd) of m,n (also finds
+m',n' such that m'm+n'n=gcd), a^b mod c (or a^b when c=0) and
+a*b mod c, generating and testing large primes, generating RSA
+cryptosystem keys, encrypting & decrypting in RSA system, and
+converting between number systems of different bases.  2) a
+package to do basic number theory, using the above, including:
+Jacobi and Moebius symbols, Jordan J, Mangoldt Lambda, Liouville
+nu (count of prime divisors), prime factors, divisors, sigma
+(sum of kth powers of divisors, k>=0), and calculate the
+partition numbers p(n) and q(n) either by recurrence or
+asymptotically.  For binary bases, shifts and modular
+square roots may be found.
+There are caveats (specfied below) on using the
+second package for factoring large numbers (greater than two
+hundred million) or determining the number of partitions for
+large numbers.  The factoring is done "brute force." A more
+efficient method may be implemented in the future.  A table of
+primes up to 16,384 is provided, which makes factoring
+realtively efficient up to numbers below 268 million, beyond
+which primes have to be generated and then used as candidate
+factors.  Due to imprecisions in floating-point arithmetic, the
+asymptotic results for p and q may not be exact, although the
+formulae are in principle capable of exactly determining the
+(integer) p and q.
+
+Also included are C++ routines for classes Integer, Rational, Real to
+permit writing code such as:  Integer A,B,C,D; A=B*C+D; where
+A, etc. are arb. prec. integers.  Various conversions are provided;
+a large integer may be written as a string, e.g.: "1234567890".
+The Rational and Real classes closely follow that of Integer, but have
+not been fully tested.
+
+----------------------------------------------------------------------
+
+Sparse Matrix Package. ($19.95)
+
+Includes linear system solvers using Generalized Minimum
+Residual Method (GMRES), minmum residual method (MRES)
+and the stabilized bi-conjugate gradient method (BiCSTAB)
+ for general systems,  and conjugate gradient method for symmetric
+positive-defininte systems. Chokesky (LDL*) decompostion for
+symmetric positive-definite matrices.  LU decomposition for
+various matrices with fill control. Various preconditioning
+methods. In C. Also a good bibliography on these methods.
+Very useful for those starting research in this area.  Note that
+preconditioning is still an art, not a science, so the user will
+have to experiment to find the best methods and preconditioners
+for his problem.  This is a rapidly evolving field!

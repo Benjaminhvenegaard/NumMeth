@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE spbsl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+saxpy
+sdot
+---END OF DEPENDENCIES---

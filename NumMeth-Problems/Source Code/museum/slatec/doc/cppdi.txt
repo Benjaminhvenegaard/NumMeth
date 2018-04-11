@@ -1,0 +1,59 @@
+C***BEGIN PROLOGUE  CPPDI
+C***PURPOSE  Compute the determinant and inverse of a complex Hermitian
+C            positive definite matrix using factors from CPPCO or CPPFA.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2D1B, D3D1B
+C***TYPE      COMPLEX (SPPDI-S, DPPDI-D, CPPDI-C)
+C***KEYWORDS  DETERMINANT, INVERSE, LINEAR ALGEBRA, LINPACK, MATRIX,
+C             PACKED, POSITIVE DEFINITE
+C***AUTHOR  Moler, C. B., (U. of New Mexico)
+C***DESCRIPTION
+C
+C     CPPDI computes the determinant and inverse
+C     of a complex Hermitian positive definite matrix
+C     using the factors computed by CPPCO or CPPFA .
+C
+C     On Entry
+C
+C        AP      COMPLEX (N*(N+1)/2)
+C                the output from CPPCO or CPPFA.
+C
+C        N       INTEGER
+C                the order of the matrix  A .
+C
+C        JOB     INTEGER
+C                = 11   both determinant and inverse.
+C                = 01   inverse only.
+C                = 10   determinant only.
+C
+C     On Return
+C
+C        AP      the upper triangular half of the inverse .
+C                The strict lower triangle is unaltered.
+C
+C        DET     REAL(2)
+C                determinant of original matrix if requested.
+C                Otherwise not referenced.
+C                Determinant = DET(1) * 10.0**DET(2)
+C                with  1.0 .LE. DET(1) .LT. 10.0
+C                or  DET(1) .EQ. 0.0 .
+C
+C     Error Condition
+C
+C        A division by zero will occur if the input factor contains
+C        a zero on the diagonal and the inverse is requested.
+C        It will not occur if the subroutines are called correctly
+C        and if CPOCO or CPOFA has set INFO .EQ. 0 .
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  CAXPY, CSCAL
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  CPPDI

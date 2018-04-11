@@ -1,0 +1,95 @@
+C***BEGIN PROLOGUE  QZVAL
+C***PURPOSE  The third step of the QZ algorithm for generalized
+C            eigenproblems.  Accepts a pair of real matrices, one in
+C            quasi-triangular form and the other in upper triangular
+C            form and computes the eigenvalues of the associated
+C            eigenproblem.  Usually preceded by QZHES, QZIT, and
+C            followed by QZVEC.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2C
+C***TYPE      SINGLE PRECISION (QZVAL-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is the third step of the QZ algorithm
+C     for solving generalized matrix eigenvalue problems,
+C     SIAM J. NUMER. ANAL. 10, 241-256(1973) by MOLER and STEWART.
+C
+C     This subroutine accepts a pair of REAL matrices, one of them
+C     in quasi-triangular form and the other in upper triangular form.
+C     It reduces the quasi-triangular matrix further, so that any
+C     remaining 2-by-2 blocks correspond to pairs of complex
+C     eigenvalues, and returns quantities whose ratios give the
+C     generalized eigenvalues.  It is usually preceded by  QZHES
+C     and  QZIT  and may be followed by  QZVEC.
+C
+C     On Input
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A, B, and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrices A and B.  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        A contains a real upper quasi-triangular matrix.  A is a two-
+C          dimensional REAL array, dimensioned A(NM,N).
+C
+C        B contains a real upper triangular matrix.  In addition,
+C          location B(N,1) contains the tolerance quantity (EPSB)
+C          computed and saved in  QZIT.  B is a two-dimensional REAL
+C          array, dimensioned B(NM,N).
+C
+C        MATZ should be set to .TRUE. if the right hand transformations
+C          are to be accumulated for later use in computing
+C          eigenvectors, and to .FALSE. otherwise.  MATZ is a LOGICAL
+C          variable.
+C
+C        Z contains, if MATZ has been set to .TRUE., the transformation
+C          matrix produced in the reductions by  QZHES  and  QZIT,  if
+C          performed, or else the identity matrix.  If MATZ has been set
+C          to .FALSE., Z is not referenced.  Z is a two-dimensional REAL
+C          array, dimensioned Z(NM,N).
+C
+C     On Output
+C
+C        A has been reduced further to a quasi-triangular matrix in
+C          which all nonzero subdiagonal elements correspond to pairs
+C          of complex eigenvalues.
+C
+C        B is still in upper triangular form, although its elements
+C          have been altered.  B(N,1) is unaltered.
+C
+C        ALFR and ALFI contain the real and imaginary parts of the
+C          diagonal elements of the triangular matrix that would be
+C          obtained if A were reduced completely to triangular form
+C          by unitary transformations.  Non-zero values of ALFI occur
+C          in pairs, the first member positive and the second negative.
+C          ALFR and ALFI are one-dimensional REAL arrays, dimensioned
+C          ALFR(N) and ALFI(N).
+C
+C        BETA contains the diagonal elements of the corresponding B,
+C          normalized to be real and non-negative.  The generalized
+C          eigenvalues are then the ratios ((ALFR+I*ALFI)/BETA).
+C          BETA is a one-dimensional REAL array, dimensioned BETA(N).
+C
+C        Z contains the product of the right hand transformations
+C          (for all three steps) if MATZ has been set to .TRUE.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  QZVAL

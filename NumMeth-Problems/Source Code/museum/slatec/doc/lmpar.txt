@@ -1,0 +1,99 @@
+C***BEGIN PROLOGUE  LMPAR
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SNLS1 and SNLS1E
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (LMPAR-S, DMPAR-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Given an M by N matrix A, an N by N nonsingular DIAGONAL
+C     matrix D, an M-vector B, and a positive number DELTA,
+C     the problem is to determine a value for the parameter
+C     PAR such that if X solves the system
+C
+C           A*X = B ,     SQRT(PAR)*D*X = 0 ,
+C
+C     in the least squares sense, and DXNORM is the Euclidean
+C     norm of D*X, then either PAR is zero and
+C
+C           (DXNORM-DELTA) .LE. 0.1*DELTA ,
+C
+C     or PAR is positive and
+C
+C           ABS(DXNORM-DELTA) .LE. 0.1*DELTA .
+C
+C     This subroutine completes the solution of the problem
+C     if it is provided with the necessary information from the
+C     QR factorization, with column pivoting, of A. That is, if
+C     A*P = Q*R, where P is a permutation matrix, Q has orthogonal
+C     columns, and R is an upper triangular matrix with diagonal
+C     elements of nonincreasing magnitude, then LMPAR expects
+C     the full upper triangle of R, the permutation matrix P,
+C     and the first N components of (Q TRANSPOSE)*B. On output
+C     LMPAR also provides an upper triangular matrix S such that
+C
+C            T   T                   T
+C           P *(A *A + PAR*D*D)*P = S *S .
+C
+C     S is employed within LMPAR and may be of separate interest.
+C
+C     Only a few iterations are generally needed for convergence
+C     of the algorithm. If, however, the limit of 10 iterations
+C     is reached, then the output PAR will contain the best
+C     value obtained so far.
+C
+C     The subroutine statement is
+C
+C       SUBROUTINE LMPAR(N,R,LDR,IPVT,DIAG,QTB,DELTA,PAR,X,SIGMA,
+C                        WA1,WA2)
+C
+C     where
+C
+C       N is a positive integer input variable set to the order of R.
+C
+C       R is an N by N array. On input the full upper triangle
+C         must contain the full upper triangle of the matrix R.
+C         On output the full upper triangle is unaltered, and the
+C         strict lower triangle contains the strict upper triangle
+C         (transposed) of the upper triangular matrix S.
+C
+C       LDR is a positive integer input variable not less than N
+C         which specifies the leading dimension of the array R.
+C
+C       IPVT is an integer input array of length N which defines the
+C         permutation matrix P such that A*P = Q*R. Column J of P
+C         is column IPVT(J) of the identity matrix.
+C
+C       DIAG is an input array of length N which must contain the
+C         diagonal elements of the matrix D.
+C
+C       QTB is an input array of length N which must contain the first
+C         N elements of the vector (Q TRANSPOSE)*B.
+C
+C       DELTA is a positive input variable which specifies an upper
+C         bound on the Euclidean norm of D*X.
+C
+C       PAR is a nonnegative variable. On input PAR contains an
+C         initial estimate of the Levenberg-Marquardt parameter.
+C         On output PAR contains the final estimate.
+C
+C       X is an output array of length N which contains the least
+C         squares solution of the system A*X = B, SQRT(PAR)*D*X = 0,
+C         for the output PAR.
+C
+C       SIGMA is an output array of length N which contains the
+C         diagonal elements of the upper triangular matrix S.
+C
+C       WA1 and WA2 are work arrays of length N.
+C
+C***SEE ALSO  SNLS1, SNLS1E
+C***ROUTINES CALLED  ENORM, QRSOLV, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   800301  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  LMPAR

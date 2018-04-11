@@ -1,0 +1,14 @@
+      SUBROUTINE ZSHCH (ZR, ZI, CSHR, CSHI, CCHR, CCHI)
+C
+      DOUBLE PRECISION CCHI, CCHR, CH, CN, CSHI, CSHR, SH, SN, ZI, ZR
+C***FIRST EXECUTABLE STATEMENT  ZSHCH
+      SH = SINH(ZR)
+      CH = COSH(ZR)
+      SN = SIN(ZI)
+      CN = COS(ZI)
+      CSHR = SH*CN
+      CSHI = CH*SN
+      CCHR = CH*CN
+      CCHI = SH*SN
+      RETURN
+      END

@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE stod
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cfod
+pjac
+sgbfa
+sgbsl
+sgefa
+sgesl
+slvs
+vnwrms
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+saxpy
+sdot
+sscal
+---END OF DEPENDENCIES---

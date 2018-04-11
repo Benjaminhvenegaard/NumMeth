@@ -1,0 +1,19 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE besk0
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+besi0
+besi0e
+besk0e
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

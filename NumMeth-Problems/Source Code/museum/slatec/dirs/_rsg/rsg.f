@@ -1,0 +1,24 @@
+      SUBROUTINE RSG (NM, N, A, B, W, MATZ, Z, FV1, FV2, IERR)
+C
+      INTEGER N,NM,IERR,MATZ
+      REAL A(NM,*),B(NM,*),W(*),Z(NM,*),FV1(*),FV2(*)
+C
+C***FIRST EXECUTABLE STATEMENT  RSG
+      IF (N .LE. NM) GO TO 10
+      IERR = 10 * N
+      GO TO 50
+C
+   10 CALL  REDUC(NM,N,A,B,FV2,IERR)
+      IF (IERR .NE. 0) GO TO 50
+      IF (MATZ .NE. 0) GO TO 20
+C     .......... FIND EIGENVALUES ONLY ..........
+      CALL  TRED1(NM,N,A,W,FV1,FV2)
+      CALL  TQLRAT(N,W,FV2,IERR)
+      GO TO 50
+C     .......... FIND BOTH EIGENVALUES AND EIGENVECTORS ..........
+   20 CALL  TRED2(NM,N,A,W,FV1,Z)
+      CALL  TQL2(NM,N,W,FV1,Z,IERR)
+      IF (IERR .NE. 0) GO TO 50
+      CALL  REBAK(NM,N,B,FV2,N,Z)
+   50 RETURN
+      END

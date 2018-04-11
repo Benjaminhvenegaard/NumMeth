@@ -1,0 +1,573 @@
+<html><head><title>Lau Contents</title></head><body>
+<center><img src="../../gfx/logoCodeMuseumMed.gif"><br></center>
+<img src="crcpress/crclogo.gif" alt="[CRC logo]" align="left" hspace=20>
+<h1>Procedures From
+<a href="crcpress/crc1.htm">A Numerical Library in C for Scientists and
+Engineers</a></h1>
+<h2>by H.T. Lau (CRC Press, 1995)</h2>
+<h4><i>see also</i> <a href="crcpress/crc1.htm">Information About the Book
+(and How to Order)</a></h4>
+<h4><i>see also</i> <a href="crcpress/crcindex.htm">Books of Related
+Interest from CRC Press</a></h4>
+<h4><i>see also</i> <a href="http://www.crcpress.com">CRC's Home Page
+(external link)</a></h4>
+
+<br clear="all"><p><hr><p>
+<h2>0. Utility Procedures</h2>
+<a href="utility/rvector.c"><tt>allocate_real_vector</tt></a><br>
+<a href="utility/ivector.c"><tt>allocate_integer_vector</tt></a><br>
+<a href="utility/rmatrix.c"><tt>allocate_real_matrix</tt></a><br>
+<a href="utility/imatrix.c"><tt>allocate_integer_matrix</tt></a><br>
+<a href="utility/error.c"><tt>system_error</tt></a><br>
+<a href="utility/free_rv.c"><tt>free_real_vector</tt></a><br>
+<a href="utility/free_iv.c"><tt>free_integer_vector</tt></a><br>
+<a href="utility/free_rm.c"><tt>free_real_matrix</tt></a><br>
+<a href="utility/free_im.c"><tt>free_integer_matrix</tt></a><br>
+<h2>1. Elementary Procedures</h2>
+1.1 Real vector and matrix - Initialization<br>
+<a href="chapter1/inivec.c"><tt>inivec</tt></a><br>
+<a href="chapter1/inimat.c"><tt>inimat</tt></a><br>
+<a href="chapter1/inimatd.c"><tt>inimatd</tt></a><br>
+<a href="chapter1/inisymd.c"><tt>inisymd</tt></a><br>
+<a href="chapter1/inisymro.c"><tt>inisymrow</tt></a><br>
+1.2 Real vector and matrix - Duplication<br>
+<a href="chapter1/dupvec.c"><tt>dupvec</tt></a><br>
+<a href="chapter1/dupvecro.c"><tt>dupvecrow</tt></a><br>
+<a href="chapter1/duprowve.c"><tt>duprowvec</tt></a><br>
+<a href="chapter1/dupvecco.c"><tt>dupveccol</tt></a><br>
+<a href="chapter1/dupcolve.c"><tt>dupcolvec</tt></a><br>
+<a href="chapter1/dupmat.c"><tt>dupmat</tt></a><br>
+1.3 Real vector <br>
+<a href="chapter1/mulvec.c"><tt>mulvec</tt></a><br>
+<a href="chapter1/mulrow.c"><tt>mulrow</tt></a><br>
+<a href="chapter1/mulcol.c"><tt>mulcol</tt></a><br>
+<a href="chapter1/colcst.c"><tt>colcst</tt></a><br>
+<a href="chapter1/rowcst.c"><tt>rowcst</tt></a><br>
+1.4 Real vector vector products<br>
+<a href="chapter1/vecvec.c"><tt>vecvec</tt></a><br>
+<a href="chapter1/matvec.c"><tt>matvec</tt></a><br>
+<a href="chapter1/tamvec.c"><tt>tamvec</tt></a><br>
+<a href="chapter1/matmat.c"><tt>matmat</tt></a><br>
+<a href="chapter1/tammat.c"><tt>tammat</tt></a><br>
+<a href="chapter1/mattam.c"><tt>mattam</tt></a><br>
+<a href="chapter1/seqvec.c"><tt>seqvec</tt></a><br>
+<a href="chapter1/scaprd1.c"><tt>scaprd1</tt></a><br>
+<a href="chapter1/symmatve.c"><tt>symmatvec</tt></a><br>
+1.5 Real matrix vector products<br>
+<a href="chapter1/fulmatve.c"><tt>fulmatvec</tt></a><br>
+<a href="chapter1/fultamve.c"><tt>fultamvec</tt></a><br>
+<a href="chapter1/fulsymma.c"><tt>fulsymmatvec</tt></a><br>
+<a href="chapter1/resvec.c"><tt>resvec</tt></a><br>
+<a href="chapter1/symresve.c"><tt>symresvec</tt></a><br>
+1.6 Real matrix products<br>
+<a href="chapter1/hshvecma.c"><tt>hshvecmat</tt></a><br>
+<a href="chapter1/hshcolma.c"><tt>hshcolmat</tt></a><br>
+<a href="chapter1/hshrowma.c"><tt>hshrowmat</tt></a><br>
+<a href="chapter1/hshvecta.c"><tt>hshvectam</tt></a><br>
+<a href="chapter1/hshcolta.c"><tt>hshcoltam</tt></a><br>
+<a href="chapter1/hshrowta.c"><tt>hshrowtam</tt></a><br>
+1.7 Real vector and matrix - Elimination<br>
+<a href="chapter1/elmvec.c"><tt>elmvec</tt></a><br>
+<a href="chapter1/elmcol.c"><tt>elmcol</tt></a><br>
+<a href="chapter1/elmrow.c"><tt>elmrow</tt></a><br>
+<a href="chapter1/elmvecco.c"><tt>elmveccol</tt></a><br>
+<a href="chapter1/elmcolve.c"><tt>elmcolvec</tt></a><br>
+<a href="chapter1/elmvecro.c"><tt>elmvecrow</tt></a><br>
+<a href="chapter1/elmrowve.c"><tt>elmrowvec</tt></a><br>
+<a href="chapter1/elmcolro.c"><tt>elmcolrow</tt></a><br>
+<a href="chapter1/elmrowco.c"><tt>elmrowcol</tt></a><br>
+<a href="chapter1/maxelmro.c"><tt>maxelmrow</tt></a><br>
+1.8 Real vector and matrix - Interchanging<br>
+<a href="chapter1/ichvec.c"><tt>ichvec</tt></a><br>
+<a href="chapter1/ichcol.c"><tt>ichcol</tt></a><br>
+<a href="chapter1/ichrow.c"><tt>ichrow</tt></a><br>
+<a href="chapter1/ichrowco.c"><tt>ichrowcol</tt></a><br>
+<a href="chapter1/ichseqve.c"><tt>ichseqvec</tt></a><br>
+<a href="chapter1/ichseq.c"><tt>ichseq</tt></a><br>
+1.9 Real vector and matrix - Rotation<br>
+<a href="chapter1/rotcol.c"><tt>rotcol</tt></a><br>
+<a href="chapter1/rotrow.c"><tt>rotrow</tt></a><br>
+1.10 Real vector and matrix - Norms<br>
+<a href="chapter1/infnrmve.c"><tt>infnrmvec</tt></a><br>
+<a href="chapter1/infnrmro.c"><tt>infnrmrow</tt></a><br>
+<a href="chapter1/infnrmco.c"><tt>infnrmcol</tt></a><br>
+<a href="chapter1/infnrmma.c"><tt>infnrmmat</tt></a><br>
+<a href="chapter1/onenrmve.c"><tt>onenrmvec</tt></a><br>
+<a href="chapter1/onenrmro.c"><tt>onenrmrow</tt></a><br>
+<a href="chapter1/onenrmco.c"><tt>onenrmcol</tt></a><br>
+<a href="chapter1/onenrmma.c"><tt>onenrmmat</tt></a><br>
+<a href="chapter1/absmaxma.c"><tt>absmaxmat</tt></a><br>
+1.11 Real vector and matrix - Scaling<br>
+<a href="chapter1/reascl.c"><tt>reascl</tt></a><br>
+1.12 Complex vector and matrix - Multiplication<br>
+<a href="chapter1/comcolcs.c"><tt>comcolcst</tt></a><br>
+<a href="chapter1/comrowcs.c"><tt>comrowcst</tt></a><br>
+1.13 Complex vector and matrix - Scalar products<br>
+<a href="chapter1/commatve.c"><tt>commatvec</tt></a><br>
+<a href="chapter1/hshcomco.c"><tt>hshcomcol</tt></a><br>
+<a href="chapter1/hshcompr.c"><tt>hshcomprd</tt></a>  (<a href="examples/_hshcom.c">Example</a>)<br>
+1.14 Complex vector and matrix - Elimination<br>
+<a href="chapter1/elmcomve.c"><tt>elmcomveccol</tt></a><br>
+<a href="chapter1/elmcomco.c"><tt>elmcomcol</tt></a>  (<a href="examples/_elmcomc.c">Example</a>)<br>
+<a href="chapter1/elmcomro.c"><tt>elmcomrowvec</tt></a><br>
+1.15 Complex vector and matrix - Rotation<br>
+<a href="chapter1/rotcomco.c"><tt>rotcomcol</tt></a>  (<a href="examples/_rotcomc.c">Example</a>)<br>
+<a href="chapter1/rotcomro.c"><tt>rotcomrow</tt></a><br>
+<a href="chapter1/chsh2.c"><tt>cshsh2</tt></a><br>
+1.16 Complex vector and matrix - Norms<br>
+<a href="chapter1/comeucnr.c"><tt>comeucnrm</tt></a><br>
+1.17 Complex vector and matrix - Scaling<br>
+<a href="chapter1/comscl.c"><tt>comscl</tt></a><br>
+<a href="chapter1/sclcom.c"><tt>sclcom</tt></a><br>
+1.18 Complex monadic operations<br>
+<a href="chapter1/comabs.c"><tt>comabs</tt></a>  (<a href="examples/_comabs.c">Example</a>)<br>
+<a href="chapter1/comsqrt.c"><tt>comsqrt</tt></a>  (<a href="examples/_comsqrt.c">Example</a>)<br>
+<a href="chapter1/carpol.c"><tt>carpol</tt></a>  (<a href="examples/_carpol.c">Example</a>)<br>
+1.19 Complex dyadic operations<br>
+<a href="chapter1/commul.c"><tt>commul</tt></a>  (<a href="examples/_commul.c">Example</a>)<br>
+<a href="chapter1/comdiv.c"><tt>comdiv</tt></a>  (<a href="examples/_comdiv.c">Example</a>)<br>
+1.20 Long integer arithmetic<br>
+<a href="chapter1/lngintad.c"><tt>lngintadd</tt></a>  (<a href="examples/_lngint.c">Example</a>)<br>
+<a href="chapter1/lngintsu.c"><tt>lngintsubtract</tt></a><br>
+<a href="chapter1/lngintmu.c"><tt>lngintmult</tt></a><br>
+<a href="chapter1/lngintdi.c"><tt>lngintdivide</tt></a>  (<a href="examples/_lngint.c">Example</a>)<br>
+<a href="chapter1/lngintpo.c"><tt>lngintpower</tt></a><br>
+<h2>2. Algebraic Evaluations</h2>
+2.1 Evaluation of polynomials in Grunert form<br>
+<a href="chapter2/pol.c"><tt>pol</tt></a><br>
+<a href="chapter2/taypol.c"><tt>taypol</tt></a><br>
+<a href="chapter2/norderpo.c"><tt>norderpol</tt></a><br>
+<a href="chapter2/derpol.c"><tt>derpol</tt></a>  (<a href="examples/_derpol.c">Example</a>)<br>
+2.2 Evaluation of general orthogonal polynomials<br>
+<a href="chapter2/ortpol.c"><tt>ortpol</tt></a><br>
+<a href="chapter2/ortpolsy.c"><tt>ortpolsym</tt></a><br>
+<a href="chapter2/allortpo.c"><tt>allortpol</tt></a>  (<a href="examples/_allortp.c">Example</a>)<br>
+<a href="chapter2/allortps.c"><tt>allortpolsym</tt></a>  (<a href="examples/_allortp.c">Example</a>)<br>
+<a href="chapter2/sumortpo.c"><tt>sumortpol</tt></a><br>
+<a href="chapter2/sumortps.c"><tt>sumortpolsym</tt></a><br>
+2.3 Evaluation of Chebyshev polynomials<br>
+<a href="chapter2/chepolsu.c"><tt>chepolsum</tt></a>  (<a href="examples/_chepols.c">Example</a>)<br>
+<a href="chapter2/oddchepo.c"><tt>oddchepolsum</tt></a>  (<a href="examples/_oddchep.c">Example</a>)<br>
+<a href="chapter2/chepol.c"><tt>chepol</tt></a><br>
+<a href="chapter2/allchepo.c"><tt>allchepol</tt></a>  (<a href="examples/_allchep.c">Example</a>)<br>
+2.4 Evaluation of Fourier series<br>
+<a href="chapter2/sinser.c"><tt>sinser</tt></a><br>
+<a href="chapter2/cosser.c"><tt>cosser</tt></a><br>
+<a href="chapter2/fouser.c"><tt>fouser</tt></a>  (<a href="examples/_fouser.c">Example</a>)<br>
+<a href="chapter2/fouser1.c"><tt>fouser1</tt></a><br>
+<a href="chapter2/fouser2.c"><tt>fouser2</tt></a><br>
+<a href="chapter2/comfouse.c"><tt>comfouser</tt></a><br>
+<a href="chapter2/comfous1.c"><tt>comfouser1</tt></a><br>
+<a href="chapter2/comfous2.c"><tt>comfouser2</tt></a><br>
+2.5 Evaluation of continued fractions<br>
+<a href="chapter2/jfrac.c"><tt>jfrac</tt></a>  (<a href="examples/_jfrac.c">Example</a>)<br>
+2.6 Transformation of polynomial representation<br>
+<a href="chapter2/polchs.c"><tt>polchs</tt></a>  (<a href="examples/_polchs.c">Example</a>)<br>
+<a href="chapter2/chspol.c"><tt>chspol</tt></a><br>
+<a href="chapter2/polshtch.c"><tt>polshtchs</tt></a>  (<a href="examples/_polshtc.c">Example</a>)<br>
+<a href="chapter2/shtchspo.c"><tt>shtchspol</tt></a><br>
+<a href="chapter2/grnnew.c"><tt>grnnew</tt></a>  (<a href="examples/_grnnew.c">Example</a>)<br>
+<a href="chapter2/newgrn.c"><tt>newgrn</tt></a><br>
+<a href="chapter2/lintfmpo.c"><tt>lintfmpol</tt></a>  (<a href="examples/_lintfmp.c">Example</a>)<br>
+2.7 Operations on orthogonal polynomials<br>
+<a href="chapter2/intchs.c"><tt>intchs</tt></a>  (<a href="examples/_intchs.c">Example</a>)<br>
+<h2>3. Linear Algebra</h2>
+3.1 Full real general matrices<br>
+3.1.1 Preparatory procedures<br>
+<a href="chapter3/dec.c"><tt>dec</tt></a><br>
+<a href="chapter3/gsselm.c"><tt>gsselm</tt></a><br>
+<a href="chapter3/onenrmin.c"><tt>onenrminv</tt></a><br>
+<a href="chapter3/erbelm.c"><tt>erbelm</tt></a><br>
+<a href="chapter3/gsserb.c"><tt>gsserb</tt></a><br>
+<a href="chapter3/gssnri.c"><tt>gssnri</tt></a><br>
+3.1.2 Calculation of determinant<br>
+<a href="chapter3/determ.c"><tt>determ</tt></a>  (<a href="examples/_determ.c">Example</a>)<br>
+3.1.3 Solution of linear equations<br>
+<a href="chapter3/solovr.c"><tt>sol</tt></a>  (<a href="examples/_solovr.c">Example</a>)<br>
+<a href="chapter3/decsol.c"><tt>decsol</tt></a>  (<a href="examples/_decsol.c">Example</a>)<br>
+<a href="chapter3/solelm.c"><tt>solelm</tt></a><br>
+<a href="chapter3/gsssol.c"><tt>gsssol</tt></a>  (<a href="examples/_gsssol.c">Example</a>)<br>
+<a href="chapter3/gsssoler.c"><tt>gsssolerb</tt></a>  (<a href="examples/_gsssole.c">Example</a>)<br>
+3.1.4 Matrix inversion<br>
+<a href="chapter3/inv.c"><tt>inv</tt></a><br>
+<a href="chapter3/decinv.c"><tt>decinv</tt></a>  (<a href="examples/_decinv.c">Example</a>)<br>
+<a href="chapter3/inv1.c"><tt>inv1</tt></a><br>
+<a href="chapter3/gssinv.c"><tt>gssinv</tt></a>  (<a href="examples/_gssinv.c">Example</a>)<br>
+<a href="chapter3/gssinver.c"><tt>gssinverb</tt></a>  (<a href="examples/_gssinve.c">Example</a>)<br>
+3.1.5 Iteratively improved solution<br>
+<a href="chapter3/itisol.c"><tt>itisol</tt></a><br>
+<a href="chapter3/gssitiso.c"><tt>gssitisol</tt></a>  (<a href="examples/_gsitiso.c">Example</a>)<br>
+<a href="chapter3/itisoler.c"><tt>itisolerb</tt></a><br>
+<a href="chapter3/gsitsole.c"><tt>gssitisolerb</tt></a>  (<a href="examples/_gsitsoe.c">Example</a>)<br>
+3.2 Real Symmetric positive definite matrices<br>
+3.2.1 Preparatory procedures<br>
+<a href="chapter3/chldec2.c"><tt>chldec2</tt></a>  (<a href="examples/_chldec2.c">Example</a>)<br>
+<a href="chapter3/chldec1.c"><tt>chldec1</tt></a>  (<a href="examples/_chldec1.c">Example</a>)<br>
+3.2.2 Calculation of determinant<br>
+<a href="chapter3/chldetm2.c"><tt>chldeterm2</tt></a><br>
+<a href="chapter3/chldetm1.c"><tt>chldeterm1</tt></a><br>
+3.2.3 Solution of linear equations<br>
+<a href="chapter3/chlsol2.c"><tt>chlsol2</tt></a><br>
+<a href="chapter3/chlsol1.c"><tt>chlsol1</tt></a><br>
+<a href="chapter3/chldecs2.c"><tt>chldecsol2</tt></a>  (<a href="examples/_chldso2.c">Example</a>)<br>
+<a href="chapter3/chldecs1.c"><tt>chldecsol1</tt></a>  (<a href="examples/_chldso1.c">Example</a>)<br>
+3.2.4 Matrix inversion<br>
+<a href="chapter3/chlinv2.c"><tt>chlinv2</tt></a><br>
+<a href="chapter3/chlinv1.c"><tt>chlinv1</tt></a><br>
+<a href="chapter3/chldeci2.c"><tt>chldecinv2</tt></a>  (<a href="examples/_chldso2.c">Example</a>)<br>
+<a href="chapter3/chldeci1.c"><tt>chldecinv1</tt></a>  (<a href="examples/_chldso1.c">Example</a>)<br>
+3.3 General real symmetric matrices<br>
+3.3.1 Preparatory procedure<br>
+<a href="chapter3/decsym2.c"><tt>decsym2</tt></a><br>
+3.3.2 Calculation of determinant<br>
+<a href="chapter3/detmsym2.c"><tt>determsym2</tt></a>  (<a href="examples/_detmsy2.c">Example</a>)<br>
+3.3.3 Solution of linear equations<br>
+<a href="chapter3/solsym2.c"><tt>solsym2</tt></a><br>
+<a href="chapter3/decsolst.c"><tt>decsolsym2</tt></a><br>
+3.4 Real full rank overdetermined systems<br>
+3.4.1 Preparatory procedures<br>
+<a href="chapter3/lsqortds.c"><tt>lsqortdec</tt></a>  (<a href="examples/_lsqords.c">Example</a>)<br>
+<a href="chapter3/lsqdglin.c"><tt>lsqdglinv</tt></a><br>
+3.4.2 Least squares solution<br>
+<a href="chapter3/lsqsol.c"><tt>lsqsol</tt></a><br>
+<a href="chapter3/lsqortds.c"><tt>lsqortdecsol</tt></a>  (<a href="examples/_lsqords.c">Example</a>)<br>
+3.4.3 Inverse matrix of normal equations<br>
+<a href="chapter3/lsqinv.c"><tt>lsqinv</tt></a>  (<a href="examples/_lsqinv.c">Example</a>)<br>
+3.4.4 Least squares with linear constraints<br>
+<a href="chapter3/lsqdecom.c"><tt>lsqdecomp</tt></a>  (<a href="examples/_lsqdecc.c">Example</a>)<br>
+<a href="chapter3/lsqrefso.c"><tt>lsqrefsol</tt></a><br>
+3.5 Other real matrix problems<br>
+3.5.1 Solution of overdetermined systems<br>
+<a href="chapter3/solsvdun.c"><tt>solsvdund</tt></a><br>
+<a href="chapter3/solund.c"><tt>solund</tt></a>  (<a href="examples/_solund.c">Example</a>)<br>
+3.5.3 Solutions of homogeneous equation<br>
+<a href="chapter3/homsolsv.c"><tt>homsolsvd</tt></a><br>
+<a href="chapter3/homsol.c"><tt>homsol</tt></a>  (<a href="examples/_homsol.c">Example</a>)<br>
+3.5.4 Pseudo-inversion<br>
+<a href="chapter3/psdinvsv.c"><tt>psdinvsvd</tt></a><br>
+<a href="chapter3/psdinv.c"><tt>psdinv</tt></a>  (<a href="examples/_psdinv.c">Example</a>)<br>
+3.6 Real sparse non-symmetric band matrices<br>
+3.6.1 Preparatory procedure<br>
+<a href="chapter3/decbnd.c"><tt>decbnd</tt></a><br>
+3.6.2 Calculation of determinant<br>
+<a href="chapter3/determbn.c"><tt>determbnd</tt></a><br>
+3.6.3 Solution of linear equations<br>
+<a href="chapter3/solbnd.c"><tt>solbnd</tt></a>  (<a href="examples/_solbnd.c">Example</a>)<br>
+<a href="chapter3/decsolbn.c"><tt>decsolbnd</tt></a>  (<a href="examples/_decsolb.c">Example</a>)<br>
+3.7 Real sparse non-symmetric tridiagonal matrices<br>
+3.7.1 Preparatory procedures<br>
+<a href="chapter3/dectri.c"><tt>dectri</tt></a><br>
+<a href="chapter3/dectripi.c"><tt>dectripiv</tt></a><br>
+3.7.2 Solution of linear equations<br>
+<a href="chapter3/soltri.c"><tt>soltri</tt></a><br>
+<a href="chapter3/decsoltr.c"><tt>decsoltri</tt></a>  (<a href="examples/_decsolt.c">Example</a>)<br>
+<a href="chapter3/soltripi.c"><tt>soltripiv</tt></a>  (<a href="examples/_soltrip.c">Example</a>)<br>
+<a href="chapter3/decsoltp.c"><tt>decsoltripiv</tt></a>  (<a href="examples/_decsolt.c">Example</a>)<br>
+3.8 Sparse symmetric positive definite band matrices<br>
+3.8.1 Preparatory procedure<br>
+<a href="chapter3/chldecbn.c"><tt>chldecbnd</tt></a><br>
+3.8.2 Calculation of determinant<br>
+<a href="chapter3/chldtmbn.c"><tt>chldetermbnd</tt></a><br>
+3.8.3 Solution of linear equations<br>
+<a href="chapter3/chlsolbn.c"><tt>chlsolbnd</tt></a>  (<a href="examples/_chlsolb.c">Example</a>)<br>
+<a href="chapter3/chldecsb.c"><tt>chldecsolbnd</tt></a>  (<a href="examples/_chldsob.c">Example</a>)<br>
+3.9 Symmetric positive definite tridiagonal matrices<br>
+3.9.1 Preparatory procedure<br>
+<a href="chapter3/decsymtr.c"><tt>decsymtri</tt></a><br>
+3.9.2 Solution of linear equations<br>
+<a href="chapter3/solsymtr.c"><tt>solsymtri</tt></a><br>
+<a href="chapter3/decsolst.c"><tt>decsolsymtri</tt></a><br>
+3.10 Sparse real matrices - Iterative methods<br>
+<a href="chapter3/conjgrad.c"><tt>conjgrad</tt></a>  (<a href="examples/_conjgra.c">Example</a>)<br>
+3.11 Similarity transformation<br>
+3.11.1 Equilibration - real matrices<br>
+<a href="chapter3/eqilbr.c"><tt>eqilbr</tt></a><br>
+<a href="chapter3/baklbr.c"><tt>baklbr</tt></a><br>
+3.11.2 Equilibration - complex matrices<br>
+<a href="chapter3/eqilbrco.c"><tt>eqilbrcom</tt></a>  (<a href="examples/_eqilbrc.c">Example</a>)<br>
+<a href="chapter3/baklbrco.c"><tt>baklbrcom</tt></a><br>
+3.11.3 To Hessenberg form - real symmetric<br>
+<a href="chapter3/tfmsymt2.c"><tt>tfmsymtri2</tt></a><br>
+<a href="chapter3/baksymt2.c"><tt>baksymtri2</tt></a><br>
+<a href="chapter3/tfmpreve.c"><tt>tfmprevec</tt></a><br>
+<a href="chapter3/tfmsymt1.c"><tt>tfmsymtri1</tt></a><br>
+<a href="chapter3/baksymt1.c"><tt>baksymtri1</tt></a><br>
+3.11.4 To Hessenberg form - real asymmetric<br>
+<a href="chapter3/tfmreahe.c"><tt>tfmreahes</tt></a><br>
+<a href="chapter3/bakreah2.c"><tt>bakreahes1</tt></a><br>
+<a href="chapter3/bakreah2.c"><tt>bakreahes2</tt></a><br>
+3.11.5 To Hessenberg form - complex Hermitian<br>
+<a href="chapter3/hshhrmtv.c"><tt>hshhrmtri</tt></a>  (<a href="examples/_hshhrmt.c">Example</a>)<br>
+<a href="chapter3/hshhrmtv.c"><tt>hshhrmtrival</tt></a>  (<a href="examples/_hshhrmt.c">Example</a>)<br>
+<a href="chapter3/bakhrmtr.c"><tt>bakhrmtri</tt></a><br>
+3.11.6 To hessenberg form - complex non-Hermitian<br>
+<a href="chapter3/hshcomhe.c"><tt>hshcomhes</tt></a><br>
+<a href="chapter3/bakcomhe.c"><tt>bakcomhes</tt></a><br>
+3.12 Other transformations<br>
+3.12.1 To bidiagonal form - real matrices<br>
+<a href="chapter3/hshreabi.c"><tt>hshreabid</tt></a><br>
+<a href="chapter3/psttfmma.c"><tt>psttfmmat</tt></a><br>
+<a href="chapter3/pretfmma.c"><tt>pretfmmat</tt></a><br>
+3.13 The (ordinary) eigenvalue problem<br>
+3.13.1 Real symmetric tridiagonal matrices<br>
+<a href="chapter3/valsymtr.c"><tt>valsymtri</tt></a>  (<a href="examples/_valsymt.c">Example</a>)<br>
+<a href="chapter3/vecsymtr.c"><tt>vecsymtri</tt></a><br>
+<a href="chapter3/qrivalst.c"><tt>qrivalsymtri</tt></a><br>
+<a href="chapter3/qrisymtr.c"><tt>qrisymtri</tt></a><br>
+3.13.2 Real symmetric full matrices<br>
+<a href="chapter3/eigvals2.c"><tt>eigvalsym2</tt></a>  (<a href="examples/_eigvas2.c">Example</a>)<br>
+<a href="chapter3/eigsym2.c"><tt>eigsym2</tt></a><br>
+<a href="chapter3/eigvals1.c"><tt>eigvalsym1</tt></a><br>
+<a href="chapter3/eigsym1.c"><tt>eigsym1</tt></a>  (<a href="examples/_eigsym1.c">Example</a>)<br>
+<a href="chapter3/qrivals2.c"><tt>qrivalsym2</tt></a><br>
+<a href="chapter3/qrisym.c"><tt>qrisym</tt></a><br>
+<a href="chapter3/qrivals1.c"><tt>qrivalsym1</tt></a><br>
+3.13.3 Symmetric matrices - Auxiliary procedures<br>
+<a href="chapter3/mergesor.c"><tt>mergesort</tt></a><br>
+<a href="chapter3/vecperm.c"><tt>vecperm</tt></a><br>
+<a href="chapter3/rowperm.c"><tt>rowperm</tt></a><br>
+3.13.4 Symmetric matrices - Orthogonalization<br>
+<a href="chapter3/orthog.c"><tt>orthog</tt></a><br>
+3.13.5 Symmetric matrices - Iterative improvement<br>
+<a href="chapter3/symeigim.c"><tt>symeigimp</tt></a>  (<a href="examples/_symeigi.c">Example</a>)<br>
+3.13.6 Asymmetric matrices in Hessenberg form<br>
+<a href="chapter3/reavalqr.c"><tt>reavalqri</tt></a><br>
+<a href="chapter3/reaveche.c"><tt>reaceches</tt></a><br>
+<a href="chapter3/reaqri.c"><tt>reaqri</tt></a><br>
+<a href="chapter3/comvalqr.c"><tt>comvalqri</tt></a>  (<a href="examples/_comvalq.c">Example</a>)<br>
+<a href="chapter3/comveche.c"><tt>comveches</tt></a><br>
+3.13.7 Real asymmetric full matrices<br>
+<a href="chapter3/reaeigva.c"><tt>reaeigval</tt></a><br>
+<a href="chapter3/reaeig1.c"><tt>reaeig1</tt></a><br>
+<a href="chapter3/reaeig3.c"><tt>reaeig3</tt></a>  (<a href="examples/_reaeig3.c">Example</a>)<br>
+<a href="chapter3/comeigva.c"><tt>comeigval</tt></a>  (<a href="examples/_comeigv.c">Example</a>)<br>
+<a href="chapter3/comeig1.c"><tt>comeig1</tt></a><br>
+3.13.8 Complex Hermitian matrices<br>
+<a href="chapter3/eigvalhr.c"><tt>eigvalhrm</tt></a><br>
+<a href="chapter3/eighrm.c"><tt>eighrm</tt></a>  (<a href="examples/_eighrm.c">Example</a>)<br>
+<a href="chapter3/qrivalhr.c"><tt>qrivalhrm</tt></a><br>
+<a href="chapter3/qrihrm.c"><tt>qrihrm</tt></a>  (<a href="examples/_qrihrm.c">Example</a>)<br>
+3.13.9 Complex upper-Hessenberg matrices<br>
+<a href="chapter3/valqrico.c"><tt>valqricom</tt></a>  (<a href="examples/_valqric.c">Example</a>)<br>
+<a href="chapter3/qricom.c"><tt>qricom</tt></a>  (<a href="examples/_qricom.c">Example</a>)<br>
+3.13.10 Complex full matrices<br>
+<a href="chapter3/eigvalco.c"><tt>eigvalcom</tt></a><br>
+<a href="chapter3/eigcom.c"><tt>eigcom</tt></a>  (<a href="examples/_eigcom.c">Example</a>)<br>
+3.14 The generalized eigenvalue problem<br>
+3.14.1 Real asymmetric matrices<br>
+<a href="chapter3/qzival.c"><tt>qzival</tt></a>  (<a href="examples/_qzival.c">Example</a>)<br>
+<a href="chapter3/qzi.c"><tt>qzi</tt></a>  (<a href="examples/_qzi.c">Example</a>)<br>
+<a href="chapter3/hshdecmu.c"><tt>hshdecmul</tt></a><br>
+<a href="chapter3/hestgl3.c"><tt>hestgl3</tt></a><br>
+<a href="chapter3/hestgl2.c"><tt>hestgl2</tt></a><br>
+<a href="chapter3/hsh2col.c"><tt>hsh2col</tt></a><br>
+<a href="chapter3/hsh3col.c"><tt>hsh3col</tt></a><br>
+<a href="chapter3/hsh2row3.c"><tt>hsh2row3</tt></a><br>
+<a href="chapter3/hsh2row2.c"><tt>hsh2row2</tt></a><br>
+<a href="chapter3/hsh3row3.c"><tt>hsh3row3</tt></a><br>
+<a href="chapter3/hsh3row2.c"><tt>hsh3row2</tt></a><br>
+3.15 Singular values<br>
+3.15.1 Real bidiagonal matrices<br>
+<a href="chapter3/qrisngvb.c"><tt>qrisngvalbid</tt></a><br>
+<a href="chapter3/qrisnvdb.c"><tt>qrisngvaldecbid</tt></a>  (<a href="examples/_qrisnvd.c">Example</a>)<br>
+3.15.2 Real full matrices<br>
+<a href="chapter3/qrisngva.c"><tt>qrisngval</tt></a><br>
+<a href="chapter3/qrisngvd.c"><tt>qrisngvaldec</tt></a><br>
+3.16 Zeros of polynomials<br>
+3.16.1 Zeros of general real polynomials<br>
+<a href="chapter3/zerpol.c"><tt>zerpol</tt></a>  (<a href="examples/_zerpol.c">Example</a>)<br>
+<a href="chapter3/bounds.c"><tt>bounds</tt></a><br>
+3.16.2 Zeros of orthogonal polynomials<br>
+<a href="chapter3/allzerop.c"><tt>allzerortpol</tt></a><br>
+<a href="chapter3/lupzerop.c"><tt>lupzerortpol</tt></a>  (<a href="examples/_lupzeop.c">Example</a>)<br>
+<a href="chapter3/selzerop.c"><tt>selzerortpol</tt></a>  (<a href="examples/_selzeop.c">Example</a>)<br>
+<a href="chapter3/alljacze.c"><tt>alljaczer</tt></a>  (<a href="examples/_alljacz.c">Example</a>)<br>
+<a href="chapter3/alllagze.c"><tt>alllagzer</tt></a>  (<a href="examples/_alllagz.c">Example</a>)<br>
+3.16.3 Zeros of complex polynomials<br>
+<a href="chapter3/comkwd.c"><tt>comkwd</tt></a>  (<a href="examples/_comkwd.c">Example</a>)<br>
+<h2>4. Analytic Evaluations</h2>
+4.1 Evaluation of an infinite series<br>
+<a href="chapter4/euler.c"><tt>euler</tt></a>  (<a href="examples/_euler.c">Example</a>)<br>
+<a href="chapter4/sumposse.c"><tt>sumposseries</tt></a>  (<a href="examples/_sumposs.c">Example</a>)<br>
+4.2 Quadrature<br>
+4.2.1 One-dimensional quadrature<br>
+<a href="chapter4/qadrat.c"><tt>qadrat</tt></a>  (<a href="examples/_qadrat.c">Example</a>)<br>
+<a href="chapter4/integral.c"><tt>integral</tt></a>  (<a href="examples/_integra.c">Example</a>)<br>
+4.2.2 Multidimensional quadrature<br>
+<a href="chapter4/tricub.c"><tt>tricub</tt></a>  (<a href="examples/_tricub.c">Example</a>)<br>
+4.2.3 Gaussian quadrature - General weights<br>
+<a href="chapter4/reccof.c"><tt>reccof</tt></a>  (<a href="examples/_reccof.c">Example</a>)<br>
+<a href="chapter4/gsswts.c"><tt>gsswts</tt></a><br>
+<a href="chapter4/gsswtssy.c"><tt>gsswtssym</tt></a>  (<a href="examples/_gsswtss.c">Example</a>)<br>
+4.2.4 Gaussian quadrature - Special weights<br>
+<a href="chapter4/gssjacwg.c"><tt>gssjacwghts</tt></a>  (<a href="examples/_gssjacw.c">Example</a>)<br>
+<a href="chapter4/gsslagwg.c"><tt>gsslagwghts</tt></a>  (<a href="examples/_gsslagw.c">Example</a>)<br>
+4.3 Numerical differentiation<br>
+4.3.1 Calculation with difference formulas<br>
+<a href="chapter4/jacobnnf.c"><tt>jacobnnf</tt></a>  (<a href="examples/_jacobnn.c">Example</a>)<br>
+<a href="chapter4/jacobnmf.c"><tt>jacobnmf</tt></a>  (<a href="examples/_jacobnm.c">Example</a>)<br>
+<a href="chapter4/jacobnbn.c"><tt>jacobnbndf</tt></a>  (<a href="examples/_jacobnb.c">Example</a>)<br>
+<h2>5. Analytic Problems</h2>
+5.1 Non-linear equations<br>
+5.1.1 Single equation - No derivative available<br>
+<a href="chapter5/zeroin.c"><tt>zeroin</tt></a>  (<a href="examples/_zeroin.c">Example</a>)<br>
+<a href="chapter5/zeroinra.c"><tt>zeroinrat</tt></a>  (<a href="examples/_zeroinr.c">Example</a>)<br>
+5.1.2 Single equation - Derivative available<br>
+<a href="chapter5/zeroinde.c"><tt>zeroinder</tt></a>  (<a href="examples/_zeroind.c">Example</a>)<br>
+5.1.3 System of equations - No Jacobian matrix<br>
+<a href="chapter5/quanewbn.c"><tt>quanewbnd</tt></a><br>
+<a href="chapter5/quanewb1.c"><tt>quanewbnd1</tt></a>  (<a href="examples/_quaneb1.c">Example</a>)<br>
+5.2 Unconstrained optimization<br>
+5.2.1 One variable - No derivative<br>
+<a href="chapter5/minin.c"><tt>minin</tt></a>  (<a href="examples/_minin.c">Example</a>)<br>
+5.2.3 One variable - Derivative available<br>
+<a href="chapter5/mininder.c"><tt>mininder</tt></a>  (<a href="examples/_mininde.c">Example</a>)<br>
+5.2.4 More variable - Auxiliary procedures<br>
+<a href="chapter5/linemin.c"><tt>linemin</tt></a><br>
+<a href="chapter5/rnk1upd.c"><tt>rnk1upd</tt></a><br>
+<a href="chapter5/davupd.c"><tt>davupd</tt></a><br>
+<a href="chapter5/fleupd.c"><tt>fleupd</tt></a><br>
+5.2.5 More variables - No derivatives<br>
+<a href="chapter5/praxis.c"><tt>praxis</tt></a>  (<a href="examples/_praxis.c">Example</a>)<br>
+5.2.6 More variables - Gradient available<br>
+<a href="chapter5/rnk1min.c"><tt>rnk1min</tt></a>  (<a href="examples/_rnk1min.c">Example</a>)<br>
+<a href="chapter5/flemin.c"><tt>flemin</tt></a><br>
+5.3 Overdetermined nonlinear systems<br>
+5.3.1 Least squares - With Jacobian matrix<br>
+<a href="chapter5/marquard.c"><tt>marquardt</tt></a>  (<a href="examples/_marquar.c">Example</a>)<br>
+<a href="chapter5/gssnewto.c"><tt>gssnewton</tt></a>  (<a href="examples/_gssnewt.c">Example</a>)<br>
+5.4 Differential equations - Initial value problems<br>
+5.4.1 First order - No derivatives right hand side<br>
+<a href="chapter5/rk1.c"><tt>rk1</tt></a>  (<a href="examples/_rk1.c">Example</a>)<br>
+<a href="chapter5/rke.c"><tt>rke</tt></a>  (<a href="examples/_rke.c">Example</a>)<br>
+<a href="chapter5/rk4a.c"><tt>rk4a</tt></a>  (<a href="examples/_rk4a.c">Example</a>)<br>
+<a href="chapter5/rk4na.c"><tt>rk4na</tt></a>  (<a href="examples/_rk4na.c">Example</a>)<br>
+<a href="chapter5/rk5na.c"><tt>rk5na</tt></a>  (<a href="examples/_rk5na.c">Example</a>)<br>
+<a href="chapter5/multiste.c"><tt>multistep</tt></a>  (<a href="examples/_multisp.c">Example</a>)<br>
+<a href="chapter5/diffsys.c"><tt>diffsys</tt></a>  (<a href="examples/_diffsys.c">Example</a>)<br>
+<a href="chapter5/ark.c"><tt>ark</tt></a>  (<a href="examples/_ark.c">Example</a>)<br>
+<a href="chapter5/efrk.c"><tt>efrk</tt></a>  (<a href="examples/_efrk.c">Example</a>)<br>
+5.4.2 First Order - Jacobian matrix available<br>
+<a href="chapter5/efsirk.c"><tt>efsirk</tt></a>  (<a href="examples/_efsirk.c">Example</a>)<br>
+<a href="chapter5/eferk.c"><tt>eferk</tt></a>  (<a href="examples/_eferk.c">Example</a>)<br>
+<a href="chapter5/liniger1.c"><tt>liniger1vs</tt></a>  (<a href="examples/_linigr1.c">Example</a>)<br>
+<a href="chapter5/liniger2.c"><tt>liniger2</tt></a>  (<a href="examples/_linigr2.c">Example</a>)<br>
+<a href="chapter5/gms.c"><tt>gms</tt></a>  (<a href="examples/_gms.c">Example</a>)<br>
+<a href="chapter5/impex.c"><tt>impex</tt></a>  (<a href="examples/_impex.c">Example</a>)<br>
+5.4.3 First Order - Several derivatives available<br>
+<a href="chapter5/mtaylor.c"><tt>modifiedtaylor</tt></a>  (<a href="examples/_mtaylor.c">Example</a>)<br>
+<a href="chapter5/eft.c"><tt>eft</tt></a>  (<a href="examples/_eft.c">Example</a>)<br>
+5.4.4 Second order - No derivatives right hand side<br>
+<a href="chapter5/rk2.c"><tt>rk2</tt></a>  (<a href="examples/_rk2.c">Example</a>)<br>
+<a href="chapter5/rk2n.c"><tt>rk2n</tt></a>  (<a href="examples/_rk2n.c">Example</a>)<br>
+<a href="chapter5/rk3.c"><tt>rk3</tt></a>  (<a href="examples/_rk3.c">Example</a>)<br>
+<a href="chapter5/rk3n.c"><tt>rk3n</tt></a>  (<a href="examples/_rk3n.c">Example</a>)<br>
+5.4.5 Initial boundary value problem<br>
+<a href="chapter5/arkmat.c"><tt>arkmat</tt></a>  (<a href="examples/_arkmat.c">Example</a>)<br>
+5.5 Two point boundary value problems<br>
+5.5.1 Linear methods - Second order self adjoint<br>
+<a href="chapter5/femlagsy.c"><tt>femlagsym</tt></a>  (<a href="examples/_femlgsy.c">Example</a>)<br>
+<a href="chapter5/femlag.c"><tt>femlag</tt></a>  (<a href="examples/_femlag.c">Example</a>)<br>
+<a href="chapter5/femlagsp.c"><tt>femlagspher</tt></a>  (<a href="examples/_femlgsp.c">Example</a>)<br>
+5.5.2 Linear methods - Second order skew adjoint<br>
+<a href="chapter5/femlagsk.c"><tt>femlagskew</tt></a>  (<a href="examples/_femlgsk.c">Example</a>)<br>
+5.5.3 Linear methods - Fourth order self adjoint<br>
+<a href="chapter5/femherms.c"><tt>femhermsym</tt></a>  (<a href="examples/_femherm.c">Example</a>)<br>
+5.5.4 Non-linear methods<br>
+<a href="chapter5/nonlinfe.c"><tt>nonlinfemlagskew</tt></a>  (<a href="examples/_nonlinf.c">Example</a>)<br>
+5.6 Two-dimensional boundary value problems<br>
+5.6.1 Elliptic special linear systems<br>
+<a href="chapter5/richards.c"><tt>richardson</tt></a>  (<a href="examples/_richard.c">Example</a>)<br>
+<a href="chapter5/eliminat.c"><tt>elimination</tt></a>  (<a href="examples/_elimina.c">Example</a>)<br>
+5.6 Parameter estimation in differential equations<br>
+5.6.1 Initial value problems<br>
+<a href="chapter5/peide.c"><tt>peide</tt></a>  (<a href="examples/_peide.c">Example</a>)<br>
+<h2>6. Special Functions</h2>
+6.1 Elementary functions<br>
+6.1.1 Hyperbolic functions<br>
+<a href="chapter6/arcsinh.c"><tt>arcsinh</tt></a>  (<a href="examples/_arcsinh.c">Example</a>)<br>
+<a href="chapter6/arccosh.c"><tt>arccosh</tt></a>  (<a href="examples/_arccosh.c">Example</a>)<br>
+<a href="chapter6/arctanh.c"><tt>arctanh</tt></a>  (<a href="examples/_arctanh.c">Example</a>)<br>
+6.1.2 Logarithmic functions<br>
+<a href="chapter6/logonepl.c"><tt>logoneplusx</tt></a>  (<a href="examples/_logonep.c">Example</a>)<br>
+6.2 Exponential integral<br>
+6.2.1 Exponential integral<br>
+<a href="chapter6/ei.c"><tt>ei</tt></a>  (<a href="examples/_ei.c">Example</a>)<br>
+<a href="chapter6/eialpha.c"><tt>eialpha</tt></a>  (<a href="examples/_eialpha.c">Example</a>)<br>
+<a href="chapter6/enx.c"><tt>enx</tt></a>  (<a href="examples/_enx.c">Example</a>)<br>
+<a href="chapter6/nonexpen.c"><tt>nonexpenx</tt></a><br>
+6.2.2 Sine and cosine integral<br>
+<a href="chapter6/sincosin.c"><tt>sincosint</tt></a><br>
+<a href="chapter6/sincosfg.c"><tt>sincosfg</tt></a>  (<a href="examples/_sincosf.c">Example</a>)<br>
+6.3 Gamma function<br>
+<a href="chapter6/recipgam.c"><tt>recipgamma</tt></a>  (<a href="examples/_recipga.c">Example</a>)<br>
+<a href="chapter6/gamma.c"><tt>gamma</tt></a>  (<a href="examples/_gamma.c">Example</a>)<br>
+<a href="chapter6/loggamma.c"><tt>loggamma</tt></a>  (<a href="examples/_loggamm.c">Example</a>)<br>
+<a href="chapter6/incomgam.c"><tt>incomgam</tt></a>  (<a href="examples/_incomga.c">Example</a>)<br>
+<a href="chapter6/incbeta.c"><tt>incbeta</tt></a>  (<a href="examples/_incbeta.c">Example</a>)<br>
+<a href="chapter6/ibpplusn.c"><tt>ibpplusn</tt></a>  (<a href="examples/_ibpplus.c">Example</a>)<br>
+<a href="chapter6/ibqplusn.c"><tt>ibqplusn</tt></a>  (<a href="examples/_ibqplus.c">Example</a>)<br>
+<a href="chapter6/ixqfix.c"><tt>ixqfix</tt></a><br>
+<a href="chapter6/ixpfix.c"><tt>ixpfix</tt></a><br>
+<a href="chapter6/forward.c"><tt>forward</tt></a><br>
+<a href="chapter6/backward.c"><tt>backward</tt></a><br>
+6.4 Error function<br>
+<a href="chapter6/errorfun.c"><tt>errorfunction</tt></a>  (<a href="examples/_errorfu.c">Example</a>)<br>
+<a href="chapter6/nonexper.c"><tt>nonexperfc</tt></a><br>
+<a href="chapter6/inverrfn.c"><tt>inverseerrorfunction</tt></a>  (<a href="examples/_inverrf.c">Example</a>)<br>
+<a href="chapter6/fresnel.c"><tt>fresnel</tt></a>  (<a href="examples/_fresnel.c">Example</a>)<br>
+<a href="chapter6/fg.c"><tt>fg</tt></a><br>
+6.5 Bessel functions of integer order<br>
+6.5.1 Besel functions J and Y<br>
+<a href="chapter6/bessj0.c"><tt>bessj0</tt></a>  (<a href="examples/_bessj0.c">Example</a>)<br>
+<a href="chapter6/bessj1.c"><tt>bessj1</tt></a>  (<a href="examples/_bessj1.c">Example</a>)<br>
+<a href="chapter6/bessj.c"><tt>bessj</tt></a>  (<a href="examples/_bessj.c">Example</a>)<br>
+<a href="chapter6/bessy01.c"><tt>bessy01</tt></a>  (<a href="examples/_bessy01.c">Example</a>)<br>
+<a href="chapter6/bessy.c"><tt>bessy</tt></a>  (<a href="examples/_bessy.c">Example</a>)<br>
+<a href="chapter6/besspq0.c"><tt>besspq0</tt></a>  (<a href="examples/_besspq.c">Example</a>)<br>
+<a href="chapter6/besspq1.c"><tt>besspq1</tt></a><br>
+6.5.2 Bessel functions I and K<br>
+<a href="chapter6/bessi0.c"><tt>bessi0</tt></a>  (<a href="examples/_bessi0.c">Example</a>)<br>
+<a href="chapter6/bessi1.c"><tt>bessi1</tt></a>  (<a href="examples/_bessi1.c">Example</a>)<br>
+<a href="chapter6/bessi.c"><tt>bessi</tt></a>  (<a href="examples/_bessi.c">Example</a>)<br>
+<a href="chapter6/bessk01.c"><tt>bessk01</tt></a>  (<a href="examples/_bessk01.c">Example</a>)<br>
+<a href="chapter6/bessk.c"><tt>bessk</tt></a>  (<a href="examples/_bessk.c">Example</a>)<br>
+<a href="chapter6/nebessi0.c"><tt>nonexpbessi0</tt></a>  (<a href="examples/_nebessi.c">Example</a>)<br>
+<a href="chapter6/nebessi1.c"><tt>nonexpbessi1</tt></a>  (<a href="examples/_nebessi.c">Example</a>)<br>
+<a href="chapter6/nebessi.c"><tt>nonexpbessi</tt></a>  (<a href="examples/_nebessi.c">Example</a>)<br>
+<a href="chapter6/nebesk01.c"><tt>nonexpbessk01</tt></a>  (<a href="examples/_nebsk01.c">Example</a>)<br>
+<a href="chapter6/nebessk.c"><tt>nonexpbessk</tt></a>  (<a href="examples/_nebessk.c">Example</a>)<br>
+6.6 Bessel functions of real order<br>
+6.6.1 Bessel functions J and Y<br>
+<a href="chapter6/bessjapl.c"><tt>bessjaplusn</tt></a>  (<a href="examples/_bessjap.c">Example</a>)<br>
+<a href="chapter6/bessya01.c"><tt>bessya01</tt></a>  (<a href="examples/_besya01.c">Example</a>)<br>
+<a href="chapter6/bessyapl.c"><tt>bessyaplusn</tt></a>  (<a href="examples/_besyapl.c">Example</a>)<br>
+<a href="chapter6/bespqa01.c"><tt>besspqa01</tt></a>  (<a href="examples/_bspqa01.c">Example</a>)<br>
+<a href="chapter6/besszero.c"><tt>besszeros</tt></a>  (<a href="examples/_besszer.c">Example</a>)<br>
+<a href="chapter6/start.c"><tt>start</tt></a><br>
+6.6.2 Bessel functions I and K<br>
+<a href="chapter6/bessiapl.c"><tt>bessiaplusn</tt></a>  (<a href="examples/_bessiap.c">Example</a>)<br>
+<a href="chapter6/besska01.c"><tt>besska01</tt></a>  (<a href="examples/_beska01.c">Example</a>)<br>
+<a href="chapter6/besskapl.c"><tt>besskaplusn</tt></a>  (<a href="examples/_beskapl.c">Example</a>)<br>
+<a href="chapter6/nebesiap.c"><tt>nonexpbessiaplusn</tt></a>  (<a href="examples/_nebsiap.c">Example</a>)<br>
+<a href="chapter6/nebska01.c"><tt>nonexpbesska01</tt></a><br>
+<a href="chapter6/nebskapl.c"><tt>nonexpbesskaplusn</tt></a>  (<a href="examples/_nebskap.c">Example</a>)<br>
+6.6.3 Spherical Bessel functions<br>
+<a href="chapter6/spbessj.c"><tt>spherbessj</tt></a>  (<a href="examples/_spbessj.c">Example</a>)<br>
+<a href="chapter6/spbessy.c"><tt>spherbessy</tt></a>  (<a href="examples/_spbessy.c">Example</a>)<br>
+<a href="chapter6/spbessk.c"><tt>spherbessk</tt></a>  (<a href="examples/_spbessk.c">Example</a>)<br>
+<a href="chapter6/nespbesi.c"><tt>nonexpspherbessi</tt></a><br>
+<a href="chapter6/nespbesk.c"><tt>nonexpspherbessk</tt></a><br>
+6.6.4 Airy functions<br>
+<a href="chapter6/airy.c"><tt>airy</tt></a>  (<a href="examples/_airy.c">Example</a>)<br>
+<a href="chapter6/airyzero.c"><tt>airyzeros</tt></a>  (<a href="examples/_airyzer.c">Example</a>)<br>
+<h2>7. Interpolation and Approximation</h2>
+7.1 Real data in one dimension<br>
+7.1.1 Interpolation with general polynomials<br>
+<a href="chapter7/newton.c"><tt>newton</tt></a>  (<a href="examples/_newton.c">Example</a>)<br>
+7.1.2 Approximation in infinity norm<br>
+<a href="chapter7/ini.c"><tt>ini</tt></a>  (<a href="examples/_ini.c">Example</a>)<br>
+<a href="chapter7/sndremez.c"><tt>sndremez</tt></a>  (<a href="examples/_sndreme.c">Example</a>)<br>
+<a href="chapter7/minmaxpo.c"><tt>minmaxpol</tt></a>  (<a href="examples/_minmaxp.c">Example</a>)<br>
+
+</body></html>

@@ -1,0 +1,100 @@
+C***BEGIN PROLOGUE  DGEMV
+C***PURPOSE  Perform one of the matrix-vector operations.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1B4
+C***TYPE      DOUBLE PRECISION (SGEMV-S, DGEMV-D, CGEMV-C)
+C***KEYWORDS  LEVEL 2 BLAS, LINEAR ALGEBRA
+C***AUTHOR  Dongarra, J. J., (ANL)
+C           Du Croz, J., (NAG)
+C           Hammarling, S., (NAG)
+C           Hanson, R. J., (SNLA)
+C***DESCRIPTION
+C
+C  DGEMV  performs one of the matrix-vector operations
+C
+C     y := alpha*A*x + beta*y,   or   y := alpha*A'*x + beta*y,
+C
+C  where alpha and beta are scalars, x and y are vectors and A is an
+C  m by n matrix.
+C
+C  Parameters
+C  ==========
+C
+C  TRANS  - CHARACTER*1.
+C           On entry, TRANS specifies the operation to be performed as
+C           follows:
+C
+C              TRANS = 'N' or 'n'   y := alpha*A*x + beta*y.
+C
+C              TRANS = 'T' or 't'   y := alpha*A'*x + beta*y.
+C
+C              TRANS = 'C' or 'c'   y := alpha*A'*x + beta*y.
+C
+C           Unchanged on exit.
+C
+C  M      - INTEGER.
+C           On entry, M specifies the number of rows of the matrix A.
+C           M must be at least zero.
+C           Unchanged on exit.
+C
+C  N      - INTEGER.
+C           On entry, N specifies the number of columns of the matrix A.
+C           N must be at least zero.
+C           Unchanged on exit.
+C
+C  ALPHA  - DOUBLE PRECISION.
+C           On entry, ALPHA specifies the scalar alpha.
+C           Unchanged on exit.
+C
+C  A      - DOUBLE PRECISION array of DIMENSION ( LDA, n ).
+C           Before entry, the leading m by n part of the array A must
+C           contain the matrix of coefficients.
+C           Unchanged on exit.
+C
+C  LDA    - INTEGER.
+C           On entry, LDA specifies the first dimension of A as declared
+C           in the calling (sub) program. LDA must be at least
+C           max( 1, m ).
+C           Unchanged on exit.
+C
+C  X      - DOUBLE PRECISION array of DIMENSION at least
+C           ( 1 + ( n - 1 )*abs( INCX ) ) when TRANS = 'N' or 'n'
+C           and at least
+C           ( 1 + ( m - 1 )*abs( INCX ) ) otherwise.
+C           Before entry, the incremented array X must contain the
+C           vector x.
+C           Unchanged on exit.
+C
+C  INCX   - INTEGER.
+C           On entry, INCX specifies the increment for the elements of
+C           X. INCX must not be zero.
+C           Unchanged on exit.
+C
+C  BETA   - DOUBLE PRECISION.
+C           On entry, BETA specifies the scalar beta. When BETA is
+C           supplied as zero then Y need not be set on input.
+C           Unchanged on exit.
+C
+C  Y      - DOUBLE PRECISION array of DIMENSION at least
+C           ( 1 + ( m - 1 )*abs( INCY ) ) when TRANS = 'N' or 'n'
+C           and at least
+C           ( 1 + ( n - 1 )*abs( INCY ) ) otherwise.
+C           Before entry with BETA non-zero, the incremented array Y
+C           must contain the vector y. On exit, Y is overwritten by the
+C           updated vector y.
+C
+C  INCY   - INTEGER.
+C           On entry, INCY specifies the increment for the elements of
+C           Y. INCY must not be zero.
+C           Unchanged on exit.
+C
+C***REFERENCES  Dongarra, J. J., Du Croz, J., Hammarling, S., and
+C                 Hanson, R. J.  An extended set of Fortran basic linear
+C                 algebra subprograms.  ACM TOMS, Vol. 14, No. 1,
+C                 pp. 1-17, March 1988.
+C***ROUTINES CALLED  LSAME, XERBLA
+C***REVISION HISTORY  (YYMMDD)
+C   861022  DATE WRITTEN
+C   910605  Modified to meet SLATEC prologue standards.  Only comment
+C           lines were modified.  (BKS)
+C***END PROLOGUE  DGEMV

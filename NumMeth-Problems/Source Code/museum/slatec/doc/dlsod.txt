@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  DLSOD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DDEBDF
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (LSOD-S, DLSOD-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   DDEBDF  merely allocates storage for  DLSOD  to relieve the user of
+C   the inconvenience of a long call list.  Consequently  DLSOD  is used
+C   as described in the comments for  DDEBDF .
+C
+C***SEE ALSO  DDEBDF
+C***ROUTINES CALLED  D1MACH, DHSTRT, DINTYD, DSTOD, DVNRMS, XERMSG
+C***COMMON BLOCKS    DDEBD1
+C***REVISION HISTORY  (YYMMDD)
+C   820301  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C***END PROLOGUE  DLSOD

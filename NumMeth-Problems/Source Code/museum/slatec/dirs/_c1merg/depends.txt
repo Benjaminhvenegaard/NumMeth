@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE c1merg
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ccopy
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

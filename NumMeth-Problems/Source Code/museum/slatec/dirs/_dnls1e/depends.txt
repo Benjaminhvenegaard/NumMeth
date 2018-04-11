@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dnls1e
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dckder
+denorm
+dfdjc3
+dmpar
+dnls1
+dqrfac
+dqrslv
+dwupdt
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

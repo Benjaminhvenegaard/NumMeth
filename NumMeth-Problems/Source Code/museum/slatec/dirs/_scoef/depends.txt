@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE scoef
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cscale
+lssuds
+ohtrol
+orthor
+suds
+xermax
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+sdot
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

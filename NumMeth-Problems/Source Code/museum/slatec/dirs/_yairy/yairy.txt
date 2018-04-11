@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  YAIRY
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BESJ and BESY
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (YAIRY-S, DYAIRY-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C           Daniel, S. L., (SNLA)
+C***DESCRIPTION
+C
+C                  YAIRY computes the Airy function BI(X)
+C                   and its derivative DBI(X) for ASYJY
+C
+C                                     INPUT
+C
+C         X  - Argument, computed by ASYJY, X unrestricted
+C        RX  - RX=SQRT(ABS(X)), computed by ASYJY
+C         C  - C=2.*(ABS(X)**1.5)/3., computed by ASYJY
+C
+C                                    OUTPUT
+C        BI  - Value of function BI(X)
+C       DBI  - Value of the derivative DBI(X)
+C
+C***SEE ALSO  BESJ, BESY
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR section.  (WRB)
+C***END PROLOGUE  YAIRY

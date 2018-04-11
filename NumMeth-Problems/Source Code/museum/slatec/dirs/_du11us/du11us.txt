@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  DU11US
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DULSIA
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (U11US-S, DU11US-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C       This routine performs an LQ factorization of the
+C       matrix A using Householder transformations. Row
+C       and column pivots are chosen to reduce the growth
+C       of round-off and to help detect possible rank
+C       deficiency.
+C
+C***SEE ALSO  DULSIA
+C***ROUTINES CALLED  DAXPY, DDOT, DNRM2, DSCAL, DSWAP, IDAMAX, ISWAP,
+C                    XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   810801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  DU11US

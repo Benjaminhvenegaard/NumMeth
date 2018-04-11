@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dvecs
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dmgsbv
+dprvec
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+ddot
+---END OF DEPENDENCIES---

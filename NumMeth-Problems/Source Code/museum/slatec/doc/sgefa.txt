@@ -1,0 +1,58 @@
+C***BEGIN PROLOGUE  SGEFA
+C***PURPOSE  Factor a matrix using Gaussian elimination.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2A1
+C***TYPE      SINGLE PRECISION (SGEFA-S, DGEFA-D, CGEFA-C)
+C***KEYWORDS  GENERAL MATRIX, LINEAR ALGEBRA, LINPACK,
+C             MATRIX FACTORIZATION
+C***AUTHOR  Moler, C. B., (U. of New Mexico)
+C***DESCRIPTION
+C
+C     SGEFA factors a real matrix by Gaussian elimination.
+C
+C     SGEFA is usually called by SGECO, but it can be called
+C     directly with a saving in time if  RCOND  is not needed.
+C     (Time for SGECO) = (1 + 9/N)*(Time for SGEFA) .
+C
+C     On Entry
+C
+C        A       REAL(LDA, N)
+C                the matrix to be factored.
+C
+C        LDA     INTEGER
+C                the leading dimension of the array  A .
+C
+C        N       INTEGER
+C                the order of the matrix  A .
+C
+C     On Return
+C
+C        A       an upper triangular matrix and the multipliers
+C                which were used to obtain it.
+C                The factorization can be written  A = L*U , where
+C                L  is a product of permutation and unit lower
+C                triangular matrices and  U  is upper triangular.
+C
+C        IPVT    INTEGER(N)
+C                an integer vector of pivot indices.
+C
+C        INFO    INTEGER
+C                = 0  normal value.
+C                = K  if  U(K,K) .EQ. 0.0 .  This is not an error
+C                     condition for this subroutine, but it does
+C                     indicate that SGESL or SGEDI will divide by zero
+C                     if called.  Use  RCOND  in SGECO for a reliable
+C                     indication of singularity.
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  ISAMAX, SAXPY, SSCAL
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  SGEFA

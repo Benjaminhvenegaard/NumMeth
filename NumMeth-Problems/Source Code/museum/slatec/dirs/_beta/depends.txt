@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE beta
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+albeta
+alngam
+alnrel
+gamlim
+gamma
+r9lgmc
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

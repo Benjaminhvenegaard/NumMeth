@@ -1,0 +1,20 @@
+      SUBROUTINE XSETUA (IUNITA, N)
+      DIMENSION IUNITA(5)
+      CHARACTER *8 XERN1
+C***FIRST EXECUTABLE STATEMENT  XSETUA
+C
+      IF (N.LT.1 .OR. N.GT.5) THEN
+         WRITE (XERN1, '(I8)') N
+         CALL XERMSG ('SLATEC', 'XSETUA',
+     *      'INVALID NUMBER OF UNITS, N = ' // XERN1, 1, 2)
+         RETURN
+      ENDIF
+C
+      DO 10 I=1,N
+         INDEX = I+4
+         IF (I.EQ.1) INDEX = 3
+         JUNK = J4SAVE(INDEX,IUNITA(I),.TRUE.)
+   10 CONTINUE
+      JUNK = J4SAVE(5,N,.TRUE.)
+      RETURN
+      END

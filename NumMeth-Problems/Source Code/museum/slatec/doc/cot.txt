@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  COT
+C***PURPOSE  Compute the cotangent.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      SINGLE PRECISION (COT-S, DCOT-D, CCOT-C)
+C***KEYWORDS  COTANGENT, ELEMENTARY FUNCTIONS, FNLIB, TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C COT(X) calculates the cotangent of the real argument X.  X is in
+C units of radians.
+C
+C Series for COT        on the interval  0.          to  6.25000D-02
+C                                        with weighted error   3.76E-17
+C                                         log weighted error  16.42
+C                               significant figures required  15.51
+C                                    decimal places required  16.88
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  COT

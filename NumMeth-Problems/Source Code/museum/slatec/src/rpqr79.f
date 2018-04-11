@@ -1,0 +1,55 @@
+      SUBROUTINE RPQR79 (NDEG, COEFF, ROOT, IERR, WORK)
+      REAL COEFF(*), WORK(*), SCALE
+      COMPLEX ROOT(*)
+      INTEGER NDEG, IERR, K, KH, KWR, KWI, KCOL
+C***FIRST EXECUTABLE STATEMENT  RPQR79
+      IERR = 0
+      IF (ABS(COEFF(1)) .EQ. 0.0) THEN
+         IERR = 2
+         CALL XERMSG ('SLATEC', 'RPQR79',
+     +      'LEADING COEFFICIENT IS ZERO.', 2, 1)
+         RETURN
+      ENDIF
+C
+      IF (NDEG .LE. 0) THEN
+         IERR = 3
+         CALL XERMSG ('SLATEC', 'RPQR79', 'DEGREE INVALID.', 3, 1)
+         RETURN
+      ENDIF
+C
+      IF (NDEG .EQ. 1) THEN
+         ROOT(1) = CMPLX(-COEFF(2)/COEFF(1),0.0)
+         RETURN
+      ENDIF
+C
+      SCALE = 1.0E0/COEFF(1)
+      KH = 1
+      KWR = KH+NDEG*NDEG
+      KWI = KWR+NDEG
+      KWEND = KWI+NDEG-1
+C
+      DO 10 K=1,KWEND
+         WORK(K) = 0.0E0
+   10 CONTINUE
+C
+      DO 20 K=1,NDEG
+         KCOL = (K-1)*NDEG+1
+         WORK(KCOL) = -COEFF(K+1)*SCALE
+         IF (K .NE. NDEG) WORK(KCOL+K) = 1.0E0
+   20 CONTINUE
+C
+      CALL HQR (NDEG,NDEG,1,NDEG,WORK(KH),WORK(KWR),WORK(KWI),IERR)
+C
+      IF (IERR .NE. 0) THEN
+         IERR = 1
+         CALL XERMSG ('SLATEC', 'CPQR79',
+     +      'NO CONVERGENCE IN 30 QR ITERATIONS.', 1, 1)
+         RETURN
+      ENDIF
+C
+      DO 30 K=1,NDEG
+         KM1 = K-1
+         ROOT(K) = CMPLX(WORK(KWR+KM1),WORK(KWI+KM1))
+   30 CONTINUE
+      RETURN
+      END

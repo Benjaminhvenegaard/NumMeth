@@ -1,0 +1,29 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbesk
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9lgmc
+dasyik
+dbesi0
+dbesi1
+dbesk0
+dbesk1
+dbsi0e
+dbsi1e
+dbsk0e
+dbsk1e
+dbsknu
+dgamlm
+dgamma
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE splpfe
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+iploc
+la05bs
+prwpge
+prwvir
+sopenm
+sreadp
+swritp
+xsetun
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+sasum
+scopy
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

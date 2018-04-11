@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  CMPOSN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CMGNBN
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (POISN2-S, CMPOSN-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson's equation with Neumann boundary
+C     conditions.
+C
+C     ISTAG = 1 if the last diagonal block is A.
+C     ISTAG = 2 if the last diagonal block is A-I.
+C     MIXBND = 1 if have Neumann boundary conditions at both boundaries.
+C     MIXBND = 2 if have Neumann boundary conditions at bottom and
+C     Dirichlet condition at top.  (For this case, must have ISTAG = 1)
+C
+C***SEE ALSO  CMGNBN
+C***ROUTINES CALLED  C1MERG, CMPCSG, CMPTR3, CMPTRX
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920130  Modified to use merge routine C1MERG rather than deleted
+C           routine CMPMRG.  (WRB)
+C***END PROLOGUE  CMPOSN

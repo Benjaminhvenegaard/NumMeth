@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  R9GMIC
+C***SUBSIDIARY
+C***PURPOSE  Compute the complementary incomplete Gamma function for A
+C            near a negative integer and for small X.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7E
+C***TYPE      SINGLE PRECISION (R9GMIC-S, D9GMIC-D)
+C***KEYWORDS  COMPLEMENTARY INCOMPLETE GAMMA FUNCTION, FNLIB, SMALL X,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Compute the complementary incomplete gamma function for A near
+C a negative integer and for small X.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  ALNGAM, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  R9GMIC

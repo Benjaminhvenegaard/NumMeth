@@ -1,0 +1,47 @@
+C***BEGIN PROLOGUE  DREORT
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (REORT-S, DREORT-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C   INPUT
+C *********
+C     Y, YP and YHP = homogeneous solution matrix and particular
+C                     solution vector to be orthonormalized.
+C     IFLAG = 1 --  store YHP into Y and YP, test for
+C                   reorthonormalization, orthonormalize if needed,
+C                   save restart data.
+C             2 --  store YHP into Y and YP, reorthonormalization,
+C                   no restarts.
+C                   (preset orthonormalization mode)
+C             3 --  store YHP into Y and YP, reorthonormalization
+C                   (when INHOMO=3 and X=XEND).
+C **********************************************************************
+C   OUTPUT
+C *********
+C     Y, YP = orthonormalized solutions.
+C     NIV = number of independent vectors returned from DMGSBV.
+C     IFLAG = 0 --  reorthonormalization was performed.
+C            10 --  solution process must be restarted at the last
+C                   orthonormalization point.
+C            30 --  solutions are linearly dependent, problem must
+C                   be restarted from the beginning.
+C     W, P, IP = orthonormalization information.
+C **********************************************************************
+C
+C***SEE ALSO  DBVSUP
+C***ROUTINES CALLED  DDOT, DMGSBV, DSTOR1, DSTWAY
+C***COMMON BLOCKS    DML15T, DML18J, DML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DREORT

@@ -1,0 +1,62 @@
+C***BEGIN PROLOGUE  BSGQ8
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BFQAD
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (BSGQ8-S, DBSGQ8-D)
+C***AUTHOR  Jones, R. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C        BSGQ8, a modification of GAUS8, integrates the
+C        product of FUN(X) by the ID-th derivative of a spline
+C        BVALU(XT,BC,N,KK,ID,X,INBV,WORK)  between limits A and B.
+C
+C     Description of Arguments
+C
+C        INPUT--
+C        FUN - Name of external function of one argument which
+C              multiplies BVALU.
+C        XT  - Knot array for BVALU
+C        BC  - B-coefficient array for BVALU
+C        N   - Number of B-coefficients for BVALU
+C        KK  - Order of the spline, KK.GE.1
+C        ID  - Order of the spline derivative, 0.LE.ID.LE.KK-1
+C        A   - Lower limit of integral
+C        B   - Upper limit of integral (may be less than A)
+C        INBV- Initialization parameter for BVALU
+C        ERR - Is a requested pseudorelative error tolerance.  Normally
+C              pick a value of ABS(ERR).LT.1E-3.  ANS will normally
+C              have no more error than ABS(ERR) times the integral of
+C              the absolute value of FUN(X)*BVALU(XT,BC,N,KK,X,ID,
+C              INBV,WORK).
+C
+C
+C        OUTPUT--
+C        ERR - Will be an estimate of the absolute error in ANS if the
+C              input value of ERR was negative.  (ERR is unchanged if
+C              the input value of ERR was nonnegative.)  The estimated
+C              error is solely for information to the user and should
+C              not be used as a correction to the computed integral.
+C        ANS - Computed value of integral
+C        IERR- A status code
+C            --Normal Codes
+C               1 ANS most likely meets requested error tolerance,
+C                 or A=B.
+C              -1 A and B are too nearly equal to allow normal
+C                 integration.  ANS is set to zero.
+C            --Abnormal Code
+C               2 ANS probably does not meet requested error tolerance.
+C        WORK- Work vector of length 3*K for BVALU
+C
+C***SEE ALSO  BFQAD
+C***ROUTINES CALLED  BVALU, I1MACH, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR section.  (WRB)
+C***END PROLOGUE  BSGQ8

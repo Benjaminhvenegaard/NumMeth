@@ -1,0 +1,40 @@
+C***BEGIN PROLOGUE  ISWAP
+C***PURPOSE  Interchange two vectors.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1A5
+C***TYPE      INTEGER (SSWAP-S, DSWAP-D, CSWAP-C, ISWAP-I)
+C***KEYWORDS  BLAS, INTERCHANGE, LINEAR ALGEBRA, VECTOR
+C***AUTHOR  Vandevender, W. H., (SNLA)
+C***DESCRIPTION
+C
+C                Extended B L A S  Subprogram
+C    Description of Parameters
+C
+C     --Input--
+C        N  number of elements in input vector(s)
+C       IX  integer vector with N elements
+C     INCX  storage spacing between elements of IX
+C       IY  integer vector with N elements
+C     INCY  storage spacing between elements of IY
+C
+C     --Output--
+C       IX  input vector IY (unchanged if N .LE. 0)
+C       IY  input vector IX (unchanged if N .LE. 0)
+C
+C     Interchange integer IX and integer IY.
+C     For I = 0 to N-1, interchange  IX(LX+I*INCX) and IY(LY+I*INCY),
+C     where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
+C     defined in a similar way using INCY.
+C
+C***REFERENCES  C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
+C                 Krogh, Basic linear algebra subprograms for Fortran
+C                 usage, Algorithm No. 539, Transactions on Mathematical
+C                 Software 5, 3 (September 1979), pp. 308-323.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   850601  DATE WRITTEN
+C   861211  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920310  Corrected definition of LX in DESCRIPTION.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  ISWAP

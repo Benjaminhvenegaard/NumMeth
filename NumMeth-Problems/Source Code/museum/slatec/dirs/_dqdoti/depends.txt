@@ -1,0 +1,31 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dqdoti
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+mpadd
+mpadd2
+mpadd3
+mpblas
+mpcdm
+mpchk
+mpcmd
+mpdivi
+mperr
+mpmaxr
+mpmlp
+mpmul
+mpmul2
+mpmuli
+mpnzr
+mpovfl
+mpstr
+mpunfl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

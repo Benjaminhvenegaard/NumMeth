@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  DXPSI
+C***SUBSIDIARY
+C***PURPOSE  To compute values of the Psi function for DXLEGF.
+C***LIBRARY   SLATEC
+C***CATEGORY  C7C
+C***TYPE      DOUBLE PRECISION (XPSI-S, DXPSI-D)
+C***KEYWORDS  PSI FUNCTION
+C***AUTHOR  Smith, John M., (NBS and George Mason University)
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   820728  DATE WRITTEN
+C   890126  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Changed all specific intrinsics to generic.  (WRB)
+C           Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  DXPSI

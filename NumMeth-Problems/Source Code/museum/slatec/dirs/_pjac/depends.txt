@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE pjac
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sgbfa
+sgefa
+vnwrms
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+saxpy
+sscal
+---END OF DEPENDENCIES---

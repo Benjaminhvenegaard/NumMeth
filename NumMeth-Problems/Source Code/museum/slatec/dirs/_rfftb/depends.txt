@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rfftb
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+radb2
+radb3
+radb4
+radb5
+radbg
+rfftb1
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

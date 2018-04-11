@@ -1,0 +1,22 @@
+      SUBROUTINE RT (NM, N, A, W, MATZ, Z, FV1, IERR)
+C
+      INTEGER N,NM,IERR,MATZ
+      REAL A(NM,3),W(*),Z(NM,*),FV1(*)
+C
+C***FIRST EXECUTABLE STATEMENT  RT
+      IF (N .LE. NM) GO TO 10
+      IERR = 10 * N
+      GO TO 50
+C
+   10 IF (MATZ .NE. 0) GO TO 20
+C     .......... FIND EIGENVALUES ONLY ..........
+      CALL  FIGI(NM,N,A,W,FV1,FV1,IERR)
+      IF (IERR .GT. 0) GO TO 50
+      CALL  IMTQL1(N,W,FV1,IERR)
+      GO TO 50
+C     .......... FIND BOTH EIGENVALUES AND EIGENVECTORS ..........
+   20 CALL  FIGI2(NM,N,A,W,FV1,Z,IERR)
+      IF (IERR .NE. 0) GO TO 50
+      CALL  IMTQL2(NM,N,W,FV1,Z,IERR)
+   50 RETURN
+      END

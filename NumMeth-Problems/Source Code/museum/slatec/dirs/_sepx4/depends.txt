@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sepx4
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+chkpr4
+chksn4
+cosgen
+defe4
+dx4
+dy4
+genbun
+minso4
+ortho4
+poisd2
+poisn2
+poisp2
+s1merg
+speli4
+tri3
+tris4
+trix
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pimach
+scopy
+---END OF DEPENDENCIES---

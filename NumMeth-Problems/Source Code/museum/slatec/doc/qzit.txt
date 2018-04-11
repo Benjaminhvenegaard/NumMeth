@@ -1,0 +1,96 @@
+C***BEGIN PROLOGUE  QZIT
+C***PURPOSE  The second step of the QZ algorithm for generalized
+C            eigenproblems.  Accepts an upper Hessenberg and an upper
+C            triangular matrix and reduces the former to
+C            quasi-triangular form while preserving the form of the
+C            latter.  Usually preceded by QZHES and followed by QZVAL
+C            and QZVEC.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C1B3
+C***TYPE      SINGLE PRECISION (QZIT-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is the second step of the QZ algorithm
+C     for solving generalized matrix eigenvalue problems,
+C     SIAM J. NUMER. ANAL. 10, 241-256(1973) by MOLER and STEWART,
+C     as modified in technical note NASA TN D-7305(1973) by WARD.
+C
+C     This subroutine accepts a pair of REAL matrices, one of them
+C     in upper Hessenberg form and the other in upper triangular form.
+C     It reduces the Hessenberg matrix to quasi-triangular form using
+C     orthogonal transformations while maintaining the triangular form
+C     of the other matrix.  It is usually preceded by  QZHES  and
+C     followed by  QZVAL  and, possibly,  QZVEC.
+C
+C     On Input
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A, B, and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrices A and B.  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        A contains a real upper Hessenberg matrix.  A is a two-
+C          dimensional REAL array, dimensioned A(NM,N).
+C
+C        B contains a real upper triangular matrix.  B is a two-
+C          dimensional REAL array, dimensioned B(NM,N).
+C
+C        EPS1 is a tolerance used to determine negligible elements.
+C          EPS1 = 0.0 (or negative) may be input, in which case an
+C          element will be neglected only if it is less than roundoff
+C          error times the norm of its matrix.  If the input EPS1 is
+C          positive, then an element will be considered negligible
+C          if it is less than EPS1 times the norm of its matrix.  A
+C          positive value of EPS1 may result in faster execution,
+C          but less accurate results.  EPS1 is a REAL variable.
+C
+C        MATZ should be set to .TRUE. if the right hand transformations
+C          are to be accumulated for later use in computing
+C          eigenvectors, and to .FALSE. otherwise.  MATZ is a LOGICAL
+C          variable.
+C
+C        Z contains, if MATZ has been set to .TRUE., the transformation
+C          matrix produced in the reduction by  QZHES, if performed, or
+C          else the identity matrix.  If MATZ has been set to .FALSE.,
+C          Z is not referenced.  Z is a two-dimensional REAL array,
+C          dimensioned Z(NM,N).
+C
+C     On Output
+C
+C        A has been reduced to quasi-triangular form.  The elements
+C          below the first subdiagonal are still zero, and no two
+C          consecutive subdiagonal elements are nonzero.
+C
+C        B is still in upper triangular form, although its elements
+C          have been altered.  The location B(N,1) is used to store
+C          EPS1 times the norm of B for later use by  QZVAL  and  QZVEC.
+C
+C        Z contains the product of the right hand transformations
+C          (for both steps) if MATZ has been set to .TRUE.
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if neither A(J,J-1) nor A(J-1,J-2) has become
+C                     zero after a total of 30*N iterations.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  QZIT

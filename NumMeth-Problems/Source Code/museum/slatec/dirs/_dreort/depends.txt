@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dreort
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dmgsbv
+dprvec
+dstor1
+dstway
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+ddot
+---END OF DEPENDENCIES---

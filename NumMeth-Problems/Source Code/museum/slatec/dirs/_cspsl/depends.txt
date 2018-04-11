@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cspsl
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdotu
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+---END OF DEPENDENCIES---

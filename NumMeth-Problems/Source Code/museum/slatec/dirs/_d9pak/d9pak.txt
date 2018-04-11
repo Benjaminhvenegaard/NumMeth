@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  D9PAK
+C***PURPOSE  Pack a base 2 exponent into a floating point number.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  A6B
+C***TYPE      DOUBLE PRECISION (R9PAK-S, D9PAK-D)
+C***KEYWORDS  FNLIB, PACK
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Pack a base 2 exponent into floating point number X.  This routine is
+C almost the inverse of D9UPAK.  It is not exactly the inverse, because
+C ABS(X) need not be between 0.5 and 1.0.  If both D9PAK and 2.d0**N
+C were known to be in range we could compute
+C               D9PAK = X *2.0d0**N
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9UPAK, I1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   790801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891009  Corrected error when XERROR called.  (WRB)
+C   891009  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   901009  Routine used I1MACH(7) where it should use I1MACH(10),
+C           Corrected (RWC)
+C***END PROLOGUE  D9PAK

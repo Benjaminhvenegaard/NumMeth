@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  CHKPR4
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SEPX4
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CHKPR4-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     This program checks the input parameters for errors.
+C
+C***SEE ALSO  SEPX4
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CHKPR4

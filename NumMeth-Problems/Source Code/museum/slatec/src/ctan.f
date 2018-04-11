@@ -1,0 +1,28 @@
+      COMPLEX FUNCTION CTAN (Z)
+      COMPLEX Z
+      SAVE SQEPS
+      DATA SQEPS /0./
+C***FIRST EXECUTABLE STATEMENT  CTAN
+      IF (SQEPS.EQ.0.) SQEPS = SQRT (R1MACH(4))
+C
+      X2 = 2.0*REAL(Z)
+      Y2 = 2.0*AIMAG(Z)
+C
+      SN2X = SIN (X2)
+      CALL XERCLR
+C
+      DEN = COS(X2) + COSH(Y2)
+      IF (DEN .EQ. 0.) CALL XERMSG ('SLATEC', 'CTAN',
+     +   'TAN IS SINGULAR FOR INPUT Z (X IS PI/2 OR 3*PI/2 AND Y IS 0)',
+     +   2, 2)
+C
+      IF (ABS(DEN).GT.MAX(ABS(X2),1.)*SQEPS) GO TO 10
+      CALL XERCLR
+      CALL XERMSG ('SLATEC', 'CTAN',
+     +   'ANSWER LT HALF PRECISION, ABS(X) TOO BIG OR X TOO NEAR ' //
+     +   'PI/2 OR 3*PI/2', 1, 1)
+C
+ 10   CTAN = CMPLX (SN2X/DEN, SINH(Y2)/DEN)
+C
+      RETURN
+      END

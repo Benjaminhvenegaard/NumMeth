@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  EZFFT1
+C***SUBSIDIARY
+C***PURPOSE  EZFFTI calls EZFFT1 with appropriate work array
+C            partitioning.
+C***LIBRARY   SLATEC (FFTPACK)
+C***TYPE      SINGLE PRECISION (EZFFT1-S)
+C***AUTHOR  Swarztrauber, P. N., (NCAR)
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   830401  Modified to use SLATEC library source file format.
+C   860115  Modified by Ron Boisvert to adhere to Fortran 77 by
+C           (a) changing dummy array size declarations (1) to (*),
+C           (b) changing references to intrinsic function FLOAT
+C               to REAL, and
+C           (c) changing definition of variable TPI by using
+C               FORTRAN intrinsic function ATAN instead of a DATA
+C               statement.
+C   881128  Modified by Dick Valent to meet prologue standards.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  EZFFT1

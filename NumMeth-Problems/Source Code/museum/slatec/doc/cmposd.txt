@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  CMPOSD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CMGNBN
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (POISD2-S, CMPOSD-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson's equation for Dirichlet boundary
+C     conditions.
+C
+C     ISTAG = 1 if the last diagonal block is the matrix A.
+C     ISTAG = 2 if the last diagonal block is the matrix A+I.
+C
+C***SEE ALSO  CMGNBN
+C***ROUTINES CALLED  C1MERG, CMPCSG, CMPTRX
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920130  Modified to use merge routine C1MERG rather than deleted
+C           routine CMPMRG.  (WRB)
+C***END PROLOGUE  CMPOSD

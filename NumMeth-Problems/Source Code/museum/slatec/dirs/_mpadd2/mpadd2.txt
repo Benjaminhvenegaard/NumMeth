@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  MPADD2
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPADD2-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Called by MPADD, MPSUB etc.
+C  X, Y and Z are MP numbers, Y1 and TRUNC are integers.
+C  To force call by reference rather than value/result, Y1 is
+C  declared as an array, but only Y1(1) is ever used.
+C  Sets Z = X + Y1(1)*ABS(Y), where Y1(1) = +- Y(1).
+C  If TRUNC .EQ. 0, R*-rounding is used;  otherwise, truncation.
+C  R*-rounding is defined in the Kuki and Cody reference.
+C
+C  The arguments X(*), Y(*), and Z(*) are all INTEGER arrays of size
+C  30.  See the comments in the routine MPBLAS for the reason for this
+C  choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***REFERENCES  H. Kuki and W. J. Cody, A statistical study of floating
+C                 point number systems, Communications of the ACM 16, 4
+C                 (April 1973), pp. 223-230.
+C               R. P. Brent, On the precision attainable with various
+C                 floating-point number systems, IEEE Transactions on
+C                 Computers C-22, 6 (June 1973), pp. 601-607.
+C               R. P. Brent, A Fortran multiple-precision arithmetic
+C                 package, ACM Transactions on Mathematical Software 4,
+C                 1 (March 1978), pp. 57-70.
+C               R. P. Brent, MP, a Fortran multiple-precision arithmetic
+C                 package, Algorithm 524, ACM Transactions on Mathema-
+C                 tical Software 4, 1 (March 1978), pp. 71-81.
+C***ROUTINES CALLED  MPADD3, MPCHK, MPERR, MPNZR, MPSTR
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920528  Added a REFERENCES section revised.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPADD2

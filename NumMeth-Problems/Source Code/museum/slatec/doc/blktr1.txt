@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  BLKTR1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BLKTRI
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (BLKTR1-S, CBLKT1-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C BLKTR1 solves the linear system set up by BLKTRI.
+C
+C B  contains the roots of all the B polynomials.
+C W1,W2,W3,WD,WW,WU  are all working arrays.
+C PRDCT  is either PRODP or PROD depending on whether the boundary
+C conditions in the M direction are periodic or not.
+C CPRDCT is either CPRODP or CPROD which are the complex versions
+C of PRODP and PROD. These are called in the event that some
+C of the roots of the B sub P polynomial are complex.
+C
+C***SEE ALSO  BLKTRI
+C***ROUTINES CALLED  INDXA, INDXB, INDXC
+C***COMMON BLOCKS    CBLKT
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  BLKTR1

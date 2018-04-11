@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  IPLOC
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SPLP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (IPLOC-S, IDLOC-D)
+C***KEYWORDS  RELATIVE ADDRESS DETERMINATION FUNCTION, SLATEC
+C***AUTHOR  Hanson, R. J., (SNLA)
+C           Wisniewski, J. A., (SNLA)
+C***DESCRIPTION
+C
+C   Given a "virtual" location,  IPLOC returns the relative working
+C   address of the vector component stored in SX, IX.  Any necessary
+C   page swaps are performed automatically for the user in this
+C   function subprogram.
+C
+C   LOC       is the "virtual" address of the data to be retrieved.
+C   SX ,IX    represent the matrix where the data is stored.
+C
+C***SEE ALSO  SPLP
+C***ROUTINES CALLED  PRWPGE, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   810306  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890606  Restructured to match double precision version.  (WRB)
+C   890606  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   910731  Added code to set IPLOC to 0 if LOC is non-positive.  (WRB)
+C***END PROLOGUE  IPLOC

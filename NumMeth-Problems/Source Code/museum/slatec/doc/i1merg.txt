@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  I1MERG
+C***SUBSIDIARY
+C***PURPOSE  Merge two strings of ascending integers.
+C***LIBRARY   SLATEC
+C***TYPE      INTEGER (S1MERG-S, D1MERG-D, C1MERG-C, I1MERG-I)
+C***AUTHOR  Boland, W. Robert, (LANL)
+C           Clemens, Reginald, (PLK)
+C***DESCRIPTION
+C
+C   This subroutine merges two ascending strings of integers in the
+C   array ICOS.  The first string is of length M1 and starts at
+C   ICOS(I1+1).  The second string is of length M2 and starts at
+C   ICOS(I2+1).  The merged string goes into ICOS(I3+1).
+C
+C***ROUTINES CALLED  ICOPY
+C***REVISION HISTORY  (YYMMDD)
+C   920202  DATE WRITTEN
+C***END PROLOGUE  I1MERG

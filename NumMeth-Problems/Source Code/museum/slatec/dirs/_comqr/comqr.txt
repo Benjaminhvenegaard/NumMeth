@@ -1,0 +1,81 @@
+C***BEGIN PROLOGUE  COMQR
+C***PURPOSE  Compute the eigenvalues of complex upper Hessenberg matrix
+C            using the QR method.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2B
+C***TYPE      COMPLEX (HQR-S, COMQR-C)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of a unitary analogue of the
+C     ALGOL procedure  COMLR, NUM. MATH. 12, 369-376(1968) by Martin
+C     and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 396-403(1971).
+C     The unitary analogue substitutes the QR algorithm of Francis
+C     (COMP. JOUR. 4, 332-345(1962)) for the LR algorithm.
+C
+C     This subroutine finds the eigenvalues of a COMPLEX
+C     upper Hessenberg matrix by the QR method.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, HR and HI, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrix H=(HR,HI).  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        LOW and IGH are two INTEGER variables determined by the
+C          balancing subroutine  CBAL.  If  CBAL  has not been used,
+C          set LOW=1 and IGH equal to the order of the matrix, N.
+C
+C        HR and HI contain the real and imaginary parts, respectively,
+C          of the complex upper Hessenberg matrix.  Their lower
+C          triangles below the subdiagonal contain information about
+C          the unitary transformations used in the reduction by  CORTH,
+C          if performed.  HR and HI are two-dimensional REAL arrays,
+C          dimensioned HR(NM,N) and HI(NM,N).
+C
+C     On OUTPUT
+C
+C        The upper Hessenberg portions of HR and HI have been
+C          destroyed.  Therefore, they must be saved before calling
+C          COMQR  if subsequent calculation of eigenvectors is to
+C          be performed.
+C
+C        WR and WI contain the real and imaginary parts, respectively,
+C          of the eigenvalues of the upper Hessenberg matrix.  If an
+C          error exit is made, the eigenvalues should be correct for
+C          indices IERR+1, IERR+2, ..., N.  WR and WI are one-
+C          dimensional REAL arrays, dimensioned WR(N) and WI(N).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after a total of 30*N iterations.
+C                     The eigenvalues should be correct for indices
+C                     IERR+1, IERR+2, ..., N.
+C
+C     Calls CSROOT for complex square root.
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C     Calls CDIV for complex division.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  CDIV, CSROOT, PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  COMQR

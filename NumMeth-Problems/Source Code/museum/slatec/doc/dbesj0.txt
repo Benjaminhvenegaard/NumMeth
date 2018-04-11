@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  DBESJ0
+C***PURPOSE  Compute the Bessel function of the first kind of order
+C            zero.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10A1
+C***TYPE      DOUBLE PRECISION (BESJ0-S, DBESJ0-D)
+C***KEYWORDS  BESSEL FUNCTION, FIRST KIND, FNLIB, ORDER ZERO,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBESJ0(X) calculates the double precision Bessel function of
+C the first kind of order zero for double precision argument X.
+C
+C Series for BJ0        on the interval  0.          to  1.60000E+01
+C                                        with weighted error   4.39E-32
+C                                         log weighted error  31.36
+C                               significant figures required  31.21
+C                                    decimal places required  32.00
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9B0MP, DCSEVL, INITDS
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  DBESJ0

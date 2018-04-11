@@ -1,0 +1,29 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbocls
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dbols
+dbolsm
+dmout
+drot
+drotg
+dvout
+ivout
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+dcopy
+ddot
+dnrm2
+dscal
+dswap
+fdump
+i1mach
+idamax
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

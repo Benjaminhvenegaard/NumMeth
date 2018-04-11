@@ -1,0 +1,64 @@
+C***BEGIN PROLOGUE  TRED3
+C***PURPOSE  Reduce a real symmetric matrix stored in packed form to
+C            symmetric tridiagonal matrix using orthogonal
+C            transformations.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C1B1
+C***TYPE      SINGLE PRECISION (TRED3-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure TRED3,
+C     NUM. MATH. 11, 181-195(1968) by Martin, Reinsch, and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 212-226(1971).
+C
+C     This subroutine reduces a REAL SYMMETRIC matrix, stored as
+C     a one-dimensional array, to a symmetric tridiagonal matrix
+C     using orthogonal similarity transformations.
+C
+C     On Input
+C
+C        N is the order of the matrix A.  N is an INTEGER variable.
+C
+C        NV is an INTEGER variable set equal to the dimension of the
+C          array A as specified in the calling program.  NV must not
+C          be less than  N*(N+1)/2.
+C
+C        A contains the lower triangle, stored row-wise, of the real
+C          symmetric packed matrix.  A is a one-dimensional REAL
+C          array, dimensioned A(NV).
+C
+C     On Output
+C
+C        A contains information about the orthogonal transformations
+C          used in the reduction in its first N*(N+1)/2 positions.
+C
+C        D contains the diagonal elements of the symmetric tridiagonal
+C          matrix.  D is a one-dimensional REAL array, dimensioned D(N).
+C
+C        E contains the subdiagonal elements of the symmetric
+C          tridiagonal matrix in its last N-1 positions.  E(1) is set
+C          to zero.  E is a one-dimensional REAL array, dimensioned
+C          E(N).
+C
+C        E2 contains the squares of the corresponding elements of E.
+C          E2 may coincide with E if the squares are not needed.
+C          E2 is a one-dimensional REAL array, dimensioned E2(N).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  TRED3

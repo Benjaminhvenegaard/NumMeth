@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsmmti
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dsmmi2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

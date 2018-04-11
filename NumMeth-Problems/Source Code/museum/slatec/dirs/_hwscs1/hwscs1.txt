@@ -1,0 +1,15 @@
+C***BEGIN PROLOGUE  HWSCS1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to HWSCSP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (HWSCS1-S)
+C***AUTHOR  (UNKNOWN)
+C***SEE ALSO  HWSCSP
+C***ROUTINES CALLED  BLKTRI
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891009  Removed unreferenced variables.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  HWSCS1

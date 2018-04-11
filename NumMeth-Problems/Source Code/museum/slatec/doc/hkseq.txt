@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  HKSEQ
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BSKIN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (HKSEQ-S, DHKSEQ-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C   HKSEQ is an adaptation of subroutine PSIFN described in the
+C   reference below.  HKSEQ generates the sequence
+C   H(K,X) = (-X)**(K+1)*(PSI(K,X) PSI(K,X+0.5))/GAMMA(K+1), for
+C            K=0,...,M.
+C
+C***SEE ALSO  BSKIN
+C***REFERENCES  D. E. Amos, A portable Fortran subroutine for
+C                 derivatives of the Psi function, Algorithm 610, ACM
+C                 Transactions on Mathematical Software 9, 4 (1983),
+C                 pp. 494-502.
+C***ROUTINES CALLED  I1MACH, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   820601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920528  DESCRIPTION and REFERENCES sections revised.  (WRB)
+C***END PROLOGUE  HKSEQ

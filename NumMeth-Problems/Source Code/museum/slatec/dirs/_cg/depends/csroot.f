@@ -1,0 +1,15 @@
+      SUBROUTINE CSROOT (XR, XI, YR, YI)
+      REAL XR,XI,YR,YI,S,TR,TI,PYTHAG
+C
+C     BRANCH CHOSEN SO THAT YR .GE. 0.0 AND SIGN(YI) .EQ. SIGN(XI)
+C***FIRST EXECUTABLE STATEMENT  CSROOT
+      TR = XR
+      TI = XI
+      S = SQRT(0.5E0*(PYTHAG(TR,TI) + ABS(TR)))
+      IF (TR .GE. 0.0E0) YR = S
+      IF (TI .LT. 0.0E0) S = -S
+      IF (TR .LE. 0.0E0) YI = S
+      IF (TR .LT. 0.0E0) YR = 0.5E0*(TI/YI)
+      IF (TR .GT. 0.0E0) YI = 0.5E0*(TI/YR)
+      RETURN
+      END

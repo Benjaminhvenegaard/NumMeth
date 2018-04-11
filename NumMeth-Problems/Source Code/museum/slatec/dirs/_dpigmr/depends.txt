@@ -1,0 +1,25 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dpigmr
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dhels
+dheqr
+dorth
+drlcal
+dxlcal
+isdgmr
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+dcopy
+ddot
+dnrm2
+dscal
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

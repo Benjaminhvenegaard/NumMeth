@@ -1,0 +1,32 @@
+C***BEGIN PROLOGUE  DPPERM
+C***PURPOSE  Rearrange a given array according to a prescribed
+C            permutation vector.
+C***LIBRARY   SLATEC
+C***CATEGORY  N8
+C***TYPE      DOUBLE PRECISION (SPPERM-S, DPPERM-D, IPPERM-I, HPPERM-H)
+C***KEYWORDS  PERMUTATION, REARRANGEMENT
+C***AUTHOR  McClain, M. A., (NIST)
+C           Rhoads, G. S., (NBS)
+C***DESCRIPTION
+C
+C         DPPERM rearranges the data vector DX according to the
+C         permutation IPERM: DX(I) <--- DX(IPERM(I)).  IPERM could come
+C         from one of the sorting routines IPSORT, SPSORT, DPSORT or
+C         HPSORT.
+C
+C     Description of Parameters
+C         DX - input/output -- double precision array of values to be
+C                   rearranged.
+C         N - input -- number of values in double precision array DX.
+C         IPERM - input -- permutation vector.
+C         IER - output -- error indicator:
+C             =  0  if no error,
+C             =  1  if N is zero or negative,
+C             =  2  if IPERM is not a valid permutation.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   901004  DATE WRITTEN
+C   920507  Modified by M. McClain to revise prologue text.
+C***END PROLOGUE  DPPERM

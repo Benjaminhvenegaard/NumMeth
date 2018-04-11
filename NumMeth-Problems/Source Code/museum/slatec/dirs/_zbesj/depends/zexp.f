@@ -1,0 +1,10 @@
+      SUBROUTINE ZEXP (AR, AI, BR, BI)
+      DOUBLE PRECISION AR, AI, BR, BI, ZM, CA, CB
+C***FIRST EXECUTABLE STATEMENT  ZEXP
+      ZM = EXP(AR)
+      CA = ZM*COS(AI)
+      CB = ZM*SIN(AI)
+      BR = CA
+      BI = CB
+      RETURN
+      END

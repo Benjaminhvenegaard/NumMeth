@@ -1,0 +1,29 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dgami
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9gmit
+d9lgic
+d9lgit
+d9lgmc
+dgamit
+dgamlm
+dgamma
+dgamr
+dlgams
+dlngam
+xerclr
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

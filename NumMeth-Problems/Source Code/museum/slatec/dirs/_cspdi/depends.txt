@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cspdi
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ccopy
+cdotu
+cswap
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+---END OF DEPENDENCIES---

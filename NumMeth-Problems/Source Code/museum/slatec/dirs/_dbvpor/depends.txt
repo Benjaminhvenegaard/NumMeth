@@ -1,0 +1,42 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbvpor
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dbksol
+dbvder
+dcoef
+dcscal
+ddeabm
+dderkf
+ddes
+dfehl
+dhstrt
+dhvnrm
+dintp
+dlssud
+dmgsbv
+dohtrl
+dorthr
+dprvec
+dreort
+drkfab
+drkfs
+dsteps
+dstor1
+dstway
+dsuds
+dvecs
+xermax
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+ddot
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

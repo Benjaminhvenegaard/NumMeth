@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  DATANH
+C***PURPOSE  Compute the arc hyperbolic tangent.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4C
+C***TYPE      DOUBLE PRECISION (ATANH-S, DATANH-D, CATANH-C)
+C***KEYWORDS  ARC HYPERBOLIC TANGENT, ATANH, ELEMENTARY FUNCTIONS,
+C             FNLIB, INVERSE HYPERBOLIC TANGENT
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DATANH(X) calculates the double precision arc hyperbolic
+C tangent for double precision argument X.
+C
+C Series for ATNH       on the interval  0.          to  2.50000E-01
+C                                        with weighted error   6.86E-32
+C                                         log weighted error  31.16
+C                               significant figures required  30.00
+C                                    decimal places required  31.88
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DATANH

@@ -1,0 +1,187 @@
+
+   [CWI]
+   
+ THE LIBRARY NUMAL OF ALGOL 60 PROCEDURES IN NUMERICAL MATHEMATICS (PREAMBLE)
+                                       
+   
+   
+   
+   
+     _________________________________________________________________
+   
+   
+   
+   Preamble to the historical NUMAL files, by Jan Kok [external link],
+   CWI, Amsterdam.
+   [The history of NUMAL] [Earlier work] [Fields covered] [Focus] [Status
+   today] [Availability] [References] [Address]
+     _________________________________________________________________
+   
+  The history of NUMAL
+  
+   In the years 1973 - 1979 a systematically organized library of ALGOL
+   60 procedures in Numerical Mathematics was assembled, called NUMAL.
+   The work of implementing numerical algorithms and documenting the
+   implementations was directed by P.W. Hemker of the Mathematisch
+   Centrum at Amsterdam (Mathematical Centre - MC) and carried out by a
+   large group of (numerical) mathematicians from the MC and the Dutch
+   Universities of Amsterdam and Groningen.
+   
+   In the sixties the MC was an influential center regarding the
+   scientific use of early-day computers. It had played a keyrole in the
+   construction of computers in The Netherlands and taken part in the
+   design of ALGOL 60. The MC was providing computer services to the
+   academic world: its Electrologica X1 and X8 computers were available
+   for testing and running programs written in ALGOL 60. When large
+   computer centers were created for the Dutch universities, the
+   availability of ALGOL 60 compilers was a logical requirement, and it
+   was found equally logical that several early collections of ALGOL 60
+   procedures for subareas of numerical mathematics would be united (and
+   extended) to a complete and coherent mathematical software library.
+   
+   One may suspect it was also hoped that with the obvious advantages of
+   ALGOL 60 for developing new software the library would achieve a
+   prominent place in the scientific world among its equivalents, such as
+   were developed in Fortran by IMSL and NAG.
+   
+   What resulted was, first, a systematic classification of all possible
+   branches of numerical mathematics, including sectors for auxiliary
+   procedures like manipulating vectors and matrices which fitted with
+   the design characteristic of modularity and would allow a certain
+   level of a common programming style. Next, a library of ALGOL 60
+   procedures was created starting with the earlier collections:
+   procedures were incorporated when sufficiently supplemented with
+   uniform documentation, and the growing library was further extended
+   with the results of ongoing research. See [Hemker, 1977] for
+   background of this library construction effort.
+   
+   But ALGOL 60 did not become very popular and with the decreasing
+   interest in ALGOL 60 the justification for continuing development and
+   maintenance of NUMAL disappeared, together with the support for the MC
+   to carry out most of the work. When this became apparent, the MC
+   terminated the project (in 1980) with the publication in book form (MC
+   Syllabus 47) of the whole manual together with the systematic
+   classification and a KWIC index:
+   
+     P.W. Hemker (ed.): NUMAL, Numerical procedures in ALGOL 60, MC
+     Amsterdam, 1981, MC Syllabus 47.1 - 47.7.
+     
+   
+   
+   One year later, J. Kok and D.T. Winter carried out the fifth and last
+   revision of the NUMAL library and manual, to make NUMAL sources
+   satisfy the more severe language requirements of a new ALGOL 60
+   compiler; at the same time they corrected typos and reorganized the
+   on-line manual.
+   
+   What is made accessible here are the following original, unchanged
+   texts (please note that much additional information in these texts is
+   not valid any more, such as about tapes or even the address of the
+   MC):
+     * Title page and introduction including acknowledgements, as printed
+       in the book version (MC Syllabus 47), the 4-th revision (8 pages)
+       (Link)
+     * Systematic index (Link)
+     * NUMAL manual (final revision), accessible from the systematic
+       index
+       
+  Earlier work 
+  
+   In the early days a couple of procedure collections were produced at
+   the MC such as the Zonneveld collection for (systems of) ODEs and the
+   Dekker, resp. Dekker & Hoffmann collections for linear algebra
+   problems (see references), and similar sets for double precision and
+   complex numbers. An older collection (AP 200) contained a set of ALGOL
+   60 procedures for use on the X1 machine, e.g. for zero finding (real
+   and complex), elliptic integrals and quadrature. Apart from these sets
+   the MC had also available collections of statistical and plotting
+   routines in ALGOL 60.
+   
+   Other, international sources were Collected Algorithms from the
+   Comm.ACM, Wilkinson & Reinsch, and the journals BIT and Numerische
+   Mathematik. And finally, the procedure euler for summing an
+   alternating infinite series had already been published in the defining
+   Report on ALGOL 60.
+   
+  Fields covered 
+  
+   The areas for which procedures were present include: system calls,
+   elementary and special functions, vector and matrix manipulation
+   including double precision and complex arithmetic, long integer
+   arithmetic, fourier series, linear systems of general and special
+   forms, including overdetermined systems, singular value decomposition,
+   eigenvalue / eigenvector problems, zero finding, nonlinear systems,
+   quadrature, approximation, summation of series, ordinary and partial
+   differential equations (initial and boundary value problems). Not
+   treated were problems belonging to statistics or operation control, or
+   other computer science methods although a sorting procedure could be
+   found.
+   
+  Focus 
+  
+   The library was developed, tested and used mainly on successive CDC
+   machines available to the Dutch academic world, under successive
+   versions (version 3 to 5) of their ALGOL compilers. This is still
+   reflected in the employment of the code conventions for calling
+   pre-compiled library procedures. Computer architecture properties
+   concerning floating-point precision are less conspicuous as the
+   prevailing programming style was that for iterative methods the user
+   had to provide tolerances through procedure parameters (hence, only
+   the defaults and examples showed the CDC preference).
+   
+  Status today 
+  
+   As mentioned before, development ended around 1980, and maintenance
+   stopped some years later when the ALGOL services at the Amsterdam
+   Academic Computer Center (SARA) ended. Subsets of the library had a
+   prolonged, but less well-known life by their conversion (by MC) for
+   subset libraries in Pascal, Algol 68 and Ada. Independently, H.T. Lau
+   supervised a mainly automatic conversion of the whole NUMAL library to
+   Fortran and, more recently, to C.
+   
+  Availability 
+  
+   The Stichting Mathematisch Centrum at Amsterdam has granted permission
+   to incorporate the complete NUMAL library manual into this CDROM. It
+   may be freely used. It may be copied, provided that the name NUMAL and
+   the attribution to the Stichting Mathematisch Centrum at Amsterdam are
+   retained.
+   
+  References 
+    1. T.J. Dekker: ALGOL 60 procedures in numerical algebra, part 1, MC
+       Amsterdam, 1968, MC Tract 22.
+    2. T.J. Dekker & W. Hoffmann: ALGOL 60 procedures in numerical
+       algebra, part 2, MC Amsterdam, 1968, MC Tract 23.
+    3. P.W. Hemker: Criteria for transportable ALGOL libraries, pp.
+       145-157, in: W. Cowell (ed.), Portability of numerical software,
+       1977, Lecture Notes in Computer Science 57, Springer Verlag.
+    4. P.W. Hemker (ed.): NUMAL, Numerical procedures in ALGOL 60, MC
+       Amsterdam, 1980, MC Syllabus 47.1 - 47.7.
+    5. H.T. Lau: A numerical library in C for scientists and engineers,
+       1995, CRC Press, Boca Raton.
+    6. P. Naur (ed.): Revised Report on the Algorithmic Language ALGOL
+       60, 1962, A/S Regnecentralen, Copenhagen.
+    7. J.H. Wilkinson & C. Reinsch: Linear algebra, Handbook for
+       automatic computation, Vol. 2, 1971, Springer Verlag.
+    8. J.A. Zonneveld: Automatic numerical integration, MC Amsterdam,
+       1964, MC Tract 8.
+       
+Address:
+
+
+     CWI [external link]
+     P.O. Box 94079
+     NL - 1090 GB Amsterdam
+     The Netherlands
+     
+   
+     _________________________________________________________________
+   
+   MC: the institute MC is now (since 1983) called: CWI - Centrum voor
+   Wiskunde en Informatica (Centre for Mathematics and Computer Science).
+   The institute belongs to the Foundation Stichting Mathematisch
+   Centrum.
+     _________________________________________________________________
+   
+   To CWI's Home Page [external link]
+   Mail To: Jan.Kok@cwi.nl [external link]

@@ -1,0 +1,60 @@
+C***BEGIN PROLOGUE  DASYJY
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBESJ and DBESY
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (ASYJY-S, DASYJY-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C                 DASYJY computes Bessel functions J and Y
+C               for arguments X.GT.0.0 and orders FNU .GE. 35.0
+C               on FLGJY = 1 and FLGJY = -1 respectively
+C
+C                                  INPUT
+C
+C      FUNJY - External subroutine JAIRY or YAIRY
+C          X - Argument, X.GT.0.0D0
+C        FNU - Order of the first Bessel function
+C      FLGJY - Selection flag
+C              FLGJY =  1.0D0 gives the J function
+C              FLGJY = -1.0D0 gives the Y function
+C         IN - Number of functions desired, IN = 1 or 2
+C
+C                                  OUTPUT
+C
+C         Y  - A vector whose first IN components contain the sequence
+C       IFLW - A flag indicating underflow or overflow
+C                    return variables for BESJ only
+C      WK(1) = 1 - (X/FNU)**2 = W**2
+C      WK(2) = SQRT(ABS(WK(1)))
+C      WK(3) = ABS(WK(2) - ATAN(WK(2)))  or
+C              ABS(LN((1 + WK(2))/(X/FNU)) - WK(2))
+C            = ABS((2/3)*ZETA**(3/2))
+C      WK(4) = FNU*WK(3)
+C      WK(5) = (1.5*WK(3)*FNU)**(1/3) = SQRT(ZETA)*FNU**(1/3)
+C      WK(6) = SIGN(1.,W**2)*WK(5)**2 = SIGN(1.,W**2)*ZETA*FNU**(2/3)
+C      WK(7) = FNU**(1/3)
+C
+C     Abstract   **** A Double Precision Routine ****
+C         DASYJY implements the uniform asymptotic expansion of
+C         the J and Y Bessel functions for FNU.GE.35 and real
+C         X.GT.0.0D0. The forms are identical except for a change
+C         in sign of some of the terms. This change in sign is
+C         accomplished by means of the flag FLGJY = 1 or -1. On
+C         FLGJY = 1 the Airy functions AI(X) and DAI(X) are
+C         supplied by the external function JAIRY, and on
+C         FLGJY = -1 the Airy functions BI(X) and DBI(X) are
+C         supplied by the external function YAIRY.
+C
+C***SEE ALSO  DBESJ, DBESY
+C***ROUTINES CALLED  D1MACH, I1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891004  Correction computation of ELIM.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR section.  (WRB)
+C***END PROLOGUE  DASYJY

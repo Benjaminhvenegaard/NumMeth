@@ -1,0 +1,28 @@
+C***BEGIN PROLOGUE  DCOT
+C***PURPOSE  Compute the cotangent.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      DOUBLE PRECISION (COT-S, DCOT-D, CCOT-C)
+C***KEYWORDS  COTANGENT, ELEMENTARY FUNCTIONS, FNLIB, TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DCOT(X) calculates the double precision trigonometric cotangent
+C for double precision argument X.  X is in units of radians.
+C
+C Series for COT        on the interval  0.          to  6.25000E-02
+C                                        with weighted error   5.52E-34
+C                                         log weighted error  33.26
+C                               significant figures required  32.34
+C                                    decimal places required  33.85
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DCOT

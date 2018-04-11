@@ -1,0 +1,17 @@
+C***BEGIN PROLOGUE  CSROOT
+C***SUBSIDIARY
+C***PURPOSE  Compute the complex square root of a complex number.
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CSROOT-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     (YR,YI) = complex sqrt(XR,XI)
+C
+C***SEE ALSO  EISDOC
+C***ROUTINES CALLED  PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   811101  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CSROOT

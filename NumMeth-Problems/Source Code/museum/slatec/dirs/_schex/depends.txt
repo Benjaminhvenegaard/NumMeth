@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE schex
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+srotg
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

@@ -1,0 +1,12 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cg
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cbabk2
+cbal
+cdiv
+comqr
+comqr2
+corth
+csroot
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pythag
+---END OF DEPENDENCIES---

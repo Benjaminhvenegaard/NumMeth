@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  MPNZR
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPNZR-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Modified for use with BLAS.  Blank COMMON changed to named COMMON.
+C  Assumes long (i.e. (t+4)-DIGIT) fraction in R, sign = RS, exponent
+C  = RE.  Normalizes, and returns 'mp' result in Z. Integer arguments
+C  RS and RE are not preserved. R*-rounding is used if TRUNC.EQ.0
+C
+C  The argument Z(*) and the variable R in COMMON are INTEGER arrays
+C  of size 30.  See the comments in the routine MPBLAS for the reason
+C  for this choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  MPERR, MPOVFL, MPUNFL
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPNZR

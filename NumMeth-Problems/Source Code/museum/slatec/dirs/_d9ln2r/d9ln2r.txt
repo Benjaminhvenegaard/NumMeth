@@ -1,0 +1,37 @@
+C***BEGIN PROLOGUE  D9LN2R
+C***SUBSIDIARY
+C***PURPOSE  Evaluate LOG(1+X) from second order relative accuracy so
+C            that LOG(1+X) = X - X**2/2 + X**3*D9LN2R(X)
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4B
+C***TYPE      DOUBLE PRECISION (R9LN2R-S, D9LN2R-D, C9LN2R-C)
+C***KEYWORDS  ELEMENTARY FUNCTIONS, FNLIB, LOGARITHM, SECOND ORDER
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate  LOG(1+X)  from 2-nd order with relative error accuracy so
+C that    LOG(1+X) = X - X**2/2 + X**3*D9LN2R(X)
+C
+C Series for LN21       on the interval -6.25000E-01 to  0.
+C                                        with weighted error   1.82E-32
+C                                         log weighted error  31.74
+C                               significant figures required  31.00
+C                                    decimal places required  32.59
+C
+C Series for LN22       on the interval  0.          to  8.12500E-01
+C                                        with weighted error   6.10E-32
+C                                         log weighted error  31.21
+C                               significant figures required  30.32
+C                                    decimal places required  32.00
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  D9LN2R

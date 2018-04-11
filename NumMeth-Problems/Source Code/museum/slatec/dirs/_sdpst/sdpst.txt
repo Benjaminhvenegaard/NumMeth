@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  SDPST
+C***SUBSIDIARY
+C***PURPOSE  Subroutine SDPST evaluates the Jacobian matrix of the right
+C            hand side of the differential equations.
+C***LIBRARY   SLATEC (SDRIVE)
+C***TYPE      SINGLE PRECISION (SDPST-S, DDPST-D, CDPST-C)
+C***AUTHOR  Kahaner, D. K., (NIST)
+C             National Institute of Standards and Technology
+C             Gaithersburg, MD  20899
+C           Sutherland, C. D., (LANL)
+C             Mail Stop D466
+C             Los Alamos National Laboratory
+C             Los Alamos, NM  87545
+C***DESCRIPTION
+C
+C  If MITER is 1, 2, 4, or 5, the matrix
+C  P = I - L(0)*H*Jacobian is stored in DFDY and subjected to LU
+C  decomposition, with the results also stored in DFDY.
+C***ROUTINES CALLED  SGBFA, SGEFA, SNRM2
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   900329  Initial submission to SLATEC.
+C***END PROLOGUE  SDPST

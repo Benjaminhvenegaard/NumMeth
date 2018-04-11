@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cpoco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cpofa
+csscal
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

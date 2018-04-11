@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE poisd2
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cosgen
+s1merg
+trix
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pimach
+scopy
+---END OF DEPENDENCIES---

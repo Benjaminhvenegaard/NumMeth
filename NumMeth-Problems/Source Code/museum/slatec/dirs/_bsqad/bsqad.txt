@@ -1,0 +1,50 @@
+C***BEGIN PROLOGUE  BSQAD
+C***PURPOSE  Compute the integral of a K-th order B-spline using the
+C            B-representation.
+C***LIBRARY   SLATEC
+C***CATEGORY  H2A2A1, E3, K6
+C***TYPE      SINGLE PRECISION (BSQAD-S, DBSQAD-D)
+C***KEYWORDS  INTEGRAL OF B-SPLINES, QUADRATURE
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BSQAD computes the integral on (X1,X2) of a K-th order
+C         B-spline using the B-representation (T,BCOEF,N,K).  Orders
+C         K as high as 20 are permitted by applying a 2, 6, or 10
+C         point Gauss formula on subintervals of (X1,X2) which are
+C         formed by included (distinct) knots.
+C
+C         If orders K greater than 20 are needed, use BFQAD with
+C         F(X) = 1.
+C
+C     Description of Arguments
+C         Input
+C           T      - knot array of length N+K
+C           BCOEF  - B-spline coefficient array of length N
+C           N      - length of coefficient array
+C           K      - order of B-spline, 1 .LE. K .LE. 20
+C           X1,X2  - end points of quadrature interval in
+C                    T(K) .LE. X .LE. T(N+1)
+C
+C         Output
+C           BQUAD  - integral of the B-spline over (X1,X2)
+C           WORK   - work vector of length 3*K
+C
+C     Error Conditions
+C         Improper input is a fatal error
+C
+C***REFERENCES  D. E. Amos, Quadrature subroutines for splines and
+C                 B-splines, Report SAND79-1825, Sandia Laboratories,
+C                 December 1979.
+C***ROUTINES CALLED  BVALU, INTRV, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BSQAD

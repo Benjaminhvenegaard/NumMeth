@@ -1,0 +1,35 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE pois3d
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cosqb
+cosqb1
+cosqf
+cosqf1
+cosqi
+cost
+costi
+pos3d1
+radb2
+radb3
+radb4
+radb5
+radbg
+radf2
+radf3
+radf4
+radf5
+radfg
+rfftb
+rfftb1
+rfftf
+rfftf1
+rffti
+rffti1
+sinqb
+sinqf
+sinqi
+sint
+sinti
+tridq
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pimach
+---END OF DEPENDENCIES---

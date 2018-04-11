@@ -1,0 +1,14 @@
+      SUBROUTINE MPMAXR (X)
+      COMMON /MPCOM/ B, T, M, LUN, MXR, R(30)
+      INTEGER B, T, R, X(*)
+C***FIRST EXECUTABLE STATEMENT  MPMAXR
+      CALL MPCHK (1, 4)
+      IT = B - 1
+C SET FRACTION DIGITS TO B-1
+      DO 10 I = 1, T
+   10 X(I+2) = IT
+C SET SIGN AND EXPONENT
+      X(1) = 1
+      X(2) = M
+      RETURN
+      END

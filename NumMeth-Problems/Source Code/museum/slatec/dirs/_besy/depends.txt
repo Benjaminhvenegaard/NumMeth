@@ -1,0 +1,26 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE besy
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+asyjy
+besj0
+besj1
+besy0
+besy1
+besynu
+gamlim
+gamma
+r9lgmc
+yairy
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+csevl
+fdump
+i1mach
+inits
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

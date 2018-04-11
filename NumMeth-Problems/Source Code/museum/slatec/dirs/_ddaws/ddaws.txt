@@ -1,0 +1,40 @@
+C***BEGIN PROLOGUE  DDAWS
+C***PURPOSE  Compute Dawson's function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C8C
+C***TYPE      DOUBLE PRECISION (DAWS-S, DDAWS-D)
+C***KEYWORDS  DAWSON'S FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DDAWS(X) calculates the double precision Dawson's integral
+C for double precision argument X.
+C
+C Series for DAW        on the interval  0.          to  1.00000E+00
+C                                        with weighted error   8.95E-32
+C                                         log weighted error  31.05
+C                               significant figures required  30.41
+C                                    decimal places required  31.71
+C
+C Series for DAW2       on the interval  0.          to  1.60000E+01
+C                                        with weighted error   1.61E-32
+C                                         log weighted error  31.79
+C                               significant figures required  31.40
+C                                    decimal places required  32.62
+C
+C Series for DAWA       on the interval  0.          to  6.25000E-02
+C                                        with weighted error   1.97E-32
+C                                         log weighted error  31.71
+C                               significant figures required  29.79
+C                                    decimal places required  32.64
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   780401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DDAWS

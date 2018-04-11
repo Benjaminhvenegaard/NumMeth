@@ -1,0 +1,72 @@
+C***BEGIN PROLOGUE  DQNC79
+C***PURPOSE  Integrate a function using a 7-point adaptive Newton-Cotes
+C            quadrature rule.
+C***LIBRARY   SLATEC
+C***CATEGORY  H2A1A1
+C***TYPE      DOUBLE PRECISION (QNC79-S, DQNC79-D)
+C***KEYWORDS  ADAPTIVE QUADRATURE, INTEGRATION, NEWTON-COTES
+C***AUTHOR  Kahaner, D. K., (NBS)
+C           Jones, R. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract  *** a DOUBLE PRECISION routine ***
+C       DQNC79 is a general purpose program for evaluation of
+C       one dimensional integrals of user defined functions.
+C       DQNC79 will pick its own points for evaluation of the
+C       integrand and these will vary from problem to problem.
+C       Thus, DQNC79 is not designed to integrate over data sets.
+C       Moderately smooth integrands will be integrated efficiently
+C       and reliably.  For problems with strong singularities,
+C       oscillations etc., the user may wish to use more sophis-
+C       ticated routines such as those in QUADPACK.  One measure
+C       of the reliability of DQNC79 is the output parameter K,
+C       giving the number of integrand evaluations that were needed.
+C
+C     Description of Arguments
+C
+C     --Input--* FUN, A, B, ERR are DOUBLE PRECISION *
+C       FUN  - name of external function to be integrated.  This name
+C              must be in an EXTERNAL statement in your calling
+C              program.  You must write a Fortran function to evaluate
+C              FUN.  This should be of the form
+C                    DOUBLE PRECISION FUNCTION FUN (X)
+C              C
+C              C     X can vary from A to B
+C              C     FUN(X) should be finite for all X on interval.
+C              C
+C                    FUN = ...
+C                    RETURN
+C                    END
+C       A    - lower limit of integration
+C       B    - upper limit of integration (may be less than A)
+C       ERR  - is a requested error tolerance.  Normally, pick a value
+C              0 .LT. ERR .LT. 1.0D-8.
+C
+C     --Output--
+C       ANS  - computed value of the integral.  Hopefully, ANS is
+C              accurate to within ERR * integral of ABS(FUN(X)).
+C       IERR - a status code
+C            - Normal codes
+C               1  ANS most likely meets requested error tolerance.
+C              -1  A equals B, or A and B are too nearly equal to
+C                  allow normal integration.  ANS is set to zero.
+C            - Abnormal code
+C               2  ANS probably does not meet requested error tolerance.
+C       K    - the number of function evaluations actually used to do
+C              the integration.  A value of K .GT. 1000 indicates a
+C              difficult problem; other programs may be more efficient.
+C              DQNC79 will gracefully give up if K exceeds 2000.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, I1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920218  Code redone to parallel QNC79.  (WRB)
+C   930120  Increase array size 80->99, and KMX 2000->5000 for SUN -r8
+C           wordlength.  (RWC)
+C***END PROLOGUE  DQNC79

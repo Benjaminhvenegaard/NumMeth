@@ -1,0 +1,6 @@
+      SUBROUTINE MPADD (X, Y, Z)
+      INTEGER X(*), Y(*), Z(*)
+C***FIRST EXECUTABLE STATEMENT  MPADD
+      CALL MPADD2 (X, Y, Z, Y, 0)
+      RETURN
+      END

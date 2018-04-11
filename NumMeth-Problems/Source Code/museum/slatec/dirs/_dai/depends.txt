@@ -1,0 +1,18 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dai
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9aimp
+daie
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

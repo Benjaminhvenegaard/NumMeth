@@ -1,0 +1,73 @@
+C***BEGIN PROLOGUE  POLYVL
+C***PURPOSE  Calculate the value of a polynomial and its first NDER
+C            derivatives where the polynomial was produced by a previous
+C            call to POLINT.
+C***LIBRARY   SLATEC
+C***CATEGORY  E3
+C***TYPE      SINGLE PRECISION (POLYVL-S, DPOLVL-D)
+C***KEYWORDS  POLYNOMIAL EVALUATION
+C***AUTHOR  Huddleston, R. E., (SNLL)
+C***DESCRIPTION
+C
+C     Written by Robert E. Huddleston, Sandia Laboratories, Livermore
+C
+C     Abstract -
+C        Subroutine POLYVL calculates the value of the polynomial and
+C     its first NDER derivatives where the polynomial was produced by
+C     a previous call to POLINT.
+C        The variable N and the arrays X and C must not be altered
+C     between the call to POLINT and the call to POLYVL.
+C
+C     ******  Dimensioning Information *******
+C
+C     YP   must be dimensioned by at least NDER
+C     X    must be dimensioned by at least N (see the abstract )
+C     C    must be dimensioned by at least N (see the abstract )
+C     WORK must be dimensioned by at least 2*N if NDER is .GT. 0.
+C
+C     *** Note ***
+C       If NDER=0, neither YP nor WORK need to be dimensioned variables.
+C       If NDER=1, YP does not need to be a dimensioned variable.
+C
+C
+C     *****  Input parameters
+C
+C     NDER - the number of derivatives to be evaluated
+C
+C     XX   - the argument at which the polynomial and its derivatives
+C            are to be evaluated.
+C
+C     N    - *****
+C            *       N, X, and C must not be altered between the call
+C     X    - *       to POLINT and the call to POLYVL.
+C     C    - *****
+C
+C
+C     *****  Output Parameters
+C
+C     YFIT - the value of the polynomial at XX
+C
+C     YP   - the derivatives of the polynomial at XX.  The derivative of
+C            order J at XX is stored in  YP(J) , J = 1,...,NDER.
+C
+C     IERR - Output error flag with the following possible values.
+C          = 1  indicates normal execution
+C
+C     ***** Storage Parameters
+C
+C     WORK  = this is an array to provide internal working storage for
+C             POLYVL.  It must be dimensioned by at least 2*N if NDER is
+C             .GT. 0.  If NDER=0, WORK does not need to be a dimensioned
+C             variable.
+C
+C***REFERENCES  L. F. Shampine, S. M. Davenport and R. E. Huddleston,
+C                 Curve fitting by polynomials in one variable, Report
+C                 SLA-74-0270, Sandia Laboratories, June 1974.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   740601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  POLYVL

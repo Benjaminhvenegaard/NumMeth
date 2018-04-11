@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sdaslv
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sgbsl
+sgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+saxpy
+sdot
+---END OF DEPENDENCIES---

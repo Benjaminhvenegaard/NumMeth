@@ -1,0 +1,69 @@
+C***BEGIN PROLOGUE  SCOEF
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SCOEF-S, DCOEF-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C INPUT TO SCOEF
+C **********************************************************************
+C
+C     YH = Matrix of homogeneous solutions.
+C     YP = Vector containing particular solution.
+C     NCOMP = Number of components per solution vector.
+C     NROWB = First dimension of B in calling program.
+C     NFC = Number of base solution vectors.
+C     NFCC = 2*NFC for the special treatment of complex valued
+C            equations. Otherwise, NFCC=NFC.
+C     NIC = Number of specified initial conditions.
+C     B = Boundary condition matrix at X = Xfinal.
+C     BETA = Vector of nonhomogeneous boundary conditions at X = Xfinal.
+C              1 - Nonzero particular solution
+C     INHOMO = 2 - Zero particular solution
+C              3 - Eigenvalue problem
+C     RE = Relative error tolerance
+C     AE = Absolute error tolerance
+C     BY = Storage space for the matrix  B*YH
+C     CVEC = Storage space for the vector  BETA-B*YP
+C     WORK = Real array of internal storage. Dimension must be .GE.
+C            NFCC*(NFCC+4)
+C     IWORK = Integer array of internal storage. Dimension must be .GE.
+C             3+NFCC
+C
+C **********************************************************************
+C OUTPUT FROM SCOEF
+C **********************************************************************
+C
+C     COEF = Array containing superposition constants.
+C     IFLAG = Indicator of success from SUDS in solving the
+C             boundary equations
+C           = 0 Boundary equations are solved
+C           = 1 Boundary equations appear to have many solutions
+C           = 2 Boundary equations appear to be inconsistent
+C           = 3 For this value of an eigenparameter, the boundary
+C               equations have only the zero solution.
+C
+C **********************************************************************
+C
+C     Subroutine SCOEF solves for the superposition constants from the
+C     linear equations defined by the boundary conditions at X = Xfinal.
+C
+C                          B*YP + B*YH*COEF = BETA
+C
+C **********************************************************************
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  SDOT, SUDS, XGETF, XSETF
+C***COMMON BLOCKS    ML5MCO
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  SCOEF

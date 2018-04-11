@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dxlcal
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dhels
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+dcopy
+---END OF DEPENDENCIES---

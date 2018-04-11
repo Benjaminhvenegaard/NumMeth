@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  POISD2
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to GENBUN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (POISD2-S, CMPOSD-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson's equation for Dirichlet boundary
+C     conditions.
+C
+C     ISTAG = 1 if the last diagonal block is the matrix A.
+C     ISTAG = 2 if the last diagonal block is the matrix A+I.
+C
+C***SEE ALSO  GENBUN
+C***ROUTINES CALLED  COSGEN, S1MERG, TRIX
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920130  Modified to use merge routine S1MERG rather than deleted
+C           routine MERGE.  (WRB)
+C***END PROLOGUE  POISD2

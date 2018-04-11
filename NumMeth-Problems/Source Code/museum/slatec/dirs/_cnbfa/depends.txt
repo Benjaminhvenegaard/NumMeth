@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cnbfa
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cscal
+cswap
+icamax
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+---END OF DEPENDENCIES---

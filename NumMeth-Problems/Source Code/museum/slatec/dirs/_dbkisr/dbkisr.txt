@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  DBKISR
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBSKIN
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (BKISR-S, DBKISR-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     DBKISR computes repeated integrals of the K0 Bessel function
+C     by the series for N=0,1, and 2.
+C
+C***SEE ALSO  DBSKIN
+C***ROUTINES CALLED  D1MACH, DPSIXN
+C***REVISION HISTORY  (YYMMDD)
+C   820601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DBKISR

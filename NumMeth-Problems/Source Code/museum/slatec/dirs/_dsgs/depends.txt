@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsgs
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dchkw
+dir
+ds2lt
+ds2y
+dsli
+dsli2
+dsmv
+isdir
+qs2i1d
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dnrm2
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

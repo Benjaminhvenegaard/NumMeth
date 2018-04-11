@@ -1,0 +1,50 @@
+C***BEGIN PROLOGUE  DINTP
+C***PURPOSE  Approximate the solution at XOUT by evaluating the
+C            polynomial computed in DSTEPS at XOUT.  Must be used in
+C            conjunction with DSTEPS.
+C***LIBRARY   SLATEC (DEPAC)
+C***CATEGORY  I1A1B
+C***TYPE      DOUBLE PRECISION (SINTRP-S, DINTP-D)
+C***KEYWORDS  ADAMS METHOD, DEPAC, INITIAL VALUE PROBLEMS, ODE,
+C             ORDINARY DIFFERENTIAL EQUATIONS, PREDICTOR-CORRECTOR,
+C             SMOOTH INTERPOLANT
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   The methods in subroutine  DSTEPS  approximate the solution near  X
+C   by a polynomial.  Subroutine  DINTP  approximates the solution at
+C   XOUT  by evaluating the polynomial there.  Information defining this
+C   polynomial is passed from  DSTEPS  so  DINTP  cannot be used alone.
+C
+C   Subroutine DSTEPS is completely explained and documented in the text
+C   "Computer Solution of Ordinary Differential Equations, the Initial
+C   Value Problem"  by L. F. Shampine and M. K. Gordon.
+C
+C   Input to DINTP --
+C
+C   The user provides storage in the calling program for the arrays in
+C   the call list
+C      DIMENSION Y(NEQN),YOUT(NEQN),YPOUT(NEQN),PHI(NEQN,16),OY(NEQN)
+C                AND ALPHA(12),OG(13),OW(12),GI(11),IV(10)
+C   and defines
+C      XOUT -- point at which solution is desired.
+C   The remaining parameters are defined in  DSTEPS  and passed to
+C   DINTP  from that subroutine
+C
+C   Output from  DINTP --
+C
+C      YOUT(*) -- solution at  XOUT
+C      YPOUT(*) -- derivative of solution at  XOUT
+C   The remaining parameters are returned unaltered from their input
+C   values.  Integration with  DSTEPS  may be continued.
+C
+C***REFERENCES  H. A. Watts, A smoother interpolant for DE/STEP, INTRP
+C                 II, Report SAND84-0293, Sandia Laboratories, 1984.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   840201  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DINTP

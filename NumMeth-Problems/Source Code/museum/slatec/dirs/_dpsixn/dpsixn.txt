@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  DPSIXN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEXINT
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (PSIXN-S, DPSIXN-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     This subroutine returns values of PSI(X)=derivative of log
+C     GAMMA(X), X.GT.0.0 at integer arguments. A table look-up is
+C     performed for N .LE. 100, and the asymptotic expansion is
+C     evaluated for N.GT.100.
+C
+C***SEE ALSO  DEXINT
+C***ROUTINES CALLED  D1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   800501  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DPSIXN

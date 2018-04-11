@@ -1,0 +1,24 @@
+      SUBROUTINE RSCO (RSAV, ISAV)
+C
+C
+C-----------------------------------------------------------------------
+C THIS ROUTINE RESTORES FROM RSAV AND ISAV THE CONTENTS OF COMMON
+C BLOCK DEBDF1  , WHICH IS USED INTERNALLY IN THE DEBDF
+C PACKAGE.  THIS PRESUMES THAT RSAV AND ISAV WERE LOADED BY MEANS
+C OF SUBROUTINE SVCO OR THE EQUIVALENT.
+C-----------------------------------------------------------------------
+      INTEGER ISAV, I,      ILS, LENILS, LENRLS
+      REAL RSAV, RLS
+      DIMENSION RSAV(*), ISAV(*)
+      COMMON /DEBDF1/ RLS(218), ILS(33)
+      SAVE LENRLS, LENILS
+      DATA LENRLS/218/, LENILS/33/
+C
+C***FIRST EXECUTABLE STATEMENT  RSCO
+      DO 10 I = 1,LENRLS
+ 10     RLS(I) = RSAV(I)
+      DO 20 I = 1,LENILS
+ 20     ILS(I) = ISAV(I)
+      RETURN
+C----------------------- END OF SUBROUTINE RSCO -----------------------
+      END

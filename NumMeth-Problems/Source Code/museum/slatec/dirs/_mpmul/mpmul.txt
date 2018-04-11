@@ -1,0 +1,34 @@
+C***BEGIN PROLOGUE  MPMUL
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPMUL-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Multiplies X and Y, returning result in Z, for 'mp' X, Y and Z.
+C  The simple o(t**2) algorithm is used, with four guard digits and
+C  R*-rounding. Advantage is taken of zero digits in X, but not in Y.
+C  Asymptotically faster algorithms are known (see Knuth, VOL. 2),
+C  but are difficult to implement in FORTRAN in an efficient and
+C  machine-independent manner. In comments to other 'mp' routines,
+C  M(t) is the time to perform t-digit 'mp' multiplication. Thus
+C  M(t) = o(t**2) with the present version of MPMUL, but
+C  M(t) = o(t.log(t).log(log(t))) is theoretically possible.
+C
+C  The arguments X(*), Y(*), and Z(*), and the variable R in COMMON are
+C  all INTEGER arrays of size 30.  See the comments in the routine
+C  MPBLAS for the reason for this choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  MPCHK, MPERR, MPMLP, MPNZR
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPMUL

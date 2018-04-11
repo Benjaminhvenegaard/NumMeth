@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dcv
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dfspvn
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+ddot
+---END OF DEPENDENCIES---

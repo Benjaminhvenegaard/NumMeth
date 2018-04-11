@@ -1,0 +1,86 @@
+C***BEGIN PROLOGUE  DSTOD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DDEBDF
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (STOD-S, DSTOD-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   DSTOD integrates a system of first order odes over one step in the
+C   integrator package DDEBDF.
+C ----------------------------------------------------------------------
+C DSTOD  performs one step of the integration of an initial value
+C problem for a system of ordinary differential equations.
+C Note.. DSTOD  is independent of the value of the iteration method
+C indicator MITER, when this is .NE. 0, and hence is independent
+C of the type of chord method used, or the Jacobian structure.
+C Communication with DSTOD  is done with the following variables..
+C
+C Y      = An array of length .GE. N used as the Y argument in
+C          all calls to DF and DJAC.
+C NEQ    = Integer array containing problem size in NEQ(1), and
+C          passed as the NEQ argument in all calls to DF and DJAC.
+C YH     = An NYH by LMAX array containing the dependent variables
+C          and their approximate scaled derivatives, where
+C          LMAX = MAXORD + 1.  YH(I,J+1) contains the approximate
+C          J-th derivative of Y(I), scaled by H**J/FACTORIAL(J)
+C          (J = 0,1,...,NQ).  On entry for the first step, the first
+C          two columns of YH must be set from the initial values.
+C NYH    = A constant integer .GE. N, the first dimension of YH.
+C YH1    = A one-dimensional array occupying the same space as YH.
+C EWT    = An array of N elements with which the estimated local
+C          errors in YH are compared.
+C SAVF   = An array of working storage, of length N.
+C ACOR   = A work array of length N, used for the accumulated
+C          corrections.  On a successful return, ACOR(I) contains
+C          the estimated one-step local error in Y(I).
+C WM,IWM = DOUBLE PRECISION and INTEGER work arrays associated with
+C          matrix operations in chord iteration (MITER .NE. 0).
+C DPJAC   = Name of routine to evaluate and preprocess Jacobian matrix
+C          if a chord method is being used.
+C DSLVS   = Name of routine to solve linear system in chord iteration.
+C H      = The step size to be attempted on the next step.
+C          H is altered by the error control algorithm during the
+C          problem.  H can be either positive or negative, but its
+C          sign must remain constant throughout the problem.
+C HMIN   = The minimum absolute value of the step size H to be used.
+C HMXI   = Inverse of the maximum absolute value of H to be used.
+C          HMXI = 0.0 is allowed and corresponds to an infinite HMAX.
+C          HMIN and HMXI may be changed at any time, but will not
+C          take effect until the next change of H is considered.
+C TN     = The independent variable. TN is updated on each step taken.
+C JSTART = An integer used for input only, with the following
+C          values and meanings..
+C               0  Perform the first step.
+C           .GT.0  Take a new step continuing from the last.
+C              -1  Take the next step with a new value of H, MAXORD,
+C                    N, METH, MITER, and/or matrix parameters.
+C              -2  Take the next step with a new value of H,
+C                    but with other inputs unchanged.
+C          On return, JSTART is set to 1 to facilitate continuation.
+C KFLAG  = a completion code with the following meanings..
+C               0  The step was successful.
+C              -1  The requested error could not be achieved.
+C              -2  Corrector convergence could not be achieved.
+C          A return with KFLAG = -1 or -2 means either
+C          ABS(H) = HMIN or 10 consecutive failures occurred.
+C          On a return with KFLAG negative, the values of TN and
+C          the YH array are as of the beginning of the last
+C          step, and H is the last step size attempted.
+C MAXORD = The maximum order of integration method to be allowed.
+C METH/MITER = The method flags.  See description in driver.
+C N      = The number of first-order differential equations.
+C ----------------------------------------------------------------------
+C
+C***SEE ALSO  DDEBDF
+C***ROUTINES CALLED  DCFOD, DPJAC, DSLVS, DVNRMS
+C***COMMON BLOCKS    DDEBD1
+C***REVISION HISTORY  (YYMMDD)
+C   820301  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920422  Changed DIMENSION statement.  (WRB)
+C***END PROLOGUE  DSTOD

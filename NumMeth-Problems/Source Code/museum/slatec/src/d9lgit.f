@@ -1,0 +1,40 @@
+      DOUBLE PRECISION FUNCTION D9LGIT (A, X, ALGAP1)
+      DOUBLE PRECISION A, X, ALGAP1, AX, A1X, EPS, FK, HSTAR, P, R, S,
+     1  SQEPS, T, D1MACH
+      LOGICAL FIRST
+      SAVE EPS, SQEPS, FIRST
+      DATA FIRST /.TRUE./
+C***FIRST EXECUTABLE STATEMENT  D9LGIT
+      IF (FIRST) THEN
+         EPS = 0.5D0*D1MACH(3)
+         SQEPS = SQRT(D1MACH(4))
+      ENDIF
+      FIRST = .FALSE.
+C
+      IF (X .LE. 0.D0 .OR. A .LT. X) CALL XERMSG ('SLATEC', 'D9LGIT',
+     +   'X SHOULD BE GT 0.0 AND LE A', 2, 2)
+C
+      AX = A + X
+      A1X = AX + 1.0D0
+      R = 0.D0
+      P = 1.D0
+      S = P
+      DO 20 K=1,200
+        FK = K
+        T = (A+FK)*X*(1.D0+R)
+        R = T/((AX+FK)*(A1X+FK)-T)
+        P = R*P
+        S = S + P
+        IF (ABS(P).LT.EPS*S) GO TO 30
+ 20   CONTINUE
+      CALL XERMSG ('SLATEC', 'D9LGIT',
+     +   'NO CONVERGENCE IN 200 TERMS OF CONTINUED FRACTION', 3, 2)
+C
+ 30   HSTAR = 1.0D0 - X*S/A1X
+      IF (HSTAR .LT. SQEPS) CALL XERMSG ('SLATEC', 'D9LGIT',
+     +   'RESULT LESS THAN HALF PRECISION', 1, 1)
+C
+      D9LGIT = -X - ALGAP1 - LOG(HSTAR)
+      RETURN
+C
+      END

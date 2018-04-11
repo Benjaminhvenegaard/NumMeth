@@ -1,0 +1,17 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dqc25c
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dqcheb
+dqk15w
+dqwgtc
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,70 @@
+C***BEGIN PROLOGUE  QZHES
+C***PURPOSE  The first step of the QZ algorithm for solving generalized
+C            matrix eigenproblems.  Accepts a pair of real general
+C            matrices and reduces one of them to upper Hessenberg
+C            and the other to upper triangular form using orthogonal
+C            transformations. Usually followed by QZIT, QZVAL, QZVEC.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C1B3
+C***TYPE      SINGLE PRECISION (QZHES-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is the first step of the QZ algorithm
+C     for solving generalized matrix eigenvalue problems,
+C     SIAM J. NUMER. ANAL. 10, 241-256(1973) by MOLER and STEWART.
+C
+C     This subroutine accepts a pair of REAL GENERAL matrices and
+C     reduces one of them to upper Hessenberg form and the other
+C     to upper triangular form using orthogonal transformations.
+C     It is usually followed by  QZIT,  QZVAL  and, possibly,  QZVEC.
+C
+C     On Input
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A, B, and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrices A and B.  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        A contains a real general matrix.  A is a two-dimensional
+C          REAL array, dimensioned A(NM,N).
+C
+C        B contains a real general matrix.  B is a two-dimensional
+C          REAL array, dimensioned B(NM,N).
+C
+C        MATZ should be set to .TRUE. if the right hand transformations
+C          are to be accumulated for later use in computing
+C          eigenvectors, and to .FALSE. otherwise.  MATZ is a LOGICAL
+C          variable.
+C
+C     On Output
+C
+C        A has been reduced to upper Hessenberg form.  The elements
+C          below the first subdiagonal have been set to zero.
+C
+C        B has been reduced to upper triangular form.  The elements
+C          below the main diagonal have been set to zero.
+C
+C        Z contains the product of the right hand transformations if
+C          MATZ has been set to .TRUE.  Otherwise, Z is not referenced.
+C          Z is a two-dimensional REAL array, dimensioned Z(NM,N).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  QZHES

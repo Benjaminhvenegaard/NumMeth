@@ -1,0 +1,29 @@
+      DOUBLE PRECISION FUNCTION DCSEVL (X, CS, N)
+      DOUBLE PRECISION B0, B1, B2, CS(*), ONEPL, TWOX, X, D1MACH
+      LOGICAL FIRST
+      SAVE FIRST, ONEPL
+      DATA FIRST /.TRUE./
+C***FIRST EXECUTABLE STATEMENT  DCSEVL
+      IF (FIRST) ONEPL = 1.0D0 + D1MACH(4)
+      FIRST = .FALSE.
+      IF (N .LT. 1) CALL XERMSG ('SLATEC', 'DCSEVL',
+     +   'NUMBER OF TERMS .LE. 0', 2, 2)
+      IF (N .GT. 1000) CALL XERMSG ('SLATEC', 'DCSEVL',
+     +   'NUMBER OF TERMS .GT. 1000', 3, 2)
+      IF (ABS(X) .GT. ONEPL) CALL XERMSG ('SLATEC', 'DCSEVL',
+     +   'X OUTSIDE THE INTERVAL (-1,+1)', 1, 1)
+C
+      B1 = 0.0D0
+      B0 = 0.0D0
+      TWOX = 2.0D0*X
+      DO 10 I = 1,N
+         B2 = B1
+         B1 = B0
+         NI = N + 1 - I
+         B0 = TWOX*B1 - B2 + CS(NI)
+   10 CONTINUE
+C
+      DCSEVL = 0.5D0*(B0-B2)
+C
+      RETURN
+      END

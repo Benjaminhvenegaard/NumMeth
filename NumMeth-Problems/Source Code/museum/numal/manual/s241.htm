@@ -1,0 +1,345 @@
+<html><head><title>NUMAL 2.4.1</title></head>
+<body><h1>NUMAL Section 2.4.1</h1>
+<pre>
+BEGIN SECTION : 2.4.1 (December, 1978)
+
+AUTHOR:       C.G. VAN DER LAAN.
+
+CONTRIBUTORS: C.G. VAN DER LAAN, M. VOORINTHOLT.
+
+INSTITUTE:    REKENCENTRUM DER RIJKSUNIVERSITEIT GRONINGEN.
+
+RECEIVED:     780601.
+
+BRIEF DESCRIPTION:
+
+    WE CONSIDER THE REPRESENTATIONS
+                                         N
+            POWER SUM                :  SUM A[K]*X**K,
+                                        K=0
+                                         N
+            CHEBYSHEV SUM            :  SUM A[K]*T[K](X),
+                                        K=0
+                                         N
+            SHIFTED CHEBYSHEV SUM    :  SUM A[K]*T'[K](X),
+                                        K=0
+                                         N           K-1
+            NEWTON SUM               :  SUM (A[K] * PROD (X-X[J])).
+                                        K=0          J=0
+
+    THE SHIFTED CHEBYSHEV POLYNOMIAL T'[N] IS
+    DEFINED BY  T'[N](X) = T[N](2*X-1).
+
+    THIS SECTION CONTAINS THE TRANSFORMATIONS:
+
+    PROCEDURE NAME :  TRANSFORMATION
+    ---------------:------------------------------------------------
+       POLCHS      :  POWER SUM INTO CHEBYSHEV SUM
+       CHSPOL      :  CHEBYSHEV SUM INTO POWER SUM
+       POLSHTCHS   :  POWER SUM INTO SHIFTED CHEBYSHEV SUM
+       SHTCHSPOL   :  SHIFTED CHEBYSHEV SUM INTO POWER SUM
+       GRNNEW      :  POWER SUM INTO NEWTON SUM
+       NEWGRN      :  NEWTON SUM INTO POWER SUM
+       LINTFMPOL   :  POWER SUM IN X INTO POWER SUM IN Y, X=P*Y+Q
+
+KEYWORDS:
+
+    TRANSFORMATION OF POLYNOMIAL REPRESENTATION.
+
+RUNNING TIME:  PROPORTIONAL TO THE SQUARED DEGREE OF THE POLYNOMIAL.
+
+METHOD AND PERFORMANCE:
+
+    ALTHOUGH THE TRANSFORMATION OF REPRESENTATIONS OF POLYNOMIALS
+    COULD HAVE BEEN OBTAINED BY FAST EVALUATION AND FAST INTERPOLATION
+    WE IMPLEMENTED THE ALGORITHM OF HAMMING (1973, 474,475), BECAUSE
+    OF ITS SIMPLE APPEARANCE. AN EXPLANATION OF THE HAMMING ALGORITHM
+    IS GIVEN IN VAN DER LAAN (1977,224-229).
+
+REFERENCES:
+
+    HAMMING, R.W. (1973):
+       NUMERICAL METHODS FOR SCIENTISTS AND ENGINEERS.
+       MCGRAW-HILL.
+    LAAN, C.G. VAN DER (1977):
+       APPROXIMATIE VAN FUNCTIES EN DATA.
+       IN: RIELE, H.J.J. TE (ED.);
+           COLLOQUIUM NUMERIEKE PROGRAMMATUUR, DEEL 2,
+           MC SYLLABUS 29.2, MATHEMATISCH CENTRUM AMSTERDAM.
+
+<a name="POLCHS"></a>
+SUBSECTION: POLCHS.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" POLCHS(N,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" A;
+    "CODE" 31051;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE POWER SUM;
+            EXIT:  THE COEFFICIENTS OF THE CHEBYSHEV SUM;
+
+PROCEDURES USED: NONE.
+
+EXAMPLE OF USE: SEE NEXT SUBSECTION.
+
+<a name="CHSPOL"></a>
+SUBSECTION: CHSPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" CHSPOL(N,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" A;
+    "CODE" 31052;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE CHEBYSHEV SUM;
+            EXIT:  THE COEFFICIENTS OF THE POWER SUM;
+
+PROCEDURES USED: NONE.
+
+EXAMPLE OF USE:
+
+    AS AN EXAMPLE WE TRANSFORMED
+            THE POWER SUM:  1 + 2*X + 3*X**2
+    INTO
+            ITS CHEBYSHEV SUM;
+    AS A CHECK WE TRANSFORMED THE LATTER REPRESENTATION
+    BACK INTO THE ORIGINAL POWER SUM.
+
+    "BEGIN"
+        "ARRAY" A[0:2];
+        A[0]:=1; A[1]:=2; A[2]:=3;
+        OUTPUT(61,"("/,16B,"("A[0]")",4B,"("A[1]")",4B,"("A[2]")"")");
+        OUTPUT(61,"("/,"(" INPUT")",5B,"(":")",3(2B,+ZD.DD)")",A);
+        POLCHS(2,A);
+        OUTPUT(61,"("/,"(" POLCHS")",4B,"(":")",3(2B,+ZD.DD)")",A);
+        CHSPOL(2,A);
+        OUTPUT(61,"("/,"(" CHSPOL")",4B,"(":")",3(2B,+ZD.DD)")",A);
+    "END" PROGRAM
+
+                   A[0]    A[1]    A[2]
+    INPUT     :   +1.00   +2.00   +3.00
+    POLCHS    :   +2.50   +2.00   +1.50
+    CHSPOL    :   +1.00   +2.00   +3.00
+
+<a name="POLSHTCHS"></a>
+SUBSECTION: POLSHTCHS.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" POLSHTCHS(N,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" A;
+    "CODE" 31053;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE POWER SUM;
+            EXIT:  THE COEFFICIENTS OF THE SHIFTED CHEBYSHEV SUM;
+
+PROCEDURES USED: LINTFMPOL = CP31250,
+                POLCHS    = CP31051.
+
+EXAMPLE OF USE: SEE NEXT SUBSECTION.
+
+<a name="SHTCHSPOL"></a>
+SUBSECTION: SHTCHSPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" SHTCHSPOL(N,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" A;
+    "CODE" 31054;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE SHIFTED CHEBYSHEV SUM;
+            EXIT:  THE COEFFICIENTS OF THE POWER SUM.
+
+PROCEDURES USED: LINTFMPOL = CP31250,
+                CHSPOL    = CP31052.
+
+EXAMPLE OF USE:
+
+    AS AN EXAMPLE WE TRANSFORMED
+            THE POWER SUM:  1 + 2*X + 3*X**2
+    INTO
+            ITS SHIFTED CHEBYSHEV SUM;
+    AS A CHECK WE TRANSFORMED THE LATTER REPRESENTATION
+    BACK INTO THE ORIGINAL POWER SUM.
+
+    "BEGIN"
+        "ARRAY" A[0:2];
+        A[0]:=1; A[1]:=2; A[2]:=3;
+        OUTPUT(61,"("/,16B,"("A[0]")",4B,"("A[1]")",4B,"("A[2]")"")");
+        OUTPUT(61,"("/,"(" INPUT")",5B,"(":")",3(2B,+ZD.DD)")",A);
+        POLSHTCHS(2,A);
+        OUTPUT(61,"("/,"(" POLSHTCHS")",B,"(":")",3(2B,+ZD.DD)")",A);
+        SHTCHSPOL(2,A);
+        OUTPUT(61,"("/,"(" SHTCHSPOL")",B,"(":")",3(2B,+ZD.DD)")",A);
+    "END" PROGRAM
+
+                   A[0]    A[1]    A[2]
+    INPUT     :   +1.00   +2.00   +3.00
+    POLSHTCHS :   +3.13   +2.50   +0.38
+    SHTCHSPOL :   +1.00   +2.00   +3.00
+
+<a name="GRNNEW"></a>
+SUBSECTION: GRNNEW.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" GRNNEW(N,X,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" X,A;
+    "CODE" 31055;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    X:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" X[0:N-1];
+            ENTRY: THE INTERPOLATION POINTS;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            ENTRY: THE COEFFICIENTS OF THE POWER SUM;
+            EXIT:  THE COEFFICIENTS OF THE NEWTON SUM;
+
+PROCEDURES USED: NONE.
+
+EXAMPLE OF USE: SEE NEXT SUBSECTION.
+
+<a name="NEWGRN"></a>
+SUBSECTION: NEWGRN.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" NEWGRN(N,X,A);
+    "VALUE" N; "INTEGER" N; "ARRAY" X,A;
+    "CODE" 31050;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    X:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" X[0:N-1];
+            ENTRY: THE INTERPOLATION POINTS;
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE NEWTON SUM;
+            EXIT:  THE COEFFICIENTS OF THE POWER SUM;
+
+PROCEDURES USED : ELMVEC    = CP34020.
+
+EXAMPLE OF USE:
+
+    AS AN EXAMPLE WE TRANSFORMED
+            THE POWER SUM:  1 + 2*X + 3*X**2
+    INTO
+            ITS NEWTON SUM WITH
+            INTERPOLATION POINTS: X[0]:=1.0, X[1]:=2.0;
+    AS A CHECK WE TRANSFORMED THE LATTER REPRESENTATION
+    BACK INTO THE ORIGINAL POWER SUM.
+
+    "BEGIN"
+        "ARRAY" X[0:1], A[0:2];
+        A[0]:=1; A[1]:=2; A[2]:=3;
+        X[0]:=1; X[1]:=2;
+        OUTPUT(61,"("/,16B,"("A[0]")",4B,"("A[1]")",4B,"("A[2]")"")");
+        OUTPUT(61,"("/,"(" INPUT")",5B,"(":")",3(2B,+ZD.DD)")",A);
+        GRNNEW(2,X,A);
+        OUTPUT(61,"("/,"(" GRNNEW")",4B,"(":")",3(2B,+ZD.DD)")",A);
+        NEWGRN(2,X,A);
+        OUTPUT(61,"("/,"(" NEWGRN")",4B,"(":")",3(2B,+ZD.DD)")",A);
+    "END" PROGRAM
+
+                   A[0]    A[1]    A[2]
+    INPUT     :   +1.00   +2.00   +3.00
+    GRNNEW    :   +6.00  +11.00   +3.00
+    NEWGRN    :   +1.00   +2.00   +3.00
+
+<a name="LINTFMPOL"></a>
+SUBSECTION: LINTFMPOL.
+
+CALLING SEQUENCE:
+
+    THE DECLARATION OF THE PROCEDURE IN THE CALLING PROGRAM READS:
+    "PROCEDURE" LINTFMPOL(P,Q,N,A); "VALUE" N,P,Q;
+    "INTEGER" N; "REAL" P,Q; "ARRAY" A;
+    "CODE" 31250;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+    N:      &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: THE DEGREE OF THE POLYNOMIAL;
+    P,Q:    &lt;ARITHMETIC EXPRESSION&gt;;
+            ENTRY: DEFINING THE LINEAR TRANSFORMATION OF
+                   THE INDEPENDENT VARIABLE X=P*Y+Q;
+                   (P=0 GIVES THE VALUE OF THE POLYNOMIAL
+                    WITH ARGUMENT Q.)
+    A:      &lt;ARRAY IDENTIFIER&gt;;
+            "ARRAY" A[0:N];
+            ENTRY: THE COEFFICIENTS OF THE POWER SUM IN X;
+            EXIT:  THE COEFFICIENTS OF THE POWER SUM IN Y;
+
+PROCEDURES USED: NORDERPOL  = CP31242.
+
+EXAMPLE OF USE:
+
+    AS AN EXAMPLE WE TRANSFORMED
+            THE POWER SUM:  1 + 2*X + 3*X**2
+    INTO
+            ITS POWER SUM IN Y WITH
+            X = 2*Y + 3;
+    AS A CHECK WE TRANSFORMED THE LATTER REPRESENTATION
+    BACK INTO THE ORIGINAL POWER SUM.
+
+    "BEGIN"
+        "ARRAY" A[0:2];
+        A[0]:=1; A[1]:=2; A[2]:=3;
+        OUTPUT(61,"("/,16B,"("A[0]")",4B,"("A[1]")",4B,"("A[2]")"")");
+        OUTPUT(61,"("/,"(" INPUT")",5B,"(":")",3(2B,+ZD.DD)")",A);
+        LINTFMPOL(2,3,2,A);
+        OUTPUT(61,"("/,"(" LINTFMPOL")",B,"(":")",3(2B,+ZD.DD)")",A);
+        LINTFMPOL(1/2,-3/2,2,A);
+        OUTPUT(61,"("/,"(" LINTFMPOL")",B,"(":")",3(2B,+ZD.DD)")",A);
+    "END" PROGRAM
+
+                   A[0]    A[1]    A[2]
+    INPUT     :   +1.00   +2.00   +3.00
+    LINTFMPOL :  +34.00  +40.00  +12.00   (POWER SUM IN Y)
+    LINTFMPOL :   +1.00   +2.00   +3.00   (POWER SUM IN X)
+
+SOURCE TEXTS:
+
+<a href="../code/c31051.txt">"CODE" 31051;</a>
+
+<a href="../code/c31052.txt">"CODE" 31052;</a>
+<a href="../code/c31053.txt">"CODE" 31053;</a>
+
+<a href="../code/c31054.txt">"CODE" 31054;</a>
+
+<a href="../code/c31055.txt">"CODE" 31055;</a>
+<a href="../code/c31050.txt">"CODE" 31050;</a>
+
+<a href="../code/c31250.txt">"CODE" 31250;</a>
+
+</pre></body></html>

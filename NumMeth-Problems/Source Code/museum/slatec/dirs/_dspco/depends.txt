@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dspco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dspfa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dscal
+dswap
+idamax
+---END OF DEPENDENCIES---

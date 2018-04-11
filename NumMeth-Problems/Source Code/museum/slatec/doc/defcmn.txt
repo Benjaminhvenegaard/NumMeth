@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  DEFCMN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEFC
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (EFCMN-S, DEFCMN-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to DEFC( ).
+C     This subprogram does weighted least squares fitting of data by
+C     B-spline curves.
+C     The documentation for DEFC( ) has complete usage instructions.
+C
+C***SEE ALSO  DEFC
+C***ROUTINES CALLED  DBNDAC, DBNDSL, DCOPY, DFSPVN, DSCAL, DSORT, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and extensively revised (WRB & RWC)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Convert XERRWV calls to XERMSG calls.  (RWC)
+C   900604  DP version created from SP version.  (RWC)
+C***END PROLOGUE  DEFCMN

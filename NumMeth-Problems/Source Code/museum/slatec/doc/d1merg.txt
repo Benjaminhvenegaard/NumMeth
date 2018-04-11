@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  D1MERG
+C***SUBSIDIARY
+C***PURPOSE  Merge two strings of ascending double precision numbers.
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (S1MERG-S, D1MERG-D, CMERGE-C, I1MERG-I)
+C***AUTHOR  Boland, W. Robert, (LANL)
+C           Clemens, Reginald, (PLK)
+C***DESCRIPTION
+C
+C   This subroutine merges two ascending strings of numbers in the
+C   array TCOS.  The first string is of length M1 and starts at
+C   TCOS(I1+1).  The second string is of length M2 and starts at
+C   TCOS(I2+1).  The merged string goes into TCOS(I3+1).
+C
+C   This routine is currently unused, but was added to complete
+C   the set of routines S1MERG and C1MERG (both of which are used).
+C
+C***ROUTINES CALLED  DCOPY
+C***REVISION HISTORY  (YYMMDD)
+C   910819  DATE WRITTEN
+C***END PROLOGUE  D1MERG

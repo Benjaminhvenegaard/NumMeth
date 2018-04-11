@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  PYTHAG
+C***SUBSIDIARY
+C***PURPOSE  Compute the complex square root of a complex number without
+C            destructive overflow or underflow.
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (PYTHAG-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Finds sqrt(A**2+B**2) without overflow or destructive underflow
+C
+C***SEE ALSO  EISDOC
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   811101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  PYTHAG

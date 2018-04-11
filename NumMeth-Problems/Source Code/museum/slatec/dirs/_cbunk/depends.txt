@@ -1,0 +1,29 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cbunk
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cacai
+cairy
+casyi
+cbknu
+ckscl
+cmlri
+cs1s2
+cseri
+cshch
+cuchk
+cunhj
+cunik
+cunk1
+cunk2
+gamln
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

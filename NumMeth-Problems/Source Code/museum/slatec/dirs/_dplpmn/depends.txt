@@ -1,0 +1,44 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dplpmn
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dpchng
+dpincw
+dpinit
+dpintm
+dplpce
+dplpdm
+dplpfe
+dplpfl
+dplpmu
+dplpup
+dpnnzr
+dpopt
+dprwpg
+dprwvr
+dreadp
+dvout
+dwritp
+idloc
+ivout
+la05ad
+la05bd
+la05cd
+la05ed
+mc20ad
+sclosm
+sopenm
+xsetun
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcopy
+ddot
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

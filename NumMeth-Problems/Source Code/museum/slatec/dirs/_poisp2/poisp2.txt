@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  POISP2
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to GENBUN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (POISP2-S, CMPOSP-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson equation with periodic boundary
+C     conditions.
+C
+C***SEE ALSO  GENBUN
+C***ROUTINES CALLED  POISD2, POISN2
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  POISP2

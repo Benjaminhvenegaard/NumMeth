@@ -1,0 +1,189 @@
+      SUBROUTINE LSSODS (A, X, B, M, N, NRDA, IFLAG, IRANK, ISCALE, Q,
+     +   DIAG, KPIVOT, ITER, RESNRM, XNORM, Z, R, DIV, TD, SCALES)
+      DIMENSION A(NRDA,*),X(*),B(*),Q(NRDA,*),DIAG(*),
+     1          Z(*),KPIVOT(*),R(*),DIV(*),TD(*),SCALES(*)
+C
+C **********************************************************************
+C
+C     MACHINE PRECISION (COMPUTER UNIT ROUNDOFF VALUE) IS DEFINED
+C     THE FUNCTION R1MACH.
+C
+C***FIRST EXECUTABLE STATEMENT  LSSODS
+      URO = R1MACH(3)
+C
+C **********************************************************************
+C
+      IF (N .LT. 1  .OR.  M .LT. N  .OR.  NRDA .LT. M) GO TO 1
+      IF (ITER .LT. 0) GO TO 1
+      IF (IFLAG .LE. 0) GO TO 5
+      IF (IFLAG .EQ. 1) GO TO 15
+C
+C     INVALID INPUT FOR LSSODS
+    1 IFLAG=2
+      CALL XERMSG ('SLATEC', 'LSSODS', 'INVALID INPUT PARAMETERS.', 2,
+     +   1)
+      RETURN
+C
+    5 CALL XGETF (NFATAL)
+      MAXMES = J4SAVE (4,0,.FALSE.)
+      IF (IFLAG .EQ. 0) GO TO 7
+      NFAT = -1
+      IF(NFATAL .EQ. 0) NFAT=0
+      CALL XSETF (NFAT)
+      CALL XERMAX (1)
+C
+C     COPY MATRIX A INTO MATRIX Q
+C
+    7 DO 10 J=1,N
+         DO 10 K=1,M
+   10       Q(K,J)=A(K,J)
+C
+C     USE ORTHOGONAL TRANSFORMATIONS TO REDUCE Q TO
+C     UPPER TRIANGULAR FORM
+C
+      CALL ORTHOL(Q,M,N,NRDA,IFLAG,IRANK,ISCALE,DIAG,KPIVOT,SCALES,Z,TD)
+C
+      CALL XSETF (NFATAL)
+      CALL XERMAX (MAXMES)
+      IF (IRANK .EQ. N) GO TO 12
+C
+C     FOR RANK DEFICIENT PROBLEMS USE ADDITIONAL ORTHOGONAL
+C     TRANSFORMATIONS TO FURTHER REDUCE Q
+C
+      IF (IRANK .NE. 0) CALL OHTROR(Q,N,NRDA,DIAG,IRANK,DIV,TD)
+      RETURN
+C
+C     STORE DIVISORS FOR THE TRIANGULAR SOLUTION
+C
+   12 DO 13 K=1,N
+   13    DIV(K)=DIAG(K)
+C
+   15 IRM=IRANK-1
+      IRP=IRANK+1
+      ITERP=MIN(ITER+1,11)
+      ACC=10.*URO
+C
+C     ZERO OUT SOLUTION ARRAY
+C
+      DO 20 K=1,N
+   20    X(K)=0.
+C
+      IF (IRANK .GT. 0) GO TO 25
+C
+C     SPECIAL CASE FOR THE NULL MATRIX
+      ITER=0
+      XNORM=0.
+      RESNRM=SQRT(SDOT(M,B(1),1,B(1),1))
+      RETURN
+C
+C     COPY CONSTANT VECTOR INTO R
+C
+   25 DO 30 K=1,M
+   30    R(K)=B(K)
+C
+C **********************************************************************
+C     SOLUTION SECTION
+C     ITERATIVE REFINEMENT OF THE RESIDUAL VECTOR
+C **********************************************************************
+C
+      DO 100 IT=1,ITERP
+         ITER=IT-1
+C
+C        APPLY ORTHOGONAL TRANSFORMATION TO R
+C
+         DO 35 J=1,IRANK
+            MJ=M-J+1
+            GAMMA=SDOT(MJ,Q(J,J),1,R(J),1)/(DIAG(J)*Q(J,J))
+            DO 35 K=J,M
+   35          R(K)=R(K)+GAMMA*Q(K,J)
+C
+C        BACKWARD SUBSTITUTION FOR TRIANGULAR SYSTEM SOLUTION
+C
+         Z(IRANK)=R(IRANK)/DIV(IRANK)
+         IF (IRM .EQ. 0) GO TO 45
+         DO 40 L=1,IRM
+            K=IRANK-L
+            KP=K+1
+   40       Z(K)=(R(K)-SDOT(L,Q(K,KP),NRDA,Z(KP),1))/DIV(K)
+C
+   45    IF (IRANK .EQ. N) GO TO 60
+C
+C        FOR RANK DEFICIENT PROBLEMS OBTAIN THE
+C        MINIMAL LENGTH SOLUTION
+C
+         NMIR=N-IRANK
+         DO 50 K=IRP,N
+   50       Z(K)=0.
+         DO 55 K=1,IRANK
+            GAM=((TD(K)*Z(K))+SDOT(NMIR,Q(K,IRP),NRDA,Z(IRP),1))/
+     1                (TD(K)*DIV(K))
+            Z(K)=Z(K)+GAM*TD(K)
+            DO 55 J=IRP,N
+   55          Z(J)=Z(J)+GAM*Q(K,J)
+C
+C        REORDER SOLUTION COMPONENTS ACCORDING TO PIVOTAL POINTS
+C        AND RESCALE ANSWERS AS DICTATED
+C
+   60    DO 65 K=1,N
+            Z(K)=Z(K)*SCALES(K)
+            L=KPIVOT(K)
+   65       X(L)=X(L)+Z(K)
+C
+C        COMPUTE CORRECTION VECTOR NORM (SOLUTION NORM)
+C
+         ZNORM=SQRT(SDOT(N,Z(1),1,Z(1),1))
+         IF (IT .EQ. 1) XNORM=ZNORM
+         IF (ITERP .GT. 1) GO TO 80
+C
+C        NO ITERATIVE CORRECTIONS TO BE PERFORMED, SO COMPUTE
+C        THE APPROXIMATE RESIDUAL NORM DEFINED BY THE EQUATIONS
+C        WHICH ARE NOT SATISFIED BY THE SOLUTION
+C        THEN WE ARE DONE
+C
+         MMIR=M-IRANK
+         IF (MMIR .EQ. 0) GO TO 70
+         RESNRM=SQRT(SDOT(MMIR,R(IRP),1,R(IRP),1))
+         RETURN
+   70    RESNRM=0.
+         RETURN
+C
+C        COMPUTE RESIDUAL VECTOR FOR THE ITERATIVE IMPROVEMENT PROCESS
+C
+   80    DO 85 K=1,M
+   85       R(K)=-SDSDOT(N,-B(K),A(K,1),NRDA,X(1),1)
+         RESNRM=SQRT(SDOT(M,R(1),1,R(1),1))
+         IF (IT .EQ. 1) GO TO 100
+C
+C        TEST FOR CONVERGENCE
+C
+         IF (ZNORM .LE. ACC*XNORM) RETURN
+C
+C        COMPARE SUCCESSIVE REFINEMENT VECTOR NORMS
+C        FOR LOOP TERMINATION CRITERIA
+C
+         IF (ZNORM .LE. 0.25*ZNRM0) GO TO 100
+         IF (IT .EQ. 2) GO TO 90
+C
+         IFLAG=4
+         CALL XERMSG ('SLATEC', 'LSSODS',
+     +   'PROBLEM MAY BE ILL-CONDITIONED.  MAXIMAL MACHINE ACCURACY ' //
+     +   'IS NOT ACHIEVABLE.', 3, 1)
+         RETURN
+C
+   90    IFLAG=5
+         CALL XERMSG ('SLATEC', 'LSSODS',
+     +      'PROBLEM IS VERY ILL-CONDITIONED.  ITERATIVE ' //
+     +      'IMPROVEMENT IS INEFFECTIVE.', 8, 1)
+         RETURN
+C
+  100    ZNRM0=ZNORM
+C **********************************************************************
+C
+C **********************************************************************
+      IFLAG=6
+         CALL XERMSG ('SLATEC', 'LSSODS',
+     +      'CONVERGENCE HAS NOT BEEN OBTAINED WITH ALLOWABLE ' //
+     +      'NUMBER OF ITERATIVE IMPROVEMENT STEPS.', 8, 1)
+C
+      RETURN
+      END

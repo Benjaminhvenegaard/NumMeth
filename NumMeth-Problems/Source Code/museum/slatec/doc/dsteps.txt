@@ -1,0 +1,169 @@
+C***BEGIN PROLOGUE  DSTEPS
+C***PURPOSE  Integrate a system of first order ordinary differential
+C            equations one step.
+C***LIBRARY   SLATEC (DEPAC)
+C***CATEGORY  I1A1B
+C***TYPE      DOUBLE PRECISION (STEPS-S, DSTEPS-D)
+C***KEYWORDS  ADAMS METHOD, DEPAC, INITIAL VALUE PROBLEMS, ODE,
+C             ORDINARY DIFFERENTIAL EQUATIONS, PREDICTOR-CORRECTOR
+C***AUTHOR  Shampine, L. F., (SNLA)
+C           Gordon, M. K., (SNLA)
+C             MODIFIED BY H.A. WATTS
+C***DESCRIPTION
+C
+C   Written by L. F. Shampine and M. K. Gordon
+C
+C   Abstract
+C
+C   Subroutine  DSTEPS  is normally used indirectly through subroutine
+C   DDEABM .  Because  DDEABM  suffices for most problems and is much
+C   easier to use, using it should be considered before using  DSTEPS
+C   alone.
+C
+C   Subroutine DSTEPS integrates a system of  NEQN  first order ordinary
+C   differential equations one step, normally from X to X+H, using a
+C   modified divided difference form of the Adams Pece formulas.  Local
+C   extrapolation is used to improve absolute stability and accuracy.
+C   The code adjusts its order and step size to control the local error
+C   per unit step in a generalized sense.  Special devices are included
+C   to control roundoff error and to detect when the user is requesting
+C   too much accuracy.
+C
+C   This code is completely explained and documented in the text,
+C   Computer Solution of Ordinary Differential Equations, The Initial
+C   Value Problem  by L. F. Shampine and M. K. Gordon.
+C   Further details on use of this code are available in "Solving
+C   Ordinary Differential Equations with ODE, STEP, and INTRP",
+C   by L. F. Shampine and M. K. Gordon, SLA-73-1060.
+C
+C
+C   The parameters represent --
+C      DF -- subroutine to evaluate derivatives
+C      NEQN -- number of equations to be integrated
+C      Y(*) -- solution vector at X
+C      X -- independent variable
+C      H -- appropriate step size for next step.  Normally determined by
+C           code
+C      EPS -- local error tolerance
+C      WT(*) -- vector of weights for error criterion
+C      START -- logical variable set .TRUE. for first step,  .FALSE.
+C           otherwise
+C      HOLD -- step size used for last successful step
+C      K -- appropriate order for next step (determined by code)
+C      KOLD -- order used for last successful step
+C      CRASH -- logical variable set .TRUE. when no step can be taken,
+C           .FALSE. otherwise.
+C      YP(*) -- derivative of solution vector at  X  after successful
+C           step
+C      KSTEPS -- counter on attempted steps
+C      TWOU -- 2.*U where U is machine unit roundoff quantity
+C      FOURU -- 4.*U where U is machine unit roundoff quantity
+C      RPAR,IPAR -- parameter arrays which you may choose to use
+C            for communication between your program and subroutine F.
+C            They are not altered or used by DSTEPS.
+C   The variables X,XOLD,KOLD,KGI and IVC and the arrays Y,PHI,ALPHA,G,
+C   W,P,IV and GI are required for the interpolation subroutine SINTRP.
+C   The remaining variables and arrays are included in the call list
+C   only to eliminate local retention of variables between calls.
+C
+C   Input to DSTEPS
+C
+C      First call --
+C
+C   The user must provide storage in his calling program for all arrays
+C   in the call list, namely
+C
+C     DIMENSION Y(NEQN),WT(NEQN),PHI(NEQN,16),P(NEQN),YP(NEQN),PSI(12),
+C    1  ALPHA(12),BETA(12),SIG(13),V(12),W(12),G(13),GI(11),IV(10),
+C    2  RPAR(*),IPAR(*)
+C
+C    **Note**
+C
+C   The user must also declare  START ,  CRASH ,  PHASE1  and  NORND
+C   logical variables and  DF  an EXTERNAL subroutine, supply the
+C   subroutine  DF(X,Y,YP)  to evaluate
+C      DY(I)/DX = YP(I) = DF(X,Y(1),Y(2),...,Y(NEQN))
+C   and initialize only the following parameters.
+C      NEQN -- number of equations to be integrated
+C      Y(*) -- vector of initial values of dependent variables
+C      X -- initial value of the independent variable
+C      H -- nominal step size indicating direction of integration
+C           and maximum size of step.  Must be variable
+C      EPS -- local error tolerance per step.  Must be variable
+C      WT(*) -- vector of non-zero weights for error criterion
+C      START -- .TRUE.
+C      YP(*) -- vector of initial derivative values
+C      KSTEPS -- set KSTEPS to zero
+C      TWOU -- 2.*U where U is machine unit roundoff quantity
+C      FOURU -- 4.*U where U is machine unit roundoff quantity
+C   Define U to be the machine unit roundoff quantity by calling
+C   the function routine  D1MACH,  U = D1MACH(4), or by
+C   computing U so that U is the smallest positive number such
+C   that 1.0+U .GT. 1.0.
+C
+C   DSTEPS  requires that the L2 norm of the vector with components
+C   LOCAL ERROR(L)/WT(L)  be less than  EPS  for a successful step.  The
+C   array  WT  allows the user to specify an error test appropriate
+C   for his problem.  For example,
+C      WT(L) = 1.0  specifies absolute error,
+C            = ABS(Y(L))  error relative to the most recent value of the
+C                 L-th component of the solution,
+C            = ABS(YP(L))  error relative to the most recent value of
+C                 the L-th component of the derivative,
+C            = MAX(WT(L),ABS(Y(L)))  error relative to the largest
+C                 magnitude of L-th component obtained so far,
+C            = ABS(Y(L))*RELERR/EPS + ABSERR/EPS  specifies a mixed
+C                 relative-absolute test where  RELERR  is relative
+C                 error,  ABSERR  is absolute error and  EPS =
+C                 MAX(RELERR,ABSERR) .
+C
+C      Subsequent calls --
+C
+C   Subroutine  DSTEPS  is designed so that all information needed to
+C   continue the integration, including the step size  H  and the order
+C   K , is returned with each step.  With the exception of the step
+C   size, the error tolerance, and the weights, none of the parameters
+C   should be altered.  The array  WT  must be updated after each step
+C   to maintain relative error tests like those above.  Normally the
+C   integration is continued just beyond the desired endpoint and the
+C   solution interpolated there with subroutine  SINTRP .  If it is
+C   impossible to integrate beyond the endpoint, the step size may be
+C   reduced to hit the endpoint since the code will not take a step
+C   larger than the  H  input.  Changing the direction of integration,
+C   i.e., the sign of  H , requires the user set  START = .TRUE. before
+C   calling  DSTEPS  again.  This is the only situation in which  START
+C   should be altered.
+C
+C   Output from DSTEPS
+C
+C      Successful Step --
+C
+C   The subroutine returns after each successful step with  START  and
+C   CRASH  set .FALSE. .  X  represents the independent variable
+C   advanced one step of length  HOLD  from its value on input and  Y
+C   the solution vector at the new value of  X .  All other parameters
+C   represent information corresponding to the new  X  needed to
+C   continue the integration.
+C
+C      Unsuccessful Step --
+C
+C   When the error tolerance is too small for the machine precision,
+C   the subroutine returns without taking a step and  CRASH = .TRUE. .
+C   An appropriate step size and error tolerance for continuing are
+C   estimated and all other information is restored as upon input
+C   before returning.  To continue with the larger tolerance, the user
+C   just calls the code again.  A restart is neither required nor
+C   desirable.
+C
+C***REFERENCES  L. F. Shampine and M. K. Gordon, Solving ordinary
+C                 differential equations with ODE, STEP, and INTRP,
+C                 Report SLA-73-1060, Sandia Laboratories, 1973.
+C***ROUTINES CALLED  D1MACH, DHSTRT
+C***REVISION HISTORY  (YYMMDD)
+C   740101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DSTEPS

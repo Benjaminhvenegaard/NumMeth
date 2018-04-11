@@ -1,0 +1,33 @@
+C***BEGIN PROLOGUE  CDCST
+C***SUBSIDIARY
+C***PURPOSE  CDCST sets coefficients used by the core integrator CDSTP.
+C***LIBRARY   SLATEC (SDRIVE)
+C***TYPE      COMPLEX (SDCST-S, DDCST-D, CDCST-C)
+C***AUTHOR  Kahaner, D. K., (NIST)
+C             National Institute of Standards and Technology
+C             Gaithersburg, MD  20899
+C           Sutherland, C. D., (LANL)
+C             Mail Stop D466
+C             Los Alamos National Laboratory
+C             Los Alamos, NM  87545
+C***DESCRIPTION
+C
+C  CDCST is called by CDNTL.  The array EL determines the basic method.
+C  The array TQ is involved in adjusting the step size in relation
+C  to truncation error.  EL and TQ depend upon MINT, and are calculated
+C  for orders 1 to MAXORD(.LE. 12).  For each order NQ, the coefficients
+C  EL are calculated from the generating polynomial:
+C    L(T) = EL(1,NQ) + EL(2,NQ)*T + ... + EL(NQ+1,NQ)*T**NQ.
+C  For the implicit Adams methods, L(T) is given by
+C    dL/dT = (1+T)*(2+T)* ... *(NQ-1+T)/K,   L(-1) = 0,
+C    where      K = factorial(NQ-1).
+C  For the Gear methods,
+C    L(T) = (1+T)*(2+T)* ... *(NQ+T)/K,
+C    where      K = factorial(NQ)*(1 + 1/2 + ... + 1/NQ).
+C  For each order NQ, there are three components of TQ.
+C
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   900329  Initial submission to SLATEC.
+C***END PROLOGUE  CDCST

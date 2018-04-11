@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  BESK1E
+C***PURPOSE  Compute the exponentially scaled modified (hyperbolic)
+C            Bessel function of the third kind of order one.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B1
+C***TYPE      SINGLE PRECISION (BESK1E-S, DBSK1E-D)
+C***KEYWORDS  EXPONENTIALLY SCALED, FNLIB, HYPERBOLIC BESSEL FUNCTION,
+C             MODIFIED BESSEL FUNCTION, ORDER ONE, SPECIAL FUNCTIONS,
+C             THIRD KIND
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C BESK1E(X) computes the exponentially scaled modified (hyperbolic)
+C Bessel function of third kind of order one for real argument
+C X .GT. 0.0, i.e., EXP(X)*K1(X).
+C
+C Series for BK1        on the interval  0.          to  4.00000D+00
+C                                        with weighted error   7.02E-18
+C                                         log weighted error  17.15
+C                               significant figures required  16.73
+C                                    decimal places required  17.67
+C
+C Series for AK1        on the interval  1.25000D-01 to  5.00000D-01
+C                                        with weighted error   6.06E-17
+C                                         log weighted error  16.22
+C                               significant figures required  15.41
+C                                    decimal places required  16.83
+C
+C Series for AK12       on the interval  0.          to  1.25000D-01
+C                                        with weighted error   2.58E-17
+C                                         log weighted error  16.59
+C                               significant figures required  15.22
+C                                    decimal places required  17.16
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  BESI1, CSEVL, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C***END PROLOGUE  BESK1E

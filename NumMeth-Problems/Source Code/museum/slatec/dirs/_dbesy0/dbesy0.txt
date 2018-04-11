@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  DBESY0
+C***PURPOSE  Compute the Bessel function of the second kind of order
+C            zero.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10A1
+C***TYPE      DOUBLE PRECISION (BESY0-S, DBESY0-D)
+C***KEYWORDS  BESSEL FUNCTION, FNLIB, ORDER ZERO, SECOND KIND,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBESY0(X) calculates the double precision Bessel function of the
+C second kind of order zero for double precision argument X.
+C
+C Series for BY0        on the interval  0.          to  1.60000E+01
+C                                        with weighted error   8.14E-32
+C                                         log weighted error  31.09
+C                               significant figures required  30.31
+C                                    decimal places required  31.73
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9B0MP, DBESJ0, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DBESY0

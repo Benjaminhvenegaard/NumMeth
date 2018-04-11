@@ -1,0 +1,74 @@
+C***BEGIN PROLOGUE  XERPRN
+C***SUBSIDIARY
+C***PURPOSE  Print error messages processed by XERMSG.
+C***LIBRARY   SLATEC (XERROR)
+C***CATEGORY  R3C
+C***TYPE      ALL (XERPRN-A)
+C***KEYWORDS  ERROR MESSAGES, PRINTING, XERROR
+C***AUTHOR  Fong, Kirby, (NMFECC at LLNL)
+C***DESCRIPTION
+C
+C This routine sends one or more lines to each of the (up to five)
+C logical units to which error messages are to be sent.  This routine
+C is called several times by XERMSG, sometimes with a single line to
+C print and sometimes with a (potentially very long) message that may
+C wrap around into multiple lines.
+C
+C PREFIX  Input argument of type CHARACTER.  This argument contains
+C         characters to be put at the beginning of each line before
+C         the body of the message.  No more than 16 characters of
+C         PREFIX will be used.
+C
+C NPREF   Input argument of type INTEGER.  This argument is the number
+C         of characters to use from PREFIX.  If it is negative, the
+C         intrinsic function LEN is used to determine its length.  If
+C         it is zero, PREFIX is not used.  If it exceeds 16 or if
+C         LEN(PREFIX) exceeds 16, only the first 16 characters will be
+C         used.  If NPREF is positive and the length of PREFIX is less
+C         than NPREF, a copy of PREFIX extended with blanks to length
+C         NPREF will be used.
+C
+C MESSG   Input argument of type CHARACTER.  This is the text of a
+C         message to be printed.  If it is a long message, it will be
+C         broken into pieces for printing on multiple lines.  Each line
+C         will start with the appropriate prefix and be followed by a
+C         piece of the message.  NWRAP is the number of characters per
+C         piece; that is, after each NWRAP characters, we break and
+C         start a new line.  In addition the characters '$$' embedded
+C         in MESSG are a sentinel for a new line.  The counting of
+C         characters up to NWRAP starts over for each new line.  The
+C         value of NWRAP typically used by XERMSG is 72 since many
+C         older error messages in the SLATEC Library are laid out to
+C         rely on wrap-around every 72 characters.
+C
+C NWRAP   Input argument of type INTEGER.  This gives the maximum size
+C         piece into which to break MESSG for printing on multiple
+C         lines.  An embedded '$$' ends a line, and the count restarts
+C         at the following character.  If a line break does not occur
+C         on a blank (it would split a word) that word is moved to the
+C         next line.  Values of NWRAP less than 16 will be treated as
+C         16.  Values of NWRAP greater than 132 will be treated as 132.
+C         The actual line length will be NPREF + NWRAP after NPREF has
+C         been adjusted to fall between 0 and 16 and NWRAP has been
+C         adjusted to fall between 16 and 132.
+C
+C***REFERENCES  R. E. Jones and D. K. Kahaner, XERROR, the SLATEC
+C                 Error-handling Package, SAND82-0800, Sandia
+C                 Laboratories, 1982.
+C***ROUTINES CALLED  I1MACH, XGETUA
+C***REVISION HISTORY  (YYMMDD)
+C   880621  DATE WRITTEN
+C   880708  REVISED AFTER THE SLATEC CML SUBCOMMITTEE MEETING OF
+C           JUNE 29 AND 30 TO CHANGE THE NAME TO XERPRN AND TO REWORK
+C           THE HANDLING OF THE NEW LINE SENTINEL TO BEHAVE LIKE THE
+C           SLASH CHARACTER IN FORMAT STATEMENTS.
+C   890706  REVISED WITH THE HELP OF FRED FRITSCH AND REG CLEMENS TO
+C           STREAMLINE THE CODING AND FIX A BUG THAT CAUSED EXTRA BLANK
+C           LINES TO BE PRINTED.
+C   890721  REVISED TO ADD A NEW FEATURE.  A NEGATIVE VALUE OF NPREF
+C           CAUSES LEN(PREFIX) TO BE USED AS THE LENGTH.
+C   891013  REVISED TO CORRECT ERROR IN CALCULATING PREFIX LENGTH.
+C   891214  Prologue converted to Version 4.0 format.  (WRB)
+C   900510  Added code to break messages between words.  (RWC)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  XERPRN

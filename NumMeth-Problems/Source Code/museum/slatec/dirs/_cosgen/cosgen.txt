@@ -1,0 +1,35 @@
+C***BEGIN PROLOGUE  COSGEN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to GENBUN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (COSGEN-S, CMPCSG-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     This subroutine computes required cosine values in ascending
+C     order.  When IJUMP .GT. 1 the routine computes values
+C
+C        2*COS(J*PI/L) , J=1,2,...,L and J .NE. 0(MOD N/IJUMP+1)
+C
+C     where L = IJUMP*(N/IJUMP+1).
+C
+C
+C     when IJUMP = 1 it computes
+C
+C            2*COS((J-FNUM)*PI/(N+FDEN)) ,  J=1, 2, ... ,N
+C
+C     where
+C        FNUM = 0.5, FDEN = 0.0, for regular reduction values.
+C        FNUM = 0.0, FDEN = 1.0, for B-R and C-R when ISTAG = 1
+C        FNUM = 0.0, FDEN = 0.5, for B-R and C-R when ISTAG = 2
+C        FNUM = 0.5, FDEN = 0.5, for B-R and C-R when ISTAG = 2
+C                                in POISN2 only.
+C
+C***SEE ALSO  GENBUN
+C***ROUTINES CALLED  PIMACH
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  COSGEN

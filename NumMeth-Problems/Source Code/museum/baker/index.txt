@@ -1,0 +1,348 @@
+
+            INDEX TO ROUTINES FROM BAKER'S C TOOLS AND MORE C TOOLS
+                                       
+   Copyright (C) 1989, 1991 by Louis Baker. These routines are reproduced
+   on this CDROM with the kind permission of Louis Baker and Dagonet
+   Software.
+   
+   The books C Tools for Scientists and Engineers (ISBN 0-07-003355-2)
+   and More C Tools for Scientists and Engineers (ISBN 0-07-003358-7) are
+   published by McGraw-Hill Publishing Company in the "Computing That
+   Works" series. At the time of publication of this CDROM, both books
+   are (alas!) out of print. Check your library, or a bookstore with an
+   older inventory.
+   
+   
+     _________________________________________________________________
+   
+    C Tools
+    
+   General Utilities
+   Matrix and Vector Utilities
+   Chapter 3: LU Decomposition
+   Chapter 4: Eigenvalue and Discriminant Analysis
+   Chapter 5: Singular Value Decomposition and Least Squares Analysis
+   Chapter 6: Newton-Raphson and Related Methods
+   Chapter 7: Complex Arithmetic, Muller and Jenkins-Traub Methods
+   Chapter 8: B-Spline Interpolation
+   Chapter 9: Adaptive Quadrature
+   Chapter 10: Fourier Transforms
+   Chapter 11: Systems of Differential Equations
+   Chapter 12: Stiff Systems of Differential Equations
+   
+    More C Tools
+    
+   Utility Routines
+   Chapter 1: Sparse Systems and Conjugate Gradient Method
+   Chapter 2: Block Matrix Problems
+   Chapter 3: Multigrid Methods for PDEs
+   Chapter 4: Gaussian Quadrature and Related Methods
+   Chapter 5: Complex Error Function and Relatives
+   Chapter 6: Statistical Functions
+   Chapter 8: Analysis of Variance
+   Chapter 9: Random Numbers and Variables
+   Chapter 10: Bresenham's Line-Drawing Algorithm
+   Chapter 11: Contour Plotting
+   Chapter 12: Sorting, Priority Queues, and Heapsort
+   Chapter 13: Typewriter Emulator
+   Chapter 14: LU Decomposition Revisited
+   Chapter 15: Roman Numerals
+   
+   
+   
+     _________________________________________________________________
+   
+C Tools for Scientists and Engineers
+
+   
+   
+  General Utilities
+     * FTOC.H (facilitate conversion of Fortran to C)
+     * COMPLEX.H (complex header file)
+     * ARGMNT, CLOG, CSQRT, CEXP, POLARXY in MULLER.C (complex utility
+       functions)
+     * CMOD, CDIV in JT.C (complex utility functions)
+     * POLYEV in JT.C (evaluate polynomial)
+       
+   
+   
+  Matrix and Vector Utilities
+     * ISAMAX, in LUS.C (find maximal element of a vector)
+     * SAXPY in LUS.C (elementary row operations involving vectors)
+     * SDOT in LUS.C (dot product of two vectors)
+     * SSWAP in LUS.C (swap vectors)
+     * SSCAL in LUS.C (scale a vector)
+     * SASUM in LUS.C (sum absolute values of a vector)
+     * PRINTM in LUS.C (prints a matrix by rows)
+     * VDIF in MATRIX.C (difference of two vectors)
+     * SWAPROW in MATRIX.C (swap matrix rows)
+     * SWAPCOL in MATRIX.C (swap matrix columns)
+     * MVC in MATRIX.C (multiply vector by matrix with special
+       dimensioning)
+     * MVTC in MATRIX.C (multiply vector by matrix transpose with special
+       dimensioning)
+     * DOT in VECTOR.C (dot product of two vectors)
+     * PV in VECTOR.C (prints a vector)
+     * MV in VECTOR.C (matrix times vector multiply)
+     * NORMV in VECTOR.C (normalize a vector)
+     * SQNOR in VECTOR.C (square of vector's length)
+     * MVT in VECTOR.C (matrix transpose times vector)
+     * RESID in VECTOR.C (residual of matrix equation)
+     * VS in VECTOR.C (multiply vector by scalar)
+     * VSET in VECTOR.C (set vector to scalar values)
+     * VCOPY in VECTOR.C (copy a vector)
+     * VV in VECTOR.C (add two vectors, one scaled)
+     * PVD in LSTSQ.C (type double version of PV)
+     * VDIFD in LSTSQ.C (type double version of VDIF)
+     * MVD in LSTSQ.C (type double version of MV)
+     * MVTD in LSTSQ.C (type double version of MVT)
+       
+   
+   
+  Chapter 3: LU Decomposition
+     * LUD.C (test LU system routines)
+     * LUF.C (perform LU factorization of a square matrix)
+     * BACKSUB in LUBACK.C (use LU factorization to solve A x = b)
+     * BACKT in LUBACK.C (use LU factorization to solve A(transpose) x =
+       b)
+     * INVM in LUINV.C (use LU factorization to invert a matrix)
+     * DET.C (return as a double the determinant)
+     * DETI in DET.C (use for very large/small determinant)
+       
+   
+   
+  Chapter 4: Eigenvalue and Discriminant Analysis
+     * EIGENVV in QRN.C (computes eigenvalues and eigenvectors of a
+       matrix)
+     * HQR2 in QRN.C (applies QR method to Hessenberg matrix)
+     * ELMHES in QRN.C (converts general matrix to Hessenberg form)
+     * ELTRAN in QRN.C (creates transform. matrix from elmhes output)
+     * BALANCE in QRN.C (balances a matrix)
+     * BALBAK in QRN.C (inverse transform of balance, used on
+       eigenvectors)
+     * PNORMWR in QRN.C (normalize and print eigenvectors)
+     * ESMALL.C (Rayleigh quotient iteration to determine smallest
+       eigenvalues)
+     * ELARGE.C (determines largest eigenvalues and eigenvectors)
+       
+   
+   
+  Chapter 5: Singular Value Decomposition and Least Squares Analysis
+     * SVD.C (calculate singular value decomposition)
+     * DIAG in SVD.C (second part of singular value decomposition)
+     * LSTSQ.C (least-squares fit using SVD)
+     * SETROW in LSTSQ.C (used for test problem setup)
+       
+   
+   
+  Chapter 6: Newton-Raphson and Related Methods
+     * SAHA in NR.C (performs Newton-Raphson iteration)
+     * SAHAC in NR.C (returns right-hand side of Saha equation)
+     * EQN in NR.C (return residual of each equation to be solved)
+     * DR in NR.C (forms Jacobian matrix by numerical differentiation)
+       
+   
+   
+  Chapter 7: Complex Arithmetic, Muller and Jenkins-Traub Methods
+     * MULLER.C (find roots of complex function by Muller's method)
+     * SETFR in MULLER.C (provides deflated function to MULLER)
+     * JT and dependent routines in JT.C (Jenkins-Traub method for
+       polynomial roots)
+       
+   
+   
+  Chapter 8: B-Spline Interpolation
+     * INTERV in BSPLINE.C (determines which knots surround a specified
+       point)
+     * BSPLVB in BSPLINE.C (evaluatest the basis B-spline functions)
+     * BVALUE in BSPLINE.C (calculates function, given the B-spline fit)
+     * BSPLVD in BSPLINE.C (calculates function and derivatives, given
+       the B-spline fit)
+       
+   
+   
+  Chapter 9: Adaptive Quadrature
+     * ADSIMP.C (adaptive Simpson quadrature)
+       
+   
+   
+  Chapter 10: Fourier Transforms
+     * FFT in FFT5.C (compute fast Fourier transform)
+     * FFTINIT in FFT5.C (initialize FFT)
+     * BITR in FFT5.C (bit reversal for FFT)
+     * FHT in FHT.C (compute fast Hartley transform)
+     * FHTINIT in FHT.C (initialize FHT)
+       
+   
+   
+  Chapter 11: Systems of Differential Equations
+     * RKF in RKF45.C (Runge-Kutta-Fehlberg integrator)
+     * FEVAL in RKF45.C (evaluates steps)
+     * ERROR in RKF45.C (returns error term)
+     * RKFD.C (test driver for RKF45.C)
+       
+   
+   
+  Chapter 12: Stiff Systems of Differential Equations
+     * STIFF2 in STFODE.C (integrate stiff ODE)
+     * POWN in STFODE.C (integer powers a value)
+       
+   
+   
+   
+     _________________________________________________________________
+   
+More C Tools for Scientists and Engineers
+
+   
+   
+  Utility Routines
+     * MSUB in BLOCK.C (subtract two matrices)
+     * INVERT in BLOCK.C (invert a matrix)
+     * MM in BLOCK.C (move a matrix)
+     * MMULT in BLOCK.C (matrix by matrix multiply)
+     * MMULTG in BLOCK.C (matrix by matrix multiply with bells and
+       whistles)
+     * MSET in BLOCK.C (set matrix to a value)
+     * VDIF in BLOCK.C (difference two vectors)
+       
+   
+   
+  Chapter 1: Sparse Systems and Conjugate Gradient Method
+     * CG in CGG.C (conjugate gradient interation on general matrix)
+     * CGS in CGSPD.C (conjugate gradient interation for symmetric
+       positive-definite system)
+       
+   
+   
+  Chapter 2: Block Matrix Problems
+     * BS in BLOCK.C (solves block bi-diagonal matrix)
+     * BLOCKD.C (test driver for block matrix problems)
+       
+   
+   
+  Chapter 3: Multigrid Methods for PDEs
+     * MULTIG.C (one-dimensional multigrid example)
+     * MULTI2.C (two-dimensional multigrid example)
+       
+   
+   
+  Chapter 4: Gaussian Quadrature and Related Methods
+     * GQ3 in GAUSSQ.C (3rd order Gaussian guadrature)
+     * POWER in GAUSSQ.C (integer powers of a value)
+     * POWR in GAUSSQ.C (used by POWER)
+       
+   
+   
+  Chapter 5: Complex Error Function and Relatives
+     * PRINTC in PDFS.C (print complex number)
+     * DAWSON in PDFS.C (Dawson's integral)
+     * FRESNEL in PDFS.C (Fresnel integrals)
+     * PDISP in PDFS.C (plasma dispersion function)
+     * CFBIG, CFSMALL in PDFS.C (used by PDISP)
+     * CEXP in PDFS.C (complex exponential)
+     * IERFC in PDFS.C (iterated complementary error function)
+     * CERF in PDFS.C (complex error function)
+       
+   
+   
+  Chapter 6: Statistical Functions
+     * GAMMA in STATH.C (gamma function)
+     * LOGGAM in STATH.C (logarithm of gamma function)
+     * INCGAM in STATH.C (incomplete gamma function)
+     * CHISQ in STATH.C (chi square function)
+     * INCBETA in STATH.C (incomplete beta function)
+     * STUDT in STATH.C (Student's t distribution)
+     * FDIST in STATH.C (F distribution)
+     * TINV in STATH.C (inverse of Student's t)
+     * CHIINV in STATH.C (inverse of chi square distribution)
+     * CUMP in STATH.C (cumulative normal probability)
+     * WILCOXS in STATH.C (Wilcoxon matched-pair signed rank test)
+     * MANNW in STATH.C (Mann-Whitney two-sample statistic)
+     * WILCOXON in STATH.C (Wilcoxon cumulative, called by MANNW)
+     * KS in STATH.C (Kolmagorov-Smirnov one-sample statistic)
+     * INVNR in STATH.C (used for calculating inverse functions by
+       Newton-Raphson)
+     * ERF in STATH.C (error function)
+     * IERF in STATH.C (inverse of error function)
+     * ICUMP in STATH.C (inverse of cumulative normal probability
+       function)
+     * FINV in STATH.C (inverse of F distribution)
+       
+   
+   
+  Chapter 8: Analysis of Variance
+     * ANOVA in ANOVA.C (perform ANOVA analysis)
+     * INDX in ANOVA.C (determine location in linear array of
+       multidimensional vector)
+     * ORTHOG in ANOVA.C (generate Helmert matrices)
+     * PANOVA in ANOVA.C (print ANOVA results)
+       
+   
+   
+  Chapter 9: Random Numbers and Variables
+     * ERLANG in RANDOM.C (Erlang distribution)
+     * EXPON in RANDOM.C (exponential distribution)
+     * CAUCHY in RANDOM.C (Cauchy distribution)
+     * LOGISTIC in RANDOM.C (logistic distribution)
+     * RANDI in RANDOM.C (random integers in a range)
+     * UNIFORM in RANDOM.C (uniform values in a range)
+     * NORMAL in RANDOM.C (two normally distributed random numbers)
+     * NORM in RANDOM.C (use NORMAL to supply one value at at time)
+     * U32 in RANDOM.C (uniform generator for 32-bit machines)
+     * U16 in RANDOM.C (uniform generator for 16-bit machines)
+     * RANDOM in RANDOM.C (minimal random number generator)
+     * EX in RANDOM.C (fast exponential distribution)
+     * CA in RANDOM.C (fast Cauchy distribution)
+     * NA in RANDOM.C (fast normal distribution)
+       
+   
+   
+  Chapter 10: Bresenham's Line-Drawing Algorithm
+     * PLOT in BRESEND.C (places point on raster display)
+     * SHOW in BRESEND.C (sends finished output to display)
+     * CLEARA in BRESEND.C (clears display area)
+     * DRAW in BRESEND.C (draw straight line on a raster device)
+     * TEST in BRESED.C (test driver for above routines)
+       
+   
+   
+  Chapter 11: Contour Plotting
+     * C3 in CONTUR.C (locate contour lines)
+     * CXY in CONTUR.C (find contour lines within each grid cell)
+     * P2 in CONTUR.C (draw contour lines with appropriate symbol)
+     * DRAWF in CONTUR.C (invoke DRAW on scaled raster surface)
+     * CONTGEN.C (generates test file for above routines)
+       
+   
+   
+  Chapter 12: Sorting, Priority Queues, and Heapsort
+     * PQCONSTRUCT in HEAPTREE.C (build a heap)
+     * PQINSERT in HEAPTREE.C (insert an element into a heap)
+     * PQREMOVE in HEAPTREE.C (remove first element in priority queue)
+     * PQREPLACE in HEAPTREE.C (change first element)
+     * PQHEAPS in HEAPTREE.C (do heapsort)
+     * PQDELETE in HEAPTREE.C (remove arbitrary element from queue)
+     * PQUPHEAP in HEAPTREE.C (move element toward root, maintaining
+       heap)
+     * PQDOWNHEAP in HEAPTREE.C (move element away from root, maintaining
+       heap)
+     * FATHER in HEAPTREE.C (find father of kth element)
+     * COMPARE in HEAPTREE.C (less-than and greater-than comparisons)
+     * COMPAREE in HEAPTREE.C (less-than-or-equal and
+       greater-than-or-equal comparisons)
+       
+   
+   
+  Chapter 13: Typewriter Emulator
+     * TWRPC.C (typewriter program)
+       
+   
+   
+  Chapter 14: LU Decomposition Revisited
+     * LUFACT in LUFF.C (improved version of LU factorization routine)
+       
+   
+   
+  Chapter 15: Roman Numerals
+     * ROMAN.C (convert natural number to Roman numeral)

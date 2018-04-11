@@ -1,0 +1,24 @@
+C***BEGIN PROLOGUE  CATAN
+C***PURPOSE  Compute the complex arc tangent.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      COMPLEX (CATAN-C)
+C***KEYWORDS  ARC TANGENT, ELEMENTARY FUNCTIONS, FNLIB, TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C CATAN(Z) calculates the complex trigonometric arc tangent of Z.
+C The result is in units of radians, and the real part is in the first
+C or fourth quadrant.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C***END PROLOGUE  CATAN

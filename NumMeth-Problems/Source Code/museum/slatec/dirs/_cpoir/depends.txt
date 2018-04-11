@@ -1,0 +1,21 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cpoir
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ccopy
+cpofa
+cposl
+dcdot
+scasum
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

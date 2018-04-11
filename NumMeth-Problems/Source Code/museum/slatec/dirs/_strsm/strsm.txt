@@ -1,0 +1,127 @@
+C***BEGIN PROLOGUE  STRSM
+C***PURPOSE  Solve a real triangular system of equations with multiple
+C            right-hand sides.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1B6
+C***TYPE      SINGLE PRECISION (STRSM-S, DTRSM-D, CTRSM-C)
+C***KEYWORDS  LEVEL 3 BLAS, LINEAR ALGEBRA
+C***AUTHOR  Dongarra, J., (ANL)
+C           Duff, I., (AERE)
+C           Du Croz, J., (NAG)
+C           Hammarling, S. (NAG)
+C***DESCRIPTION
+C
+C  STRSM  solves one of the matrix equations
+C
+C     op( A )*X = alpha*B,   or   X*op( A ) = alpha*B,
+C
+C  where alpha is a scalar, X and B are m by n matrices, A is a unit, or
+C  non-unit,  upper or lower triangular matrix  and  op( A )  is one  of
+C
+C     op( A ) = A   or   op( A ) = A'.
+C
+C  The matrix X is overwritten on B.
+C
+C  Parameters
+C  ==========
+C
+C  SIDE   - CHARACTER*1.
+C           On entry, SIDE specifies whether op( A ) appears on the left
+C           or right of X as follows:
+C
+C              SIDE = 'L' or 'l'   op( A )*X = alpha*B.
+C
+C              SIDE = 'R' or 'r'   X*op( A ) = alpha*B.
+C
+C           Unchanged on exit.
+C
+C  UPLO   - CHARACTER*1.
+C           On entry, UPLO specifies whether the matrix A is an upper or
+C           lower triangular matrix as follows:
+C
+C              UPLO = 'U' or 'u'   A is an upper triangular matrix.
+C
+C              UPLO = 'L' or 'l'   A is a lower triangular matrix.
+C
+C           Unchanged on exit.
+C
+C  TRANSA - CHARACTER*1.
+C           On entry, TRANSA specifies the form of op( A ) to be used in
+C           the matrix multiplication as follows:
+C
+C              TRANSA = 'N' or 'n'   op( A ) = A.
+C
+C              TRANSA = 'T' or 't'   op( A ) = A'.
+C
+C              TRANSA = 'C' or 'c'   op( A ) = A'.
+C
+C           Unchanged on exit.
+C
+C  DIAG   - CHARACTER*1.
+C           On entry, DIAG specifies whether or not A is unit triangular
+C           as follows:
+C
+C              DIAG = 'U' or 'u'   A is assumed to be unit triangular.
+C
+C              DIAG = 'N' or 'n'   A is not assumed to be unit
+C                                  triangular.
+C
+C           Unchanged on exit.
+C
+C  M      - INTEGER.
+C           On entry, M specifies the number of rows of B. M must be at
+C           least zero.
+C           Unchanged on exit.
+C
+C  N      - INTEGER.
+C           On entry, N specifies the number of columns of B.  N must be
+C           at least zero.
+C           Unchanged on exit.
+C
+C  ALPHA  - REAL            .
+C           On entry,  ALPHA specifies the scalar  alpha. When  alpha is
+C           zero then  A is not referenced and  B need not be set before
+C           entry.
+C           Unchanged on exit.
+C
+C  A      - REAL             array of DIMENSION ( LDA, k ), where k is m
+C           when  SIDE = 'L' or 'l'  and is  n  when  SIDE = 'R' or 'r'.
+C           Before entry  with  UPLO = 'U' or 'u',  the  leading  k by k
+C           upper triangular part of the array  A must contain the upper
+C           triangular matrix  and the strictly lower triangular part of
+C           A is not referenced.
+C           Before entry  with  UPLO = 'L' or 'l',  the  leading  k by k
+C           lower triangular part of the array  A must contain the lower
+C           triangular matrix  and the strictly upper triangular part of
+C           A is not referenced.
+C           Note that when  DIAG = 'U' or 'u',  the diagonal elements of
+C           A  are not referenced either,  but are assumed to be  unity.
+C           Unchanged on exit.
+C
+C  LDA    - INTEGER.
+C           On entry, LDA specifies the first dimension of A as declared
+C           in the calling (sub) program.  When  SIDE = 'L' or 'l'  then
+C           LDA  must be at least  max( 1, m ),  when  SIDE = 'R' or 'r'
+C           then LDA must be at least max( 1, n ).
+C           Unchanged on exit.
+C
+C  B      - REAL             array of DIMENSION ( LDB, n ).
+C           Before entry,  the leading  m by n part of the array  B must
+C           contain  the  right-hand  side  matrix  B,  and  on exit  is
+C           overwritten by the solution matrix  X.
+C
+C  LDB    - INTEGER.
+C           On entry, LDB specifies the first dimension of B as declared
+C           in  the  calling  (sub)  program.   LDB  must  be  at  least
+C           max( 1, m ).
+C           Unchanged on exit.
+C
+C***REFERENCES  Dongarra, J., Du Croz, J., Duff, I., and Hammarling, S.
+C                 A set of level 3 basic linear algebra subprograms.
+C                 ACM TOMS, Vol. 16, No. 1, pp. 1-17, March 1990.
+C***ROUTINES CALLED  LSAME, XERBLA
+C***REVISION HISTORY  (YYMMDD)
+C   890208  DATE WRITTEN
+C   910605  Modified to meet SLATEC prologue standards.  Only comment
+C           lines were modified.  (BKS)
+C***END PROLOGUE  STRSM

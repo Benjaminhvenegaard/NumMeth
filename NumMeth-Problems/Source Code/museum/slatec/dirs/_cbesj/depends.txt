@@ -1,0 +1,34 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cbesj
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cacai
+cairy
+casyi
+cbinu
+cbknu
+cbuni
+ckscl
+cmlri
+crati
+cs1s2
+cseri
+cshch
+cuchk
+cunhj
+cuni1
+cuni2
+cunik
+cuoik
+cwrsk
+gamln
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

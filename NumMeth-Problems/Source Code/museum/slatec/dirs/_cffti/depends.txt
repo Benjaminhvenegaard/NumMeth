@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cffti
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cffti1
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  CCMPB
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CBLKTR
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (COMPB-S, CCMPB-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     CCMPB computes the roots of the B polynomials using subroutine
+C     TEVLC which is a modification the EISPACK program TQLRAT.
+C     IERROR is set to 4 if either TEVLC fails or if A(J+1)*C(J) is
+C     less than zero for some J.  AH,BH are temporary work arrays.
+C
+C***SEE ALSO  CBLKTR
+C***ROUTINES CALLED  CPADD, INXCB, R1MACH, TEVLC
+C***COMMON BLOCKS    CCBLK
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CCMPB

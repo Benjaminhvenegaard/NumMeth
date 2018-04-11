@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cmposd
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+c1merg
+ccopy
+cmpcsg
+cmptrx
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pimach
+---END OF DEPENDENCIES---

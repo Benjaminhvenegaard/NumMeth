@@ -1,0 +1,109 @@
+C***BEGIN PROLOGUE  SSVDC
+C***PURPOSE  Perform the singular value decomposition of a rectangular
+C            matrix.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D6
+C***TYPE      SINGLE PRECISION (SSVDC-S, DSVDC-D, CSVDC-C)
+C***KEYWORDS  LINEAR ALGEBRA, LINPACK, MATRIX,
+C             SINGULAR VALUE DECOMPOSITION
+C***AUTHOR  Stewart, G. W., (U. of Maryland)
+C***DESCRIPTION
+C
+C     SSVDC is a subroutine to reduce a real NxP matrix X by orthogonal
+C     transformations U and V to diagonal form.  The elements S(I) are
+C     the singular values of X.  The columns of U are the corresponding
+C     left singular vectors, and the columns of V the right singular
+C     vectors.
+C
+C     On Entry
+C
+C         X         REAL(LDX,P), where LDX .GE. N.
+C                   X contains the matrix whose singular value
+C                   decomposition is to be computed.  X is
+C                   destroyed by SSVDC.
+C
+C         LDX       INTEGER
+C                   LDX is the leading dimension of the array X.
+C
+C         N         INTEGER
+C                   N is the number of rows of the matrix X.
+C
+C         P         INTEGER
+C                   P is the number of columns of the matrix X.
+C
+C         LDU       INTEGER
+C                   LDU is the leading dimension of the array U.
+C                   (See below).
+C
+C         LDV       INTEGER
+C                   LDV is the leading dimension of the array V.
+C                   (See below).
+C
+C         WORK      REAL(N)
+C                   work is a scratch array.
+C
+C         JOB       INTEGER
+C                   JOB controls the computation of the singular
+C                   vectors.  It has the decimal expansion AB
+C                   with the following meaning
+C
+C                        A .EQ. 0  Do not compute the left singular
+C                                  vectors.
+C                        A .EQ. 1  Return the N left singular vectors
+C                                  in U.
+C                        A .GE. 2  Return the first MIN(N,P) singular
+C                                  vectors in U.
+C                        B .EQ. 0  Do not compute the right singular
+C                                  vectors.
+C                        B .EQ. 1  Return the right singular vectors
+C                                  in V.
+C
+C     On Return
+C
+C         S         REAL(MM), where MM=MIN(N+1,P).
+C                   The first MIN(N,P) entries of S contain the
+C                   singular values of X arranged in descending
+C                   order of magnitude.
+C
+C         E         REAL(P).
+C                   E ordinarily contains zeros.  However, see the
+C                   discussion of INFO for exceptions.
+C
+C         U         REAL(LDU,K), where LDU .GE. N.  If JOBA .EQ. 1, then
+C                                   K .EQ. N.  If JOBA .GE. 2 , then
+C                                   K .EQ. MIN(N,P).
+C                   U contains the matrix of right singular vectors.
+C                   U is not referenced if JOBA .EQ. 0.  If N .LE. P
+C                   or if JOBA .EQ. 2, then U may be identified with X
+C                   in the subroutine call.
+C
+C         V         REAL(LDV,P), where LDV .GE. P.
+C                   V contains the matrix of right singular vectors.
+C                   V is not referenced if JOB .EQ. 0.  If P .LE. N,
+C                   then V may be identified with X in the
+C                   subroutine call.
+C
+C         INFO      INTEGER.
+C                   the singular values (and their corresponding
+C                   singular vectors) S(INFO+1),S(INFO+2),...,S(M)
+C                   are correct (here M=MIN(N,P)).  Thus if
+C                   INFO .EQ. 0, all the singular values and their
+C                   vectors are correct.  In any event, the matrix
+C                   B = TRANS(U)*X*V is the bidiagonal matrix
+C                   with the elements of S on its diagonal and the
+C                   elements of E on its super-diagonal (TRANS(U)
+C                   is the transpose of U).  Thus the singular
+C                   values of X and B are the same.
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  SAXPY, SDOT, SNRM2, SROT, SROTG, SSCAL, SSWAP
+C***REVISION HISTORY  (YYMMDD)
+C   790319  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  SSVDC

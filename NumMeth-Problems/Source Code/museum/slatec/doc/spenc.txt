@@ -1,0 +1,38 @@
+C***BEGIN PROLOGUE  SPENC
+C***PURPOSE  Compute a form of Spence's integral due to K. Mitchell.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C5
+C***TYPE      SINGLE PRECISION (SPENC-S, DSPENC-D)
+C***KEYWORDS  FNLIB, SPECIAL FUNCTIONS, SPENCE'S INTEGRAL
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate a form of Spence's function defined by
+C        integral from 0 to X of  -LOG(1-Y)/Y  DY.
+C For ABS(X) .LE. 1, the uniformly convergent expansion
+C        SPENC = sum K=1,infinity  X**K / K**2     is valid.
+C
+C Spence's function can be used to evaluate much more general integral
+C forms.  For example,
+C        integral from 0 to Z of  LOG(A*X+B)/(C*X+D)  DX  =
+C             LOG(ABS(B-A*D/C))*LOG(ABS(A*(C*X+D)/(A*D-B*C)))/C
+C             - SPENC (A*(C*Z+D)/(A*D-B*C)) / C.
+C
+C Ref -- K. Mitchell, Philosophical Magazine, 40, p. 351 (1949).
+C        Stegun and Abromowitz, AMS 55, p. 1004.
+C
+C
+C Series for SPEN       on the interval  0.          to  5.00000D-01
+C                                        with weighted error   6.82E-17
+C                                         log weighted error  16.17
+C                               significant figures required  15.22
+C                                    decimal places required  16.81
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   780201  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  SPENC

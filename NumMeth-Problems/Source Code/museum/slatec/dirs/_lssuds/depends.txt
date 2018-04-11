@@ -1,0 +1,21 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE lssuds
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cscale
+ohtrol
+orthor
+xermax
+xgetf
+xsetf
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+sdot
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,25 @@
+C***BEGIN PROLOGUE  CBLKT1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CBLKTR
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (BLKTR1-S, CBLKT1-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C CBLKT1 solves the linear system of routine CBLKTR.
+C
+C B  contains the roots of all the B polynomials.
+C W1,W2,W3,WD,WW,WU  are all working arrays.
+C PRDCT is either PROCP or PROC depending on whether the boundary
+C conditions in the M direction are periodic or not.
+C CPRDCT is either CPROCP or CPROC which are called if some of the zeros
+C of the B polynomials are complex.
+C
+C***SEE ALSO  CBLKTR
+C***ROUTINES CALLED  INXCA, INXCB, INXCC
+C***COMMON BLOCKS    CCBLK
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CBLKT1

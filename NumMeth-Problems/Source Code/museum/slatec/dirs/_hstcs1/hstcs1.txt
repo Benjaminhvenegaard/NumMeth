@@ -1,0 +1,14 @@
+C***BEGIN PROLOGUE  HSTCS1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to HSTCSP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (HSTCS1-S)
+C***AUTHOR  (UNKNOWN)
+C***SEE ALSO  HSTCSP
+C***ROUTINES CALLED  BLKTRI
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  HSTCS1

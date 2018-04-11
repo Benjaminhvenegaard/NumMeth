@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zrati
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+zdiv
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+zabs
+---END OF DEPENDENCIES---

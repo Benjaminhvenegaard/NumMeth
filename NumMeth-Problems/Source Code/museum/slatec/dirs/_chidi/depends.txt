@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE chidi
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ccopy
+cswap
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

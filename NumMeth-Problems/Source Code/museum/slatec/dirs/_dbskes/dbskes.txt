@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  DBSKES
+C***PURPOSE  Compute a sequence of exponentially scaled modified Bessel
+C            functions of the third kind of fractional order.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B3
+C***TYPE      DOUBLE PRECISION (BESKES-S, DBSKES-D)
+C***KEYWORDS  EXPONENTIALLY SCALED, FNLIB, FRACTIONAL ORDER,
+C             MODIFIED BESSEL FUNCTION, SEQUENCE OF BESSEL FUNCTIONS,
+C             SPECIAL FUNCTIONS, THIRD KIND
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBSKES(XNU,X,NIN,BKE) computes a double precision sequence
+C of exponentially scaled modified Bessel functions
+C of the third kind of order XNU + I at X, where X .GT. 0,
+C XNU lies in (-1,1), and I = 0, 1, ... , NIN - 1, if NIN is positive
+C and I = 0, -1, ... , NIN + 1, if NIN is negative.  On return, the
+C vector BKE(.) contains the results at X for order starting at XNU.
+C XNU, X, and BKE are double precision.  NIN is integer.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9KNUS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DBSKES

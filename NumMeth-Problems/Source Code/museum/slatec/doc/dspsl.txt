@@ -1,0 +1,59 @@
+C***BEGIN PROLOGUE  DSPSL
+C***PURPOSE  Solve a real symmetric system using the factors obtained
+C            from DSPFA.
+C***LIBRARY   SLATEC (LINPACK)
+C***CATEGORY  D2B1A
+C***TYPE      DOUBLE PRECISION (SSPSL-S, DSPSL-D, CHPSL-C, CSPSL-C)
+C***KEYWORDS  LINEAR ALGEBRA, LINPACK, MATRIX, PACKED, SOLVE, SYMMETRIC
+C***AUTHOR  Bunch, J., (UCSD)
+C***DESCRIPTION
+C
+C     DSISL solves the double precision symmetric system
+C     A * X = B
+C     using the factors computed by DSPFA.
+C
+C     On Entry
+C
+C        AP      DOUBLE PRECISION(N*(N+1)/2)
+C                the output from DSPFA.
+C
+C        N       INTEGER
+C                the order of the matrix  A .
+C
+C        KPVT    INTEGER(N)
+C                the pivot vector from DSPFA.
+C
+C        B       DOUBLE PRECISION(N)
+C                the right hand side vector.
+C
+C     On Return
+C
+C        B       the solution vector  X .
+C
+C     Error Condition
+C
+C        A division by zero may occur if  DSPCO  has set RCOND .EQ. 0.0
+C        or  DSPFA  has set INFO .NE. 0  .
+C
+C     To compute  INVERSE(A) * C  where  C  is a matrix
+C     with  P  columns
+C           CALL DSPFA(AP,N,KPVT,INFO)
+C           IF (INFO .NE. 0) GO TO ...
+C           DO 10 J = 1, P
+C              CALL DSPSL(AP,N,KPVT,C(1,J))
+C        10 CONTINUE
+C
+C***REFERENCES  J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
+C                 Stewart, LINPACK Users' Guide, SIAM, 1979.
+C***ROUTINES CALLED  DAXPY, DDOT
+C***REVISION HISTORY  (YYMMDD)
+C   780814  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   891107  Modified routine equivalence list.  (WRB)
+C   891107  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DSPSL

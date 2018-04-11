@@ -1,0 +1,32 @@
+
+   [CRC logo]
+   
+                   BOOKS OF RELATED INTEREST FROM CRC PRESS
+                                       
+   
+   
+   
+   Here is information, including ordering information, on the book A
+   Numerical Library in C for Scientists and Engineers, whose
+   accompanying programs are included on this CDROM.
+   
+   Also available here is detailed information, including ordering
+   information, on a selection of additional books from CRC Press that
+   you may find interesting:
+   
+     * Numerical Methods and Applications
+     * Transform Methods for Solving Partial Differential Equations
+     * Block Method for Solving the Laplace Equation and for Constructing
+       Conformal Mappings
+     * A TeX Primer for Scientists
+     * MATLAB Primer, Fourth Edition
+     * Advanced Mathematics and Mechanics Applications Using MATLAB
+     * Pattern Recognition with Neural Networks in C++
+     * Practical Handbook of Genetic Algorithms, Volume 1
+     * Practical Handbook of Genetic Algorithms, Volume 2
+     * CRC Handbook of Lie Group Analysis of Differential Equations,
+       Volume 1
+     * CRC Handbook of Lie Group Analysis of Differential Equations,
+       Volume 2
+     * CRC Handbook of Lie Group Analysis of Differential Equations,
+       Volume 3

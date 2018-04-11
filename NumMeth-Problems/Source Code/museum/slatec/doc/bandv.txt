@@ -1,0 +1,120 @@
+C***BEGIN PROLOGUE  BANDV
+C***PURPOSE  Form the eigenvectors of a real symmetric band matrix
+C            associated with a set of ordered approximate eigenvalues
+C            by inverse iteration.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C3
+C***TYPE      SINGLE PRECISION (BANDV-S)
+C***KEYWORDS  EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine finds those eigenvectors of a REAL SYMMETRIC
+C     BAND matrix corresponding to specified eigenvalues, using inverse
+C     iteration.  The subroutine may also be used to solve systems
+C     of linear equations with a symmetric or non-symmetric band
+C     coefficient matrix.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrix A.  N is an INTEGER variable.
+C          N must be less than or equal to NM.
+C
+C        MBW is the number of columns of the array A used to store the
+C          band matrix.  If the matrix is symmetric, MBW is its (half)
+C          band width, denoted MB and defined as the number of adjacent
+C          diagonals, including the principal diagonal, required to
+C          specify the non-zero portion of the lower triangle of the
+C          matrix.  If the subroutine is being used to solve systems
+C          of linear equations and the coefficient matrix is not
+C          symmetric, it must however have the same number of adjacent
+C          diagonals above the main diagonal as below, and in this
+C          case, MBW=2*MB-1.  MBW is an INTEGER variable.  MB must not
+C          be greater than N.
+C
+C        A contains the lower triangle of the symmetric band input
+C          matrix stored as an N by MB array.  Its lowest subdiagonal
+C          is stored in the last N+1-MB positions of the first column,
+C          its next subdiagonal in the last N+2-MB positions of the
+C          second column, further subdiagonals similarly, and finally
+C          its principal diagonal in the N positions of column MB.
+C          If the subroutine is being used to solve systems of linear
+C          equations and the coefficient matrix is not symmetric, A is
+C          N by 2*MB-1 instead with lower triangle as above and with
+C          its first superdiagonal stored in the first N-1 positions of
+C          column MB+1, its second superdiagonal in the first N-2
+C          positions of column MB+2, further superdiagonals similarly,
+C          and finally its highest superdiagonal in the first N+1-MB
+C          positions of the last column.  Contents of storage locations
+C          not part of the matrix are arbitrary.  A is a two-dimensional
+C          REAL array, dimensioned A(NM,MBW).
+C
+C        E21 specifies the ordering of the eigenvalues and contains
+C            0.0E0 if the eigenvalues are in ascending order, or
+C            2.0E0 if the eigenvalues are in descending order.
+C          If the subroutine is being used to solve systems of linear
+C          equations, E21 should be set to 1.0E0 if the coefficient
+C          matrix is symmetric and to -1.0E0 if not.  E21 is a REAL
+C          variable.
+C
+C        M is the number of specified eigenvalues or the number of
+C          systems of linear equations.  M is an INTEGER variable.
+C
+C        W contains the M eigenvalues in ascending or descending order.
+C          If the subroutine is being used to solve systems of linear
+C          equations (A-W(J)*I)*X(J)=B(J), where I is the identity
+C          matrix, W(J) should be set accordingly, for J=1,2,...,M.
+C          W is a one-dimensional REAL array, dimensioned W(M).
+C
+C        Z contains the constant matrix columns (B(J),J=1,2,...,M), if
+C          the subroutine is used to solve systems of linear equations.
+C          Z is a two-dimensional REAL array, dimensioned Z(NM,M).
+C
+C        NV must be set to the dimension of the array parameter RV
+C          as declared in the calling program dimension statement.
+C          NV is an INTEGER variable.
+C
+C     On OUTPUT
+C
+C        A and W are unaltered.
+C
+C        Z contains the associated set of orthogonal eigenvectors.
+C          Any vector which fails to converge is set to zero.  If the
+C          subroutine is used to solve systems of linear equations,
+C          Z contains the solution matrix columns (X(J),J=1,2,...,M).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          -J         if the eigenvector corresponding to the J-th
+C                     eigenvalue fails to converge, or if the J-th
+C                     system of linear equations is nearly singular.
+C
+C        RV and RV6 are temporary storage arrays.  If the subroutine
+C          is being used to solve systems of linear equations, the
+C          determinant (up to sign) of A-W(M)*I is available, upon
+C          return, as the product of the first N elements of RV.
+C          RV and RV6 are one-dimensional REAL arrays.  Note that RV
+C          is dimensioned RV(NV), where NV must be at least N*(2*MB-1).
+C          RV6 is dimensioned RV6(N).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     Applied Mathematics Division, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BANDV

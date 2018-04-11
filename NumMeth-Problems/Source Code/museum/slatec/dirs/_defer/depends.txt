@@ -1,0 +1,6 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE defer
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dx
+dy
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

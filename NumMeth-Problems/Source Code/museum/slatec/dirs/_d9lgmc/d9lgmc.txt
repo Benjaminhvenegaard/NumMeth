@@ -1,0 +1,32 @@
+C***BEGIN PROLOGUE  D9LGMC
+C***SUBSIDIARY
+C***PURPOSE  Compute the log Gamma correction factor so that
+C            LOG(DGAMMA(X)) = LOG(SQRT(2*PI)) + (X-5.)*LOG(X) - X
+C            + D9LGMC(X).
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7E
+C***TYPE      DOUBLE PRECISION (R9LGMC-S, D9LGMC-D, C9LGMC-C)
+C***KEYWORDS  COMPLETE GAMMA FUNCTION, CORRECTION TERM, FNLIB,
+C             LOG GAMMA, LOGARITHM, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Compute the log gamma correction factor for X .GE. 10. so that
+C LOG (DGAMMA(X)) = LOG(SQRT(2*PI)) + (X-.5)*LOG(X) - X + D9lGMC(X)
+C
+C Series for ALGM       on the interval  0.          to  1.00000E-02
+C                                        with weighted error   1.28E-31
+C                                         log weighted error  30.89
+C                               significant figures required  29.81
+C                                    decimal places required  31.48
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  D9LGMC

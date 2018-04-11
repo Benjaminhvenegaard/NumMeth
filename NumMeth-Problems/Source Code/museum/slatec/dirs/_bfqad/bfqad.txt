@@ -1,0 +1,64 @@
+C***BEGIN PROLOGUE  BFQAD
+C***PURPOSE  Compute the integral of a product of a function and a
+C            derivative of a B-spline.
+C***LIBRARY   SLATEC
+C***CATEGORY  H2A2A1, E3, K6
+C***TYPE      SINGLE PRECISION (BFQAD-S, DBFQAD-D)
+C***KEYWORDS  INTEGRAL OF B-SPLINE, QUADRATURE
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BFQAD computes the integral on (X1,X2) of a product of a
+C         function F and the ID-th derivative of a K-th order B-spline,
+C         using the B-representation (T,BCOEF,N,K).  (X1,X2) must be
+C         a subinterval of T(K) .LE. X .le. T(N+1).  An integration
+C         routine BSGQ8 (a modification
+C         of GAUS8), integrates the product on sub-
+C         intervals of (X1,X2) formed by included (distinct) knots.
+C
+C     Description of Arguments
+C         Input
+C           F      - external function of one argument for the
+C                    integrand BF(X)=F(X)*BVALU(T,BCOEF,N,K,ID,X,INBV,
+C                    WORK)
+C           T      - knot array of length N+K
+C           BCOEF  - coefficient array of length N
+C           N      - length of coefficient array
+C           K      - order of B-spline, K .GE. 1
+C           ID     - order of the spline derivative, 0 .LE. ID .LE. K-1
+C                    ID=0 gives the spline function
+C           X1,X2  - end points of quadrature interval in
+C                    T(K) .LE. X .LE. T(N+1)
+C           TOL    - desired accuracy for the quadrature, suggest
+C                    10.*STOL .LT. TOL .LE. 0.1 where STOL is the single
+C                    precision unit roundoff for the machine = R1MACH(4)
+C
+C         Output
+C           QUAD   - integral of BF(X) on (X1,X2)
+C           IERR   - a status code
+C                    IERR=1  normal return
+C                         2  some quadrature on (X1,X2) does not meet
+C                            the requested tolerance.
+C           WORK   - work vector of length 3*K
+C
+C     Error Conditions
+C         X1 or X2 not in T(K) .LE. X .LE. T(N+1) is a fatal error.
+C         TOL not greater than the single precision unit roundoff or
+C         less than 0.1 is a fatal error.
+C         Some quadrature fails to meet the requested tolerance.
+C
+C***REFERENCES  D. E. Amos, Quadrature subroutines for splines and
+C                 B-splines, Report SAND79-1825, Sandia Laboratories,
+C                 December 1979.
+C***ROUTINES CALLED  BSGQ8, INTRV, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BFQAD

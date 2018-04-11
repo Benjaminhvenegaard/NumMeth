@@ -1,0 +1,52 @@
+C***BEGIN PROLOGUE  DAIE
+C***PURPOSE  Calculate the Airy function for a negative argument and an
+C            exponentially scaled Airy function for a non-negative
+C            argument.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10D
+C***TYPE      DOUBLE PRECISION (AIE-S, DAIE-D)
+C***KEYWORDS  EXPONENTIALLY SCALED AIRY FUNCTION, FNLIB,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DAIE(X) calculates the Airy function or the exponentially scaled
+C Airy function depending on the value of the argument.  The function
+C and argument are both double precision.
+C
+C Evaluate AI(X) for X .LE. 0.0 and AI(X)*EXP(ZETA) where
+C ZETA = 2/3 * X**(3/2)  for X .GE. 0.0
+C
+C Series for AIF        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   8.37E-33
+C                                         log weighted error  32.08
+C                               significant figures required  30.87
+C                                    decimal places required  32.63
+C
+C Series for AIG        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   7.47E-34
+C                                         log weighted error  33.13
+C                               significant figures required  31.50
+C                                    decimal places required  33.68
+C
+C Series for AIP1       on the interval  1.25000E-01 to  1.00000E+00
+C                                        with weighted error   3.69E-32
+C                                         log weighted error  31.43
+C                               significant figures required  29.55
+C                                    decimal places required  32.31
+C
+C Series for AIP2       on the interval  0.          to  1.25000E-01
+C                                        with weighted error   3.48E-32
+C                                         log weighted error  31.46
+C                               significant figures required  28.74
+C                                    decimal places required  32.24
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9AIMP, DCSEVL, INITDS
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DAIE

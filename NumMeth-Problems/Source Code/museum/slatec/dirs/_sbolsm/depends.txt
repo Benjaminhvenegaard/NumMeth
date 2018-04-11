@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sbolsm
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ivout
+smout
+srot
+srotg
+svout
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+saxpy
+scopy
+sdot
+snrm2
+sswap
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,19 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sdstp
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sdcor
+sdcst
+sdntl
+sdpsc
+sdpst
+sdscl
+sgbfa
+sgbsl
+sgefa
+sgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+isamax
+saxpy
+sdot
+snrm2
+sscal
+---END OF DEPENDENCIES---

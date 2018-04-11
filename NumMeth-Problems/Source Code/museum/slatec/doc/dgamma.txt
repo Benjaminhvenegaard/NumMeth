@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  DGAMMA
+C***PURPOSE  Compute the complete Gamma function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7A
+C***TYPE      DOUBLE PRECISION (GAMMA-S, DGAMMA-D, CGAMMA-C)
+C***KEYWORDS  COMPLETE GAMMA FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DGAMMA(X) calculates the double precision complete Gamma function
+C for double precision argument X.
+C
+C Series for GAM        on the interval  0.          to  1.00000E+00
+C                                        with weighted error   5.79E-32
+C                                         log weighted error  31.24
+C                               significant figures required  30.00
+C                                    decimal places required  32.05
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9LGMC, DCSEVL, DGAMLM, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable name.  (RWC, WRB)
+C***END PROLOGUE  DGAMMA

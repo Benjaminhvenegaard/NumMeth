@@ -1,0 +1,8 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rgg
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+qzhes
+qzit
+qzval
+qzvec
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

@@ -1,0 +1,25 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE qawf
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+qagie
+qawfe
+qawoe
+qc25f
+qcheb
+qelg
+qk15i
+qk15w
+qpsrt
+qwgtf
+sgtsl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

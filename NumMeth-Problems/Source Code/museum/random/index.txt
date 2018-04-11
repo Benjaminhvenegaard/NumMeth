@@ -1,0 +1,29 @@
+
+              GUIDE TO NUMERICAL RECIPES FILES OF RANDOM NUMBERS
+                                       
+   Included on this CDROM are 20 files each containing 1677216 (that's
+   2^24) random bytes, physically generated and algorithmically
+   "perfected". That's more than 2.6 Gigabits of unique randomness!
+   
+   Here are links to:
+     * the directory containing the 20 files
+     * a detailed description of how the files were generated
+     * files getran.c and testran.c which implement and test a simple
+       server of stored random numbers to C programs
+     * file getran.txt, a UNIX-style man page that explains the previous
+       two files
+       
+   The 20 files of random values, and the files getran.c, testran.c, and
+   getran.txt are placed, herewith, into the public domain, without any
+   warranty whatsoever. They may be freely copied or redistributed.
+   Sorry, we can't provide any support on getran.c or testran.c, other
+   than supplying the above files, as-is.
+   
+   
+     _________________________________________________________________
+   
+   Please note that there is no relation between the random files
+   supplied here and those published on the "Marsaglia Random Number
+   CDROM". Professor Marsaglia has kindly given permission for us to
+   include his tests for randomness (which the files here all pass,
+   incidentally) elsewhere on this CDROM.

@@ -1,0 +1,47 @@
+C***BEGIN PROLOGUE  TEVLS
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BLKTRI
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (TEVLS-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     This subroutine finds the eigenvalues of a symmetric tridiagonal
+C     matrix by the rational QL method.
+C
+C     On Input-
+C
+C        N is the order of the matrix,
+C
+C        D contains the diagonal elements of the input matrix,
+C
+C        E2 contains the subdiagonal elements of the input matrix
+C           in its last N-1 positions.  E2(1) is arbitrary.
+C
+C      On Output-
+C
+C        D contains the eigenvalues in ascending order.  If an
+C          error exit is made, the eigenvalues are correct and
+C          ordered for indices 1,2,...IERR-1, but may not be
+C          the smallest eigenvalues,
+C
+C        E2 has been destroyed,
+C
+C        IERR is set to
+C          ZERO       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after 30 iterations.
+C
+C***SEE ALSO  BLKTRI
+C***REFERENCES  C. H. Reinsch, Eigenvalues of a real, symmetric, tri-
+C                 diagonal matrix, Algorithm 464, Communications of the
+C                 ACM 16, 11 (November 1973), pp. 689.
+C***ROUTINES CALLED  (NONE)
+C***COMMON BLOCKS    CBLKT
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920528  DESCRIPTION revised and REFERENCES section added.  (WRB)
+C***END PROLOGUE  TEVLS

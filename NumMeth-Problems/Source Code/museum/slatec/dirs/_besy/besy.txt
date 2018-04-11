@@ -1,0 +1,64 @@
+C***BEGIN PROLOGUE  BESY
+C***PURPOSE  Implement forward recursion on the three term recursion
+C            relation for a sequence of non-negative order Bessel
+C            functions Y/SUB(FNU+I-1)/(X), I=1,...,N for real, positive
+C            X and non-negative orders FNU.
+C***LIBRARY   SLATEC
+C***CATEGORY  C10A3
+C***TYPE      SINGLE PRECISION (BESY-S, DBESY-D)
+C***KEYWORDS  SPECIAL FUNCTIONS, Y BESSEL FUNCTION
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BESY implements forward recursion on the three term
+C         recursion relation for a sequence of non-negative order Bessel
+C         functions Y/sub(FNU+I-1)/(X), I=1,N for real X .GT. 0.0E0 and
+C         non-negative orders FNU.  If FNU .LT. NULIM, orders FNU and
+C         FNU+1 are obtained from BESYNU which computes by a power
+C         series for X .LE. 2, the K Bessel function of an imaginary
+C         argument for 2 .LT. X .LE. 20 and the asymptotic expansion for
+C         X .GT. 20.
+C
+C         If FNU .GE. NULIM, the uniform asymptotic expansion is coded
+C         in ASYJY for orders FNU and FNU+1 to start the recursion.
+C         NULIM is 70 or 100 depending on whether N=1 or N .GE. 2.  An
+C         overflow test is made on the leading term of the asymptotic
+C         expansion before any extensive computation is done.
+C
+C     Description of Arguments
+C
+C         Input
+C           X      - X .GT. 0.0E0
+C           FNU    - order of the initial Y function, FNU .GE. 0.0E0
+C           N      - number of members in the sequence, N .GE. 1
+C
+C         Output
+C           Y      - a vector whose first N components contain values
+C                    for the sequence Y(I)=Y/sub(FNU+I-1)/(X), I=1,N.
+C
+C     Error Conditions
+C         Improper input arguments - a fatal error
+C         Overflow - a fatal error
+C
+C***REFERENCES  F. W. J. Olver, Tables of Bessel Functions of Moderate
+C                 or Large Orders, NPL Mathematical Tables 6, Her
+C                 Majesty's Stationery Office, London, 1962.
+C               N. M. Temme, On the numerical evaluation of the modified
+C                 Bessel function of the third kind, Journal of
+C                 Computational Physics 19, (1975), pp. 324-337.
+C               N. M. Temme, On the numerical evaluation of the ordinary
+C                 Bessel function of the second kind, Journal of
+C                 Computational Physics 21, (1976), pp. 343-350.
+C***ROUTINES CALLED  ASYJY, BESY0, BESY1, BESYNU, I1MACH, R1MACH,
+C                    XERMSG, YAIRY
+C***REVISION HISTORY  (YYMMDD)
+C   800501  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BESY

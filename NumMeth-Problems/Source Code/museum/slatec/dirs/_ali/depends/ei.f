@@ -1,0 +1,6 @@
+      FUNCTION EI (X)
+C***FIRST EXECUTABLE STATEMENT  EI
+      EI = -E1(-X)
+C
+      RETURN
+      END

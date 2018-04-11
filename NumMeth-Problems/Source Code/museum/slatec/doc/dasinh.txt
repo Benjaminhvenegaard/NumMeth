@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  DASINH
+C***PURPOSE  Compute the arc hyperbolic sine.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4C
+C***TYPE      DOUBLE PRECISION (ASINH-S, DASINH-D, CASINH-C)
+C***KEYWORDS  ARC HYPERBOLIC SINE, ASINH, ELEMENTARY FUNCTIONS, FNLIB,
+C             INVERSE HYPERBOLIC SINE
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DASINH(X) calculates the double precision arc hyperbolic
+C sine for double precision argument X.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  DASINH

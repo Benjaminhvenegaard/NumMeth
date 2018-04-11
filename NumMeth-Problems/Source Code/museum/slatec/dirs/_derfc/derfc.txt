@@ -1,0 +1,41 @@
+C***BEGIN PROLOGUE  DERFC
+C***PURPOSE  Compute the complementary error function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C8A, L5A1E
+C***TYPE      DOUBLE PRECISION (ERFC-S, DERFC-D)
+C***KEYWORDS  COMPLEMENTARY ERROR FUNCTION, ERFC, FNLIB,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DERFC(X) calculates the double precision complementary error function
+C for double precision argument X.
+C
+C Series for ERF        on the interval  0.          to  1.00000E+00
+C                                        with weighted Error   1.28E-32
+C                                         log weighted Error  31.89
+C                               significant figures required  31.05
+C                                    decimal places required  32.55
+C
+C Series for ERC2       on the interval  2.50000E-01 to  1.00000E+00
+C                                        with weighted Error   2.67E-32
+C                                         log weighted Error  31.57
+C                               significant figures required  30.31
+C                                    decimal places required  32.42
+C
+C Series for ERFC       on the interval  0.          to  2.50000E-01
+C                                        with weighted error   1.53E-31
+C                                         log weighted error  30.82
+C                               significant figures required  29.47
+C                                    decimal places required  31.70
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DERFC

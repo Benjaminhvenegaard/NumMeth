@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  CMPOSP
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CMGNBN
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (POISP2-S, CMPOSP-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson's equation with periodic boundary
+C     conditions.
+C
+C***SEE ALSO  CMGNBN
+C***ROUTINES CALLED  CMPOSD, CMPOSN
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CMPOSP

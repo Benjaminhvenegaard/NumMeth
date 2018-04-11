@@ -1,0 +1,76 @@
+C***BEGIN PROLOGUE  DBESK
+C***PURPOSE  Implement forward recursion on the three term recursion
+C            relation for a sequence of non-negative order Bessel
+C            functions K/SUB(FNU+I-1)/(X), or scaled Bessel functions
+C            EXP(X)*K/SUB(FNU+I-1)/(X), I=1,...,N for real, positive
+C            X and non-negative orders FNU.
+C***LIBRARY   SLATEC
+C***CATEGORY  C10B3
+C***TYPE      DOUBLE PRECISION (BESK-S, DBESK-D)
+C***KEYWORDS  K BESSEL FUNCTION, SPECIAL FUNCTIONS
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract  **** a double precision routine ****
+C         DBESK implements forward recursion on the three term
+C         recursion relation for a sequence of non-negative order Bessel
+C         functions K/sub(FNU+I-1)/(X), or scaled Bessel functions
+C         EXP(X)*K/sub(FNU+I-1)/(X), I=1,..,N for real X .GT. 0.0D0 and
+C         non-negative orders FNU.  If FNU .LT. NULIM, orders FNU and
+C         FNU+1 are obtained from DBSKNU to start the recursion.  If
+C         FNU .GE. NULIM, the uniform asymptotic expansion is used for
+C         orders FNU and FNU+1 to start the recursion.  NULIM is 35 or
+C         70 depending on whether N=1 or N .GE. 2.  Under and overflow
+C         tests are made on the leading term of the asymptotic expansion
+C         before any extensive computation is done.
+C
+C         The maximum number of significant digits obtainable
+C         is the smaller of 14 and the number of digits carried in
+C         double precision arithmetic.
+C
+C     Description of Arguments
+C
+C         Input      X,FNU are double precision
+C           X      - X .GT. 0.0D0
+C           FNU    - order of the initial K function, FNU .GE. 0.0D0
+C           KODE   - a parameter to indicate the scaling option
+C                    KODE=1 returns Y(I)=       K/sub(FNU+I-1)/(X),
+C                                        I=1,...,N
+C                    KODE=2 returns Y(I)=EXP(X)*K/sub(FNU+I-1)/(X),
+C                                        I=1,...,N
+C           N      - number of members in the sequence, N .GE. 1
+C
+C         Output     Y is double precision
+C           Y      - a vector whose first N components contain values
+C                    for the sequence
+C                    Y(I)=       k/sub(FNU+I-1)/(X), I=1,...,N  or
+C                    Y(I)=EXP(X)*K/sub(FNU+I-1)/(X), I=1,...,N
+C                    depending on KODE
+C           NZ     - number of components of Y set to zero due to
+C                    underflow with KODE=1,
+C                    NZ=0   , normal return, computation completed
+C                    NZ .NE. 0, first NZ components of Y set to zero
+C                             due to underflow, Y(I)=0.0D0, I=1,...,NZ
+C
+C     Error Conditions
+C         Improper input arguments - a fatal error
+C         Overflow - a fatal error
+C         Underflow with KODE=1 -  a non-fatal error (NZ .NE. 0)
+C
+C***REFERENCES  F. W. J. Olver, Tables of Bessel Functions of Moderate
+C                 or Large Orders, NPL Mathematical Tables 6, Her
+C                 Majesty's Stationery Office, London, 1962.
+C               N. M. Temme, On the numerical evaluation of the modified
+C                 Bessel function of the third kind, Journal of
+C                 Computational Physics 19, (1975), pp. 324-337.
+C***ROUTINES CALLED  D1MACH, DASYIK, DBESK0, DBESK1, DBSK0E, DBSK1E,
+C                    DBSKNU, I1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   790201  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DBESK

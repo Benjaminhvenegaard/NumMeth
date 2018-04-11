@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE blktr1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+indxa
+indxb
+indxc
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

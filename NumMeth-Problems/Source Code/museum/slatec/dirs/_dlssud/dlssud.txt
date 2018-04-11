@@ -1,0 +1,109 @@
+C***BEGIN PROLOGUE  DLSSUD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP and DSUDS
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (LSSUDS-S, DLSSUD-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C    DLSSUD solves the underdetermined system of equations  A Z = B,
+C    where A is N by M and N .LE. M.  In particular, if rank A equals
+C    IRA, a vector X and a matrix U are determined such that X is the
+C    UNIQUE solution of smallest length, satisfying A X = B, and the
+C    columns of U form an orthonormal basis for the null space of A,
+C    satisfying A U = 0 .  Then all solutions Z are given by
+C              Z = X + C(1)*U(1) + ..... + C(M-IRA)*U(M-IRA)
+C    where U(J) represents the J-th column of U and the C(J) are
+C    arbitrary constants.
+C    If the system of equations are not compatible, only the least
+C    squares solution of minimal length is computed.
+C
+C *********************************************************************
+C   INPUT
+C *********************************************************************
+C
+C     A -- Contains the matrix of N equations in M unknowns, A remains
+C          unchanged, must be dimensioned NRDA by M.
+C     X -- Solution array of length at least M.
+C     B -- Given constant vector of length N, B remains unchanged.
+C     N -- Number of equations, N greater or equal to 1.
+C     M -- Number of unknowns, M greater or equal to N.
+C     NRDA -- Row dimension of A, NRDA greater or equal to N.
+C     U -- Matrix used for solution, must be dimensioned NRDU by
+C          (M - rank of A).
+C          (storage for U may be ignored when only the minimal length
+C           solution X is desired)
+C     NRDU -- Row dimension of U, NRDU greater or equal to M.
+C             (if only the minimal length solution is wanted,
+C              NRDU=0 is acceptable)
+C     IFLAG -- Status indicator
+C           =0  for the first call (and for each new problem defined by
+C               a new matrix A) when the matrix data is treated as exact
+C           =-K for the first call (and for each new problem defined by
+C               a new matrix A) when the matrix data is assumed to be
+C               accurate to about K digits.
+C           =1  for subsequent calls whenever the matrix A has already
+C               been decomposed (problems with new vectors B but
+C               same matrix A can be handled efficiently).
+C     MLSO -- =0 if only the minimal length solution is wanted.
+C             =1 if the complete solution is wanted, includes the
+C                linear space defined by the matrix U.
+C     IRANK -- Variable used for the rank of A, set by the code.
+C     ISCALE -- Scaling indicator
+C               =-1 if the matrix A is to be pre-scaled by
+C               columns when appropriate.
+C               If the scaling indicator is not equal to -1
+C               no scaling will be attempted.
+C            For most problems scaling will probably not be necessary.
+C     Q -- Matrix used for the transformation, must be dimensioned
+C            NRDA by M.
+C     DIAG,KPIVOT,S, -- Arrays of length at least N used for internal
+C      DIV,TD,SCALES    storage (except for SCALES which is M).
+C     ISFLG -- Storage for an internal variable.
+C
+C *********************************************************************
+C   OUTPUT
+C *********************************************************************
+C
+C     IFLAG -- Status indicator
+C            =1 if solution was obtained.
+C            =2 if improper input is detected.
+C            =3 if rank of matrix is less than N.
+C               To continue, simply reset IFLAG=1 and call DLSSUD again.
+C            =4 if the system of equations appears to be inconsistent.
+C               However, the least squares solution of minimal length
+C               was obtained.
+C     X -- Minimal length least squares solution of A Z = B
+C     IRANK -- Numerically determined rank of A, must not be altered
+C              on succeeding calls with input values of IFLAG=1.
+C     U -- Matrix whose M-IRANK columns are mutually orthogonal unit
+C          vectors which span the null space of A. This is to be ignored
+C          when MLSO was set to zero or IFLAG=4 on output.
+C     Q -- Contains the strictly upper triangular part of the reduced
+C           matrix and transformation information.
+C     DIAG -- Contains the diagonal elements of the triangular reduced
+C             matrix.
+C     KPIVOT -- Contains the pivotal information.  The row interchanges
+C               performed on the original matrix are recorded here.
+C     S -- Contains the solution of the lower triangular system.
+C     DIV,TD -- Contains transformation information for rank
+C               deficient problems.
+C     SCALES -- Contains the column scaling parameters.
+C
+C *********************************************************************
+C
+C***SEE ALSO  DBVSUP, DSUDS
+C***REFERENCES  H. A. Watts, Solving linear least squares problems
+C                 using SODS/SUDS/CODS, Sandia Report SAND77-0683,
+C                 Sandia Laboratories, 1977.
+C***ROUTINES CALLED  D1MACH, DDOT, DOHTRL, DORTHR, J4SAVE, XERMAX,
+C                    XERMSG, XGETF, XSETF
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR and REFERENCES sections.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DLSSUD

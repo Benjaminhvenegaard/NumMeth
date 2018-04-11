@@ -1,0 +1,23 @@
+C***BEGIN PROLOGUE  DACOSH
+C***PURPOSE  Compute the arc hyperbolic cosine.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4C
+C***TYPE      DOUBLE PRECISION (ACOSH-S, DACOSH-D, CACOSH-C)
+C***KEYWORDS  ACOSH, ARC HYPERBOLIC COSINE, ELEMENTARY FUNCTIONS, FNLIB,
+C             INVERSE HYPERBOLIC COSINE
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DACOSH(X) calculates the double precision arc hyperbolic cosine for
+C double precision argument X.  The result is returned on the
+C positive branch.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DACOSH

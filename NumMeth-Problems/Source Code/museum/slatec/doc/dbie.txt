@@ -1,0 +1,70 @@
+C***BEGIN PROLOGUE  DBIE
+C***PURPOSE  Calculate the Bairy function for a negative argument and an
+C            exponentially scaled Bairy function for a non-negative
+C            argument.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10D
+C***TYPE      DOUBLE PRECISION (BIE-S, DBIE-D)
+C***KEYWORDS  BAIRY FUNCTION, EXPONENTIALLY SCALED, FNLIB,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBIE(X) calculates the double precision Airy function of the
+C second kind or the double precision exponentially scaled Airy
+C function of the second kind, depending on the value of the
+C double precision argument X.
+C
+C Evaluate BI(X) for X .LE. 0.0  and  BI(X)*EXP(-ZETA)  where
+C ZETA = 2/3 * X**(3/2)  for X .GE. 0.0
+C
+C
+C Series for BIF        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   1.45E-32
+C                                         log weighted error  31.84
+C                               significant figures required  30.85
+C                                    decimal places required  32.40
+C
+C
+C Series for BIG        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   1.29E-33
+C                                         log weighted error  32.89
+C                               significant figures required  31.48
+C                                    decimal places required  33.45
+C
+C
+C Series for BIF2       on the interval  1.00000E+00 to  8.00000E+00
+C                                        with weighted error   6.08E-32
+C                                         log weighted error  31.22
+C                        approx significant figures required  30.8
+C                                    decimal places required  31.80
+C
+C
+C Series for BIG2       on the interval  1.00000E+00 to  8.00000E+00
+C                                        with weighted error   4.91E-33
+C                                         log weighted error  32.31
+C                        approx significant figures required  31.6
+C                                    decimal places required  32.90
+C
+C
+C Series for BIP1       on the interval  1.25000E-01 to  3.53553E-01
+C                                        with weighted error   1.06E-32
+C                                         log weighted error  31.98
+C                               significant figures required  30.61
+C                                    decimal places required  32.81
+C
+C
+C Series for BIP2       on the interval  0.          to  1.25000E-01
+C                                        with weighted error   4.04E-33
+C                                         log weighted error  32.39
+C                               significant figures required  31.15
+C                                    decimal places required  33.37
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9AIMP, DCSEVL, INITDS
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  DBIE

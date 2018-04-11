@@ -1,0 +1,9 @@
+      COMPLEX FUNCTION CSINH (Z)
+      COMPLEX Z, CI
+      SAVE CI
+      DATA CI /(0.,1.)/
+C***FIRST EXECUTABLE STATEMENT  CSINH
+      CSINH = -CI*SIN(CI*Z)
+C
+      RETURN
+      END

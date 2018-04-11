@@ -1,0 +1,11 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE csvdc
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cscal
+csrot
+cswap
+scnrm2
+srotg
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

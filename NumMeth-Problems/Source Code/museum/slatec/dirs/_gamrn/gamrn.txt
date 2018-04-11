@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  GAMRN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BSKIN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (GAMRN-S, DGAMRN-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         GAMRN computes the GAMMA function ratio GAMMA(X)/GAMMA(X+0.5)
+C         for real X.gt.0. If X.ge.XMIN, an asymptotic expansion is
+C         evaluated. If X.lt.XMIN, an integer is added to X to form a
+C         new value of X.ge.XMIN and the asymptotic expansion is eval-
+C         uated for this new value of X. Successive application of the
+C         recurrence relation
+C
+C                      W(X)=W(X+1)*(1+0.5/X)
+C
+C         reduces the argument to its original value. XMIN and comp-
+C         utational tolerances are computed as a function of the number
+C         of digits carried in a word by calls to I1MACH and R1MACH.
+C         However, the computational accuracy is limited to the max-
+C         imum of unit roundoff (=R1MACH(4)) and 1.0E-18 since critical
+C         constants are given to only 18 digits.
+C
+C         Input
+C           X      - Argument, X.gt.0.0
+C
+C         OUTPUT
+C           GAMRN  - Ratio  GAMMA(X)/GAMMA(X+0.5)
+C
+C***SEE ALSO  BSKIN
+C***REFERENCES  Y. L. Luke, The Special Functions and Their
+C                 Approximations, Vol. 1, Math In Sci. And
+C                 Eng. Series 53, Academic Press, New York, 1969,
+C                 pp. 34-35.
+C***ROUTINES CALLED  I1MACH, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   820601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920520  Added REFERENCES section.  (WRB)
+C***END PROLOGUE  GAMRN

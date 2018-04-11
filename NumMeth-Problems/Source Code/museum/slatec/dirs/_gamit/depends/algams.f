@@ -1,0 +1,11 @@
+      SUBROUTINE ALGAMS (X, ALGAM, SGNGAM)
+C***FIRST EXECUTABLE STATEMENT  ALGAMS
+      ALGAM = ALNGAM(X)
+      SGNGAM = 1.0
+      IF (X.GT.0.0) RETURN
+C
+      INT = MOD (-AINT(X), 2.0) + 0.1
+      IF (INT.EQ.0) SGNGAM = -1.0
+C
+      RETURN
+      END

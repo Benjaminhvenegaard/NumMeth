@@ -1,0 +1,27 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sglss
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+iswap
+llsia
+u11ls
+u11us
+u12ls
+u12us
+ulsia
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+saxpy
+sdot
+snrm2
+sscal
+sswap
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

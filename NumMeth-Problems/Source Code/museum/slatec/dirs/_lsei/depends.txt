@@ -1,0 +1,34 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE lsei
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+h12
+hfti
+lpdp
+lsi
+srotm
+srotmg
+wnlit
+wnlsm
+wnlt1
+wnlt2
+wnlt3
+wnnls
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+sasum
+saxpy
+scopy
+sdot
+snrm2
+sscal
+sswap
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

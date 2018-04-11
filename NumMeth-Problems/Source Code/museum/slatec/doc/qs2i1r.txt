@@ -1,0 +1,67 @@
+C***BEGIN PROLOGUE  QS2I1R
+C***SUBSIDIARY
+C***PURPOSE  Sort an integer array, moving an integer and real array.
+C            This routine sorts the integer array IA and makes the same
+C            interchanges in the integer array JA and the real array A.
+C            The array IA may be sorted in increasing order or decreas-
+C            ing order.  A slightly modified QUICKSORT algorithm is
+C            used.
+C***LIBRARY   SLATEC (SLAP)
+C***CATEGORY  N6A2A
+C***TYPE      SINGLE PRECISION (QS2I1R-S, QS2I1D-D)
+C***KEYWORDS  SINGLETON QUICKSORT, SLAP, SORT, SORTING
+C***AUTHOR  Jones, R. E., (SNLA)
+C           Kahaner, D. K., (NBS)
+C           Seager, M. K., (LLNL) seager@llnl.gov
+C           Wisniewski, J. A., (SNLA)
+C***DESCRIPTION
+C     Written by Rondall E Jones
+C     Modified by John A. Wisniewski to use the Singleton QUICKSORT
+C     algorithm. date 18 November 1976.
+C
+C     Further modified by David K. Kahaner
+C     National Bureau of Standards
+C     August, 1981
+C
+C     Even further modification made to bring the code up to the
+C     Fortran 77 level and make it more readable and to carry
+C     along one integer array and one real array during the sort by
+C     Mark K. Seager
+C     Lawrence Livermore National Laboratory
+C     November, 1987
+C     This routine was adapted from the ISORT routine.
+C
+C     ABSTRACT
+C         This routine sorts an integer array IA and makes the same
+C         interchanges in the integer array JA and the real array A.
+C         The array IA may be sorted in increasing order or decreasing
+C         order.  A slightly modified quicksort algorithm is used.
+C
+C     DESCRIPTION OF PARAMETERS
+C        IA - Integer array of values to be sorted.
+C        JA - Integer array to be carried along.
+C         A - Real array to be carried along.
+C         N - Number of values in integer array IA to be sorted.
+C     KFLAG - Control parameter
+C           = 1 means sort IA in INCREASING order.
+C           =-1 means sort IA in DECREASING order.
+C
+C***SEE ALSO  SS2Y
+C***REFERENCES  R. C. Singleton, Algorithm 347, An Efficient Algorithm
+C                 for Sorting With Minimal Storage, Communications ACM
+C                 12:3 (1969), pp.185-7.
+C***ROUTINES CALLED  XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   761118  DATE WRITTEN
+C   890125  Previous REVISION DATE
+C   890915  Made changes requested at July 1989 CML Meeting.  (MKS)
+C   890922  Numerous changes to prologue to make closer to SLATEC
+C           standard.  (FNF)
+C   890929  Numerous changes to reduce SP/DP differences.  (FNF)
+C   900805  Changed XERROR calls to calls to XERMSG.  (RWC)
+C   910411  Prologue converted to Version 4.0 format.  (BAB)
+C   910506  Made subsidiary to SS2Y and corrected reference.  (FNF)
+C   920511  Added complete declaration section.  (WRB)
+C   920929  Corrected format of reference.  (FNF)
+C   921012  Added E0's to f.p. constants.  (FNF)
+C***END PROLOGUE  QS2I1R

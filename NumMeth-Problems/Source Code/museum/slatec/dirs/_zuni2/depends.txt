@@ -1,0 +1,34 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zuni2
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dgamln
+zacai
+zairy
+zasyi
+zbknu
+zdiv
+zexp
+zkscl
+zlog
+zmlri
+zmlt
+zs1s2
+zseri
+zshch
+zsqrt
+zuchk
+zunhj
+zunik
+zuoik
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+zabs
+---END OF DEPENDENCIES---

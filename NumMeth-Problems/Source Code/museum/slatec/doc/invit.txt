@@ -1,0 +1,122 @@
+C***BEGIN PROLOGUE  INVIT
+C***PURPOSE  Compute the eigenvectors of a real upper Hessenberg
+C            matrix associated with specified eigenvalues by inverse
+C            iteration.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2B
+C***TYPE      SINGLE PRECISION (INVIT-S, CINVIT-C)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure INVIT
+C     by Peters and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 418-439(1971).
+C
+C     This subroutine finds those eigenvectors of a REAL UPPER
+C     Hessenberg matrix corresponding to specified eigenvalues,
+C     using inverse iteration.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A and Z, as declared in the calling
+C          program dimension statement.  NM is an INTEGER variable.
+C
+C        N is the order of the matrix A.  N is an INTEGER variable.
+C          N must be less than or equal to NM.
+C
+C        A contains the upper Hessenberg matrix.  A is a two-dimensional
+C          REAL array, dimensioned A(NM,N).
+C
+C        WR and WI contain the real and imaginary parts, respectively,
+C          of the eigenvalues of the Hessenberg matrix.  The eigenvalues
+C          must be stored in a manner identical to that output by
+C          subroutine  HQR,  which recognizes possible splitting of the
+C          matrix.  WR and WI are one-dimensional REAL arrays,
+C          dimensioned WR(N) and WI(N).
+C
+C        SELECT specifies the eigenvectors to be found. The
+C          eigenvector corresponding to the J-th eigenvalue is
+C          specified by setting SELECT(J) to .TRUE.  SELECT is a
+C          one-dimensional LOGICAL array, dimensioned SELECT(N).
+C
+C        MM should be set to an upper bound for the number of
+C          columns required to store the eigenvectors to be found.
+C          NOTE that two columns are required to store the
+C          eigenvector corresponding to a complex eigenvalue.  One
+C          column is required to store the eigenvector corresponding
+C          to a real eigenvalue.  MM is an INTEGER variable.
+C
+C     On OUTPUT
+C
+C        A and WI are unaltered.
+C
+C        WR may have been altered since close eigenvalues are perturbed
+C          slightly in searching for independent eigenvectors.
+C
+C        SELECT may have been altered.  If the elements corresponding
+C          to a pair of conjugate complex eigenvalues were each
+C          initially set to .TRUE., the program resets the second of
+C          the two elements to .FALSE.
+C
+C        M is the number of columns actually used to store the
+C          eigenvectors.  M is an INTEGER variable.
+C
+C        Z contains the real and imaginary parts of the eigenvectors.
+C          The eigenvectors are packed into the columns of Z starting
+C          at the first column.  If the next selected eigenvalue is
+C          real, the next column of Z contains its eigenvector.  If the
+C          eigenvalue is complex, the next two columns of Z contain the
+C          real and imaginary parts of its eigenvector, with the real
+C          part first.  The eigenvectors are normalized so that the
+C          component of largest magnitude is 1. Any vector which fails
+C          the acceptance test is set to zero.  Z is a two-dimensional
+C          REAL array, dimensioned Z(NM,MM).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          -(2*N+1)   if more than MM columns of Z are necessary
+C                     to store the eigenvectors corresponding to
+C                     the specified eigenvalues (in this case, M is
+C                     equal to the number of columns of Z containing
+C                     eigenvectors already computed),
+C          -K         if the iteration corresponding to the K-th
+C                     value fails (if this occurs more than once, K
+C                     is the index of the last occurrence); the
+C                     corresponding columns of Z are set to zero
+C                     vectors,
+C          -(N+K)     if both error situations occur.
+C
+C        RM1 is a two-dimensional REAL array used for temporary storage.
+C          This array holds the triangularized form of the upper
+C          Hessenberg matrix used in the inverse iteration process.
+C          RM1 is dimensioned RM1(N,N).
+C
+C        RV1 and RV2 are one-dimensional REAL arrays used for temporary
+C          storage.  They hold the approximate eigenvectors during the
+C          inverse iteration process.  RV1 and RV2 are dimensioned
+C          RV1(N) and RV2(N).
+C
+C     The ALGOL procedure GUESSVEC appears in INVIT in-line.
+C
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C     Calls CDIV for complex division.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  CDIV, PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  INVIT

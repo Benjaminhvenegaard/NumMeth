@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  PROCP
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CBLKTR
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (PRODP-C, PROCP-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C PROCP applies a sequence of matrix operations to the vector X and
+C stores the result in Y (periodic boundary conditions).
+C
+C BD,BM1,BM2 are arrays containing roots of certain B polynomials.
+C ND,NM1,NM2 are the lengths of the arrays BD,BM1,BM2 respectively.
+C AA         Array containing scalar multipliers of the vector X.
+C NA         is the length of the array AA.
+C X,Y        The matrix operations are applied to X and the result is Y.
+C A,B,C      are arrays which contain the tridiagonal matrix.
+C M          is the order of the matrix.
+C D,U,W      are working arrays.
+C IS         determines whether or not a change in sign is made.
+C
+C***SEE ALSO  CBLKTR
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  PROCP

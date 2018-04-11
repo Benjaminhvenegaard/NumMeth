@@ -1,0 +1,18 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dli
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+de1
+dei
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,50 @@
+C***BEGIN PROLOGUE  D9B1MP
+C***SUBSIDIARY
+C***PURPOSE  Evaluate the modulus and phase for the J1 and Y1 Bessel
+C            functions.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10A1
+C***TYPE      DOUBLE PRECISION (D9B1MP-D)
+C***KEYWORDS  BESSEL FUNCTION, FNLIB, MODULUS, PHASE, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate the modulus and phase for the Bessel J1 and Y1 functions.
+C
+C Series for BM1        on the interval  1.56250E-02 to  6.25000E-02
+C                                        with weighted error   4.91E-32
+C                                         log weighted error  31.31
+C                               significant figures required  30.04
+C                                    decimal places required  32.09
+C
+C Series for BT12       on the interval  1.56250E-02 to  6.25000E-02
+C                                        with weighted error   3.33E-32
+C                                         log weighted error  31.48
+C                               significant figures required  31.05
+C                                    decimal places required  32.27
+C
+C Series for BM12       on the interval  0.          to  1.56250E-02
+C                                        with weighted error   5.01E-32
+C                                         log weighted error  31.30
+C                               significant figures required  29.99
+C                                    decimal places required  32.10
+C
+C Series for BTH1       on the interval  0.          to  1.56250E-02
+C                                        with weighted error   2.82E-32
+C                                         log weighted error  31.55
+C                               significant figures required  31.12
+C                                    decimal places required  32.37
+C
+C***SEE ALSO  DBESJ1, DBESY1
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C   920618  Removed space from variable name and code restructured to
+C           use IF-THEN-ELSE.  (RWC, WRB)
+C***END PROLOGUE  D9B1MP

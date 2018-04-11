@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  ASINH
+C***PURPOSE  Compute the arc hyperbolic sine.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4C
+C***TYPE      SINGLE PRECISION (ASINH-S, DASINH-D, CASINH-C)
+C***KEYWORDS  ARC HYPERBOLIC SINE, ASINH, ELEMENTARY FUNCTIONS, FNLIB,
+C             INVERSE HYPERBOLIC SINE
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C ASINH(X) computes the arc hyperbolic sine of X.
+C
+C Series for ASNH       on the interval  0.          to  1.00000D+00
+C                                        with weighted error   2.19E-17
+C                                         log weighted error  16.66
+C                               significant figures required  15.60
+C                                    decimal places required  17.31
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   770401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  ASINH

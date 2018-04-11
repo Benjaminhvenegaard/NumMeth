@@ -1,0 +1,91 @@
+C***BEGIN PROLOGUE  BSKIN
+C***PURPOSE  Compute repeated integrals of the K-zero Bessel function.
+C***LIBRARY   SLATEC
+C***CATEGORY  C10F
+C***TYPE      SINGLE PRECISION (BSKIN-S, DBSKIN-D)
+C***KEYWORDS  BICKLEY FUNCTIONS, EXPONENTIAL INTEGRAL,
+C             INTEGRALS OF BESSEL FUNCTIONS, K-ZERO BESSEL FUNCTION
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C         The following definitions are used in BSKIN:
+C
+C   Definition 1
+C         KI(0,X) = K-zero Bessel function.
+C
+C   Definition 2
+C         KI(N,X) = Bickley Function
+C                 =  integral from X to infinity of KI(N-1,t)dt
+C                     for X .ge. 0 and N = 1,2,...
+C   ____________________________________________________________________
+C      BSKIN computes sequences of Bickley functions (repeated integrals
+C      of the K0 Bessel function); i.e. for fixed X and N and K=1,...,
+C      BSKIN computes the M-member sequence
+C
+C                     Y(K) =        KI(N+K-1,X) for KODE=1
+C      or
+C                     Y(K) = EXP(X)*KI(N+K-1,X) for KODE=2,
+C
+C      for N.ge.0 and X.ge.0 (N and X cannot be zero simultaneously).
+C
+C      INPUT
+C        X      - Argument, X .ge. 0.0E0
+C        N      - Order of first member of the sequence N .ge. 0
+C        KODE   - Selection parameter
+C                 KODE = 1 returns Y(K)=       KI(N+K-1,X), K=1,M
+C                      = 2 returns Y(K)=EXP(X)*KI(N+K-1,X), K=1,M
+C        M      - Number of members in the sequence, M.ge.1
+C
+C      OUTPUT
+C        Y      - A vector of dimension at least M containing the
+C                 sequence selected by KODE.
+C        NZ     - Underflow flag
+C                 NZ = 0 means computation completed
+C                    = M means an exponential underflow occurred on
+C                        KODE=1.  Y(K)=0.0E0, K=1,...,M is returned
+C        IERR   - Error flag
+C                 IERR = 0, Normal return, computation completed.
+C                      = 1, Input error,   no computation.
+C                      = 2, Error,         no computation.  The
+C                           termination condition was not met.
+C
+C      The nominal computational accuracy is the maximum of unit
+C      roundoff (=R1MACH(4)) and 1.0e-18 since critical constants
+C      are given to only 18 digits.
+C
+C      DBSKIN is the double precision version of BSKIN.
+C
+C *Long Description:
+C
+C         Numerical recurrence on
+C
+C      (L-1)*KI(L,X) = X(KI(L-3,X) - KI(L-1,X)) + (L-2)*KI(L-2,X)
+C
+C         is stable where recurrence is carried forward or backward
+C         away from INT(X+0.5).  The power series for indices 0,1 and 2
+C         on 0.le.X.le. 2 starts a stable recurrence for indices
+C         greater than 2.  If N is sufficiently large (N.gt.NLIM), the
+C         uniform asymptotic expansion for N to INFINITY is more
+C         economical.  On X.gt.2 the recursion is started by evaluating
+C         the uniform expansion for the three members whose indices are
+C         closest to INT(X+0.5) within the set N,...,N+M-1.  Forward
+C         recurrence, backward recurrence or both, complete the
+C         sequence depending on the relation of INT(X+0.5) to the
+C         indices N,...,N+M-1.
+C
+C***REFERENCES  D. E. Amos, Uniform asymptotic expansions for
+C                 exponential integrals E(N,X) and Bickley functions
+C                 KI(N,X), ACM Transactions on Mathematical Software,
+C                 1983.
+C               D. E. Amos, A portable Fortran subroutine for the
+C                 Bickley functions KI(N,X), Algorithm 609, ACM
+C                 Transactions on Mathematical Software, 1983.
+C***ROUTINES CALLED  BKIAS, BKISR, EXINT, GAMRN, I1MACH, R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   820601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891009  Removed unreferenced statement label.  (WRB)
+C   891009  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BSKIN

@@ -1,0 +1,21 @@
+      SUBROUTINE D9UPAK (X, Y, N)
+      DOUBLE PRECISION X,Y,ABSX
+C***FIRST EXECUTABLE STATEMENT  D9UPAK
+      ABSX = ABS(X)
+      N = 0
+      IF (X.EQ.0.0D0) GO TO 30
+C
+   10 IF (ABSX.GE.0.5D0) GO TO 20
+      N = N-1
+      ABSX = ABSX*2.0D0
+      GO TO 10
+C
+   20 IF (ABSX.LT.1.0D0) GO TO 30
+      N = N+1
+      ABSX = ABSX*0.5D0
+      GO TO 20
+C
+   30 Y = SIGN(ABSX,X)
+      RETURN
+C
+      END

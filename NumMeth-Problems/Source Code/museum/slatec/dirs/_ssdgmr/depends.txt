@@ -1,0 +1,33 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ssdgmr
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+issgmr
+qs2i1r
+schkw
+sgmres
+shels
+sheqr
+sorth
+spigmr
+srlcal
+ss2y
+ssdi
+ssds
+ssmv
+sxlcal
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+saxpy
+scopy
+sdot
+snrm2
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

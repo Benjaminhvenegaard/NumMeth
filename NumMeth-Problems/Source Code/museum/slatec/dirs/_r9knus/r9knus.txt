@@ -1,0 +1,38 @@
+C***BEGIN PROLOGUE  R9KNUS
+C***SUBSIDIARY
+C***PURPOSE  Compute Bessel functions EXP(X)*K-SUB-XNU(X) and EXP(X)*
+C            K-SUB-XNU+1(X) for 0.0 .LE. XNU .LT. 1.0.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B3
+C***TYPE      SINGLE PRECISION (R9KNUS-S, D9KNUS-D)
+C***KEYWORDS  BESSEL FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Compute Bessel functions EXP(X) * K-sub-XNU (X)  and
+C EXP(X) * K-sub-XNU+1 (X) for 0.0 .LE. XNU .LT. 1.0 .
+C
+C Series for C0K        on the interval  0.          to  2.50000D-01
+C                                        with weighted error   1.60E-17
+C                                         log weighted error  16.79
+C                               significant figures required  15.99
+C                                    decimal places required  17.40
+C
+C Series for ZNU1       on the interval -7.00000D-01 to  0.
+C                                        with weighted error   1.43E-17
+C                                         log weighted error  16.85
+C                               significant figures required  16.08
+C                                    decimal places required  17.38
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, GAMMA, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C   900727  Added EXTERNAL statement.  (WRB)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  R9KNUS

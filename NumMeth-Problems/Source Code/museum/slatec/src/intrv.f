@@ -1,0 +1,58 @@
+      SUBROUTINE INTRV (XT, LXT, X, ILO, ILEFT, MFLAG)
+C
+      INTEGER IHI, ILEFT, ILO, ISTEP, LXT, MFLAG, MIDDLE
+      REAL X, XT
+      DIMENSION XT(*)
+C***FIRST EXECUTABLE STATEMENT  INTRV
+      IHI = ILO + 1
+      IF (IHI.LT.LXT) GO TO 10
+      IF (X.GE.XT(LXT)) GO TO 110
+      IF (LXT.LE.1) GO TO 90
+      ILO = LXT - 1
+      IHI = LXT
+C
+   10 IF (X.GE.XT(IHI)) GO TO 40
+      IF (X.GE.XT(ILO)) GO TO 100
+C
+C *** NOW X .LT. XT(IHI) . FIND LOWER BOUND
+      ISTEP = 1
+   20 IHI = ILO
+      ILO = IHI - ISTEP
+      IF (ILO.LE.1) GO TO 30
+      IF (X.GE.XT(ILO)) GO TO 70
+      ISTEP = ISTEP*2
+      GO TO 20
+   30 ILO = 1
+      IF (X.LT.XT(1)) GO TO 90
+      GO TO 70
+C *** NOW X .GE. XT(ILO) . FIND UPPER BOUND
+   40 ISTEP = 1
+   50 ILO = IHI
+      IHI = ILO + ISTEP
+      IF (IHI.GE.LXT) GO TO 60
+      IF (X.LT.XT(IHI)) GO TO 70
+      ISTEP = ISTEP*2
+      GO TO 50
+   60 IF (X.GE.XT(LXT)) GO TO 110
+      IHI = LXT
+C
+C *** NOW XT(ILO) .LE. X .LT. XT(IHI) . NARROW THE INTERVAL
+   70 MIDDLE = (ILO+IHI)/2
+      IF (MIDDLE.EQ.ILO) GO TO 100
+C     NOTE. IT IS ASSUMED THAT MIDDLE = ILO IN CASE IHI = ILO+1
+      IF (X.LT.XT(MIDDLE)) GO TO 80
+      ILO = MIDDLE
+      GO TO 70
+   80 IHI = MIDDLE
+      GO TO 70
+C *** SET OUTPUT AND RETURN
+   90 MFLAG = -1
+      ILEFT = 1
+      RETURN
+  100 MFLAG = 0
+      ILEFT = ILO
+      RETURN
+  110 MFLAG = 1
+      ILEFT = LXT
+      RETURN
+      END

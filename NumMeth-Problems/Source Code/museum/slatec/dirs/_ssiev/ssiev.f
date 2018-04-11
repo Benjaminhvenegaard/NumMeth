@@ -1,0 +1,37 @@
+      SUBROUTINE SSIEV (A, LDA, N, E, WORK, JOB, INFO)
+      INTEGER INFO,JOB,LDA,N
+      REAL A(LDA,*),E(*),WORK(*)
+C***FIRST EXECUTABLE STATEMENT  SSIEV
+       IF (N .GT. LDA) CALL XERMSG ('SLATEC', 'SSIEV', 'N .GT. LDA.',
+     +       1, 1)
+       IF(N .GT. LDA) RETURN
+       IF (N .LT. 1) CALL XERMSG ('SLATEC', 'SSIEV', 'N .LT. 1', 2, 1)
+       IF(N .LT. 1) RETURN
+C
+C       CHECK N=1 CASE
+C
+      E(1) = A(1,1)
+      INFO = 0
+      IF(N .EQ. 1) RETURN
+C
+C     COPY UPPER TRIANGLE TO LOWER
+C
+      DO 10 J=1,N
+      DO 10 I=1,J
+         A(J,I)=A(I,J)
+   10 CONTINUE
+C
+      IF(JOB.NE.0) GO TO 20
+C
+C     EIGENVALUES ONLY
+C
+      CALL TRED1(LDA,N,A,E,WORK(1),WORK(N+1))
+      CALL TQLRAT(N,E,WORK(N+1),INFO)
+      RETURN
+C
+C     EIGENVALUES AND EIGENVECTORS
+C
+   20 CALL TRED2(LDA,N,A,E,WORK,A)
+      CALL IMTQL2(LDA,N,E,WORK,A,INFO)
+      RETURN
+      END

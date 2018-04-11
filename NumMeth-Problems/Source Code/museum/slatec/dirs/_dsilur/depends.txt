@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsilur
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dchkw
+dir
+ds2y
+dsilus
+dslui
+dslui2
+dsmv
+isdir
+qs2i1d
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dnrm2
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

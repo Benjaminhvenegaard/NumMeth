@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dpjac
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dgbfa
+dgefa
+dvnrms
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+dscal
+idamax
+---END OF DEPENDENCIES---

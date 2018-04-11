@@ -1,0 +1,135 @@
+      SUBROUTINE HSTCRT (A, B, M, MBDCND, BDA, BDB, C, D, N, NBDCND,
+     +   BDC, BDD, ELMBDA, F, IDIMF, PERTRB, IERROR, W)
+C
+C
+      DIMENSION       F(IDIMF,*) ,BDA(*)     ,BDB(*)     ,BDC(*)     ,
+     1                BDD(*)     ,W(*)
+C***FIRST EXECUTABLE STATEMENT  HSTCRT
+      IERROR = 0
+      IF (A .GE. B) IERROR = 1
+      IF (MBDCND.LT.0 .OR. MBDCND.GT.4) IERROR = 2
+      IF (C .GE. D) IERROR = 3
+      IF (N .LE. 2) IERROR = 4
+      IF (NBDCND.LT.0 .OR. NBDCND.GT.4) IERROR = 5
+      IF (IDIMF .LT. M) IERROR = 7
+      IF (M .LE. 2) IERROR = 8
+      IF (IERROR .NE. 0) RETURN
+      NPEROD = NBDCND
+      MPEROD = 0
+      IF (MBDCND .GT. 0) MPEROD = 1
+      DELTAX = (B-A)/M
+      TWDELX = 1./DELTAX
+      DELXSQ = 2./DELTAX**2
+      DELTAY = (D-C)/N
+      TWDELY = 1./DELTAY
+      DELYSQ = DELTAY**2
+      TWDYSQ = 2./DELYSQ
+      NP = NBDCND+1
+      MP = MBDCND+1
+C
+C     DEFINE THE A,B,C COEFFICIENTS IN W-ARRAY.
+C
+      ID2 = M
+      ID3 = ID2+M
+      ID4 = ID3+M
+      S = (DELTAY/DELTAX)**2
+      ST2 = 2.*S
+      DO 101 I=1,M
+         W(I) = S
+         J = ID2+I
+         W(J) = -ST2+ELMBDA*DELYSQ
+         J = ID3+I
+         W(J) = S
+  101 CONTINUE
+C
+C     ENTER BOUNDARY DATA FOR X-BOUNDARIES.
+C
+      GO TO (111,102,102,104,104),MP
+  102 DO 103 J=1,N
+         F(1,J) = F(1,J)-BDA(J)*DELXSQ
+  103 CONTINUE
+      W(ID2+1) = W(ID2+1)-W(1)
+      GO TO 106
+  104 DO 105 J=1,N
+         F(1,J) = F(1,J)+BDA(J)*TWDELX
+  105 CONTINUE
+      W(ID2+1) = W(ID2+1)+W(1)
+  106 GO TO (111,107,109,109,107),MP
+  107 DO 108 J=1,N
+         F(M,J) = F(M,J)-BDB(J)*DELXSQ
+  108 CONTINUE
+      W(ID3) = W(ID3)-W(1)
+      GO TO 111
+  109 DO 110 J=1,N
+         F(M,J) = F(M,J)-BDB(J)*TWDELX
+  110 CONTINUE
+      W(ID3) = W(ID3)+W(1)
+  111 CONTINUE
+C
+C     ENTER BOUNDARY DATA FOR Y-BOUNDARIES.
+C
+      GO TO (121,112,112,114,114),NP
+  112 DO 113 I=1,M
+         F(I,1) = F(I,1)-BDC(I)*TWDYSQ
+  113 CONTINUE
+      GO TO 116
+  114 DO 115 I=1,M
+         F(I,1) = F(I,1)+BDC(I)*TWDELY
+  115 CONTINUE
+  116 GO TO (121,117,119,119,117),NP
+  117 DO 118 I=1,M
+         F(I,N) = F(I,N)-BDD(I)*TWDYSQ
+  118 CONTINUE
+      GO TO 121
+  119 DO 120 I=1,M
+         F(I,N) = F(I,N)-BDD(I)*TWDELY
+  120 CONTINUE
+  121 CONTINUE
+      DO 123 I=1,M
+         DO 122 J=1,N
+            F(I,J) = F(I,J)*DELYSQ
+  122    CONTINUE
+  123 CONTINUE
+      IF (MPEROD .EQ. 0) GO TO 124
+      W(1) = 0.
+      W(ID4) = 0.
+  124 CONTINUE
+      PERTRB = 0.
+      IF (ELMBDA) 133,126,125
+  125 IERROR = 6
+      GO TO 133
+  126 GO TO (127,133,133,127,133),MP
+  127 GO TO (128,133,133,128,133),NP
+C
+C     FOR SINGULAR PROBLEMS MUST ADJUST DATA TO INSURE THAT A SOLUTION
+C     WILL EXIST.
+C
+  128 CONTINUE
+      S = 0.
+      DO 130 J=1,N
+         DO 129 I=1,M
+            S = S+F(I,J)
+  129    CONTINUE
+  130 CONTINUE
+      PERTRB = S/(M*N)
+      DO 132 J=1,N
+         DO 131 I=1,M
+            F(I,J) = F(I,J)-PERTRB
+  131    CONTINUE
+  132 CONTINUE
+      PERTRB = PERTRB/DELYSQ
+C
+C     SOLVE THE EQUATION.
+C
+  133 CONTINUE
+      IF (NPEROD .EQ. 0) GO TO 134
+      CALL POISTG (NPEROD,N,MPEROD,M,W(1),W(ID2+1),W(ID3+1),IDIMF,F,
+     1             IERR1,W(ID4+1))
+      GO TO 135
+  134 CONTINUE
+      CALL GENBUN (NPEROD,N,MPEROD,M,W(1),W(ID2+1),W(ID3+1),IDIMF,F,
+     1             IERR1,W(ID4+1))
+  135 CONTINUE
+      W(1) = W(ID4+1)+3*M
+      RETURN
+      END

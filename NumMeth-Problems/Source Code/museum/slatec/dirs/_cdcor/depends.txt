@@ -1,0 +1,9 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cdcor
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cgbsl
+cgesl
+scnrm2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+caxpy
+cdotc
+---END OF DEPENDENCIES---

@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  CPADD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to CBLKTR
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (CPADD-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   CPADD computes the eigenvalues of the periodic tridiagonal matrix
+C   with coefficients AN,BN,CN.
+C
+C   N    is the order of the BH and BP polynomials.
+C   BP   contains the eigenvalues on output.
+C   CBP  is the same as BP except type complex.
+C   BH   is used to temporarily store the roots of the B HAT polynomial
+C        which enters through BP.
+C
+C***SEE ALSO  CBLKTR
+C***ROUTINES CALLED  BCRH, PGSF, PPGSF, PPPSF
+C***COMMON BLOCKS    CCBLK
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CPADD

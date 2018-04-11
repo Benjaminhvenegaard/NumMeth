@@ -1,0 +1,71 @@
+C***BEGIN PROLOGUE  R1UPDT
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SNSQ and SNSQE
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (R1UPDT-S, D1UPDT-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Given an M by N lower trapezoidal matrix S, an M-vector U,
+C     and an N-vector V, the problem is to determine an
+C     orthogonal matrix Q such that
+C
+C                   T
+C           (S + U*V )*Q
+C
+C     is again lower trapezoidal.
+C
+C     This subroutine determines Q as the product of 2*(N - 1)
+C     transformations
+C
+C           GV(N-1)*...*GV(1)*GW(1)*...*GW(N-1)
+C
+C     where GV(I), GW(I) are Givens rotations in the (I,N) plane
+C     which eliminate elements in the I-th and N-th planes,
+C     respectively. Q Itself is not accumulated, rather the
+C     information to recover the GV, GW rotations is returned.
+C
+C     The subroutine statement is
+C
+C       SUBROUTINE R1UPDT(M,N,S,LS,U,V,W,SING)
+C
+C     where
+C
+C       M is a positive integer input variable set to the number
+C         of rows of S.
+C
+C       N is a positive integer input variable set to the number
+C         of columns of S. N must not exceed M.
+C
+C       S is an array of length LS. On input S must contain the lower
+C         trapezoidal matrix S stored by columns. On output S contains
+C         the lower trapezoidal matrix produced as described above.
+C
+C       LS is a positive integer input variable not less than
+C         (N*(2*M-N+1))/2.
+C
+C       U is an input array of length M which must contain the
+C         vector U.
+C
+C       V is an array of length N. On input V must contain the vector
+C         V. On output V(I) contains the information necessary to
+C         recover the Givens rotation GV(I) described above.
+C
+C       W is an output array of length M. W(I) contains information
+C         necessary to recover the Givens rotation GW(I) described
+C         above.
+C
+C       SING is a logical output variable. SING is set .TRUE. if any
+C         of the diagonal elements of the output S are zero. Otherwise
+C         SING is set .FALSE.
+C
+C***SEE ALSO  SNSQ, SNSQE
+C***ROUTINES CALLED  R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   800301  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  R1UPDT

@@ -1,0 +1,26 @@
+      SUBROUTINE DSVCO (RSAV, ISAV)
+C-----------------------------------------------------------------------
+C THIS ROUTINE STORES IN RSAV AND ISAV THE CONTENTS OF COMMON BLOCK
+C DDEBD1  , WHICH IS USED INTERNALLY IN THE DDEBDF PACKAGE.
+C
+C RSAV = DOUBLE PRECISION ARRAY OF LENGTH 218 OR MORE.
+C ISAV = INTEGER ARRAY OF LENGTH 33 OR MORE.
+C-----------------------------------------------------------------------
+      INTEGER I, ILS, ISAV, LENILS, LENRLS
+      DOUBLE PRECISION RLS, RSAV
+      DIMENSION RSAV(*),ISAV(*)
+      SAVE LENRLS, LENILS
+      COMMON /DDEBD1/ RLS(218),ILS(33)
+      DATA LENRLS /218/, LENILS /33/
+C
+C***FIRST EXECUTABLE STATEMENT  DSVCO
+      DO 10 I = 1, LENRLS
+         RSAV(I) = RLS(I)
+   10 CONTINUE
+      DO 20 I = 1, LENILS
+         ISAV(I) = ILS(I)
+   20 CONTINUE
+      RETURN
+C     ----------------------- END OF SUBROUTINE DSVCO
+C     -----------------------
+      END

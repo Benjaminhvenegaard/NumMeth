@@ -1,0 +1,34 @@
+C***BEGIN PROLOGUE  XADD
+C***PURPOSE  To provide single-precision floating-point arithmetic
+C            with an extended exponent range.
+C***LIBRARY   SLATEC
+C***CATEGORY  A3D
+C***TYPE      SINGLE PRECISION (XADD-S, DXADD-D)
+C***KEYWORDS  EXTENDED-RANGE SINGLE-PRECISION ARITHMETIC
+C***AUTHOR  Lozier, Daniel W., (National Bureau of Standards)
+C           Smith, John M., (NBS and George Mason University)
+C***DESCRIPTION
+C     REAL X, Y, Z
+C     INTEGER IX, IY, IZ
+C
+C                  FORMS THE EXTENDED-RANGE SUM  (Z,IZ) =
+C                  (X,IX) + (Y,IY).  (Z,IZ) IS ADJUSTED
+C                  BEFORE RETURNING. THE INPUT OPERANDS
+C                  NEED NOT BE IN ADJUSTED FORM, BUT THEIR
+C                  PRINCIPAL PARTS MUST SATISFY
+C                  RADIX**(-2L).LE.ABS(X).LE.RADIX**(2L),
+C                  RADIX**(-2L).LE.ABS(Y).LE.RADIX**(2L).
+C
+C***SEE ALSO  XSET
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  XADJ
+C***COMMON BLOCKS    XBLK2
+C***REVISION HISTORY  (YYMMDD)
+C   820712  DATE WRITTEN
+C   881020  Revised to meet SLATEC CML recommendations.  (DWL and JMS)
+C   901019  Revisions to prologue.  (DWL and WRB)
+C   901106  Changed all specific intrinsics to generic.  (WRB)
+C           Corrected order of sections in prologue and added TYPE
+C           section.  (WRB)
+C   920127  Revised PURPOSE section of prologue.  (DWL)
+C***END PROLOGUE  XADD

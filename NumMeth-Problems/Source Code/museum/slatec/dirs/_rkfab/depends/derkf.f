@@ -1,0 +1,94 @@
+      SUBROUTINE DERKF (F, NEQ, T, Y, TOUT, INFO, RTOL, ATOL, IDID,
+     +   RWORK, LRW, IWORK, LIW, RPAR, IPAR)
+C
+      LOGICAL STIFF,NONSTF
+      CHARACTER*8 XERN1
+      CHARACTER*16 XERN3
+C
+      DIMENSION Y(*),INFO(15),RTOL(*),ATOL(*),RWORK(*),IWORK(*),
+     1          RPAR(*),IPAR(*)
+C
+      EXTERNAL F
+C
+C     CHECK FOR AN APPARENT INFINITE LOOP
+C
+C***FIRST EXECUTABLE STATEMENT  DERKF
+      IF (INFO(1) .EQ. 0) IWORK(LIW) = 0
+      IF (IWORK(LIW) .GE. 5) THEN
+         IF (T .EQ. RWORK(21+NEQ)) THEN
+            WRITE (XERN3, '(1PE15.6)') T
+            CALL XERMSG ('SLATEC', 'DERKF',
+     *         'AN APPARENT INFINITE LOOP HAS BEEN DETECTED.$$' //
+     *         'YOU HAVE MADE REPEATED CALLS AT  T = ' // XERN3 //
+     *         ' AND THE INTEGRATION HAS NOT ADVANCED.  CHECK THE ' //
+     *         'WAY YOU HAVE SET PARAMETERS FOR THE CALL TO THE ' //
+     *         'CODE, PARTICULARLY INFO(1).', 13, 2)
+            RETURN
+         ENDIF
+      ENDIF
+C
+C     CHECK LRW AND LIW FOR SUFFICIENT STORAGE ALLOCATION
+C
+      IDID = 0
+      IF (LRW .LT. 30 + 7*NEQ) THEN
+         WRITE (XERN1, '(I8)') LRW
+         CALL XERMSG ('SLATEC', 'DERKF', 'LENGTH OF RWORK ARRAY ' //
+     *      'MUST BE AT LEAST  30 + 7*NEQ.  YOU HAVE CALLED THE ' //
+     *      'CODE WITH  LRW = ' // XERN1, 1, 1)
+         IDID = -33
+      ENDIF
+C
+      IF (LIW .LT. 34) THEN
+         WRITE (XERN1, '(I8)') LIW
+         CALL XERMSG ('SLATEC', 'DERKF', 'LENGTH OF IWORK ARRAY ' //
+     *      'MUST BE AT LEAST  34.  YOU HAVE CALLED THE CODE WITH ' //
+     *      'LIW = ' // XERN1, 2, 1)
+         IDID = -33
+      ENDIF
+C
+C     COMPUTE INDICES FOR THE SPLITTING OF THE RWORK ARRAY
+C
+      KH = 11
+      KTF = 12
+      KYP = 21
+      KTSTAR = KYP + NEQ
+      KF1 = KTSTAR + 1
+      KF2 = KF1 + NEQ
+      KF3 = KF2 + NEQ
+      KF4 = KF3 + NEQ
+      KF5 = KF4 + NEQ
+      KYS = KF5 + NEQ
+      KTO = KYS + NEQ
+      KDI = KTO + 1
+      KU = KDI + 1
+      KRER = KU + 1
+C
+C **********************************************************************
+C     THIS INTERFACING ROUTINE MERELY RELIEVES THE USER OF A LONG
+C     CALLING LIST VIA THE SPLITTING APART OF TWO WORKING STORAGE
+C     ARRAYS. IF THIS IS NOT COMPATIBLE WITH THE USERS COMPILER,
+C     S/HE MUST USE DERKFS DIRECTLY.
+C **********************************************************************
+C
+      RWORK(KTSTAR) = T
+      IF (INFO(1) .NE. 0) THEN
+         STIFF = (IWORK(25) .EQ. 0)
+         NONSTF = (IWORK(26) .EQ. 0)
+      ENDIF
+C
+      CALL DERKFS(F,NEQ,T,Y,TOUT,INFO,RTOL,ATOL,IDID,RWORK(KH),
+     1           RWORK(KTF),RWORK(KYP),RWORK(KF1),RWORK(KF2),RWORK(KF3),
+     2           RWORK(KF4),RWORK(KF5),RWORK(KYS),RWORK(KTO),RWORK(KDI),
+     3           RWORK(KU),RWORK(KRER),IWORK(21),IWORK(22),IWORK(23),
+     4           IWORK(24),STIFF,NONSTF,IWORK(27),IWORK(28),RPAR,IPAR)
+C
+      IWORK(25) = 1
+      IF (STIFF) IWORK(25) = 0
+      IWORK(26) = 1
+      IF (NONSTF) IWORK(26) = 0
+C
+      IF (IDID .NE. (-2)) IWORK(LIW) = IWORK(LIW) + 1
+      IF (T .NE. RWORK(KTSTAR)) IWORK(LIW) = 0
+C
+      RETURN
+      END

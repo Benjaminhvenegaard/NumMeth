@@ -1,0 +1,63 @@
+C***BEGIN PROLOGUE  TQL1
+C***PURPOSE  Compute the eigenvalues of symmetric tridiagonal matrix by
+C            the QL method.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4A5, D4C2A
+C***TYPE      SINGLE PRECISION (TQL1-S)
+C***KEYWORDS  EIGENVALUES OF A SYMMETRIC TRIDIAGONAL MATRIX, EISPACK,
+C             QL METHOD
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure TQL1,
+C     NUM. MATH. 11, 293-306(1968) by Bowdler, Martin, Reinsch, and
+C     Wilkinson.
+C     HANDBOOK FOR AUTO. COMP., VOL.II-LINEAR ALGEBRA, 227-240(1971).
+C
+C     This subroutine finds the eigenvalues of a SYMMETRIC
+C     TRIDIAGONAL matrix by the QL method.
+C
+C     On Input
+C
+C        N is the order of the matrix.  N is an INTEGER variable.
+C
+C        D contains the diagonal elements of the symmetric tridiagonal
+C          matrix.  D is a one-dimensional REAL array, dimensioned D(N).
+C
+C        E contains the subdiagonal elements of the symmetric
+C          tridiagonal matrix in its last N-1 positions.  E(1) is
+C          arbitrary.  E is a one-dimensional REAL array, dimensioned
+C          E(N).
+C
+C      On Output
+C
+C        D contains the eigenvalues in ascending order.  If an
+C          error exit is made, the eigenvalues are correct and
+C          ordered for indices 1, 2, ..., IERR-1, but may not be
+C          the smallest eigenvalues.
+C
+C        E has been destroyed.
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          J          if the J-th eigenvalue has not been
+C                     determined after 30 iterations.
+C
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  TQL1

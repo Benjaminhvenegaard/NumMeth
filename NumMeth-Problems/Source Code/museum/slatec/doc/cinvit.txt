@@ -1,0 +1,111 @@
+C***BEGIN PROLOGUE  CINVIT
+C***PURPOSE  Compute the eigenvectors of a complex upper Hessenberg
+C            associated with specified eigenvalues using inverse
+C            iteration.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D4C2B
+C***TYPE      COMPLEX (INVIT-S, CINVIT-C)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure CXINVIT
+C     by Peters and Wilkinson.
+C     HANDBOOK FOR AUTO. COMP. VOL.II-LINEAR ALGEBRA, 418-439(1971).
+C
+C     This subroutine finds those eigenvectors of A COMPLEX UPPER
+C     Hessenberg matrix corresponding to specified eigenvalues,
+C     using inverse iteration.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, AR, AI, ZR and ZI, as declared in the
+C          calling program dimension statement.  NM is an INTEGER
+C          variable.
+C
+C        N is the order of the matrix A=(AR,AI).  N is an INTEGER
+C          variable.  N must be less than or equal to NM.
+C
+C        AR and AI contain the real and imaginary parts, respectively,
+C          of the complex upper Hessenberg matrix.  AR and AI are
+C          two-dimensional REAL arrays, dimensioned AR(NM,N)
+C          and AI(NM,N).
+C
+C        WR and WI contain the real and imaginary parts, respectively,
+C          of the eigenvalues of the matrix.  The eigenvalues must be
+C          stored in a manner identical to that of subroutine  COMLR,
+C          which recognizes possible splitting of the matrix.  WR and
+C          WI are one-dimensional REAL arrays, dimensioned WR(N) and
+C          WI(N).
+C
+C        SELECT specifies the eigenvectors to be found.  The
+C          eigenvector corresponding to the J-th eigenvalue is
+C          specified by setting SELECT(J) to .TRUE.  SELECT is a
+C          one-dimensional LOGICAL array, dimensioned SELECT(N).
+C
+C        MM should be set to an upper bound for the number of
+C          eigenvectors to be found.  MM is an INTEGER variable.
+C
+C     On OUTPUT
+C
+C        AR, AI, WI, and SELECT are unaltered.
+C
+C        WR may have been altered since close eigenvalues are perturbed
+C          slightly in searching for independent eigenvectors.
+C
+C        M is the number of eigenvectors actually found.  M is an
+C          INTEGER variable.
+C
+C        ZR and ZI contain the real and imaginary parts, respectively,
+C          of the eigenvectors corresponding to the flagged eigenvalues.
+C          The eigenvectors are normalized so that the component of
+C          largest magnitude is 1.  Any vector which fails the
+C          acceptance test is set to zero.  ZR and ZI are
+C          two-dimensional REAL arrays, dimensioned ZR(NM,MM) and
+C          ZI(NM,MM).
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          -(2*N+1)   if more than MM eigenvectors have been requested
+C                     (the MM eigenvectors calculated to this point are
+C                     in ZR and ZI),
+C          -K         if the iteration corresponding to the K-th
+C                     value fails (if this occurs more than once, K
+C                     is the index of the last occurrence); the
+C                     corresponding columns of ZR and ZI are set to
+C                     zero vectors,
+C          -(N+K)     if both error situations occur.
+C
+C        RV1 and RV2 are one-dimensional REAL arrays used for
+C          temporary storage, dimensioned RV1(N) and RV2(N).
+C          They hold the approximate eigenvectors during the inverse
+C          iteration process.
+C
+C        RM1 and RM2 are two-dimensional REAL arrays used for
+C          temporary storage, dimensioned RM1(N,N) and RM2(N,N).
+C          These arrays hold the triangularized form of the upper
+C          Hessenberg matrix used in the inverse iteration process.
+C
+C     The ALGOL procedure GUESSVEC appears in CINVIT in-line.
+C
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C     Calls CDIV for complex division.
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  CDIV, PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  CINVIT

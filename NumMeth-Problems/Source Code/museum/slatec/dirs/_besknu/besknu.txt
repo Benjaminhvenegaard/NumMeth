@@ -1,0 +1,78 @@
+C***BEGIN PROLOGUE  BESKNU
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BESK
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (BESKNU-S, DBSKNU-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BESKNU computes N member sequences of K Bessel functions
+C         K/SUB(FNU+I-1)/(X), I=1,N for non-negative orders FNU and
+C         positive X. Equations of the references are implemented on
+C         small orders DNU for K/SUB(DNU)/(X) and K/SUB(DNU+1)/(X).
+C         Forward recursion with the three term recursion relation
+C         generates higher orders FNU+I-1, I=1,...,N. The parameter
+C         KODE permits K/SUB(FNU+I-1)/(X) values or scaled values
+C         EXP(X)*K/SUB(FNU+I-1)/(X), I=1,N to be returned.
+C
+C         To start the recursion FNU is normalized to the interval
+C         -0.5.LE.DNU.LT.0.5. A special form of the power series is
+C         implemented on 0.LT.X.LE.X1 while the Miller algorithm for the
+C         K Bessel function in terms of the confluent hypergeometric
+C         function U(FNU+0.5,2*FNU+1,X) is implemented on X1.LT.X.LE.X2.
+C         For X.GT.X2, the asymptotic expansion for large X is used.
+C         When FNU is a half odd integer, a special formula for
+C         DNU=-0.5 and DNU+1.0=0.5 is used to start the recursion.
+C
+C         BESKNU assumes that a significant digit SINH(X) function is
+C         available.
+C
+C     Description of Arguments
+C
+C         Input
+C           X      - X.GT.0.0E0
+C           FNU    - Order of initial K function, FNU.GE.0.0E0
+C           N      - Number of members of the sequence, N.GE.1
+C           KODE   - A parameter to indicate the scaling option
+C                    KODE= 1  returns
+C                             Y(I)=       K/SUB(FNU+I-1)/(X)
+C                                  I=1,...,N
+C                        = 2  returns
+C                             Y(I)=EXP(X)*K/SUB(FNU+I-1)/(X)
+C                                  I=1,...,N
+C
+C         Output
+C           Y      - A vector whose first N components contain values
+C                    for the sequence
+C                    Y(I)=       K/SUB(FNU+I-1)/(X), I=1,...,N or
+C                    Y(I)=EXP(X)*K/SUB(FNU+I-1)/(X), I=1,...,N
+C                    depending on KODE
+C           NZ     - Number of components set to zero due to
+C                    underflow,
+C                    NZ= 0   , Normal return
+C                    NZ.NE.0 , First NZ components of Y set to zero
+C                              due to underflow, Y(I)=0.0E0,I=1,...,NZ
+C
+C     Error Conditions
+C         Improper input arguments - a fatal error
+C         Overflow - a fatal error
+C         Underflow with KODE=1 - a non-fatal error (NZ.NE.0)
+C
+C***SEE ALSO  BESK
+C***REFERENCES  N. M. Temme, On the numerical evaluation of the modified
+C                 Bessel function of the third kind, Journal of
+C                 Computational Physics 19, (1975), pp. 324-337.
+C***ROUTINES CALLED  GAMMA, I1MACH, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   790201  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   900328  Added TYPE section.  (WRB)
+C   900727  Added EXTERNAL statement.  (WRB)
+C   910408  Updated the AUTHOR and REFERENCES sections.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BESKNU

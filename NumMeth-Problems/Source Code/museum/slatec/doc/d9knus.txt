@@ -1,0 +1,39 @@
+C***BEGIN PROLOGUE  D9KNUS
+C***SUBSIDIARY
+C***PURPOSE  Compute Bessel functions EXP(X)*K-SUB-XNU(X) and EXP(X)*
+C            K-SUB-XNU+1(X) for 0.0 .LE. XNU .LT. 1.0.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B3
+C***TYPE      DOUBLE PRECISION (R9KNUS-S, D9KNUS-D)
+C***KEYWORDS  BESSEL FUNCTION, FNLIB, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Compute Bessel functions EXP(X) * K-sub-XNU (X)  and
+C EXP(X) * K-sub-XNU+1 (X) for 0.0 .LE. XNU .LT. 1.0 .
+C
+C Series for C0K        on the interval  0.          to  2.50000E-01
+C                                        with weighted error   2.16E-32
+C                                         log weighted error  31.67
+C                               significant figures required  30.86
+C                                    decimal places required  32.40
+C
+C Series for ZNU1       on the interval -7.00000E-01 to  0.
+C                                        with weighted error   2.45E-33
+C                                         log weighted error  32.61
+C                               significant figures required  31.85
+C                                    decimal places required  33.26
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, DGAMMA, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C   900727  Added EXTERNAL statement.  (WRB)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  D9KNUS

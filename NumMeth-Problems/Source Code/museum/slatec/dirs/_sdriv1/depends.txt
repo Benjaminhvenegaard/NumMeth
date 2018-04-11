@@ -1,0 +1,33 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sdriv1
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+sdcor
+sdcst
+sdntl
+sdntp
+sdpsc
+sdpst
+sdriv3
+sdscl
+sdstp
+sdzro
+sgbfa
+sgbsl
+sgefa
+sgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+isamax
+j4save
+r1mach
+saxpy
+sdot
+snrm2
+sscal
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

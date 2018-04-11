@@ -1,0 +1,26 @@
+C***BEGIN PROLOGUE  C1MERG
+C***SUBSIDIARY
+C***PURPOSE  Merge two strings of complex numbers.  Each string is
+C            ascending by the real part.
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (S1MERG-S, D1MERG-D, C1MERG-C, I1MERG-I)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   This subroutine merges two ascending strings of numbers in the
+C   array TCOS.  The first string is of length M1 and starts at
+C   TCOS(I1+1).  The second string is of length M2 and starts at
+C   TCOS(I2+1).  The merged string goes into TCOS(I3+1).  The ordering
+C   is on the real part.
+C
+C***SEE ALSO  CMGNBN
+C***ROUTINES CALLED  CCOPY
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   910408  Modified to use IF-THEN-ELSE.  Make it look like MERGE
+C           which was modified earlier due to compiler problems on
+C           the IBM RS6000.  (RWC)
+C   920130  Code name changed from CMPMRG to C1MERG.  (WRB)
+C***END PROLOGUE  C1MERG

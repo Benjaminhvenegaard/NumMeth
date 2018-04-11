@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  PJAC
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DEBDF
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (PJAC-S, DPJAC-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C   PJAC sets up the iteration matrix (involving the Jacobian) for the
+C   integration package DEBDF.
+C
+C***SEE ALSO  DEBDF
+C***ROUTINES CALLED  SGBFA, SGEFA, VNWRMS
+C***COMMON BLOCKS    DEBDF1
+C***REVISION HISTORY  (YYMMDD)
+C   800901  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C   920422  Changed DIMENSION statement.  (WRB)
+C***END PROLOGUE  PJAC

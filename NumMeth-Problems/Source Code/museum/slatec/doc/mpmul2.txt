@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  MPMUL2
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPMUL2-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Multiplies 'mp' X by single-precision integer IY giving 'mp' Z.
+C  Multiplication by 1 may be used to normalize a number even if some
+C  digits are greater than B-1. Result is rounded if TRUNC.EQ.0,
+C  otherwise truncated.
+C
+C  The arguments X(*) and Z(*), and the variable R in COMMON are all
+C  INTEGER arrays of size 30.  See the comments in the routine MPBLAS
+C  for the reason for this choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  MPCHK, MPERR, MPNZR, MPOVFL, MPSTR
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPMUL2

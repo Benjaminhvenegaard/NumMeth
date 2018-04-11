@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  COMPB
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BLKTRI
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (COMPB-S, CCMPB-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     COMPB computes the roots of the B polynomials using subroutine
+C     TEVLS which is a modification the EISPACK program TQLRAT.
+C     IERROR is set to 4 if either TEVLS fails or if A(J+1)*C(J) is
+C     less than zero for some J.  AH,BH are temporary work arrays.
+C
+C***SEE ALSO  BLKTRI
+C***ROUTINES CALLED  INDXB, PPADD, R1MACH, TEVLS
+C***COMMON BLOCKS    CBLKT
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  COMPB

@@ -1,0 +1,588 @@
+
+   [CRC logo]
+   
+    PROCEDURES FROM A NUMERICAL LIBRARY IN C FOR SCIENTISTS AND ENGINEERS
+                                       
+by H.T. Lau (CRC Press, 1995)
+
+    see also Books of Related Interest from CRC Press
+    
+   
+   
+   
+   
+     _________________________________________________________________
+   
+   
+   
+0. Utility Procedures
+
+   allocate_real_vector
+   allocate_integer_vector
+   allocate_real_matrix
+   allocate_integer_matrix
+   system_error
+   free_real_vector
+   free_integer_vector
+   free_real_matrix
+   free_integer_matrix
+   
+1. Elementary Procedures
+
+   1.1 Real vector and matrix - Initialization
+   inivec
+   inimat
+   inimatd
+   inisymd
+   inisymrow
+   1.2 Real vector and matrix - Duplication
+   dupvec
+   dupvecrow
+   duprowvec
+   dupveccol
+   dupcolvec
+   dupmat
+   1.3 Real vector
+   mulvec
+   mulrow
+   mulcol
+   colcst
+   rowcst
+   1.4 Real vector vector products
+   vecvec
+   matvec
+   tamvec
+   matmat
+   tammat
+   mattam
+   seqvec
+   scaprd1
+   symmatvec
+   1.5 Real matrix vector products
+   fulmatvec
+   fultamvec
+   fulsymmatvec
+   resvec
+   symresvec
+   1.6 Real matrix products
+   hshvecmat
+   hshcolmat
+   hshrowmat
+   hshvectam
+   hshcoltam
+   hshrowtam
+   1.7 Real vector and matrix - Elimination
+   elmvec
+   elmcol
+   elmrow
+   elmveccol
+   elmcolvec
+   elmvecrow
+   elmrowvec
+   elmcolrow
+   elmrowcol
+   maxelmrow
+   1.8 Real vector and matrix - Interchanging
+   ichvec
+   ichcol
+   ichrow
+   ichrowcol
+   ichseqvec
+   ichseq
+   1.9 Real vector and matrix - Rotation
+   rotcol
+   rotrow
+   1.10 Real vector and matrix - Norms
+   infnrmvec
+   infnrmrow
+   infnrmcol
+   infnrmmat
+   onenrmvec
+   onenrmrow
+   onenrmcol
+   onenrmmat
+   absmaxmat
+   1.11 Real vector and matrix - Scaling
+   reascl
+   1.12 Complex vector and matrix - Multiplication
+   comcolcst
+   comrowcst
+   1.13 Complex vector and matrix - Scalar products
+   commatvec
+   hshcomcol
+   hshcomprd (Example)
+   1.14 Complex vector and matrix - Elimination
+   elmcomveccol
+   elmcomcol (Example)
+   elmcomrowvec
+   1.15 Complex vector and matrix - Rotation
+   rotcomcol (Example)
+   rotcomrow
+   cshsh2
+   1.16 Complex vector and matrix - Norms
+   comeucnrm
+   1.17 Complex vector and matrix - Scaling
+   comscl
+   sclcom
+   1.18 Complex monadic operations
+   comabs (Example)
+   comsqrt (Example)
+   carpol (Example)
+   1.19 Complex dyadic operations
+   commul (Example)
+   comdiv (Example)
+   1.20 Long integer arithmetic
+   lngintadd (Example)
+   lngintsubtract
+   lngintmult
+   lngintdivide (Example)
+   lngintpower
+   
+2. Algebraic Evaluations
+
+   2.1 Evaluation of polynomials in Grunert form
+   pol
+   taypol
+   norderpol
+   derpol (Example)
+   2.2 Evaluation of general orthogonal polynomials
+   ortpol
+   ortpolsym
+   allortpol (Example)
+   allortpolsym (Example)
+   sumortpol
+   sumortpolsym
+   2.3 Evaluation of Chebyshev polynomials
+   chepolsum (Example)
+   oddchepolsum (Example)
+   chepol
+   allchepol (Example)
+   2.4 Evaluation of Fourier series
+   sinser
+   cosser
+   fouser (Example)
+   fouser1
+   fouser2
+   comfouser
+   comfouser1
+   comfouser2
+   2.5 Evaluation of continued fractions
+   jfrac (Example)
+   2.6 Transformation of polynomial representation
+   polchs (Example)
+   chspol
+   polshtchs (Example)
+   shtchspol
+   grnnew (Example)
+   newgrn
+   lintfmpol (Example)
+   2.7 Operations on orthogonal polynomials
+   intchs (Example)
+   
+3. Linear Algebra
+
+   3.1 Full real general matrices
+   3.1.1 Preparatory procedures
+   dec
+   gsselm
+   onenrminv
+   erbelm
+   gsserb
+   gssnri
+   3.1.2 Calculation of determinant
+   determ (Example)
+   3.1.3 Solution of linear equations
+   sol (Example)
+   decsol (Example)
+   solelm
+   gsssol (Example)
+   gsssolerb (Example)
+   3.1.4 Matrix inversion
+   inv
+   decinv (Example)
+   inv1
+   gssinv (Example)
+   gssinverb (Example)
+   3.1.5 Iteratively improved solution
+   itisol
+   gssitisol (Example)
+   itisolerb
+   gssitisolerb (Example)
+   3.2 Real Symmetric positive definite matrices
+   3.2.1 Preparatory procedures
+   chldec2 (Example)
+   chldec1 (Example)
+   3.2.2 Calculation of determinant
+   chldeterm2
+   chldeterm1
+   3.2.3 Solution of linear equations
+   chlsol2
+   chlsol1
+   chldecsol2 (Example)
+   chldecsol1 (Example)
+   3.2.4 Matrix inversion
+   chlinv2
+   chlinv1
+   chldecinv2 (Example)
+   chldecinv1 (Example)
+   3.3 General real symmetric matrices
+   3.3.1 Preparatory procedure
+   decsym2
+   3.3.2 Calculation of determinant
+   determsym2 (Example)
+   3.3.3 Solution of linear equations
+   solsym2
+   decsolsym2
+   3.4 Real full rank overdetermined systems
+   3.4.1 Preparatory procedures
+   lsqortdec (Example)
+   lsqdglinv
+   3.4.2 Least squares solution
+   lsqsol
+   lsqortdecsol (Example)
+   3.4.3 Inverse matrix of normal equations
+   lsqinv (Example)
+   3.4.4 Least squares with linear constraints
+   lsqdecomp (Example)
+   lsqrefsol
+   3.5 Other real matrix problems
+   3.5.1 Solution of overdetermined systems
+   solsvdund
+   solund (Example)
+   3.5.3 Solutions of homogeneous equation
+   homsolsvd
+   homsol (Example)
+   3.5.4 Pseudo-inversion
+   psdinvsvd
+   psdinv (Example)
+   3.6 Real sparse non-symmetric band matrices
+   3.6.1 Preparatory procedure
+   decbnd
+   3.6.2 Calculation of determinant
+   determbnd
+   3.6.3 Solution of linear equations
+   solbnd (Example)
+   decsolbnd (Example)
+   3.7 Real sparse non-symmetric tridiagonal matrices
+   3.7.1 Preparatory procedures
+   dectri
+   dectripiv
+   3.7.2 Solution of linear equations
+   soltri
+   decsoltri (Example)
+   soltripiv (Example)
+   decsoltripiv (Example)
+   3.8 Sparse symmetric positive definite band matrices
+   3.8.1 Preparatory procedure
+   chldecbnd
+   3.8.2 Calculation of determinant
+   chldetermbnd
+   3.8.3 Solution of linear equations
+   chlsolbnd (Example)
+   chldecsolbnd (Example)
+   3.9 Symmetric positive definite tridiagonal matrices
+   3.9.1 Preparatory procedure
+   decsymtri
+   3.9.2 Solution of linear equations
+   solsymtri
+   decsolsymtri
+   3.10 Sparse real matrices - Iterative methods
+   conjgrad (Example)
+   3.11 Similarity transformation
+   3.11.1 Equilibration - real matrices
+   eqilbr
+   baklbr
+   3.11.2 Equilibration - complex matrices
+   eqilbrcom (Example)
+   baklbrcom
+   3.11.3 To Hessenberg form - real symmetric
+   tfmsymtri2
+   baksymtri2
+   tfmprevec
+   tfmsymtri1
+   baksymtri1
+   3.11.4 To Hessenberg form - real asymmetric
+   tfmreahes
+   bakreahes1
+   bakreahes2
+   3.11.5 To Hessenberg form - complex Hermitian
+   hshhrmtri (Example)
+   hshhrmtrival (Example)
+   bakhrmtri
+   3.11.6 To hessenberg form - complex non-Hermitian
+   hshcomhes
+   bakcomhes
+   3.12 Other transformations
+   3.12.1 To bidiagonal form - real matrices
+   hshreabid
+   psttfmmat
+   pretfmmat
+   3.13 The (ordinary) eigenvalue problem
+   3.13.1 Real symmetric tridiagonal matrices
+   valsymtri (Example)
+   vecsymtri
+   qrivalsymtri
+   qrisymtri
+   3.13.2 Real symmetric full matrices
+   eigvalsym2 (Example)
+   eigsym2
+   eigvalsym1
+   eigsym1 (Example)
+   qrivalsym2
+   qrisym
+   qrivalsym1
+   3.13.3 Symmetric matrices - Auxiliary procedures
+   mergesort
+   vecperm
+   rowperm
+   3.13.4 Symmetric matrices - Orthogonalization
+   orthog
+   3.13.5 Symmetric matrices - Iterative improvement
+   symeigimp (Example)
+   3.13.6 Asymmetric matrices in Hessenberg form
+   reavalqri
+   reaceches
+   reaqri
+   comvalqri (Example)
+   comveches
+   3.13.7 Real asymmetric full matrices
+   reaeigval
+   reaeig1
+   reaeig3 (Example)
+   comeigval (Example)
+   comeig1
+   3.13.8 Complex Hermitian matrices
+   eigvalhrm
+   eighrm (Example)
+   qrivalhrm
+   qrihrm (Example)
+   3.13.9 Complex upper-Hessenberg matrices
+   valqricom (Example)
+   qricom (Example)
+   3.13.10 Complex full matrices
+   eigvalcom
+   eigcom (Example)
+   3.14 The generalized eigenvalue problem
+   3.14.1 Real asymmetric matrices
+   qzival (Example)
+   qzi (Example)
+   hshdecmul
+   hestgl3
+   hestgl2
+   hsh2col
+   hsh3col
+   hsh2row3
+   hsh2row2
+   hsh3row3
+   hsh3row2
+   3.15 Singular values
+   3.15.1 Real bidiagonal matrices
+   qrisngvalbid
+   qrisngvaldecbid (Example)
+   3.15.2 Real full matrices
+   qrisngval
+   qrisngvaldec
+   3.16 Zeros of polynomials
+   3.16.1 Zeros of general real polynomials
+   zerpol (Example)
+   bounds
+   3.16.2 Zeros of orthogonal polynomials
+   allzerortpol
+   lupzerortpol (Example)
+   selzerortpol (Example)
+   alljaczer (Example)
+   alllagzer (Example)
+   3.16.3 Zeros of complex polynomials
+   comkwd (Example)
+   
+4. Analytic Evaluations
+
+   4.1 Evaluation of an infinite series
+   euler (Example)
+   sumposseries (Example)
+   4.2 Quadrature
+   4.2.1 One-dimensional quadrature
+   qadrat (Example)
+   integral (Example)
+   4.2.2 Multidimensional quadrature
+   tricub (Example)
+   4.2.3 Gaussian quadrature - General weights
+   reccof (Example)
+   gsswts
+   gsswtssym (Example)
+   4.2.4 Gaussian quadrature - Special weights
+   gssjacwghts (Example)
+   gsslagwghts (Example)
+   4.3 Numerical differentiation
+   4.3.1 Calculation with difference formulas
+   jacobnnf (Example)
+   jacobnmf (Example)
+   jacobnbndf (Example)
+   
+5. Analytic Problems
+
+   5.1 Non-linear equations
+   5.1.1 Single equation - No derivative available
+   zeroin (Example)
+   zeroinrat (Example)
+   5.1.2 Single equation - Derivative available
+   zeroinder (Example)
+   5.1.3 System of equations - No Jacobian matrix
+   quanewbnd
+   quanewbnd1 (Example)
+   5.2 Unconstrained optimization
+   5.2.1 One variable - No derivative
+   minin (Example)
+   5.2.3 One variable - Derivative available
+   mininder (Example)
+   5.2.4 More variable - Auxiliary procedures
+   linemin
+   rnk1upd
+   davupd
+   fleupd
+   5.2.5 More variables - No derivatives
+   praxis (Example)
+   5.2.6 More variables - Gradient available
+   rnk1min (Example)
+   flemin
+   5.3 Overdetermined nonlinear systems
+   5.3.1 Least squares - With Jacobian matrix
+   marquardt (Example)
+   gssnewton (Example)
+   5.4 Differential equations - Initial value problems
+   5.4.1 First order - No derivatives right hand side
+   rk1 (Example)
+   rke (Example)
+   rk4a (Example)
+   rk4na (Example)
+   rk5na (Example)
+   multistep (Example)
+   diffsys (Example)
+   ark (Example)
+   efrk (Example)
+   5.4.2 First Order - Jacobian matrix available
+   efsirk (Example)
+   eferk (Example)
+   liniger1vs (Example)
+   liniger2 (Example)
+   gms (Example)
+   impex (Example)
+   5.4.3 First Order - Several derivatives available
+   modifiedtaylor (Example)
+   eft (Example)
+   5.4.4 Second order - No derivatives right hand side
+   rk2 (Example)
+   rk2n (Example)
+   rk3 (Example)
+   rk3n (Example)
+   5.4.5 Initial boundary value problem
+   arkmat (Example)
+   5.5 Two point boundary value problems
+   5.5.1 Linear methods - Second order self adjoint
+   femlagsym (Example)
+   femlag (Example)
+   femlagspher (Example)
+   5.5.2 Linear methods - Second order skew adjoint
+   femlagskew (Example)
+   5.5.3 Linear methods - Fourth order self adjoint
+   femhermsym (Example)
+   5.5.4 Non-linear methods
+   nonlinfemlagskew (Example)
+   5.6 Two-dimensional boundary value problems
+   5.6.1 Elliptic special linear systems
+   richardson (Example)
+   elimination (Example)
+   5.6 Parameter estimation in differential equations
+   5.6.1 Initial value problems
+   peide (Example)
+   
+6. Special Functions
+
+   6.1 Elementary functions
+   6.1.1 Hyperbolic functions
+   arcsinh (Example)
+   arccosh (Example)
+   arctanh (Example)
+   6.1.2 Logarithmic functions
+   logoneplusx (Example)
+   6.2 Exponential integral
+   6.2.1 Exponential integral
+   ei (Example)
+   eialpha (Example)
+   enx (Example)
+   nonexpenx
+   6.2.2 Sine and cosine integral
+   sincosint
+   sincosfg (Example)
+   6.3 Gamma function
+   recipgamma (Example)
+   gamma (Example)
+   loggamma (Example)
+   incomgam (Example)
+   incbeta (Example)
+   ibpplusn (Example)
+   ibqplusn (Example)
+   ixqfix
+   ixpfix
+   forward
+   backward
+   6.4 Error function
+   errorfunction (Example)
+   nonexperfc
+   inverseerrorfunction (Example)
+   fresnel (Example)
+   fg
+   6.5 Bessel functions of integer order
+   6.5.1 Besel functions J and Y
+   bessj0 (Example)
+   bessj1 (Example)
+   bessj (Example)
+   bessy01 (Example)
+   bessy (Example)
+   besspq0 (Example)
+   besspq1
+   6.5.2 Bessel functions I and K
+   bessi0 (Example)
+   bessi1 (Example)
+   bessi (Example)
+   bessk01 (Example)
+   bessk (Example)
+   nonexpbessi0 (Example)
+   nonexpbessi1 (Example)
+   nonexpbessi (Example)
+   nonexpbessk01 (Example)
+   nonexpbessk (Example)
+   6.6 Bessel functions of real order
+   6.6.1 Bessel functions J and Y
+   bessjaplusn (Example)
+   bessya01 (Example)
+   bessyaplusn (Example)
+   besspqa01 (Example)
+   besszeros (Example)
+   start
+   6.6.2 Bessel functions I and K
+   bessiaplusn (Example)
+   besska01 (Example)
+   besskaplusn (Example)
+   nonexpbessiaplusn (Example)
+   nonexpbesska01
+   nonexpbesskaplusn (Example)
+   6.6.3 Spherical Bessel functions
+   spherbessj (Example)
+   spherbessy (Example)
+   spherbessk (Example)
+   nonexpspherbessi
+   nonexpspherbessk
+   6.6.4 Airy functions
+   airy (Example)
+   airyzeros (Example)
+   
+7. Interpolation and Approximation
+
+   7.1 Real data in one dimension
+   7.1.1 Interpolation with general polynomials
+   newton (Example)
+   7.1.2 Approximation in infinity norm
+   ini (Example)
+   sndremez (Example)
+   minmaxpol (Example)

@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  R9AIMP
+C***SUBSIDIARY
+C***PURPOSE  Evaluate the Airy modulus and phase.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10D
+C***TYPE      SINGLE PRECISION (R9AIMP-S, D9AIMP-D)
+C***KEYWORDS  AIRY FUNCTION, FNLIB, MODULUS, PHASE, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C Evaluate the Airy modulus and phase for X .LE. -1.0
+C
+C Series for AM21       on the interval -1.25000D-01 to  0.
+C                                        with weighted error   2.89E-17
+C                                         log weighted error  16.54
+C                               significant figures required  14.15
+C                                    decimal places required  17.34
+C
+C Series for ATH1       on the interval -1.25000D-01 to  0.
+C                                        with weighted error   2.53E-17
+C                                         log weighted error  16.60
+C                               significant figures required  15.15
+C                                    decimal places required  17.38
+C
+C Series for AM22       on the interval -1.00000D+00 to -1.25000D-01
+C                                        with weighted error   2.99E-17
+C                                         log weighted error  16.52
+C                               significant figures required  14.57
+C                                    decimal places required  17.28
+C
+C Series for ATH2       on the interval -1.00000D+00 to -1.25000D-01
+C                                        with weighted error   2.57E-17
+C                                         log weighted error  16.59
+C                               significant figures required  15.07
+C                                    decimal places required  17.34
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  CSEVL, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890206  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900720  Routine changed from user-callable to subsidiary.  (WRB)
+C***END PROLOGUE  R9AIMP

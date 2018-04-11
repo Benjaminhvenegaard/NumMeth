@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zs1s2
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+zexp
+zlog
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+zabs
+---END OF DEPENDENCIES---

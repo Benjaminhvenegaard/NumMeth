@@ -1,0 +1,27 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsiccg
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dcg
+dchkw
+dllti2
+ds2y
+dsics
+dsllti
+dsmv
+isdcg
+qs2i1d
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+daxpy
+dcopy
+ddot
+dnrm2
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

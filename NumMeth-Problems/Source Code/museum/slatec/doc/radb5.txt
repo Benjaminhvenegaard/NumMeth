@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  RADB5
+C***SUBSIDIARY
+C***PURPOSE  Calculate the fast Fourier transform of subvectors of
+C            length five.
+C***LIBRARY   SLATEC (FFTPACK)
+C***TYPE      SINGLE PRECISION (RADB5-S)
+C***AUTHOR  Swarztrauber, P. N., (NCAR)
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   830401  Modified to use SLATEC library source file format.
+C   860115  Modified by Ron Boisvert to adhere to Fortran 77 by
+C           (a) changing dummy array size declarations (1) to (*),
+C           (b) changing definition of variables PI, TI11, TI12,
+C               TR11, TR12 by using FORTRAN intrinsic functions ATAN
+C               and SIN instead of DATA statements.
+C   881128  Modified by Dick Valent to meet prologue standards.
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  RADB5

@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  CDNTP
+C***SUBSIDIARY
+C***PURPOSE  Subroutine CDNTP interpolates the K-th derivative of Y at
+C            TOUT, using the data in the YH array.  If K has a value
+C            greater than NQ, the NQ-th derivative is calculated.
+C***LIBRARY   SLATEC (SDRIVE)
+C***TYPE      COMPLEX (SDNTP-S, DDNTP-D, CDNTP-C)
+C***AUTHOR  Kahaner, D. K., (NIST)
+C             National Institute of Standards and Technology
+C             Gaithersburg, MD  20899
+C           Sutherland, C. D., (LANL)
+C             Mail Stop D466
+C             Los Alamos National Laboratory
+C             Los Alamos, NM  87545
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   790601  DATE WRITTEN
+C   900329  Initial submission to SLATEC.
+C***END PROLOGUE  CDNTP

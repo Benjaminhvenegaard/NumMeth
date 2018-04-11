@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  SPELIP
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SEPELI
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SPELIP-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     SPELIP sets up vectors and arrays for input to BLKTRI
+C     and computes a second order solution in USOL.  A return jump to
+C     SEPELI occurs if IORDER=2.  If IORDER=4 a fourth order
+C     solution is generated in USOL.
+C
+C***SEE ALSO  SEPELI
+C***ROUTINES CALLED  BLKTRI, CHKSNG, DEFER, MINSOL, ORTHOG, TRISP
+C***COMMON BLOCKS    SPLPCM
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  SPELIP

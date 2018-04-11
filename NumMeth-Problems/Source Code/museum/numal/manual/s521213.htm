@@ -1,0 +1,221 @@
+<html><head><title>NUMAL 5.2.1.2.1.3</title></head>
+<body><h1>NUMAL Section 5.2.1.2.1.3</h1>
+<pre>
+BEGIN SECTION : 5.2.1.2.1.3 (December, 1979)
+
+AUTHOR: M. BAKKER.
+
+INSTITUTE: MATHEMATICAL CENTRE, AMSTERDAM.
+
+RECEIVED: 791231.
+
+BRIEF DESCRIPTION:
+
+    THE PROCEDURE NONLIN FEMLAGSKEW SOLVES A NONLINEAR TWO POINT
+    BOUNDARY VALUE PROBLEM WITH SPHERICAL COORDINATES.
+    IT SOLVES THE DIFFERENTIAL EQUATION
+
+        (X**NC*Y')'/X**NC = F(X, Y, Y'), A &lt; X &lt; B,
+
+      WITH BOUNDARY CONDITIONS
+
+          E[1]*Y(A) + E[2]*Y'(A) = E[3],
+
+          E[4]*Y(B) + E[5]*Y'(B) = E[6].
+
+KEY WORDS AND PHRASES:
+
+    SECOND ORDER DIFFERENTIAL EQUATIONS,
+    TWO POINT BOUNDARY VALUE PROBLEMS,
+    BOUNDARY VALUE PROBLEMS,
+    RITZ-GALERKIN METHOD,
+    SPHERICAL COORDINATES,
+    GLOBAL METHODS.
+
+REFERENCES:
+
+    [1]  STRANG, G. AND G.J. FIX,
+         AN ANALYSIS OF THE FINITE ELEMENT METHOD,
+         PRENTICE-HALL, ENGLEWOOD CLIFFS, NEW JERSEY, 1973.
+
+    [2]  BAKKER, M., EDITOR,
+         COLLOQUIUM ON DISCRETIZATION METHODS, CHAPTER 3 (DUTCH),
+         MATHEMATISCH CENTRUM, MC-SYLLABUS 27, 1976.
+
+    [3]  BABUSKA, I.,
+         NUMERICAL STABILITY IN PROBLEMS OF LINEAR ALGEBRA,
+         S.I.A.M.  J. NUM. ANAL., VOL.9, P. 53-77 (1972).
+
+    [4]  BAKKER, M.,
+         GALERKIN METHODS IN SPHERICAL REGIONS, TO APPEAR.
+
+<a name="NONLINFEMLAGSKEW"></a>
+SUBSECTION: NONLIN FEM LAG SKEW.
+
+CALLING SEQUENCE:
+
+    THE HEADING OF THE PROCEDURE READS:
+
+    "PROCEDURE" NONLIN FEM LAG SKEW(X, Y, N, F, FY, FZ, NC, E);
+    "INTEGER" N, NC;
+    "REAL" "PROCEDURE" F, FY, FZ;
+    "ARRAY" X, Y, E;
+    "CODE" 33314;
+
+    THE MEANING OF THE FORMAL PARAMETERS IS:
+
+    N:  &lt;ARITHMETIC EXPRESSION&gt;;
+        THE UPPER BOUND OF THE ARRAYS X AND Y; N &gt; 1;
+
+    NC:   &lt;EXPRESSION&gt;;
+         IF NC = 0, CARTESIAN COORDINATES ARE USED;
+         IF NC = 1, POLAR COORDINATES ARE USED;
+         IF NC = 2, SPHERICAL COORDINATES ARE USED;
+
+    X:  &lt;ARRAY IDENTIFIER&gt;;
+        "ARRAY" X[0:N];
+        ENTRY: A = X[0] &lt; X[1] &lt; ... &lt; X[N] = B IS  A
+        PARTITION OF THE SEGMENT [A,B];
+
+    Y:  &lt;ARRAY IDENTIFIER&gt;;
+        "ARRAY" Y[0:N];
+        ENTRY: Y[I] (I = 0, 1, ... , N) IS AN INITIAL APPROXIMATE
+        SOLUTION AT X[I] OF THE DIFFERENTIAL EQUATION
+
+        (3)  (Y'*X**NC)'/X**NC = F(X,Y,Y')    , A &lt; X &lt; B,
+
+        WITH BOUNDARY CONDITIONS
+
+        (4)    E[1]*Y(A) + E[2]*Y'(A) = E[3],
+               E[4]*Y(B) + E[5]*Y'(B) = E[6];
+
+        EXIT: Y[I] (I = 0, 1, ... , N) IS THE GALERKIN
+        SOLUTION AT X[I] OF THE (3)-(4);
+
+    F:  &lt;PROCEDURE IDENTIFIER&gt;;
+        THE HEADING OF F READS:
+        "REAL" "PROCEDURE" F(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        F(X,Y,Z) IS THE RIGHT HAND SIDE OF (3);
+
+    FY:  &lt;PROCEDURE IDENTIFIER&gt;;
+        THE HEADING OF FY READS:
+        "REAL" "PROCEDURE" FY(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        FY(X,Y,Z) IS THE DERIVATIVE OF F WITH RESPECT TO Y;
+
+    FZ:  &lt;PROCEDURE IDENTIFIER&gt;;
+        THE HEADING OF FZ READS:
+        "REAL" "PROCEDURE" FZ(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        FZ(X,Y,Z) IS THE DERIVATIVE OF F WITH RESPECT TO Z;
+
+    E:  &lt;ARRAY IDENTIFIER&gt;;
+        "ARRAY" E[1:6];
+        E[1], ... , E[6] DESCRIBE THE BOUNDARY CONDITIONS (4);
+        E[1] AND E[4] ARE NOT ALLOWED TO VANISH BOTH.
+
+PROCEDURES USED: DUPVEC CP 31030.
+
+REQUIRED CENTRAL MEMORY:
+
+    FIVE AUXILIARY ARRAYS OF N REALS ARE USED.
+
+RUNNING TIME:
+
+    LET IT BE THE NUMBER OF NEWTON ITERATIONS; THEN
+    IT*N  EVALUATIONS OF F, FY, FZ ARE NEEDED;
+
+DATA AND RESULTS:
+
+    THE FUNCTIONS F, FY AND FZ ARE REQUIRED TO BE SUFFICIENTLY
+    SMOOTH IN THEIR VARIABLES ON THE INTERIOR OF EVERY SEGMENT
+    &lt;X[I],X[I+1]&gt; (I = 0, ..., N - 1);
+
+METHOD AND PERFORMANCE:
+
+    LET Y[0](X) BE SOME INITIAL APPROXIMATION OF Y(X); THEN
+    THE NONLINEAR PROBLEM IS SOLVED BY SUCCESIVELY SOLVING
+
+       - (D[K]'*X**NC)'/X**NC
+
+       + FY(X,Y[K](X),Y[K]'(X))*D[K](X)
+
+       + FZ(X,Y[K](X),Y[K]'(X))*D[K]'(X)
+
+     =   (Y[K]'*X**NC)'/X**NC
+
+       - F(X,Y[K],Y[K]'(X)), X[0] &lt; X &lt; X[N],
+
+       E[1]*D[K](X[0]) + E[2]*D[K]'(X[0]) = 0;
+
+       E[4]*D[K](X[N]) + E[5]*D[K]'(X[N]) = 0;
+
+    WITH GALERKIN'S METHOD (SEE PREVIOUS SECTION) AND PUTTING
+
+       Y[K+1](X) = Y[K](X) + D[K](X), K = 0,1,...
+
+    THIS IS THE SO-CALLED NEWTON-KANTOROWITCH METHOD;
+
+EXAMPLE OF USE:
+
+    WE SOLVE THE BOUNDARY VALUE PROBLEM
+
+        (Y'*X**2)'/X**2 = EXP(Y)+EXP(Y')-EXP(1-X**2)-EXP(2*X)-6;
+        0 &lt; X &lt; 1, Y'(0) = Y(1) = 0;
+
+    FOR THE BOUNDARY CONDITIONS THIS MEANS THAT
+
+        E[2] = E[4] = 1; E[1] = E[3] = E[5] = E[6] = 0;
+
+    THE ANALYTIC SOLUTION IS Y(X) = 1 - X**2; WE APPROXIMATE
+    THE SOLUTION ON A UNIFORM GRID, I.E. X[I] = I/N,
+    I = 0, ..., N; WE CHOOSE N=10,20 AND COMPUTE THE MAXIMUM ERROR;
+    THE PROGRAM READS AS FOLLOWS:
+
+    "BEGIN" "INTEGER" N, NC;
+    "FOR" NC:= 0,1,2 "DO"
+    "FOR" N:= 25, 50 "DO"
+    "BEGIN" "INTEGER" I;"ARRAY" X, Y[0:N], E[1:6]; "REAL" RHO, D;
+
+        "REAL" "PROCEDURE" F(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        F:= EXP(Y)+EXP(Z)-EXP(1-X**2)-EXP(-2*X)-2-2*NC;
+
+        "REAL" "PROCEDURE" FY(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        FY:= EXP(Y);
+
+        "REAL" "PROCEDURE" FZ(X,Y,Z); "VALUE" X,Y,Z; "REAL" X,Y,Z;
+        FZ:= EXP(Z);
+
+        E[2]:= E[4]:= 1; E[1]:= E[3]:= E[5]:= E[6]:= 0;
+        "FOR" I:= 0 "STEP" 1 "UNTIL" N "DO"
+        "BEGIN" X[I]:= I/N; Y[I]: = 0 "END";
+        OUTPUT(61,"("//,4B"("N = ")"ZD,4B"("NC = ")"ZD")",N,NC);
+        NONLIN FEM LAG SKEW(X, Y, N, F, FY, FZ, NC, E);
+        RHO:= 0;
+        "FOR" I:= 0 "STEP" 1 "UNTIL" N "DO"
+        "BEGIN" D:= ABS(Y[I] - 1 + X[I]**2);
+            "IF" RHO &lt; D "THEN" RHO:= D
+        "END";
+        OUTPUT(61,"("24B"("MAX.ERROR= ")",D.DD"+ZD")",RHO)
+    "END"
+    "END"
+
+    RESULTS:
+
+    N = 25    NC =  0                        MAX.ERROR= 2.47" -4
+
+    N = 50    NC =  0                        MAX.ERROR= 6.19" -5
+
+    N = 25    NC =  1                        MAX.ERROR= 1.41" -3
+
+    N = 50    NC =  1                        MAX.ERROR= 3.99" -4
+
+    N = 25    NC =  2                        MAX.ERROR= 2.44" -3
+
+    N = 50    NC =  2                        MAX.ERROR= 7.02" -4
+
+    ONE OBSERVES THAT THE MAXIMUM ERROR DECREASES BY ABOUT
+    0.25 WHEN THE MESH SIZE IS HALVED.
+
+SOURCE TEXT(S):
+<a href="../code/c33314.txt">"CODE" 33314;</a>
+
+</pre></body></html>

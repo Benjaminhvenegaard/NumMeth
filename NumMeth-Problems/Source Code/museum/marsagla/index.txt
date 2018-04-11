@@ -1,0 +1,69 @@
+
+    Selected Files From
+    
+                       THE MARSAGLIA RANDOM NUMBER CDROM
+                                       
+  including the
+  
+                    DIEHARD BATTERY OF TESTS OF RANDOMNESS
+                                       
+   
+     _________________________________________________________________
+   
+   The files in this directory are included by kind permission of
+   Professor George Marsaglia (geo@stat.fsu.edu). Copyright (C) 1995 by
+   George Marsaglia. All rights reserved.
+     _________________________________________________________________
+   
+   
+   
+   Professor Marsaglia's CDROM, based on research supported by the
+   National Science Foundation under grants DMS-8807976 and DMS-9206972,
+   contains approximately 600 Mbytes of files of random bytes that pass
+   all known tests for randomness. Those files are not included on this
+   CDROM. Here is the top level readme file from Marsaglia's full CDROM.
+   
+   The files included on this CDROM relate to Marsaglia's rightly famous,
+   if whimsically named, "Diehard battery of tests of randomness". These
+   have come be viewed as something of an industry standard for testing
+   random number generators. Over the years, several generators thought
+   to be good have been shown to be inadequate by these tests.
+   
+   Here is a directory of source files for the Diehard tests. The
+   principal program needed is diehard.c. Note that this is a C program
+   automatically translated from the original Fortran by the program
+   "f2c" (included elsewhere on this CDROM. To compile Diehard
+   successfully, you will need to compile and build both of the f2c
+   libraries, and then compile with a command line like
+   
+   cc -o diehard diehard.c -lf2c -lm
+   
+   For further information, look at the readme file. (Sorry, neither we,
+   nor Professor Marsaglia, can provide any support on this. We've
+   succeeded in doing it, so we know it can be done.)
+   
+   Much easier than recompiling is to use one of the precompiled versions
+   of the executable files that are supplied for the following machine
+   types:
+     * DOS
+     * Sun
+     * LINUX
+     * DEC Alpha AXP
+       
+   Also included from Marsaglia's CDROM are four PostScript files that
+   contain information on the CDROM itself, and additional information on
+   random number generators.
+   
+   A word of caution about the files canada.bit, germany.bit, and
+   calif.bit, included in this directory. As Marsaglia explains, these
+   files do not pass all tests for randomness, but are included for their
+   usefulness in demonstrating Diehard, or in assessing other routines
+   for finding nonrandomness.
+   
+   
+     _________________________________________________________________
+   
+   Please note that Professor Marsaglia is in no way responsible for the
+   files of random bytes that are included elsewhere on this CDROM. Those
+   files in fact do pass the Diehard tests, but they are the result of an
+   independent effort, not related to the Marsaglia CDROM.

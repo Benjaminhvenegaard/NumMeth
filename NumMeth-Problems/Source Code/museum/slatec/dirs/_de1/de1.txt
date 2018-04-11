@@ -1,0 +1,79 @@
+C***BEGIN PROLOGUE  DE1
+C***PURPOSE  Compute the exponential integral E1(X).
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C5
+C***TYPE      DOUBLE PRECISION (E1-S, DE1-D)
+C***KEYWORDS  E1 FUNCTION, EXPONENTIAL INTEGRAL, FNLIB,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DE1 calculates the double precision exponential integral, E1(X), for
+C positive double precision argument X and the Cauchy principal value
+C for negative X.  If principal values are used everywhere, then, for
+C all X,
+C
+C    E1(X) = -Ei(-X)
+C or
+C    Ei(X) = -E1(-X).
+C
+C
+C Series for AE10       on the interval -3.12500E-02 to  0.
+C                                        with weighted error   4.62E-32
+C                                         log weighted error  31.34
+C                               significant figures required  29.70
+C                                    decimal places required  32.18
+C
+C
+C Series for AE11       on the interval -1.25000E-01 to -3.12500E-02
+C                                        with weighted error   2.22E-32
+C                                         log weighted error  31.65
+C                               significant figures required  30.75
+C                                    decimal places required  32.54
+C
+C
+C Series for AE12       on the interval -2.50000E-01 to -1.25000E-01
+C                                        with weighted error   5.19E-32
+C                                         log weighted error  31.28
+C                               significant figures required  30.82
+C                                    decimal places required  32.09
+C
+C
+C Series for E11        on the interval -4.00000E+00 to -1.00000E+00
+C                                        with weighted error   8.49E-34
+C                                         log weighted error  33.07
+C                               significant figures required  34.13
+C                                    decimal places required  33.80
+C
+C
+C Series for E12        on the interval -1.00000E+00 to  1.00000E+00
+C                                        with weighted error   8.08E-33
+C                                         log weighted error  32.09
+C                        approx significant figures required  30.4
+C                                    decimal places required  32.79
+C
+C
+C Series for AE13       on the interval  2.50000E-01 to  1.00000E+00
+C                                        with weighted error   6.65E-32
+C                                         log weighted error  31.18
+C                               significant figures required  30.69
+C                                    decimal places required  32.03
+C
+C
+C Series for AE14       on the interval  0.          to  2.50000E-01
+C                                        with weighted error   5.07E-32
+C                                         log weighted error  31.30
+C                               significant figures required  30.40
+C                                    decimal places required  32.20
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891115  Modified prologue description.  (WRB)
+C   891115  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  DE1

@@ -1,0 +1,91 @@
+C***BEGIN PROLOGUE  MINFIT
+C***PURPOSE  Compute the singular value decomposition of a rectangular
+C            matrix and solve the related linear least squares problem.
+C***LIBRARY   SLATEC (EISPACK)
+C***CATEGORY  D9
+C***TYPE      SINGLE PRECISION (MINFIT-S)
+C***KEYWORDS  EIGENVALUES, EIGENVECTORS, EISPACK
+C***AUTHOR  Smith, B. T., et al.
+C***DESCRIPTION
+C
+C     This subroutine is a translation of the ALGOL procedure MINFIT,
+C     NUM. MATH. 14, 403-420(1970) by Golub and Reinsch.
+C     HANDBOOK FOR AUTO. COMP., VOL II-LINEAR ALGEBRA, 134-151(1971).
+C
+C     This subroutine determines, towards the solution of the linear
+C                                                        T
+C     system AX=B, the singular value decomposition A=USV  of a real
+C                                         T
+C     M by N rectangular matrix, forming U B rather than U.  Householder
+C     bidiagonalization and a variant of the QR algorithm are used.
+C
+C     On INPUT
+C
+C        NM must be set to the row dimension of the two-dimensional
+C          array parameters, A and B, as declared in the calling
+C          program dimension statement.  Note that NM must be at least
+C          as large as the maximum of M and N.  NM is an INTEGER
+C          variable.
+C
+C        M is the number of rows of A and B.  M is an INTEGER variable.
+C
+C        N is the number of columns of A and the order of V.  N is an
+C          INTEGER variable.
+C
+C        A contains the rectangular coefficient matrix of the system.
+C          A is a two-dimensional REAL array, dimensioned A(NM,N).
+C
+C        IP is the number of columns of B.  IP can be zero.
+C
+C        B contains the constant column matrix of the system if IP is
+C          not zero.  Otherwise, B is not referenced.  B is a two-
+C          dimensional REAL array, dimensioned B(NM,IP).
+C
+C     On OUTPUT
+C
+C        A has been overwritten by the matrix V (orthogonal) of the
+C          decomposition in its first N rows and columns.  If an
+C          error exit is made, the columns of V corresponding to
+C          indices of correct singular values should be correct.
+C
+C        W contains the N (non-negative) singular values of A (the
+C          diagonal elements of S).  They are unordered.  If an
+C          error exit is made, the singular values should be correct
+C          for indices IERR+1, IERR+2, ..., N.  W is a one-dimensional
+C          REAL array, dimensioned W(N).
+C
+C                                   T
+C        B has been overwritten by U B.  If an error exit is made,
+C                       T
+C          the rows of U B corresponding to indices of correct singular
+C          values should be correct.
+C
+C        IERR is an INTEGER flag set to
+C          Zero       for normal return,
+C          K          if the K-th singular value has not been
+C                     determined after 30 iterations.
+C                     The singular values should be correct for
+C                     indices IERR+1, IERR+2, ..., N.
+C
+C        RV1 is a one-dimensional REAL array used for temporary storage,
+C          dimensioned RV1(N).
+C
+C     Calls PYTHAG(A,B) for sqrt(A**2 + B**2).
+C
+C     Questions and comments should be directed to B. S. Garbow,
+C     APPLIED MATHEMATICS DIVISION, ARGONNE NATIONAL LABORATORY
+C     ------------------------------------------------------------------
+C
+C***REFERENCES  B. T. Smith, J. M. Boyle, J. J. Dongarra, B. S. Garbow,
+C                 Y. Ikebe, V. C. Klema and C. B. Moler, Matrix Eigen-
+C                 system Routines - EISPACK Guide, Springer-Verlag,
+C                 1976.
+C***ROUTINES CALLED  PYTHAG
+C***REVISION HISTORY  (YYMMDD)
+C   760101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  MINFIT

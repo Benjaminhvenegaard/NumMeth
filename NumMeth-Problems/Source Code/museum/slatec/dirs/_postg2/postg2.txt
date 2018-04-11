@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  POSTG2
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to POISTG
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (POSTG2-S)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve Poisson's equation on a staggered grid.
+C
+C***SEE ALSO  POISTG
+C***ROUTINES CALLED  COSGEN, S1MERG, TRI3, TRIX
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   920130  Modified to use merge routine S1MERG rather than deleted
+C           routine MERGE.  (WRB)
+C***END PROLOGUE  POSTG2

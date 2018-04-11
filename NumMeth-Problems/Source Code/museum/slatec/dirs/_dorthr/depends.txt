@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dorthr
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dcscal
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+ddot
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

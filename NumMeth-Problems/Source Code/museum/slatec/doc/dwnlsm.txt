@@ -1,0 +1,68 @@
+C***BEGIN PROLOGUE  DWNLSM
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DWNNLS
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (WNLSM-S, DWNLSM-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C           Haskell, K. H., (SNLA)
+C***DESCRIPTION
+C
+C     This is a companion subprogram to DWNNLS.
+C     The documentation for DWNNLS has complete usage instructions.
+C
+C     In addition to the parameters discussed in the prologue to
+C     subroutine DWNNLS, the following work arrays are used in
+C     subroutine DWNLSM  (they are passed through the calling
+C     sequence from DWNNLS for purposes of variable dimensioning).
+C     Their contents will in general be of no interest to the user.
+C
+C     Variables of type REAL are DOUBLE PRECISION.
+C
+C         IPIVOT(*)
+C            An array of length N.  Upon completion it contains the
+C         pivoting information for the cols of W(*,*).
+C
+C         ITYPE(*)
+C            An array of length M which is used to keep track
+C         of the classification of the equations.  ITYPE(I)=0
+C         denotes equation I as an equality constraint.
+C         ITYPE(I)=1 denotes equation I as a least squares
+C         equation.
+C
+C         WD(*)
+C            An array of length N.  Upon completion it contains the
+C         dual solution vector.
+C
+C         H(*)
+C            An array of length N.  Upon completion it contains the
+C         pivot scalars of the Householder transformations performed
+C         in the case KRANK.LT.L.
+C
+C         SCALE(*)
+C            An array of length M which is used by the subroutine
+C         to store the diagonal matrix of weights.
+C         These are used to apply the modified Givens
+C         transformations.
+C
+C         Z(*),TEMP(*)
+C            Working arrays of length N.
+C
+C         D(*)
+C            An array of length N that contains the
+C         column scaling for the matrix (E).
+C                                       (A)
+C
+C***SEE ALSO  DWNNLS
+C***ROUTINES CALLED  D1MACH, DASUM, DAXPY, DCOPY, DH12, DNRM2, DROTM,
+C                    DROTMG, DSCAL, DSWAP, DWNLIT, IDAMAX, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   790701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890618  Completely restructured and revised.  (WRB & RWC)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900328  Added TYPE section.  (WRB)
+C   900510  Fixed an error message.  (RWC)
+C   900604  DP version created from SP version.  (RWC)
+C   900911  Restriction on value of ALAMDA included.  (WRB)
+C***END PROLOGUE  DWNLSM

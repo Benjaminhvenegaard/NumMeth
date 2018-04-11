@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE comlr
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdiv
+csroot
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+pythag
+---END OF DEPENDENCIES---

@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  SOSSOL
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to SOS
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (SOSSOL-S, DSOSSL-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     SOSSOL solves an upper triangular type of linear system by back
+C     substitution.
+C
+C     The matrix C is upper trapezoidal and stored as a linear array by
+C     rows. The equations have been normalized so that the diagonal
+C     entries of C are understood to be unity. The off diagonal entries
+C     and the elements of the constant right hand side vector B have
+C     already been stored as the negatives of the corresponding equation
+C     values.
+C     with each call to SOSSOL a (K-1) by (K-1) triangular system is
+C     resolved. For L greater than K, column L of C is included in the
+C     right hand side vector.
+C
+C***SEE ALSO  SOS
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  SOSSOL

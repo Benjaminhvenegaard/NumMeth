@@ -1,0 +1,19 @@
+C***BEGIN PROLOGUE  WNLT3
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to WNLIT
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (WNLT3-S, DWNLT3-D)
+C***AUTHOR  Hanson, R. J., (SNLA)
+C           Haskell, K. H., (SNLA)
+C***DESCRIPTION
+C
+C     Perform column interchange.
+C     Exchange elements of permuted index vector and perform column
+C     interchanges.
+C
+C***SEE ALSO  WNLIT
+C***ROUTINES CALLED  SSWAP
+C***REVISION HISTORY  (YYMMDD)
+C   790701  DATE WRITTEN
+C   890620  Code extracted from WNLT and made a subroutine.  (RWC))
+C***END PROLOGUE  WNLT3

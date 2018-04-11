@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  DCHU
+C***PURPOSE  Compute the logarithmic confluent hypergeometric function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C11
+C***TYPE      DOUBLE PRECISION (CHU-S, DCHU-D)
+C***KEYWORDS  FNLIB, LOGARITHMIC CONFLUENT HYPERGEOMETRIC FUNCTION,
+C             SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DCHU(A,B,X) calculates the double precision logarithmic confluent
+C hypergeometric function U(A,B,X) for double precision arguments
+C A, B, and X.
+C
+C This routine is not valid when 1+A-B is close to zero if X is small.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, D9CHU, DEXPRL, DGAMMA, DGAMR, DPOCH,
+C                    DPOCH1, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770801  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900727  Added EXTERNAL statement.  (WRB)
+C***END PROLOGUE  DCHU

@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dgeco
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dasum
+dgefa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dscal
+idamax
+---END OF DEPENDENCIES---

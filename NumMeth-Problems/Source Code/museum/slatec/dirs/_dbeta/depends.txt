@@ -1,0 +1,22 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbeta
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9lgmc
+dgamlm
+dgamma
+dlbeta
+dlngam
+dlnrel
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

@@ -1,0 +1,44 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE zbesh
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dgamln
+zacai
+zacon
+zairy
+zasyi
+zbinu
+zbknu
+zbuni
+zbunk
+zdiv
+zexp
+zkscl
+zlog
+zmlri
+zmlt
+zrati
+zs1s2
+zseri
+zshch
+zsqrt
+zuchk
+zunhj
+zuni1
+zuni2
+zunik
+zunk1
+zunk2
+zuoik
+zwrsk
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+zabs
+---END OF DEPENDENCIES---

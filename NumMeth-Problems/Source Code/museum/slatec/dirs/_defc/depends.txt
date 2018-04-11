@@ -1,0 +1,24 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE defc
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dbndac
+dbndsl
+defcmn
+dfspvn
+dh12
+dsort
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+dcopy
+ddot
+dscal
+dswap
+fdump
+i1mach
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

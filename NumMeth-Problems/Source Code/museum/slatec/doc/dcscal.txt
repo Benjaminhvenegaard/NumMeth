@@ -1,0 +1,22 @@
+C***BEGIN PROLOGUE  DCSCAL
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBVSUP and DSUDS
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (CSCALE-S, DCSCAL-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C     This routine scales the matrix A by columns when needed.
+C
+C***SEE ALSO  DBVSUP, DSUDS
+C***ROUTINES CALLED  DDOT
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890831  Modified array declarations.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   890911  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  DCSCAL

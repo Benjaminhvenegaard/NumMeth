@@ -1,0 +1,30 @@
+C***BEGIN PROLOGUE  DBESI0
+C***PURPOSE  Compute the hyperbolic Bessel function of the first kind
+C            of order zero.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B1
+C***TYPE      DOUBLE PRECISION (BESI0-S, DBESI0-D)
+C***KEYWORDS  FIRST KIND, FNLIB, HYPERBOLIC BESSEL FUNCTION,
+C             MODIFIED BESSEL FUNCTION, ORDER ZERO, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBESI0(X) calculates the double precision modified (hyperbolic)
+C Bessel function of the first kind of order zero and double
+C precision argument X.
+C
+C Series for BI0        on the interval  0.          to  9.00000E+00
+C                                        with weighted error   9.51E-34
+C                                         log weighted error  33.02
+C                               significant figures required  33.31
+C                                    decimal places required  33.65
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DBSI0E, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DBESI0

@@ -1,0 +1,35 @@
+C***BEGIN PROLOGUE  PSI
+C***PURPOSE  Compute the Psi (or Digamma) function.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C7C
+C***TYPE      SINGLE PRECISION (PSI-S, DPSI-D, CPSI-C)
+C***KEYWORDS  DIGAMMA FUNCTION, FNLIB, PSI FUNCTION, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C PSI(X) calculates the psi (or digamma) function for real argument X.
+C PSI(X) is the logarithmic derivative of the gamma function of X.
+C
+C Series for PSI        on the interval  0.          to  1.00000D+00
+C                                        with weighted error   2.03E-17
+C                                         log weighted error  16.69
+C                               significant figures required  16.39
+C                                    decimal places required  17.37
+C
+C Series for APSI       on the interval  0.          to  2.50000D-01
+C                                        with weighted error   5.54E-17
+C                                         log weighted error  16.26
+C                               significant figures required  14.42
+C                                    decimal places required  16.86
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  COT, CSEVL, INITS, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770401  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900727  Added EXTERNAL statement.  (WRB)
+C   920618  Removed space from variable names.  (RWC, WRB)
+C***END PROLOGUE  PSI

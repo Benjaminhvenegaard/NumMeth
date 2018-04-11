@@ -1,0 +1,44 @@
+C***BEGIN PROLOGUE  DBSI1E
+C***PURPOSE  Compute the exponentially scaled modified (hyperbolic)
+C            Bessel function of the first kind of order one.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C10B1
+C***TYPE      DOUBLE PRECISION (BESI1E-S, DBSI1E-D)
+C***KEYWORDS  EXPONENTIALLY SCALED, FIRST KIND, FNLIB,
+C             HYPERBOLIC BESSEL FUNCTION, MODIFIED BESSEL FUNCTION,
+C             ORDER ONE, SPECIAL FUNCTIONS
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C DBSI1E(X) calculates the double precision exponentially scaled
+C modified (hyperbolic) Bessel function of the first kind of order
+C one for double precision argument X.  The result is I1(X)
+C multiplied by EXP(-ABS(X)).
+C
+C Series for BI1        on the interval  0.          to  9.00000E+00
+C                                        with weighted error   1.44E-32
+C                                         log weighted error  31.84
+C                               significant figures required  31.45
+C                                    decimal places required  32.46
+C
+C Series for AI1        on the interval  1.25000E-01 to  3.33333E-01
+C                                        with weighted error   2.81E-32
+C                                         log weighted error  31.55
+C                               significant figures required  29.93
+C                                    decimal places required  32.38
+C
+C Series for AI12       on the interval  0.          to  1.25000E-01
+C                                        with weighted error   1.83E-32
+C                                         log weighted error  31.74
+C                               significant figures required  29.97
+C                                    decimal places required  32.66
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  D1MACH, DCSEVL, INITDS, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C***END PROLOGUE  DBSI1E

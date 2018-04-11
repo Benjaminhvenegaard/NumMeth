@@ -1,0 +1,10 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ddpst
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dgbfa
+dgefa
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+dnrm2
+dscal
+idamax
+---END OF DEPENDENCIES---

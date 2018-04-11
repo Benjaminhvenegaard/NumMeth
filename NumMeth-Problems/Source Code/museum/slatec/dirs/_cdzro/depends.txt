@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE cdzro
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cdntp
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

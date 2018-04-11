@@ -1,0 +1,67 @@
+C***BEGIN PROLOGUE  SHEQR
+C***SUBSIDIARY
+C***PURPOSE  Internal routine for SGMRES.
+C***LIBRARY   SLATEC (SLAP)
+C***CATEGORY  D2A4, D2B4
+C***TYPE      SINGLE PRECISION (SHEQR-S, DHEQR-D)
+C***KEYWORDS  GENERALIZED MINIMUM RESIDUAL, ITERATIVE PRECONDITION,
+C             NON-SYMMETRIC LINEAR SYSTEM, SLAP, SPARSE
+C***AUTHOR  Brown, Peter, (LLNL), pnbrown@llnl.gov
+C           Hindmarsh, Alan, (LLNL), alanh@llnl.gov
+C           Seager, Mark K., (LLNL), seager@llnl.gov
+C             Lawrence Livermore National Laboratory
+C             PO Box 808, L-60
+C             Livermore, CA 94550 (510) 423-3141
+C***DESCRIPTION
+C        This   routine  performs  a QR   decomposition  of an  upper
+C        Hessenberg matrix A using Givens  rotations.  There  are two
+C        options  available: 1)  Performing  a fresh decomposition 2)
+C        updating the QR factors by adding a row and  a column to the
+C        matrix A.
+C
+C *Usage:
+C      INTEGER LDA, N, INFO, IJOB
+C      REAL A(LDA,N), Q(2*N)
+C
+C      CALL SHEQR(A, LDA, N, Q, INFO, IJOB)
+C
+C *Arguments:
+C A      :INOUT    Real A(LDA,N)
+C         On input, the matrix to be decomposed.
+C         On output, the upper triangular matrix R.
+C         The factorization can be written Q*A = R, where
+C         Q is a product of Givens rotations and R is upper
+C         triangular.
+C LDA    :IN       Integer
+C         The leading dimension of the array A.
+C N      :IN       Integer
+C         A is an (N+1) by N Hessenberg matrix.
+C Q      :OUT      Real Q(2*N)
+C         The factors c and s of each Givens rotation used
+C         in decomposing A.
+C INFO   :OUT      Integer
+C         = 0  normal value.
+C         = K  if  A(K,K) .eq. 0.0 .  This is not an error
+C           condition for this subroutine, but it does
+C           indicate that SHELS will divide by zero
+C           if called.
+C IJOB   :IN       Integer
+C         = 1     means that a fresh decomposition of the
+C                 matrix A is desired.
+C         .ge. 2  means that the current decomposition of A
+C                 will be updated by the addition of a row
+C                 and a column.
+C
+C***SEE ALSO  SGMRES
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   871001  DATE WRITTEN
+C   881213  Previous REVISION DATE
+C   890915  Made changes requested at July 1989 CML Meeting.  (MKS)
+C   890922  Numerous changes to prologue to make closer to SLATEC
+C           standard.  (FNF)
+C   890929  Numerous changes to reduce SP/DP differences.  (FNF)
+C   910411  Prologue converted to Version 4.0 format.  (BAB)
+C   910506  Made subsidiary to SGMRES.  (FNF)
+C   920511  Added complete declaration section.  (WRB)
+C***END PROLOGUE  SHEQR

@@ -1,0 +1,16 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dstod
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dcfod
+dgbfa
+dgbsl
+dgefa
+dgesl
+dpjac
+dslvs
+dvnrms
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dscal
+idamax
+---END OF DEPENDENCIES---

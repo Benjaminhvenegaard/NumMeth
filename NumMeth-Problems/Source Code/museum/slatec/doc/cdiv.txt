@@ -1,0 +1,17 @@
+C***BEGIN PROLOGUE  CDIV
+C***SUBSIDIARY
+C***PURPOSE  Compute the complex quotient of two complex numbers.
+C***LIBRARY   SLATEC
+C***TYPE      COMPLEX (CDIV-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Complex division, (CR,CI) = (AR,AI)/(BR,BI)
+C
+C***SEE ALSO  EISDOC
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   811101  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  CDIV

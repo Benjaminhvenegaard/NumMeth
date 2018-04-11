@@ -1,0 +1,355 @@
+<html><head><title>Baker's C Tools and More C Tools</title></head><body>
+<center><img src="../../gfx/logoCodeMuseumMed.gif"><br>
+<h1>Index to Routines from Baker's C Tools and More C Tools</h1>
+</center>
+
+Copyright (C) 1989, 1991 by Louis Baker.  These routines are
+reproduced on this CDROM with the kind permission of Louis Baker and
+<a href="catalog.htm">Dagonet Software</a>.<p>
+
+The books <i>C Tools for Scientists and Engineers</i> (ISBN 0-07-003355-2)
+and <i>More C Tools for Scientists and Engineers</i> (ISBN 0-07-003358-7)
+are published by McGraw-Hill Publishing Company in the "Computing That
+Works" series.  At the time of publication of this CDROM, both books are
+(alas!) out of print.  Check your library, or a bookstore with an older
+inventory.<p>
+
+<hr>
+
+<h4>C Tools</h4>
+<a href="#CHI0">General Utilities</a><br>
+<a href="#CHI00">Matrix and Vector Utilities</a><br>
+<a href="#CHI3">Chapter 3: LU Decomposition</a><br>
+<a href="#CHI4">Chapter 4: Eigenvalue and Discriminant Analysis</a><br>
+<a href="#CHI5">Chapter 5: Singular Value Decomposition and Least Squares Analysis</a><br>
+<a href="#CHI6">Chapter 6: Newton-Raphson and Related Methods</a><br>
+<a href="#CHI7">Chapter 7: Complex Arithmetic, Muller and Jenkins-Traub Methods</a><br>
+<a href="#CHI8">Chapter 8: B-Spline Interpolation</a><br>
+<a href="#CHI9">Chapter 9: Adaptive Quadrature</a><br>
+<a href="#CHI10">Chapter 10: Fourier Transforms</a><br>
+<a href="#CHI11">Chapter 11: Systems of Differential Equations</a><br>
+<a href="#CHI12">Chapter 12: Stiff Systems of Differential Equations</a><br>
+<h4>More C Tools</h4>
+<a href="#CHII0">Utility Routines</a><br>
+<a href="#CHII1">Chapter 1: Sparse Systems and Conjugate Gradient Method</a><br>
+<a href="#CHII2">Chapter 2: Block Matrix Problems</a><br>
+<a href="#CHII3">Chapter 3: Multigrid Methods for PDEs</a><br>
+<a href="#CHII4">Chapter 4: Gaussian Quadrature and Related Methods</a><br>
+<a href="#CHII5">Chapter 5: Complex Error Function and Relatives</a><br>
+<a href="#CHII6">Chapter 6: Statistical Functions</a><br>
+<a href="#CHII8">Chapter 8: Analysis of Variance</a><br>
+<a href="#CHII9">Chapter 9: Random Numbers and Variables</a><br>
+<a href="#CHII10">Chapter 10: Bresenham's Line-Drawing Algorithm</a><br>
+<a href="#CHII11">Chapter 11: Contour Plotting</a><br>
+<a href="#CHII12">Chapter 12: Sorting, Priority Queues, and Heapsort</a><br>
+<a href="#CHII13">Chapter 13: Typewriter Emulator</a><br>
+<a href="#CHII14">Chapter 14: LU Decomposition Revisited</a><br>
+<a href="#CHII15">Chapter 15: Roman Numerals</a><br><p>
+
+<hr>
+
+<h2>C Tools for Scientists and Engineers</h2>
+
+<a name="CHI0"></a>
+<h3>General Utilities</h3>
+<menu>
+<li><a href="ctools/ftoc.h">FTOC.H</a> (facilitate conversion of Fortran to C)
+<li><a href="ctools/complex.h">COMPLEX.H</a> (complex header file)
+<li>ARGMNT, CLOG, CSQRT, CEXP, POLARXY in <a href="ctools/muller.c">MULLER.C</a> (complex utility functions)
+<li>CMOD, CDIV in <a href="ctools/jt.c">JT.C</a> (complex utility functions)
+<li>POLYEV in <a href="ctools/jt.c">JT.C</a> (evaluate polynomial)
+</menu>
+
+<a name="CHI00"></a>
+<h3>Matrix and Vector Utilities</h3>
+<menu>
+<li>ISAMAX, in <a href="ctools/lus.c">LUS.C</a> (find maximal element of a vector)
+<li>SAXPY in <a href="ctools/lus.c">LUS.C</a> (elementary row operations involving vectors)
+<li>SDOT in <a href="ctools/lus.c">LUS.C</a> (dot product of two vectors)
+<li>SSWAP in <a href="ctools/lus.c">LUS.C</a> (swap vectors)
+<li>SSCAL in <a href="ctools/lus.c">LUS.C</a> (scale a vector)
+<li>SASUM in <a href="ctools/lus.c">LUS.C</a> (sum absolute values of a vector)
+<li>PRINTM in <a href="ctools/lus.c">LUS.C</a> (prints a matrix by rows)
+<li>VDIF in <a href="ctools/matrix.c">MATRIX.C</a> (difference of two vectors)
+<li>SWAPROW in <a href="ctools/matrix.c">MATRIX.C</a> (swap matrix rows)
+<li>SWAPCOL in <a href="ctools/matrix.c">MATRIX.C</a> (swap matrix columns)
+<li>MVC in <a href="ctools/matrix.c">MATRIX.C</a> (multiply vector by matrix with special dimensioning)
+<li>MVTC in <a href="ctools/matrix.c">MATRIX.C</a> (multiply vector by matrix transpose with special dimensioning)
+<li>DOT in <a href="ctools/vector.c">VECTOR.C</a> (dot product of two vectors)
+<li>PV in <a href="ctools/vector.c">VECTOR.C</a> (prints a vector)
+<li>MV in <a href="ctools/vector.c">VECTOR.C</a> (matrix times vector multiply)
+<li>NORMV in <a href="ctools/vector.c">VECTOR.C</a> (normalize a vector)
+<li>SQNOR in <a href="ctools/vector.c">VECTOR.C</a> (square of vector's length)
+<li>MVT in <a href="ctools/vector.c">VECTOR.C</a> (matrix transpose times vector)
+<li>RESID in <a href="ctools/vector.c">VECTOR.C</a> (residual of matrix equation)
+<li>VS in <a href="ctools/vector.c">VECTOR.C</a> (multiply vector by scalar)
+<li>VSET in <a href="ctools/vector.c">VECTOR.C</a> (set vector to scalar values)
+<li>VCOPY in <a href="ctools/vector.c">VECTOR.C</a> (copy a vector)
+<li>VV in <a href="ctools/vector.c">VECTOR.C</a> (add two vectors, one scaled)
+<li>PVD in <a href="ctools/lstsq.c">LSTSQ.C</a> (type double version of PV)
+<li>VDIFD in <a href="ctools/lstsq.c">LSTSQ.C</a> (type double version of VDIF)
+<li>MVD in <a href="ctools/lstsq.c">LSTSQ.C</a> (type double version of MV)
+<li>MVTD in <a href="ctools/lstsq.c">LSTSQ.C</a> (type double version of MVT)
+</menu>
+
+<a name="CHI3"></a>
+<h3>Chapter 3: LU Decomposition</h3>
+
+<menu>
+<li><a href="ctools/lud.c">LUD.C</a> (test LU system routines)
+<li><a href="ctools/luf.c">LUF.C</a> (perform LU factorization of a square matrix)
+<li>BACKSUB in <a href="ctools/luback.c">LUBACK.C</a> (use LU factorization to solve A x = b)
+<li>BACKT in <a href="ctools/luback.c">LUBACK.C</a> (use LU factorization to solve A(transpose) x = b)
+<li>INVM in <a href="ctools/luinv.c">LUINV.C</a> (use LU factorization to invert a matrix)
+<li><a href="ctools/det.c">DET.C</a> (return as a double the determinant)
+<li>DETI in <a href="ctools/det.c">DET.C</a> (use for very large/small determinant)
+</menu>
+
+<a name="CHI4"></a>
+<h3>Chapter 4: Eigenvalue and Discriminant Analysis</h3>
+
+<menu>
+<li>EIGENVV in <a href="ctools/qrn.c">QRN.C</a> (computes eigenvalues and eigenvectors of a matrix)
+<li>HQR2 in <a href="ctools/qrn.c">QRN.C</a> (applies QR method to Hessenberg matrix)
+<li>ELMHES in <a href="ctools/qrn.c">QRN.C</a> (converts general matrix to Hessenberg form)
+<li>ELTRAN in <a href="ctools/qrn.c">QRN.C</a> (creates transform. matrix from elmhes output)
+<li>BALANCE in <a href="ctools/qrn.c">QRN.C</a> (balances a matrix)
+<li>BALBAK in <a href="ctools/qrn.c">QRN.C</a> (inverse transform of balance, used on eigenvectors)
+<li>PNORMWR in <a href="ctools/qrn.c">QRN.C</a> (normalize and print eigenvectors)
+<li><a href="ctools/esmall.c">ESMALL.C</a> (Rayleigh quotient iteration to determine smallest eigenvalues)
+<li><a href="ctools/elarge.c">ELARGE.C</a> (determines largest eigenvalues and eigenvectors)
+</menu>
+
+<a name="CHI5"></a>
+<h3>Chapter 5: Singular Value Decomposition and Least Squares Analysis</h3>
+<menu>
+<li><a href="ctools/svd.c">SVD.C</a> (calculate singular value decomposition)
+<li>DIAG in <a href="ctools/svd.c">SVD.C</a> (second part of singular value decomposition)
+<li><a href="ctools/lstsq.c">LSTSQ.C</a> (least-squares fit using SVD)
+<li>SETROW in <a href="ctools/lstsq.c">LSTSQ.C</a> (used for test problem setup)
+</menu>
+
+<a name="CHI6"></a>
+<h3>Chapter 6: Newton-Raphson and Related Methods</h3>
+<menu>
+<li>SAHA in <a href="ctools/nr.c">NR.C</a> (performs Newton-Raphson iteration)
+<li>SAHAC in <a href="ctools/nr.c">NR.C</a> (returns right-hand side of Saha equation)
+<li>EQN in <a href="ctools/nr.c">NR.C</a> (return residual of each equation to be solved)
+<li>DR in <a href="ctools/nr.c">NR.C</a> (forms Jacobian matrix by numerical differentiation)
+</menu>
+
+<a name="CHI7"></a>
+<h3>Chapter 7: Complex Arithmetic, Muller and Jenkins-Traub Methods</h3>
+<menu>
+<li><a href="ctools/muller.c">MULLER.C</a> (find roots of complex function by Muller's method)
+<li>SETFR in <a href="ctools/muller.c">MULLER.C</a> (provides deflated function to MULLER)
+<li>JT and dependent routines in <a href="ctools/jt.c">JT.C</a> (Jenkins-Traub method for polynomial roots)
+</menu>
+
+<a name="CHI8"></a>
+<h3>Chapter 8: B-Spline Interpolation</h3>
+<menu>
+<li>INTERV in <a href="ctools/bspline.c">BSPLINE.C</a> (determines which knots surround a specified point)
+<li>BSPLVB in <a href="ctools/bspline.c">BSPLINE.C</a> (evaluatest the basis B-spline functions)
+<li>BVALUE in <a href="ctools/bspline.c">BSPLINE.C</a> (calculates function, given the B-spline fit)
+<li>BSPLVD in <a href="ctools/bspline.c">BSPLINE.C</a> (calculates function and derivatives, given the B-spline fit)
+</menu>
+
+<a name="CHI9"></a>
+<h3>Chapter 9: Adaptive Quadrature</h3>
+<menu>
+<li><a href="ctools/adsimp.c">ADSIMP.C</a> (adaptive Simpson quadrature)
+</menu>
+
+<a name="CHI10"></a>
+<h3>Chapter 10: Fourier Transforms</h3>
+<menu>
+<li>FFT in <a href="ctools/fft5.c">FFT5.C</a> (compute fast Fourier transform)
+<li>FFTINIT in <a href="ctools/fft5.c">FFT5.C</a> (initialize FFT)
+<li>BITR in <a href="ctools/fft5.c">FFT5.C</a> (bit reversal for FFT)
+<li>FHT in <a href="ctools/fht.c">FHT.C</a> (compute fast Hartley transform)
+<li>FHTINIT in <a href="ctools/fht.c">FHT.C</a> (initialize FHT)
+</menu>
+
+<a name="CHI11"></a>
+<h3>Chapter 11: Systems of Differential Equations</h3>
+<menu>
+<li>RKF in <a href="ctools/rkf45.c">RKF45.C</a> (Runge-Kutta-Fehlberg integrator)
+<li>FEVAL in <a href="ctools/rkf45.c">RKF45.C</a> (evaluates steps)
+<li>ERROR in <a href="ctools/rkf45.c">RKF45.C</a> (returns error term)
+<li><a href="ctools/rkfd.c">RKFD.C</a> (test driver for RKF45.C)
+</menu>
+
+<a name="CHI12"></a>
+<h3>Chapter 12: Stiff Systems of Differential Equations</h3>
+<menu>
+<li>STIFF2 in <a href="ctools/stfode.c">STFODE.C</a> (integrate stiff ODE)
+<li>POWN in <a href="ctools/stfode.c">STFODE.C</a> (integer powers a value)
+</menu><p>
+
+<hr>
+
+<h2>More C Tools for Scientists and Engineers</h2>
+
+<a name="CHII0"></a>
+<h3>Utility Routines</h3>
+<menu>
+<li>MSUB in <a href="morectoo/block.c">BLOCK.C</a> (subtract two matrices)
+<li>INVERT in <a href="morectoo/block.c">BLOCK.C</a> (invert a matrix)
+<li>MM in <a href="morectoo/block.c">BLOCK.C</a> (move a matrix)
+<li>MMULT in <a href="morectoo/block.c">BLOCK.C</a> (matrix by matrix multiply)
+<li>MMULTG in <a href="morectoo/block.c">BLOCK.C</a> (matrix by matrix multiply with bells and whistles)
+<li>MSET in <a href="morectoo/block.c">BLOCK.C</a> (set matrix to a value)
+<li>VDIF in <a href="morectoo/block.c">BLOCK.C</a> (difference two vectors)
+</menu>
+
+<a name="CHII1"></a>
+<h3>Chapter 1: Sparse Systems and Conjugate Gradient Method</h3>
+<menu>
+<li>CG in <a href="morectoo/cgg.c">CGG.C</a> (conjugate gradient interation on general matrix)
+<li>CGS in <a href="morectoo/cgspd.c">CGSPD.C</a> (conjugate gradient interation for symmetric positive-definite system)
+</menu>
+
+<a name="CHII2"></a>
+<h3>Chapter 2: Block Matrix Problems</h3>
+<menu>
+<li>BS in <a href="morectoo/block.c">BLOCK.C</a> (solves block bi-diagonal matrix)
+<li><a href="morectoo/blockd.c">BLOCKD.C</a> (test driver for block matrix problems)
+</menu>
+
+<a name="CHII3"></a>
+<h3>Chapter 3: Multigrid Methods for PDEs</h3>
+<menu>
+<li><a href="morectoo/multig.c">MULTIG.C</a> (one-dimensional multigrid example)
+<li><a href="morectoo/multi2.c">MULTI2.C</a> (two-dimensional multigrid example)
+</menu>
+
+<a name="CHII4"></a>
+<h3>Chapter 4: Gaussian Quadrature and Related Methods</h3>
+<menu>
+<li>GQ3 in <a href="morectoo/gaussq.c">GAUSSQ.C</a> (3rd order Gaussian guadrature)
+<li>POWER in <a href="morectoo/gaussq.c">GAUSSQ.C</a> (integer powers of a value)
+<li>POWR in <a href="morectoo/gaussq.c">GAUSSQ.C</a> (used by POWER)
+</menu>
+
+<a name="CHII5"></a>
+<h3>Chapter 5: Complex Error Function and Relatives</h3>
+<menu>
+<li>PRINTC in <a href="morectoo/pdfs.c">PDFS.C</a> (print complex number)
+<li>DAWSON in <a href="morectoo/pdfs.c">PDFS.C</a> (Dawson's integral)
+<li>FRESNEL in <a href="morectoo/pdfs.c">PDFS.C</a> (Fresnel integrals)
+<li>PDISP in <a href="morectoo/pdfs.c">PDFS.C</a> (plasma dispersion function)
+<li>CFBIG, CFSMALL in <a href="morectoo/pdfs.c">PDFS.C</a> (used by PDISP)
+<li>CEXP in <a href="morectoo/pdfs.c">PDFS.C</a> (complex exponential)
+<li>IERFC in <a href="morectoo/pdfs.c">PDFS.C</a> (iterated complementary error function)
+<li>CERF in <a href="morectoo/pdfs.c">PDFS.C</a> (complex error function)
+</menu>
+
+<a name="CHII6"></a>
+<h3>Chapter 6: Statistical Functions</h3>
+<menu>
+<li>GAMMA in <a href="morectoo/stath.c">STATH.C</a> (gamma function)
+<li>LOGGAM in <a href="morectoo/stath.c">STATH.C</a> (logarithm of gamma function)
+<li>INCGAM in <a href="morectoo/stath.c">STATH.C</a> (incomplete gamma function)
+<li>CHISQ in <a href="morectoo/stath.c">STATH.C</a> (chi square function)
+<li>INCBETA in <a href="morectoo/stath.c">STATH.C</a> (incomplete beta function)
+<li>STUDT in <a href="morectoo/stath.c">STATH.C</a> (Student's t distribution)
+<li>FDIST in <a href="morectoo/stath.c">STATH.C</a> (F distribution)
+<li>TINV in <a href="morectoo/stath.c">STATH.C</a> (inverse of Student's t)
+<li>CHIINV in <a href="morectoo/stath.c">STATH.C</a> (inverse of chi square distribution)
+<li>CUMP in <a href="morectoo/stath.c">STATH.C</a> (cumulative normal probability)
+<li>WILCOXS in <a href="morectoo/stath.c">STATH.C</a> (Wilcoxon matched-pair signed rank test)
+<li>MANNW in <a href="morectoo/stath.c">STATH.C</a> (Mann-Whitney two-sample statistic)
+<li>WILCOXON in <a href="morectoo/stath.c">STATH.C</a> (Wilcoxon cumulative, called by MANNW)
+<li>KS in <a href="morectoo/stath.c">STATH.C</a> (Kolmagorov-Smirnov one-sample statistic)
+<li>INVNR in <a href="morectoo/stath.c">STATH.C</a> (used for calculating inverse functions by Newton-Raphson)
+<li>ERF in <a href="morectoo/stath.c">STATH.C</a> (error function)
+<li>IERF in <a href="morectoo/stath.c">STATH.C</a> (inverse of error function)
+<li>ICUMP in <a href="morectoo/stath.c">STATH.C</a> (inverse of cumulative normal probability function)
+<li>FINV in <a href="morectoo/stath.c">STATH.C</a> (inverse of F distribution)
+</menu>
+
+<a name="CHII8"></a>
+<h3>Chapter 8: Analysis of Variance</h3>
+<menu>
+<li>ANOVA in <a href="morectoo/anova.c">ANOVA.C</a> (perform ANOVA analysis)
+<li>INDX in <a href="morectoo/anova.c">ANOVA.C</a> (determine location in linear array of multidimensional vector)
+<li>ORTHOG in <a href="morectoo/anova.c">ANOVA.C</a> (generate Helmert matrices)
+<li>PANOVA in <a href="morectoo/anova.c">ANOVA.C</a> (print ANOVA results)
+</menu>
+
+<a name="CHII9"></a>
+<h3>Chapter 9: Random Numbers and Variables</h3>
+<menu>
+<li>ERLANG in <a href="morectoo/random.c">RANDOM.C</a> (Erlang distribution)
+<li>EXPON in <a href="morectoo/random.c">RANDOM.C</a> (exponential distribution)
+<li>CAUCHY in <a href="morectoo/random.c">RANDOM.C</a> (Cauchy distribution)
+<li>LOGISTIC in <a href="morectoo/random.c">RANDOM.C</a> (logistic distribution)
+<li>RANDI in <a href="morectoo/random.c">RANDOM.C</a> (random integers in a range)
+<li>UNIFORM in <a href="morectoo/random.c">RANDOM.C</a> (uniform values in a range)
+<li>NORMAL in <a href="morectoo/random.c">RANDOM.C</a> (two normally distributed random numbers)
+<li>NORM in <a href="morectoo/random.c">RANDOM.C</a> (use NORMAL to supply one value at at time)
+<li>U32 in <a href="morectoo/random.c">RANDOM.C</a> (uniform generator for 32-bit machines)
+<li>U16 in <a href="morectoo/random.c">RANDOM.C</a> (uniform generator for 16-bit machines)
+<li>RANDOM in <a href="morectoo/random.c">RANDOM.C</a> (minimal random number generator)
+<li>EX in <a href="morectoo/random.c">RANDOM.C</a> (fast exponential distribution)
+<li>CA in <a href="morectoo/random.c">RANDOM.C</a> (fast Cauchy distribution)
+<li>NA in <a href="morectoo/random.c">RANDOM.C</a> (fast normal distribution)
+</menu>
+
+<a name="CHII10"></a>
+<h3>Chapter 10: Bresenham's Line-Drawing Algorithm</h3>
+<menu>
+<li>PLOT in <a href="morectoo/bresend.c">BRESEND.C</a> (places point on raster display)
+<li>SHOW in <a href="morectoo/bresend.c">BRESEND.C</a> (sends finished output to display)
+<li>CLEARA in <a href="morectoo/bresend.c">BRESEND.C</a> (clears display area)
+<li>DRAW in <a href="morectoo/bresend.c">BRESEND.C</a> (draw straight line on a raster device)
+<li>TEST in <a href="morectoo/bresed.c">BRESED.C</a> (test driver for above routines)
+</menu>
+
+<a name="CHII11"></a>
+<h3>Chapter 11: Contour Plotting</h3>
+<menu>
+<li>C3 in <a href="morectoo/contur.c">CONTUR.C</a> (locate contour lines)
+<li>CXY in <a href="morectoo/contur.c">CONTUR.C</a> (find contour lines within each grid cell)
+<li>P2 in <a href="morectoo/contur.c">CONTUR.C</a> (draw contour lines with appropriate symbol)
+<li>DRAWF in <a href="morectoo/contur.c">CONTUR.C</a> (invoke DRAW on scaled raster surface)
+<li><a href="morectoo/contgen.c">CONTGEN.C</a> (generates test file for above routines)
+</menu>
+
+<a name="CHII12"></a>
+<h3>Chapter 12: Sorting, Priority Queues, and Heapsort</h3>
+<menu>
+<li>PQCONSTRUCT in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (build a heap)
+<li>PQINSERT in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (insert an element into a heap)
+<li>PQREMOVE in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (remove first element in priority queue)
+<li>PQREPLACE in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (change first element)
+<li>PQHEAPS in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (do heapsort)
+<li>PQDELETE in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (remove arbitrary element from queue)
+<li>PQUPHEAP in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (move element toward root, maintaining heap)
+<li>PQDOWNHEAP in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (move element away from root, maintaining heap)
+<li>FATHER in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (find father of kth element)
+<li>COMPARE in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (less-than and greater-than comparisons)
+<li>COMPAREE in <a href="morectoo/heaptree.c">HEAPTREE.C</a> (less-than-or-equal and greater-than-or-equal comparisons)
+</menu>
+
+<a name="CHII13"></a>
+<h3>Chapter 13: Typewriter Emulator</h3>
+<menu>
+<li><a href="morectoo/twrpc.c">TWRPC.C</a> (typewriter program)
+</menu>
+
+<a name="CHII14"></a>
+<h3>Chapter 14: LU Decomposition Revisited</h3>
+<menu>
+<li>LUFACT in <a href="morectoo/luff.c">LUFF.C</a> (improved version of LU factorization routine)
+</menu>
+
+<a name="CHII15"></a>
+<h3>Chapter 15: Roman Numerals</h3>
+<menu>
+<li><a href="morectoo/roman.c">ROMAN.C</a> (convert natural number to Roman numeral)
+</menu>
+
+</body>
+</html>

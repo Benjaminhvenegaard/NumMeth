@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  MPCMD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPCMD-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Converts multiple-precision X to double-precision DZ. Assumes
+C  X is in allowable range for double-precision numbers. There is
+C  some loss of accuracy if the exponent is large.
+C
+C  The argument X(*) is INTEGER array of size 30.  See the comments in
+C  the routine MPBLAS for the reason for this choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  MPCHK, MPERR
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPCMD

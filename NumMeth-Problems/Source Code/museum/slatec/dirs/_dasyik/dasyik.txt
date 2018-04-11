@@ -1,0 +1,51 @@
+C***BEGIN PROLOGUE  DASYIK
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DBESI and DBESK
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (ASYIK-S, DASYIK-D)
+C***AUTHOR  Amos, D. E., (SNLA)
+C***DESCRIPTION
+C
+C                    DASYIK computes Bessel functions I and K
+C                  for arguments X.GT.0.0 and orders FNU.GE.35
+C                  on FLGIK = 1 and FLGIK = -1 respectively.
+C
+C                                    INPUT
+C
+C      X    - Argument, X.GT.0.0D0
+C      FNU  - Order of first Bessel function
+C      KODE - A parameter to indicate the scaling option
+C             KODE=1 returns Y(I)=        I/SUB(FNU+I-1)/(X), I=1,IN
+C                    or      Y(I)=        K/SUB(FNU+I-1)/(X), I=1,IN
+C                    on FLGIK = 1.0D0 or FLGIK = -1.0D0
+C             KODE=2 returns Y(I)=EXP(-X)*I/SUB(FNU+I-1)/(X), I=1,IN
+C                    or      Y(I)=EXP( X)*K/SUB(FNU+I-1)/(X), I=1,IN
+C                    on FLGIK = 1.0D0 or FLGIK = -1.0D0
+C     FLGIK - Selection parameter for I or K FUNCTION
+C             FLGIK =  1.0D0 gives the I function
+C             FLGIK = -1.0D0 gives the K function
+C        RA - SQRT(1.+Z*Z), Z=X/FNU
+C       ARG - Argument of the leading exponential
+C        IN - Number of functions desired, IN=1 or 2
+C
+C                                    OUTPUT
+C
+C         Y - A vector whose first IN components contain the sequence
+C
+C     Abstract  **** A double precision routine ****
+C         DASYIK implements the uniform asymptotic expansion of
+C         the I and K Bessel functions for FNU.GE.35 and real
+C         X.GT.0.0D0. The forms are identical except for a change
+C         in sign of some of the terms. This change in sign is
+C         accomplished by means of the FLAG FLGIK = 1 or -1.
+C
+C***SEE ALSO  DBESI, DBESK
+C***ROUTINES CALLED  D1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910408  Updated the AUTHOR section.  (WRB)
+C***END PROLOGUE  DASYIK

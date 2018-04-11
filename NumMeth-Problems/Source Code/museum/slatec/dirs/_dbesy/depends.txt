@@ -1,0 +1,28 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dbesy
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+d9b0mp
+d9b1mp
+d9lgmc
+dasyjy
+dbesj0
+dbesj1
+dbesy0
+dbesy1
+dbsynu
+dgamlm
+dgamma
+dyairy
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+d1mach
+dcsevl
+fdump
+i1mach
+initds
+j4save
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

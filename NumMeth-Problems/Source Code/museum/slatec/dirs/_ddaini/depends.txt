@@ -1,0 +1,15 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ddaini
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+ddajac
+ddanrm
+ddaslv
+dgbfa
+dgbsl
+dgefa
+dgesl
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+daxpy
+ddot
+dscal
+idamax
+---END OF DEPENDENCIES---

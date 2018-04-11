@@ -1,0 +1,5 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE dsli
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+dsli2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

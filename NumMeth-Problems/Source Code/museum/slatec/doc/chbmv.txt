@@ -1,0 +1,132 @@
+C***BEGIN PROLOGUE  CHBMV
+C***PURPOSE  Multiply a complex vector by a complex Hermitian band
+C            matrix.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1B4
+C***TYPE      COMPLEX (SHBMV-S, DHBMV-D, CHBMV-C)
+C***KEYWORDS  LEVEL 2 BLAS, LINEAR ALGEBRA
+C***AUTHOR  Dongarra, J. J., (ANL)
+C           Du Croz, J., (NAG)
+C           Hammarling, S., (NAG)
+C           Hanson, R. J., (SNLA)
+C***DESCRIPTION
+C
+C  CHBMV  performs the matrix-vector  operation
+C
+C     y := alpha*A*x + beta*y,
+C
+C  where alpha and beta are scalars, x and y are n element vectors and
+C  A is an n by n hermitian band matrix, with k super-diagonals.
+C
+C  Parameters
+C  ==========
+C
+C  UPLO   - CHARACTER*1.
+C           On entry, UPLO specifies whether the upper or lower
+C           triangular part of the band matrix A is being supplied as
+C           follows:
+C
+C              UPLO = 'U' or 'u'   The upper triangular part of A is
+C                                  being supplied.
+C
+C              UPLO = 'L' or 'l'   The lower triangular part of A is
+C                                  being supplied.
+C
+C           Unchanged on exit.
+C
+C  N      - INTEGER.
+C           On entry, N specifies the order of the matrix A.
+C           N must be at least zero.
+C           Unchanged on exit.
+C
+C  K      - INTEGER.
+C           On entry, K specifies the number of super-diagonals of the
+C           matrix A. K must satisfy  0 .le. K.
+C           Unchanged on exit.
+C
+C  ALPHA  - COMPLEX         .
+C           On entry, ALPHA specifies the scalar alpha.
+C           Unchanged on exit.
+C
+C  A      - COMPLEX          array of DIMENSION ( LDA, n ).
+C           Before entry with UPLO = 'U' or 'u', the leading ( k + 1 )
+C           by n part of the array A must contain the upper triangular
+C           band part of the hermitian matrix, supplied column by
+C           column, with the leading diagonal of the matrix in row
+C           ( k + 1 ) of the array, the first super-diagonal starting at
+C           position 2 in row k, and so on. The top left k by k triangle
+C           of the array A is not referenced.
+C           The following program segment will transfer the upper
+C           triangular part of a hermitian band matrix from conventional
+C           full matrix storage to band storage:
+C
+C                 DO 20, J = 1, N
+C                    M = K + 1 - J
+C                    DO 10, I = MAX( 1, J - K ), J
+C                       A( M + I, J ) = matrix( I, J )
+C              10    CONTINUE
+C              20 CONTINUE
+C
+C           Before entry with UPLO = 'L' or 'l', the leading ( k + 1 )
+C           by n part of the array A must contain the lower triangular
+C           band part of the hermitian matrix, supplied column by
+C           column, with the leading diagonal of the matrix in row 1 of
+C           the array, the first sub-diagonal starting at position 1 in
+C           row 2, and so on. The bottom right k by k triangle of the
+C           array A is not referenced.
+C           The following program segment will transfer the lower
+C           triangular part of a hermitian band matrix from conventional
+C           full matrix storage to band storage:
+C
+C                 DO 20, J = 1, N
+C                    M = 1 - J
+C                    DO 10, I = J, MIN( N, J + K )
+C                       A( M + I, J ) = matrix( I, J )
+C              10    CONTINUE
+C              20 CONTINUE
+C
+C           Note that the imaginary parts of the diagonal elements need
+C           not be set and are assumed to be zero.
+C           Unchanged on exit.
+C
+C  LDA    - INTEGER.
+C           On entry, LDA specifies the first dimension of A as declared
+C           in the calling (sub) program. LDA must be at least
+C           ( k + 1 ).
+C           Unchanged on exit.
+C
+C  X      - COMPLEX          array of DIMENSION at least
+C           ( 1 + ( n - 1 )*abs( INCX ) ).
+C           Before entry, the incremented array X must contain the
+C           vector x.
+C           Unchanged on exit.
+C
+C  INCX   - INTEGER.
+C           On entry, INCX specifies the increment for the elements of
+C           X. INCX must not be zero.
+C           Unchanged on exit.
+C
+C  BETA   - COMPLEX         .
+C           On entry, BETA specifies the scalar beta.
+C           Unchanged on exit.
+C
+C  Y      - COMPLEX          array of DIMENSION at least
+C           ( 1 + ( n - 1 )*abs( INCY ) ).
+C           Before entry, the incremented array Y must contain the
+C           vector y. On exit, Y is overwritten by the updated vector y.
+C
+C  INCY   - INTEGER.
+C           On entry, INCY specifies the increment for the elements of
+C           Y. INCY must not be zero.
+C           Unchanged on exit.
+C
+C***REFERENCES  Dongarra, J. J., Du Croz, J., Hammarling, S., and
+C                 Hanson, R. J.  An extended set of Fortran basic linear
+C                 algebra subprograms.  ACM TOMS, Vol. 14, No. 1,
+C                 pp. 1-17, March 1988.
+C***ROUTINES CALLED  LSAME, XERBLA
+C***REVISION HISTORY  (YYMMDD)
+C   861022  DATE WRITTEN
+C   910605  Modified to meet SLATEC prologue standards.  Only comment
+C           lines were modified.  (BKS)
+C***END PROLOGUE  CHBMV

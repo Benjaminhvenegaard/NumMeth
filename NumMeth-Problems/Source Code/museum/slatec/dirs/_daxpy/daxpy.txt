@@ -1,0 +1,45 @@
+C***BEGIN PROLOGUE  DAXPY
+C***PURPOSE  Compute a constant times a vector plus a vector.
+C***LIBRARY   SLATEC (BLAS)
+C***CATEGORY  D1A7
+C***TYPE      DOUBLE PRECISION (SAXPY-S, DAXPY-D, CAXPY-C)
+C***KEYWORDS  BLAS, LINEAR ALGEBRA, TRIAD, VECTOR
+C***AUTHOR  Lawson, C. L., (JPL)
+C           Hanson, R. J., (SNLA)
+C           Kincaid, D. R., (U. of Texas)
+C           Krogh, F. T., (JPL)
+C***DESCRIPTION
+C
+C                B L A S  Subprogram
+C    Description of Parameters
+C
+C     --Input--
+C        N  number of elements in input vector(s)
+C       DA  double precision scalar multiplier
+C       DX  double precision vector with N elements
+C     INCX  storage spacing between elements of DX
+C       DY  double precision vector with N elements
+C     INCY  storage spacing between elements of DY
+C
+C     --Output--
+C       DY  double precision result (unchanged if N .LE. 0)
+C
+C     Overwrite double precision DY with double precision DA*DX + DY.
+C     For I = 0 to N-1, replace  DY(LY+I*INCY) with DA*DX(LX+I*INCX) +
+C       DY(LY+I*INCY),
+C     where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
+C     defined in a similar way using INCY.
+C
+C***REFERENCES  C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
+C                 Krogh, Basic linear algebra subprograms for Fortran
+C                 usage, Algorithm No. 539, Transactions on Mathematical
+C                 Software 5, 3 (September 1979), pp. 308-323.
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890831  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   920310  Corrected definition of LX in DESCRIPTION.  (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  DAXPY

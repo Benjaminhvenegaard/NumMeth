@@ -1,0 +1,73 @@
+C***BEGIN PROLOGUE  BESJ
+C***PURPOSE  Compute an N member sequence of J Bessel functions
+C            J/SUB(ALPHA+K-1)/(X), K=1,...,N for non-negative ALPHA
+C            and X.
+C***LIBRARY   SLATEC
+C***CATEGORY  C10A3
+C***TYPE      SINGLE PRECISION (BESJ-S, DBESJ-D)
+C***KEYWORDS  J BESSEL FUNCTION, SPECIAL FUNCTIONS
+C***AUTHOR  Amos, D. E., (SNLA)
+C           Daniel, S. L., (SNLA)
+C           Weston, M. K., (SNLA)
+C***DESCRIPTION
+C
+C     Abstract
+C         BESJ computes an N member sequence of J Bessel functions
+C         J/sub(ALPHA+K-1)/(X), K=1,...,N for non-negative ALPHA and X.
+C         A combination of the power series, the asymptotic expansion
+C         for X to infinity and the uniform asymptotic expansion for
+C         NU to infinity are applied over subdivisions of the (NU,X)
+C         plane.  For values of (NU,X) not covered by one of these
+C         formulae, the order is incremented or decremented by integer
+C         values into a region where one of the formulae apply. Backward
+C         recursion is applied to reduce orders by integer values except
+C         where the entire sequence lies in the oscillatory region.  In
+C         this case forward recursion is stable and values from the
+C         asymptotic expansion for X to infinity start the recursion
+C         when it is efficient to do so.  Leading terms of the series
+C         and uniform expansion are tested for underflow.  If a sequence
+C         is requested and the last member would underflow, the result
+C         is set to zero and the next lower order tried, etc., until a
+C         member comes on scale or all members are set to zero.
+C         Overflow cannot occur.
+C
+C     Description of Arguments
+C
+C         Input
+C           X      - X .GE. 0.0E0
+C           ALPHA  - order of first member of the sequence,
+C                    ALPHA .GE. 0.0E0
+C           N      - number of members in the sequence, N .GE. 1
+C
+C         Output
+C           Y      - a vector whose first  N components contain
+C                    values for J/sub(ALPHA+K-1)/(X), K=1,...,N
+C           NZ     - number of components of Y set to zero due to
+C                    underflow,
+C                    NZ=0   , normal return, computation completed
+C                    NZ .NE. 0, last NZ components of Y set to zero,
+C                             Y(K)=0.0E0, K=N-NZ+1,...,N.
+C
+C     Error Conditions
+C         Improper input arguments - a fatal error
+C         Underflow  - a non-fatal error (NZ .NE. 0)
+C
+C***REFERENCES  D. E. Amos, S. L. Daniel and M. K. Weston, CDC 6600
+C                 subroutines IBESS and JBESS for Bessel functions
+C                 I(NU,X) and J(NU,X), X .GE. 0, NU .GE. 0, ACM
+C                 Transactions on Mathematical Software 3, (1977),
+C                 pp. 76-92.
+C               F. W. J. Olver, Tables of Bessel Functions of Moderate
+C                 or Large Orders, NPL Mathematical Tables 6, Her
+C                 Majesty's Stationery Office, London, 1962.
+C***ROUTINES CALLED  ALNGAM, ASYJY, I1MACH, JAIRY, R1MACH, XERMSG
+C***REVISION HISTORY  (YYMMDD)
+C   750101  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900315  CALLs to XERROR changed to CALLs to XERMSG.  (THJ)
+C   900326  Removed duplicate information from DESCRIPTION section.
+C           (WRB)
+C   920501  Reformatted the REFERENCES section.  (WRB)
+C***END PROLOGUE  BESJ

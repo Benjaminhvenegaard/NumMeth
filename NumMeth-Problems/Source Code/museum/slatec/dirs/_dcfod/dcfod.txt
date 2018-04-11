@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  DCFOD
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DDEBDF
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (CFOD-S, DCFOD-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C   DCFOD defines coefficients needed in the integrator package DDEBDF
+C
+C***SEE ALSO  DDEBDF
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   820301  DATE WRITTEN
+C   890911  Removed unnecessary intrinsics.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  DCFOD

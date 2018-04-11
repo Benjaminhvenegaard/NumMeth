@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  CASIN
+C***PURPOSE  Compute the complex arc sine.
+C***LIBRARY   SLATEC (FNLIB)
+C***CATEGORY  C4A
+C***TYPE      COMPLEX (CASIN-C)
+C***KEYWORDS  ARC SINE, ELEMENTARY FUNCTIONS, FNLIB, TRIGONOMETRIC
+C***AUTHOR  Fullerton, W., (LANL)
+C***DESCRIPTION
+C
+C CASIN(ZINP) calculates the complex trigonometric arc sine of ZINP.
+C The result is in units of radians, and the real part is in the first
+C or fourth quadrant.
+C
+C***REFERENCES  (NONE)
+C***ROUTINES CALLED  R1MACH
+C***REVISION HISTORY  (YYMMDD)
+C   770701  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   890531  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C***END PROLOGUE  CASIN

@@ -1,0 +1,23 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE ssjac
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+issir
+qs2i1r
+schkw
+sir
+ss2y
+ssdi
+ssds
+ssmv
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+snrm2
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

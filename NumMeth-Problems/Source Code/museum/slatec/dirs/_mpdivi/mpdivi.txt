@@ -1,0 +1,27 @@
+C***BEGIN PROLOGUE  MPDIVI
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DQDOTA and DQDOTI
+C***LIBRARY   SLATEC
+C***TYPE      ALL (MPDIVI-A)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  Divides 'mp' X by the single-precision integer IY giving 'mp' Z.
+C  This is much faster than division by an 'mp' number.
+C
+C  The arguments X(*) and Z(*), and the variable R in COMMON are all
+C  INTEGER arrays of size 30.  See the comments in the routine MPBLAS
+C  for the reason for this choice.
+C
+C***SEE ALSO  DQDOTA, DQDOTI, MPBLAS
+C***ROUTINES CALLED  MPCHK, MPERR, MPNZR, MPSTR, MPUNFL
+C***COMMON BLOCKS    MPCOM
+C***REVISION HISTORY  (YYMMDD)
+C   791001  DATE WRITTEN
+C   ??????  Modified for use with BLAS.  Blank COMMON changed to named
+C           COMMON.  R given dimension 12.
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C   930124  Increased Array size in MPCON for SUN -r8.  (RWC)
+C***END PROLOGUE  MPDIVI

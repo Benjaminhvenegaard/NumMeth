@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE sinqi
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+cosqi
+rffti
+rffti1
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+---END OF DEPENDENCIES---

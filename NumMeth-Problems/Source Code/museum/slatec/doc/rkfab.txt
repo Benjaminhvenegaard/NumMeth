@@ -1,0 +1,29 @@
+C***BEGIN PROLOGUE  RKFAB
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to BVSUP
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (RKFAB-S, DRKFAB-D)
+C***AUTHOR  Watts, H. A., (SNLA)
+C***DESCRIPTION
+C
+C **********************************************************************
+C
+C     Subroutine RKFAB integrates the initial value equations using
+C     the variable-step RUNGE-KUTTA-FEHLBERG integration scheme or
+C     the variable-order ADAMS method and orthonormalization
+C     determined by a linear dependence test.
+C
+C **********************************************************************
+C
+C***SEE ALSO  BVSUP
+C***ROUTINES CALLED  BVDER, DEABM, DERKF, REORT, STOR1
+C***COMMON BLOCKS    ML15TO, ML17BW, ML18JR, ML8SZ
+C***REVISION HISTORY  (YYMMDD)
+C   750601  DATE WRITTEN
+C   890831  Modified array declarations.  (WRB)
+C   890921  Realigned order of variables in certain COMMON blocks.
+C           (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C   910722  Updated AUTHOR section.  (ALS)
+C***END PROLOGUE  RKFAB

@@ -1,0 +1,63 @@
+      SUBROUTINE PFQAD (F, LDC, C, XI, LXI, K, ID, X1, X2, TOL, QUAD,
+     +   IERR)
+C
+      INTEGER ID,IERR,IFLG,ILO,IL1,IL2,INPPV,K,LDC,LEFT,LXI,MF1,MF2
+      REAL A, AA, ANS, B, BB, C, Q, QUAD, TA, TB, TOL, WTOL, XI, X1, X2
+      REAL R1MACH, F
+      DIMENSION XI(*), C(LDC,*)
+      EXTERNAL F
+C
+C***FIRST EXECUTABLE STATEMENT  PFQAD
+      IERR = 1
+      QUAD = 0.0E0
+      IF(K.LT.1) GO TO 100
+      IF(LDC.LT.K) GO TO 105
+      IF(ID.LT.0 .OR. ID.GE.K) GO TO 110
+      IF(LXI.LT.1) GO TO 115
+      WTOL = R1MACH(4)
+      IF (TOL.LT.WTOL .OR. TOL.GT.0.1E0) GO TO 20
+      AA = MIN(X1,X2)
+      BB = MAX(X1,X2)
+      IF (AA.EQ.BB) RETURN
+      ILO = 1
+      CALL INTRV(XI, LXI, AA, ILO, IL1, MF1)
+      CALL INTRV(XI, LXI, BB, ILO, IL2, MF2)
+      Q = 0.0E0
+      INPPV = 1
+      DO 10 LEFT=IL1,IL2
+        TA = XI(LEFT)
+        A = MAX(AA,TA)
+        IF (LEFT.EQ.1) A = AA
+        TB = BB
+        IF (LEFT.LT.LXI) TB = XI(LEFT+1)
+        B = MIN(BB,TB)
+        CALL PPGQ8(F,LDC,C,XI,LXI,K,ID,A,B,INPPV,TOL,ANS,IFLG)
+        IF (IFLG.GT.1) IERR = 2
+        Q = Q + ANS
+   10 CONTINUE
+      IF (X1.GT.X2) Q = -Q
+      QUAD = Q
+      RETURN
+C
+   20 CONTINUE
+      CALL XERMSG ('SLATEC', 'PFQAD',
+     +   'TOL IS LESS THAN THE SINGLE PRECISION TOLERANCE OR ' //
+     +   'GREATER THAN 0.1', 2, 1)
+      RETURN
+  100 CONTINUE
+      CALL XERMSG ('SLATEC', 'PFQAD', 'K DOES NOT SATISFY K.GE.1', 2,
+     +   1)
+      RETURN
+  105 CONTINUE
+      CALL XERMSG ('SLATEC', 'PFQAD', 'LDC DOES NOT SATISFY LDC.GE.K',
+     +   2, 1)
+      RETURN
+  110 CONTINUE
+      CALL XERMSG ('SLATEC', 'PFQAD',
+     +   'ID DOES NOT SATISFY 0.LE.ID.LT.K', 2, 1)
+      RETURN
+  115 CONTINUE
+      CALL XERMSG ('SLATEC', 'PFQAD', 'LXI DOES NOT SATISFY LXI.GE.1',
+     +   2, 1)
+      RETURN
+      END

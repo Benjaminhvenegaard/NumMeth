@@ -1,0 +1,21 @@
+C***BEGIN PROLOGUE  TRI3
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to GENBUN
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (TRI3-S, CMPTR3-C)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C     Subroutine to solve three linear systems whose common coefficient
+C     matrix is a rational function in the matrix given by
+C
+C                  TRIDIAGONAL (...,A(I),B(I),C(I),...)
+C
+C***SEE ALSO  GENBUN
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890206  REVISION DATE from Version 3.2
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  TRI3

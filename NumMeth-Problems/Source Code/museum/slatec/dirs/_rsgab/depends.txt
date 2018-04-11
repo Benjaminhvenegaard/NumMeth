@@ -1,0 +1,21 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rsgab
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+rebak
+reduc2
+tql2
+tqlrat
+tred1
+tred2
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+pythag
+r1mach
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

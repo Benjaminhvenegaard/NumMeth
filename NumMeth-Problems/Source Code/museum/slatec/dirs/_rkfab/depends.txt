@@ -1,0 +1,30 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE rkfab
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+bvder
+deabm
+defehl
+derkf
+derkfs
+des
+hstart
+hvnrm
+mgsbv
+prvec
+reort
+sintrp
+steps
+stor1
+stway
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+fdump
+i1mach
+j4save
+r1mach
+sdot
+xercnt
+xerhlt
+xermsg
+xerprn
+xersve
+xgetua
+---END OF DEPENDENCIES---

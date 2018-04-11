@@ -1,0 +1,17 @@
+      COMPLEX FUNCTION C0LGMC (Z)
+      COMPLEX Z, Q, C9LN2R
+      SAVE RBIG
+      DATA RBIG / 0.0 /
+C***FIRST EXECUTABLE STATEMENT  C0LGMC
+      IF (RBIG.EQ.0.0) RBIG = 1.0/R1MACH(3)
+C
+      CABSZ = ABS(Z)
+      IF (CABSZ.GT.RBIG) C0LGMC = -(Z+0.5)*LOG(Z) - Z
+      IF (CABSZ.GT.RBIG) RETURN
+C
+      Q = 1.0/Z
+      IF (CABSZ.LE.1.23) C0LGMC = (Z+0.5)*LOG(1.0+Q) - 1.0
+      IF (CABSZ.GT.1.23) C0LGMC = ((1.+.5*Q)*C9LN2R(Q) - .25) * Q**2
+C
+      RETURN
+      END

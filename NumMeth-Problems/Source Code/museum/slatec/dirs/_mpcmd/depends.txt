@@ -1,0 +1,7 @@
+DEPENDENCIES (DIRECT AND INDIRECT) FOR ROUTINE mpcmd
+SPECIFIC DEPENDENCIES (routines NOT in the file cmlutils.f):
+mpchk
+mperr
+GENERIC DEPENDENCIES (routines in the file cmlutils.f):
+i1mach
+---END OF DEPENDENCIES---

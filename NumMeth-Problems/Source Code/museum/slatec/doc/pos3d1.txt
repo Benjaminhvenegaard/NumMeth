@@ -1,0 +1,18 @@
+C***BEGIN PROLOGUE  POS3D1
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to POIS3D
+C***LIBRARY   SLATEC
+C***TYPE      SINGLE PRECISION (POS3D1-S)
+C***AUTHOR  (UNKNOWN)
+C***SEE ALSO  POIS3D
+C***ROUTINES CALLED  COSQB, COSQF, COSQI, COST, COSTI, PIMACH, RFFTB,
+C                    RFFTF, RFFTI, SINQB, SINQF, SINQI, SINT, SINTI,
+C                    TRIDQ
+C***REVISION HISTORY  (YYMMDD)
+C   801001  DATE WRITTEN
+C   890531  Changed all specific intrinsics to generic.  (WRB)
+C   891009  Removed unreferenced variable.  (WRB)
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900308  Changed call to TRID to call to TRIDQ.  (WRB)
+C   900402  Added TYPE section.  (WRB)
+C***END PROLOGUE  POS3D1

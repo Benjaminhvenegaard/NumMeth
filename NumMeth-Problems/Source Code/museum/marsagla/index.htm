@@ -1,0 +1,84 @@
+<html><head><title>Marsaglia's Random Number CDROM Files</title></head>
+<body>
+<center>
+<img src="../../gfx/logoCodeMuseumMed.gif"><br>
+<h4>Selected Files From</h4>
+<h1>The Marsaglia Random Number CDROM</h1>
+<h3>including the</h3>
+<h1>DIEHARD Battery of Tests of Randomness</h1></center>
+
+<hr>
+The files in this directory are included by kind permission of Professor
+George Marsaglia (geo@stat.fsu.edu). Copyright (C) 1995 by George
+Marsaglia.  All rights reserved.
+<hr>
+<p>
+Professor Marsaglia's CDROM, based on research supported by the National
+Science Foundation under grants DMS-8807976 and DMS-9206972, contains
+approximately 600 Mbytes of files of random bytes that pass all known
+tests for randomness.  <b>Those files are not included on this CDROM.</b>
+Here is the top level <a href="cdrom.txt">readme file</a> from
+Marsaglia's full CDROM.<p>
+
+The files included on this CDROM relate to Marsaglia's rightly famous, if
+whimsically named, "Diehard battery of tests of randomness".  These have
+come be viewed as something of an industry standard for testing
+random number generators.  Over the years, several generators thought to
+be good have been shown to be inadequate by these tests.<p>
+
+Here is a <a href="source/">directory of source files</a>
+(or, Mac <a href="source.htm">alternate listing</a>)
+for the Diehard tests.  The principal program needed is
+<a href="source/diehard.c"><tt>diehard.c</tt></a>.  Note that this is a
+C program automatically translated from the original Fortran by the
+program "f2c" (included <a href="../slatec/f2c/f2c_src/">elsewhere</a>
+on this CDROM.
+To compile Diehard successfully, you will need to compile and build
+both of the <a href="../slatec/f2c/lib/">f2c libraries</a>, and
+then compile with a command line like<p>
+<tt>cc -o diehard diehard.c -lf2c -lm</tt><p>
+For further information, look at the <a href="source/readme.txt">readme
+file</a>. (Sorry, neither we, nor Professor Marsaglia, can provide any
+support on this.  We've succeeded in doing it, so we know it <i>can</i>
+be done.)<p>
+
+You may find it easier to modify and compile the <a
+href="source/diehard.f">original Fortran version (diehard.f)</a>, also
+included by permission of Professor Marsaglia, but with the strict
+understanding that it be treated as a well-tested "working
+composite code," with 30 years of accumulated patches; it is not
+polished code intended for public release.<p>
+
+Much easier than recompiling is to use one of the precompiled versions
+of the executable files that are supplied for the following machine types:
+
+<menu>
+<li><a href="dos/">DOS</a>
+<li><a href="sun/">Sun</a>
+<li><a href="linux/">LINUX</a>
+<li><a href="decaxp/">DEC Alpha AXP</a>
+</menu>
+
+Also included from Marsaglia's CDROM are four
+<a href="pscript/">PostScript files</a>
+(Mac <a href="pscript.htm">alternate listing</a>)
+that contain information
+on the CDROM itself, and additional information on random number
+generators.<p>
+
+A word of caution about
+the files <tt>canada.bit</tt>, <tt>germany.bit</tt>, and
+<tt>calif.bit</tt>, included in <a href="./">this directory</a>.
+As Marsaglia explains, these files do <b>not</b> pass all tests
+for randomness, but are included for their usefulness in demonstrating
+Diehard, or in assessing other routines for finding nonrandomness.<p>
+
+<hr>
+
+Please note that Professor Marsaglia is in no way responsible for
+the files of random bytes that are included
+<a href="../random/index.htm">elsewhere</a>
+on this CDROM.  Those files in fact do pass the Diehard tests, but they
+are the result of an independent effort, not related to the Marsaglia CDROM.<p>
+
+</body></html>

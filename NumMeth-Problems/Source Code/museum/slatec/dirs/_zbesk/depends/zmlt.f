@@ -1,0 +1,9 @@
+      SUBROUTINE ZMLT (AR, AI, BR, BI, CR, CI)
+      DOUBLE PRECISION AR, AI, BR, BI, CR, CI, CA, CB
+C***FIRST EXECUTABLE STATEMENT  ZMLT
+      CA = AR*BR - AI*BI
+      CB = AR*BI + AI*BR
+      CR = CA
+      CI = CB
+      RETURN
+      END

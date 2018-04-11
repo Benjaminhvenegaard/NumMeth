@@ -1,0 +1,515 @@
+
+                              GAMS ROUTINE FINDER
+                                       
+   Use this hypertext file to navigate through the GAMS classification
+   scheme for mathematical software and locate desired SLATEC routines.
+   Links on the right (i.e., on the descriptions) take you to finer
+   levels of detail. Links on the left (i.e., on the alphanumerical
+   codes) return you to coarser levels of the hierarchy.
+   
+   Links named "SLATEC" will take you to the corresponding point in the
+   Table of Contents of the SLATEC Common Mathematical Library. Note that
+   not all GAMS Categories are represented in SLATEC, so SLATEC links are
+   not always displayed.
+   
+Principal GAMS Categories
+
+   A. Arithmetic, error analysis (in SLATEC)
+   B. Number theory
+   C. Elementary and special functions (search also class L5) (in SLATEC)
+   D. Linear Algebra (in SLATEC)
+   E. Interpolation (in SLATEC)
+   F. Solution of nonlinear equations (in SLATEC)
+   G. Optimization (search also classes K, L8) (in SLATEC)
+   H. Differentiation, integration (in SLATEC)
+   I. Differential and integral equations (in SLATEC)
+   J. Integral transforms (in SLATEC)
+   K. Approximation (search also class L8) (in SLATEC)
+   L. Statistics, probability (in SLATEC)
+   M. Simulation, stochastic modeling (search also classes L6, L10)
+   N. Data handling (search also class L2) (in SLATEC)
+   O. Symbolic computation
+   P. Computational geometry (search also classes G, Q)
+   Q. Graphics (search also classes L3, P)
+   R. Service routines (in SLATEC)
+   S. Software development tools
+   Z. Other (in SLATEC)
+   
+Principal and Secondary GAMS Categories
+
+   A. Arithmetic, error analysis (in SLATEC)
+    A1. Integer
+    A2. Rational
+    A3. Real (in SLATEC)
+    A4. Complex (in SLATEC)
+    A5. Interval
+    A6. Change of representation (in SLATEC)
+    A7. Sequences (e.g., convergence acceleration)
+   B. Number theory
+   C. Elementary and special functions (search also class L5) (in SLATEC)
+    C1. Integer-valued functions (e.g., floor, ceiling, factorial,
+   binomial coefficient) (in SLATEC)
+    C2. Powers, roots, reciprocals (in SLATEC)
+    C3. Polynomials (in SLATEC)
+    C4. Elementary transcendental functions (in SLATEC)
+    C5. Exponential and logarithmic integrals (in SLATEC)
+    C6. Cosine and sine integrals
+    C7. Gamma (in SLATEC)
+    C8. Error functions (in SLATEC)
+    C9. Legendre functions (in SLATEC)
+    C10. Bessel functions (in SLATEC)
+    C11. Confluent hypergeometric functions (in SLATEC)
+    C12. Coulomb wave functions
+    C13. Jacobian elliptic functions, theta functions
+    C14. Elliptic integrals (in SLATEC)
+    C15. Weierstrass elliptic functions
+    C16. Parabolic cylinder functions
+    C17. Mathieu functions
+    C18. Spheroidal wave functions
+    C19. Other special functions (in SLATEC)
+   D. Linear Algebra (in SLATEC)
+    D1. Elementary vector and matrix operations (in SLATEC)
+    D2. Solution of systems of linear equations (including inversion, LU
+   and related decompositions) (in SLATEC)
+    D3. Determinants (in SLATEC)
+    D4. Eigenvalues, eigenvectors (in SLATEC)
+    D5. QR decomposition, Gram-Schmidt orthogonalization (in SLATEC)
+    D6. Singular value decomposition (in SLATEC)
+    D7. Update matrix decompositions (in SLATEC)
+    D8. Other matrix equations (e.g., AX+XB=C)
+    D9. Overdetermined or underdetermined systems of equations, singular
+   systems, pseudo-inverses (search also classes D5, D6, K1a, L8a) (in
+   SLATEC)
+   E. Interpolation (in SLATEC)
+    E1. Univariate data (curve fitting) (in SLATEC)
+    E2. Multivariate data (surface fitting)
+    E3. Service routines (e.g., grid generation, evaluation of fitted
+   functions) (search also class N5) (in SLATEC)
+   F. Solution of nonlinear equations (in SLATEC)
+    F1. Single equation (in SLATEC)
+    F2. System of equations (in SLATEC)
+    F3. Service routines (e.g., check user-supplied derivatives) (in
+   SLATEC)
+   G. Optimization (search also classes K, L8) (in SLATEC)
+    G1. Unconstrained
+    G2. Constrained (in SLATEC)
+    G3. Optimal control
+    G4. Service routines (in SLATEC)
+   H. Differentiation, integration (in SLATEC)
+    H1. Numerical differentiation (in SLATEC)
+    H2. Quadrature (numerical evaluation of definite integrals) (in
+   SLATEC)
+   I. Differential and integral equations (in SLATEC)
+    I1. Ordinary differential equations (in SLATEC)
+    I2. Partial differential equations (in SLATEC)
+    I3. Integral equations
+   J. Integral transforms (in SLATEC)
+    J1. Fast Fourier transforms (search class L10 for time series
+   analysis) (in SLATEC)
+    J2. Convolutions
+    J3. Laplace transforms
+    J4. Hilbert transforms (in SLATEC)
+   K. Approximation (search also class L8) (in SLATEC)
+    K1. Least squares (L-2) approximation (in SLATEC)
+    K2. Minimax (L-infinity) approximation
+    K3. Least absolute value (L-1) approximation
+    K4. Other analytic approximations (e.g., Taylor polynomial, Pade)
+    K5. Smoothing
+    K6. Service routines (e.g., mesh generation, evaluation of fitted
+   functions) (search also class N5) (in SLATEC)
+   L. Statistics, probability (in SLATEC)
+    L1. Data summarization
+    L2. Data manipulation (search also class N)
+    L3. Graphics (search also class Q)
+    L4. Elementary statistical inference, hypothesis testing
+    L5. Function evaluation (search also class C) (in SLATEC)
+    L6. Pseudo-random number generation (in SLATEC)
+    L7. Experimental design, including analysis of variance (in SLATEC)
+    L8. Regression (search also classes G, K) (in SLATEC)
+    L9. Categorical data analysis
+    L10. Time series analysis (search also class L3c5 for time series
+   graphics)
+    L11. Correlation analysis
+    L12. Discriminant analysis
+    L13. Factor analysis
+    L14. Cluster analysis
+    L15. Life testing, survival analysis
+   M. Simulation, stochastic modeling (search also classes L6, L10)
+    M1. Simulation
+    M2. Queueing
+    M3. Reliability
+    M4. Project optimization (e.g., PERT)
+   N. Data handling (search also class L2) (in SLATEC)
+    N1. Input, output (in SLATEC)
+    N2. Bit manipulation
+    N3. Character manipulation
+    N4. Storage management (e.g., stacks, heaps, trees)
+    N5. Searching
+    N6. Sorting (in SLATEC)
+    N7. Merging
+    N8. Permuting (in SLATEC)
+   O. Symbolic computation
+   P. Computational geometry (search also classes G, Q)
+    P1. One dimension
+    P2. Two dimensions
+    P3. Three dimensions
+    P4. More than three dimensions
+   Q. Graphics (search also classes L3, P)
+    Q1. Line printer plotting
+   R. Service routines (in SLATEC)
+    R1. Machine-dependent constants (in SLATEC)
+    R2. Error checking (e.g., check monotonicity) (in SLATEC)
+    R3. Error handling (in SLATEC)
+    R4. Documentation retrieval
+   S. Software development tools
+    S1. Program transformation
+    S2. Static analysis
+    S3. Dynamic analysis
+   Z. Other (in SLATEC)
+   
+GAMS Categories Represented in SLATEC
+
+   The top two levels of GAMS are listed (e.g., A1) whether or not there
+   are SLATEC routines in the respective categories. Otherwise, a
+   category is listed only if there is at least one corresponding SLATEC
+   routine.
+   
+   A. Arithmetic, error analysis (in SLATEC)
+    A1. Integer
+    A2. Rational
+    A3. Real (in SLATEC)
+     A3D. Extended range (in SLATEC)
+    A4. Complex (in SLATEC)
+     A4A. Single precision (in SLATEC)
+    A5. Interval
+    A6. Change of representation (in SLATEC)
+     A6B. Base conversion (in SLATEC)
+    A7. Sequences (e.g., convergence acceleration)
+   B. Number theory
+   C. Elementary and special functions (search also class L5) (in SLATEC)
+    C1. Integer-valued functions (e.g., floor, ceiling, factorial,
+   binomial coefficient) (in SLATEC)
+    C2. Powers, roots, reciprocals (in SLATEC)
+    C3. Polynomials (in SLATEC)
+     C3A. Orthogonal (in SLATEC)
+      C3A2. Chebyshev, Legendre (in SLATEC)
+    C4. Elementary transcendental functions (in SLATEC)
+     C4A. Trigonometric, inverse trigonometric (in SLATEC)
+     C4B. Exponential, logarithmic (in SLATEC)
+     C4C. Hyperbolic, inverse hyperbolic (in SLATEC)
+    C5. Exponential and logarithmic integrals (in SLATEC)
+    C6. Cosine and sine integrals
+    C7. Gamma (in SLATEC)
+     C7A. Gamma, log gamma, reciprocal gamma (in SLATEC)
+     C7B. Beta, log beta (in SLATEC)
+     C7C. Psi function (in SLATEC)
+     C7E. Incomplete gamma (in SLATEC)
+     C7F. Incomplete beta (in SLATEC)
+    C8. Error functions (in SLATEC)
+     C8A. Error functions, their inverses, integrals, including the
+   normal distribution function (in SLATEC)
+     C8C. Dawson's integral (in SLATEC)
+    C9. Legendre functions (in SLATEC)
+    C10. Bessel functions (in SLATEC)
+     C10A. J, Y, H-(1), H-(2) (in SLATEC)
+      C10A1. Real argument, integer order (in SLATEC)
+      C10A3. Real argument, real order (in SLATEC)
+      C10A4. Complex argument, real order (in SLATEC)
+     C10B. I, K (in SLATEC)
+      C10B1. Real argument, integer order (in SLATEC)
+      C10B3. Real argument, real order (in SLATEC)
+      C10B4. Complex argument, real order (in SLATEC)
+     C10D. Airy and Scorer functions (in SLATEC)
+     C10F. Integrals of Bessel functions (in SLATEC)
+    C11. Confluent hypergeometric functions (in SLATEC)
+    C12. Coulomb wave functions
+    C13. Jacobian elliptic functions, theta functions
+    C14. Elliptic integrals (in SLATEC)
+    C15. Weierstrass elliptic functions
+    C16. Parabolic cylinder functions
+    C17. Mathieu functions
+    C18. Spheroidal wave functions
+    C19. Other special functions (in SLATEC)
+   D. Linear Algebra (in SLATEC)
+    D1. Elementary vector and matrix operations (in SLATEC)
+     D1A. Elementary vector operations (in SLATEC)
+      D1A2. Minimum and maximum components (in SLATEC)
+      D1A3. Norm (in SLATEC)
+       D1A3A. L-1 (sum of magnitudes) (in SLATEC)
+       D1A3B. L-2 (Euclidean norm) (in SLATEC)
+      D1A4. Dot product (inner product) (in SLATEC)
+      D1A5. Copy or exchange (swap) (in SLATEC)
+      D1A6. Multiplication by scalar (in SLATEC)
+      D1A7. Triad (a*x+y for vectors x,y and scalar a) (in SLATEC)
+      D1A8. Elementary rotation (Givens transformation) (in SLATEC)
+     D1B. Elementary matrix operations (in SLATEC)
+      D1B4. Multiplication by vector (in SLATEC)
+      D1B6. Multiplication (in SLATEC)
+      D1B9. Storage mode conversion (in SLATEC)
+      D1B10. Elementary rotation (Givens transformation) (in SLATEC)
+    D2. Solution of systems of linear equations (including inversion, LU
+   and related decompositions) (in SLATEC)
+     D2A. Real nonsymmetric matrices (in SLATEC)
+      D2A1. General (in SLATEC)
+      D2A2. Banded (in SLATEC)
+       D2A2A. Tridiagonal (in SLATEC)
+      D2A3. Triangular (in SLATEC)
+      D2A4. Sparse (in SLATEC)
+     D2B. Real symmetric matrices (in SLATEC)
+      D2B1. General (in SLATEC)
+       D2B1A. Indefinite (in SLATEC)
+       D2B1B. Positive definite (in SLATEC)
+      D2B2. Positive definite banded (in SLATEC)
+       D2B2A. Tridiagonal (in SLATEC)
+      D2B4. Sparse (in SLATEC)
+     D2C. Complex non-Hermitian matrices (in SLATEC)
+      D2C1. General (in SLATEC)
+      D2C2. Banded (in SLATEC)
+       D2C2A. Tridiagonal (in SLATEC)
+      D2C3. Triangular (in SLATEC)
+     D2D. Complex Hermitian matrices (in SLATEC)
+      D2D1. General (in SLATEC)
+       D2D1A. Indefinite (in SLATEC)
+       D2D1B. Positive definite (in SLATEC)
+      D2D2. Positive definite banded (in SLATEC)
+       D2D2A. Tridiagonal (in SLATEC)
+     D2E. Associated operations (e.g., matrix reorderings) (in SLATEC)
+    D3. Determinants (in SLATEC)
+     D3A. Real nonsymmetric matrices (in SLATEC)
+      D3A1. General (in SLATEC)
+      D3A2. Banded (in SLATEC)
+      D3A3. Triangular (in SLATEC)
+     D3B. Real symmetric matrices (in SLATEC)
+      D3B1. General (in SLATEC)
+       D3B1A. Indefinite (in SLATEC)
+       D3B1B. Positive definite (in SLATEC)
+      D3B2. Positive definite banded (in SLATEC)
+     D3C. Complex non-Hermitian matrices (in SLATEC)
+      D3C1. General (in SLATEC)
+      D3C2. Banded (in SLATEC)
+      D3C3. Triangular (in SLATEC)
+     D3D. Complex Hermitian matrices (in SLATEC)
+      D3D1. General (in SLATEC)
+       D3D1A. Indefinite (in SLATEC)
+       D3D1B. Positive definite (in SLATEC)
+      D3D2. Positive definite banded (in SLATEC)
+    D4. Eigenvalues, eigenvectors (in SLATEC)
+     D4A. Ordinary eigenvalue problems (Ax = (lambda) * x) (in SLATEC)
+      D4A1. Real symmetric (in SLATEC)
+      D4A2. Real nonsymmetric (in SLATEC)
+      D4A3. Complex Hermitian (in SLATEC)
+      D4A4. Complex non-Hermitian (in SLATEC)
+      D4A5. Tridiagonal (in SLATEC)
+      D4A6. Banded (in SLATEC)
+     D4B. Generalized eigenvalue problems (e.g., Ax = (lambda)*Bx) (in
+   SLATEC)
+      D4B1. Real symmetric (in SLATEC)
+      D4B2. Real general (in SLATEC)
+     D4C. Associated operations (in SLATEC)
+      D4C1. Transform problem (in SLATEC)
+       D4C1A. Balance matrix (in SLATEC)
+       D4C1B. Reduce to compact form (in SLATEC)
+        D4C1B1. Tridiagonal (in SLATEC)
+        D4C1B2. Hessenberg (in SLATEC)
+        D4C1B3. Other (in SLATEC)
+       D4C1C. Standardize problem (in SLATEC)
+      D4C2. Compute eigenvalues of matrix in compact form (in SLATEC)
+       D4C2A. Tridiagonal (in SLATEC)
+       D4C2B. Hessenberg (in SLATEC)
+       D4C2C. Other (in SLATEC)
+      D4C3. Form eigenvectors from eigenvalues (in SLATEC)
+      D4C4. Back transform eigenvectors (in SLATEC)
+    D5. QR decomposition, Gram-Schmidt orthogonalization (in SLATEC)
+    D6. Singular value decomposition (in SLATEC)
+    D7. Update matrix decompositions (in SLATEC)
+     D7B. Cholesky (in SLATEC)
+    D8. Other matrix equations (e.g., AX+XB=C)
+    D9. Overdetermined or underdetermined systems of equations, singular
+   systems, pseudo-inverses (search also classes D5, D6, K1a, L8a) (in
+   SLATEC)
+   E. Interpolation (in SLATEC)
+    E1. Univariate data (curve fitting) (in SLATEC)
+     E1A. Polynomial splines (piecewise polynomials) (in SLATEC)
+     E1B. Polynomials (in SLATEC)
+    E2. Multivariate data (surface fitting)
+    E3. Service routines (e.g., grid generation, evaluation of fitted
+   functions) (search also class N5) (in SLATEC)
+   F. Solution of nonlinear equations (in SLATEC)
+    F1. Single equation (in SLATEC)
+     F1A. Smooth (in SLATEC)
+      F1A1. Polynomial (in SLATEC)
+       F1A1A. Real coefficients (in SLATEC)
+       F1A1B. Complex coefficients (in SLATEC)
+     F1B. General (no smoothness assumed) (in SLATEC)
+    F2. System of equations (in SLATEC)
+     F2A. Smooth (in SLATEC)
+    F3. Service routines (e.g., check user-supplied derivatives) (in
+   SLATEC)
+   G. Optimization (search also classes K, L8) (in SLATEC)
+    G1. Unconstrained
+    G2. Constrained (in SLATEC)
+     G2A. Linear programming (in SLATEC)
+      G2A2. Sparse matrix of constraints (in SLATEC)
+     G2E. Quadratic programming (in SLATEC)
+     G2H. General nonlinear programming (in SLATEC)
+      G2H1. Simple bounds (in SLATEC)
+      G2H2. Linear equality or inequality constraints (in SLATEC)
+    G3. Optimal control
+    G4. Service routines (in SLATEC)
+     G4C. Check user-supplied derivatives (in SLATEC)
+   H. Differentiation, integration (in SLATEC)
+    H1. Numerical differentiation (in SLATEC)
+    H2. Quadrature (numerical evaluation of definite integrals) (in
+   SLATEC)
+     H2A. One-dimensional integrals (in SLATEC)
+      H2A1. Finite interval (general integrand) (in SLATEC)
+       H2A1A. Integrand available via user-defined procedure (in SLATEC)
+        H2A1A1. Automatic (user need only specify required accuracy) (in
+   SLATEC)
+        H2A1A2. Nonautomatic (in SLATEC)
+       H2A1B. Integrand available only on grid (in SLATEC)
+        H2A1B2. Nonautomatic (in SLATEC)
+      H2A2. Finite interval (specific or special type integrand including
+   weight functions, oscillating and singular integrands, principal value
+   integrals, splines, etc.) (in SLATEC)
+       H2A2A. Integrand available via user-defined procedure (in SLATEC)
+        H2A2A1. Automatic (user need only specify required accuracy) (in
+   SLATEC)
+        H2A2A2. Nonautomatic (in SLATEC)
+      H2A3. Semi-infinite interval (including e**(-x) weight function)
+   (in SLATEC)
+       H2A3A. Integrand available via user-defined procedure (in SLATEC)
+        H2A3A1. Automatic (user need only specify required accuracy) (in
+   SLATEC)
+        H2A3A2. Nonautomatic (in SLATEC)
+      H2A4. Infinite interval (including e**(-x**2)) weight function) (in
+   SLATEC)
+       H2A4A. Integrand available via user-defined procedure (in SLATEC)
+        H2A4A1. Automatic (user need only specify required accuracy) (in
+   SLATEC)
+        H2A4A2. Nonautomatic (in SLATEC)
+   I. Differential and integral equations (in SLATEC)
+    I1. Ordinary differential equations (in SLATEC)
+     I1A. Initial value problems (in SLATEC)
+      I1A1. General, nonstiff or mildly stiff (in SLATEC)
+       I1A1A. One-step methods (e.g., Runge-Kutta) (in SLATEC)
+       I1A1B. Multistep methods (e.g., Adams' predictor-corrector) (in
+   SLATEC)
+      I1A2. Stiff and mixed algebraic-differential equations (in SLATEC)
+     I1B. Multipoint boundary value problems (in SLATEC)
+      I1B1. Linear (in SLATEC)
+    I2. Partial differential equations (in SLATEC)
+     I2B. Elliptic boundary value problems (in SLATEC)
+      I2B1. Linear (in SLATEC)
+       I2B1A. Second order (in SLATEC)
+        I2B1A1. Poisson (Laplace) or Helmholz equation (in SLATEC)
+         I2B1A1A. Rectangular domain (or topologically rectangular in the
+   coordinate system) (in SLATEC)
+        I2B1A2. Other separable problems (in SLATEC)
+      I2B4. Service routines (in SLATEC)
+       I2B4B. Solution of discretized elliptic equations (in SLATEC)
+    I3. Integral equations
+   J. Integral transforms (in SLATEC)
+    J1. Fast Fourier transforms (search class L10 for time series
+   analysis) (in SLATEC)
+     J1A. One-dimensional (in SLATEC)
+      J1A1. Real (in SLATEC)
+      J1A2. Complex (in SLATEC)
+      J1A3. Trigonometric (sine, cosine) (in SLATEC)
+    J2. Convolutions
+    J3. Laplace transforms
+    J4. Hilbert transforms (in SLATEC)
+   K. Approximation (search also class L8) (in SLATEC)
+    K1. Least squares (L-2) approximation (in SLATEC)
+     K1A. Linear least squares (search also classes D5, D6, D9) (in
+   SLATEC)
+      K1A1. Unconstrained (in SLATEC)
+       K1A1A. Univariate data (curve fitting) (in SLATEC)
+        K1A1A1. Polynomial splines (piecewise polynomials) (in SLATEC)
+        K1A1A2. Polynomials (in SLATEC)
+      K1A2. Constrained (in SLATEC)
+       K1A2A. Linear constraints (in SLATEC)
+     K1B. Nonlinear least squares (in SLATEC)
+      K1B1. Unconstrained (in SLATEC)
+       K1B1A. Smooth functions (in SLATEC)
+        K1B1A1. User provides no derivatives (in SLATEC)
+        K1B1A2. User provides first derivatives (in SLATEC)
+    K2. Minimax (L-infinity) approximation
+    K3. Least absolute value (L-1) approximation
+    K4. Other analytic approximations (e.g., Taylor polynomial, Pade)
+    K5. Smoothing
+    K6. Service routines (e.g., mesh generation, evaluation of fitted
+   functions) (search also class N5) (in SLATEC)
+   L. Statistics, probability (in SLATEC)
+    L1. Data summarization
+    L2. Data manipulation (search also class N)
+    L3. Graphics (search also class Q)
+    L4. Elementary statistical inference, hypothesis testing
+    L5. Function evaluation (search also class C) (in SLATEC)
+     L5A. Univariate (in SLATEC)
+      L5A1. Cumulative distribution functions, probability density
+   functions (in SLATEC)
+       L5A1E. Error function, exponential, extreme value (in SLATEC)
+    L6. Pseudo-random number generation (in SLATEC)
+     L6A. Univariate (in SLATEC)
+      L6A14. Negative binomial, normal (in SLATEC)
+      L6A21. Uniform (in SLATEC)
+    L7. Experimental design, including analysis of variance (in SLATEC)
+     L7A. Univariate (in SLATEC)
+      L7A3. Analysis of covariance (in SLATEC)
+    L8. Regression (search also classes G, K) (in SLATEC)
+     L8A. Linear least squares (L-2) (search also classes D5, D6, D9) (in
+   SLATEC)
+      L8A3. Piecewise polynomial (i.e. multiphase or spline) (in SLATEC)
+    L9. Categorical data analysis
+    L10. Time series analysis (search also class L3c5 for time series
+   graphics)
+    L11. Correlation analysis
+    L12. Discriminant analysis
+    L13. Factor analysis
+    L14. Cluster analysis
+    L15. Life testing, survival analysis
+   M. Simulation, stochastic modeling (search also classes L6, L10)
+    M1. Simulation
+    M2. Queueing
+    M3. Reliability
+    M4. Project optimization (e.g., PERT)
+   N. Data handling (search also class L2) (in SLATEC)
+    N1. Input, output (in SLATEC)
+    N2. Bit manipulation
+    N3. Character manipulation
+    N4. Storage management (e.g., stacks, heaps, trees)
+    N5. Searching
+    N6. Sorting (in SLATEC)
+     N6A. Internal (in SLATEC)
+      N6A1. Passive (i.e. construct pointer array, rank) (in SLATEC)
+       N6A1A. Integer (in SLATEC)
+       N6A1B. Real (in SLATEC)
+       N6A1C. Character (in SLATEC)
+      N6A2. Active (in SLATEC)
+       N6A2A. Integer (in SLATEC)
+       N6A2B. Real (in SLATEC)
+       N6A2C. Character (in SLATEC)
+    N7. Merging
+    N8. Permuting (in SLATEC)
+   O. Symbolic computation
+   P. Computational geometry (search also classes G, Q)
+    P1. One dimension
+    P2. Two dimensions
+    P3. Three dimensions
+    P4. More than three dimensions
+   Q. Graphics (search also classes L3, P)
+    Q1. Line printer plotting
+   R. Service routines (in SLATEC)
+    R1. Machine-dependent constants (in SLATEC)
+    R2. Error checking (e.g., check monotonicity) (in SLATEC)
+    R3. Error handling (in SLATEC)
+     R3A. Set criteria for fatal errors (in SLATEC)
+     R3B. Set unit number for error messages (in SLATEC)
+     R3C. Other utility programs (in SLATEC)
+    R4. Documentation retrieval
+   S. Software development tools
+    S1. Program transformation
+    S2. Static analysis
+    S3. Dynamic analysis
+   Z. Other (in SLATEC)

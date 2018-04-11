@@ -1,0 +1,20 @@
+C***BEGIN PROLOGUE  DFSPVN
+C***SUBSIDIARY
+C***PURPOSE  Subsidiary to DFC
+C***LIBRARY   SLATEC
+C***TYPE      DOUBLE PRECISION (BSPLVN-S, DFSPVN-D)
+C***AUTHOR  (UNKNOWN)
+C***DESCRIPTION
+C
+C  **** Double Precision version of BSPLVN ****
+C
+C Calculates the value of all possibly nonzero B-splines at *X* of
+C  order MAX(JHIGH,(J+1)(INDEX-1)) on *T*.
+C
+C***SEE ALSO  DFC
+C***ROUTINES CALLED  (NONE)
+C***REVISION HISTORY  (YYMMDD)
+C   780801  DATE WRITTEN
+C   891214  Prologue converted to Version 4.0 format.  (BAB)
+C   900328  Added TYPE section.  (WRB)
+C***END PROLOGUE  DFSPVN
